@@ -20,7 +20,7 @@
 }
 
 body {
-  background: var(--navy);
+  background: var(--navy); background-color: #0f1c3f;
   font-family: 'Barlow', sans-serif;
   color: var(--white);
   min-height: 200vh;
@@ -69,7 +69,7 @@ header.scrolled {
   overflow: hidden;
   border: 2px solid var(--red);
   flex-shrink: 0;
-  background: var(--navy-mid);
+  background: var(--navy-mid); background-color: #162550;
   transition: transform 0.3s ease;
 }
 
@@ -263,7 +263,7 @@ nav a.active { color: var(--red); }
 
 /* ── GALLERY ── */
 .gallery-section {
-  background: var(--navy-mid);
+  background: var(--navy-mid); background-color: #162550;
 }
 
 .gallery-grid {
@@ -312,7 +312,7 @@ nav a.active { color: var(--red); }
 
 /* ── SOCIAL ── */
 .social-section {
-  background: var(--navy);
+  background: var(--navy); background-color: #0f1c3f;
 }
 
 .social-sub {
@@ -339,7 +339,7 @@ nav a.active { color: var(--red); }
   align-items: center;
   justify-content: center;
   text-align: center;
-  background: var(--navy-mid);
+  background: var(--navy-mid); background-color: #162550;
   border: 1px solid rgba(255,255,255,0.08);
   border-radius: 8px;
   padding: 3rem 2rem;
@@ -362,7 +362,7 @@ nav a.active { color: var(--red); }
     linear-gradient(160deg, rgba(192,39,45,0.1) 0%, transparent 50%),
     repeating-linear-gradient(0deg, transparent, transparent 59px, rgba(255,255,255,0.03) 59px, rgba(255,255,255,0.03) 60px),
     repeating-linear-gradient(90deg, transparent, transparent 59px, rgba(255,255,255,0.03) 59px, rgba(255,255,255,0.03) 60px),
-    var(--navy);
+    var(--navy); /* fallback: */ background-color: #0f1c3f;
   text-align: center;
   padding: 4rem 2rem;
 }
@@ -462,6 +462,7 @@ nav a.active { color: var(--red); }
 footer {
   background: #06080f;
   border-top: 1px solid rgba(192,39,45,0.3);
+    z-index: 999;
 }
 
 .footer-inner {
@@ -488,7 +489,7 @@ footer {
   overflow: hidden;
   border: 2px solid var(--red);
   flex-shrink: 0;
-  background: var(--navy-mid);
+  background: var(--navy-mid); background-color: #162550;
 }
 
 .footer-logo-img {
@@ -622,6 +623,7 @@ footer {
     align-items: stretch;
     padding: 1rem 0;
     border-top: 1px solid rgba(192,39,45,0.3);
+    z-index: 999;
     backdrop-filter: blur(8px);
   }
   nav.open { display: flex; }
@@ -662,7 +664,7 @@ footer {
     <div class="nav-divider"></div>
     <a href="#">Weekly Events</a>
     <div class="nav-divider"></div>
-    <a href="#">Social Media</a>
+    <a href="#">Connect</a>
     <div class="nav-divider"></div>
     <a href="#">Community Activism</a>
     <div class="nav-divider"></div>
