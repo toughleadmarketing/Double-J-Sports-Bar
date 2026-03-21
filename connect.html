@@ -9,7 +9,6 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-```
 body {
   background-color: #0f1c3f;
   font-family: 'Barlow', sans-serif;
@@ -78,10 +77,12 @@ nav a.active { color: #C0272D; }
 
 /* ── SOCIAL CARDS ── */
 .social-links-section { background-color: #162550; }
+.social-cards-wrap { max-width: 900px; }
 
-.social-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; align-items: start; }
+.social-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; align-items: stretch; }
 
-.social-card { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem; padding: 2.5rem 1.5rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.08); background-color: #0f1c3f; text-decoration: none; color: #EEF2FA; transition: transform 0.25s ease, border-color 0.25s ease, background-color 0.25s ease; text-align: center; min-width: 0; overflow: hidden; }
+.social-card { display: flex; flex-direction: column; align-items: center; justify-content: flex-start; gap: 1rem; padding: 2.5rem 1.5rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.08); background-color: #0f1c3f; text-decoration: none; color: #EEF2FA; transition: transform 0.25s ease, border-color 0.25s ease, background-color 0.25s ease; text-align: center; min-width: 0; width: 100%; }
+.social-card svg { width: 40px; height: 40px; flex-shrink: 0; display: block; }
 .social-card:hover { transform: translateY(-4px); }
 .social-card.facebook:hover { border-color: #1877F2; background-color: rgba(24,119,242,0.08); }
 .social-card.instagram:hover { border-color: #d6249f; background-color: rgba(214,36,159,0.08); }
@@ -245,7 +246,8 @@ footer { background-color: #06080f; border-top: 1px solid rgba(192,39,45,0.3); }
     <div class="section-inner">
       <p class="section-eyebrow">Follow Along</p>
       <h2 class="section-title">Our <span class="accent">Platforms</span></h2>
-      <div class="social-cards">
+      <div class="social-cards-wrap">
+        <div class="social-cards">
 
 ```
     <a href="https://www.facebook.com/doublejsportsbar" target="_blank" rel="noopener" class="social-card facebook">
@@ -280,13 +282,9 @@ footer { background-color: #06080f; border-top: 1px solid rgba(192,39,45,0.3); }
       <div class="social-card-btn">Follow Us</div>
     </a>
 
+    </div>
   </div>
-</div>
 ```
-
-  </section>
-
-  <!-- Google 360 Virtual Tour -->
 
   <section class="tour-section">
     <div class="section-inner">
