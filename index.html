@@ -9,7 +9,7 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-
+```
 :root {
   --navy: #0f1c3f;
   --navy-mid: #162550;
@@ -20,7 +20,7 @@
 }
 
 body {
-  background: var(--navy); background-color: #0f1c3f;
+  background-color: #0f1c3f;
   font-family: 'Barlow', sans-serif;
   color: #EEF2FA;
   min-height: 200vh;
@@ -67,9 +67,9 @@ header.scrolled {
   height: 56px;
   border-radius: 50%;
   overflow: hidden;
-  border: 2px solid var(--red);
+  border: 2px solid #C0272D;
   flex-shrink: 0;
-  background: var(--navy-mid); background-color: #162550;
+  background-color: #162550;
   transition: transform 0.3s ease;
 }
 
@@ -171,6 +171,7 @@ nav a.active { color: #C0272D; }
 .ticker-track {
   display: flex;
   white-space: nowrap;
+  flex-wrap: nowrap;
   animation: ticker 22s linear infinite;
 }
 
@@ -182,6 +183,8 @@ nav a.active { color: #C0272D; }
   text-transform: uppercase;
   color: rgba(255,255,255,0.92);
   padding: 0 2.5rem;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .ticker-track span em {
@@ -231,6 +234,7 @@ nav a.active { color: #C0272D; }
   text-transform: uppercase;
   color: #C0272D;
   margin-bottom: 0.5rem;
+  display: block;
 }
 
 .section-title {
@@ -240,13 +244,14 @@ nav a.active { color: #C0272D; }
   color: #EEF2FA;
   margin-bottom: 2.5rem;
   line-height: 1;
+  display: block;
 }
 
 .section-title .accent { color: #C0272D; }
 
 /* ── GALLERY ── */
 .gallery-section {
-  background: var(--navy-mid); background-color: #162550;
+  background-color: #162550;
 }
 
 .gallery-grid {
@@ -295,7 +300,7 @@ nav a.active { color: #C0272D; }
 
 /* ── SOCIAL ── */
 .social-section {
-  background: var(--navy); background-color: #0f1c3f;
+  background-color: #0f1c3f;
 }
 
 .social-sub {
@@ -322,7 +327,7 @@ nav a.active { color: #C0272D; }
   align-items: center;
   justify-content: center;
   text-align: center;
-  background: var(--navy-mid); background-color: #162550;
+  background-color: #162550;
   border: 1px solid rgba(255,255,255,0.08);
   border-radius: 8px;
   padding: 3rem 2rem;
@@ -345,12 +350,18 @@ nav a.active { color: #C0272D; }
     linear-gradient(160deg, rgba(192,39,45,0.1) 0%, transparent 50%),
     repeating-linear-gradient(0deg, transparent, transparent 59px, rgba(255,255,255,0.03) 59px, rgba(255,255,255,0.03) 60px),
     repeating-linear-gradient(90deg, transparent, transparent 59px, rgba(255,255,255,0.03) 59px, rgba(255,255,255,0.03) 60px),
-    var(--navy); /* fallback: */ background-color: #0f1c3f;
+    #0f1c3f;
   text-align: center;
   padding: 4rem 2rem;
+  width: 100%;
 }
 
-.hero-inner { max-width: 780px; }
+.hero-inner {
+  max-width: 780px;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
 
 .hero-eyebrow {
   font-family: 'Barlow Condensed', sans-serif;
@@ -445,7 +456,6 @@ nav a.active { color: #C0272D; }
 footer {
   background: #06080f;
   border-top: 1px solid rgba(192,39,45,0.3);
-    z-index: 999;
 }
 
 .footer-inner {
@@ -470,9 +480,9 @@ footer {
   height: 52px;
   border-radius: 50%;
   overflow: hidden;
-  border: 2px solid var(--red);
+  border: 2px solid #C0272D;
   flex-shrink: 0;
-  background: var(--navy-mid); background-color: #162550;
+  background-color: #162550;
 }
 
 .footer-logo-img {
@@ -707,7 +717,7 @@ footer {
     gap: 0.4rem;
   }
 }
-
+```
 
   </style>
 </head>
@@ -716,7 +726,7 @@ footer {
   <header id="site-header">
     <div class="header-inner">
 
-
+```
   <a href="#" class="logo">
     <div class="logo-img-wrap">
       <!-- Replace the src below with your Imgur URL when ready -->
@@ -752,7 +762,7 @@ footer {
   </div>
 
 </div>
-
+```
 
   </header>
 
@@ -870,7 +880,7 @@ footer {
   <footer>
     <div class="footer-inner">
 
-
+```
   <!-- Logo + tagline -->
   <div class="footer-brand">
     <div class="footer-logo-wrap">
@@ -911,7 +921,7 @@ footer {
   <p class="footer-disclaimer">Please drink responsibly. Must be 21+ to consume alcohol.</p>
   <p class="footer-copy">&copy; <span id="footer-year"></span> Double J Sports Bar &amp; Grill. All rights reserved.</p>
 </div>
-
+```
 
   </footer>
 
