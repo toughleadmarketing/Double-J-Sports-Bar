@@ -79,15 +79,15 @@ nav a.active { color: #C0272D; }
 /* ── SOCIAL CARDS ── */
 .social-links-section { background-color: #162550; }
 
-.social-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+.social-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; align-items: start; }
 
-.social-card { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem; padding: 2.5rem 1.5rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.08); background-color: #0f1c3f; text-decoration: none; color: #EEF2FA; transition: transform 0.25s ease, border-color 0.25s ease, background-color 0.25s ease; text-align: center; }
+.social-card { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem; padding: 2.5rem 1.5rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.08); background-color: #0f1c3f; text-decoration: none; color: #EEF2FA; transition: transform 0.25s ease, border-color 0.25s ease, background-color 0.25s ease; text-align: center; min-width: 0; overflow: hidden; }
 .social-card:hover { transform: translateY(-4px); }
 .social-card.facebook:hover { border-color: #1877F2; background-color: rgba(24,119,242,0.08); }
 .social-card.instagram:hover { border-color: #d6249f; background-color: rgba(214,36,159,0.08); }
 .social-card.tiktok:hover { border-color: #69C9D0; background-color: rgba(105,201,208,0.08); }
 .social-card-name { font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; letter-spacing: 0.1em; }
-.social-card-handle { font-family: 'Barlow Condensed', sans-serif; font-size: 0.85rem; letter-spacing: 0.1em; color: #7a8aaa; }
+.social-card-handle { font-family: 'Barlow Condensed', sans-serif; font-size: 0.85rem; letter-spacing: 0.1em; color: #7a8aaa; width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; text-align: center; }
 .social-card-btn { font-family: 'Barlow Condensed', sans-serif; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; padding: 0.4rem 1.2rem; border-radius: 4px; margin-top: 0.25rem; }
 .social-card.facebook .social-card-btn { color: #1877F2; border: 1px solid #1877F2; }
 .social-card.instagram .social-card-btn { color: #d6249f; border: 1px solid #d6249f; }
@@ -411,8 +411,21 @@ footer { background-color: #06080f; border-top: 1px solid rgba(192,39,45,0.3); }
 
   <script>
     document.getElementById('footer-year').textContent = new Date().getFullYear();
+
+    // Hamburger toggle
     document.getElementById('hamburger').addEventListener('click', () => {
       document.getElementById('main-nav').classList.toggle('open');
+    });
+
+    // Close nav and navigate when a link is clicked
+    document.querySelectorAll('#main-nav a').forEach(link => {
+      link.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (href && href !== '#') {
+          document.getElementById('main-nav').classList.remove('open');
+          window.location.href = href;
+        }
+      });
     });
     document.querySelectorAll('.faq-question').forEach(btn => {
       btn.addEventListener('click', () => {
