@@ -8,294 +8,152 @@
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@400;600;700&family=Barlow:wght@400;500&display=swap" rel="stylesheet"/>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background-color: #0f1c3f; font-family: 'Barlow', sans-serif; color: #EEF2FA; }
 
-```
-:root {
-  --navy: #0f1c3f;
-  --navy-mid: #162550;
-  --navy-light: #1e3370;
-  --red: #C0272D;
-  --white: #EEF2FA;
-  --muted: #7a8aaa;
-  --gold: #F5C842;
-}
 
-body {
-  background: var(--navy);
-  font-family: 'Barlow', sans-serif;
-  color: var(--white);
-}
-
-/* ── HEADER ── */
-header {
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  z-index: 100;
-  background: rgba(15,28,63,0.97);
-  border-bottom: 1px solid rgba(192,39,45,0.35);
-  backdrop-filter: blur(8px);
-}
-
-.header-inner {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 0 2rem;
-  height: 76px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 2rem;
-}
-
+header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background-color: rgba(15,28,63,0.97); border-bottom: 1px solid rgba(192,39,45,0.35); backdrop-filter: blur(8px); }
+.header-inner { max-width: 1280px; margin: 0 auto; padding: 0 2rem; height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
 .logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; flex-shrink: 0; }
-.logo-img-wrap { width: 56px; height: 56px; border-radius: 50%; overflow: hidden; border: 2px solid var(--red); flex-shrink: 0; background: var(--navy-mid); transition: transform 0.3s ease; }
+.logo-img-wrap { width: 56px; height: 56px; border-radius: 50%; overflow: hidden; border: 2px solid #C0272D; flex-shrink: 0; background-color: #162550; transition: transform 0.3s ease; }
 .logo:hover .logo-img-wrap { transform: scale(1.06); }
 .logo-img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .logo-text { display: flex; flex-direction: column; line-height: 1; }
-.logo-name { font-family: 'Bebas Neue', sans-serif; font-size: 1.65rem; letter-spacing: 0.1em; color: var(--white); }
-.logo-tagline { font-family: 'Barlow Condensed', sans-serif; font-size: 0.65rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--red); font-weight: 600; }
-
+.logo-name { font-family: 'Bebas Neue', sans-serif; font-size: 1.65rem; letter-spacing: 0.1em; color: #EEF2FA; }
+.logo-tagline { font-family: 'Barlow Condensed', sans-serif; font-size: 0.65rem; letter-spacing: 0.3em; text-transform: uppercase; color: #C0272D; font-weight: 600; }
 nav { display: flex; align-items: center; gap: 0.25rem; }
-nav a { font-family: 'Barlow Condensed', sans-serif; font-size: 0.9rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; text-decoration: none; color: var(--muted); padding: 0.45rem 0.85rem; position: relative; transition: color 0.2s ease; }
-nav a::after { content: ''; position: absolute; bottom: 0; left: 50%; right: 50%; height: 2px; background: var(--red); transition: left 0.25s ease, right 0.25s ease; }
-nav a:hover { color: var(--white); }
+nav a { font-family: 'Barlow Condensed', sans-serif; font-size: 0.9rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; text-decoration: none; color: #7a8aaa; padding: 0.45rem 0.85rem; position: relative; transition: color 0.2s ease; }
+nav a::after { content: ''; position: absolute; bottom: 0; left: 50%; right: 50%; height: 2px; background-color: #C0272D; transition: left 0.25s ease, right 0.25s ease; }
+nav a:hover { color: #EEF2FA; }
 nav a:hover::after { left: 0.85rem; right: 0.85rem; }
-nav a.active { color: var(--red); }
-.nav-divider { width: 1px; height: 14px; background: rgba(255,255,255,0.12); }
-
+nav a.active { color: #C0272D; }
+.nav-divider { width: 1px; height: 14px; background-color: rgba(255,255,255,0.12); }
 .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 6px; }
-.hamburger span { display: block; width: 24px; height: 2px; background: var(--white); }
+.hamburger span { display: block; width: 24px; height: 2px; background-color: #EEF2FA; }
 
-@media (max-width: 680px) {
-  .hamburger { display: flex; }
-  nav { display: none; position: absolute; top: 76px; left: 0; right: 0; background: rgba(15,28,63,0.98); flex-direction: column; align-items: stretch; padding: 1rem 0; border-top: 1px solid rgba(192,39,45,0.3); backdrop-filter: blur(8px); }
-  nav.open { display: flex; }
-  nav a { padding: 0.75rem 2rem; }
-  nav a::after { display: none; }
-  .nav-divider { display: none; }
-}
+.page-hero { margin-top: 76px; background-image: linear-gradient(160deg, rgba(192,39,45,0.12) 0%, transparent 50%); background-color: #0f1c3f; padding: 4rem 2rem; text-align: center; border-bottom: 1px solid rgba(192,39,45,0.2); }
+.page-eyebrow { font-family: 'Barlow Condensed', sans-serif; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.4em; text-transform: uppercase; color: #C0272D; margin-bottom: 0.5rem; }
+.page-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(3rem, 8vw, 6rem); letter-spacing: 0.06em; line-height: 1; color: #EEF2FA; }
+.page-title .accent { color: #C0272D; }
+.page-subtitle { font-family: 'Barlow', sans-serif; font-size: 1rem; color: #7a8aaa; margin-top: 1rem; max-width: 540px; margin-left: auto; margin-right: auto; line-height: 1.7; }
 
-/* ── PAGE HERO ── */
-.page-hero {
-  margin-top: 76px;
-  background:
-    linear-gradient(160deg, rgba(192,39,45,0.12) 0%, transparent 50%),
-    repeating-linear-gradient(0deg, transparent, transparent 59px, rgba(255,255,255,0.03) 59px, rgba(255,255,255,0.03) 60px),
-    repeating-linear-gradient(90deg, transparent, transparent 59px, rgba(255,255,255,0.03) 59px, rgba(255,255,255,0.03) 60px),
-    var(--navy);
-  padding: 4rem 2rem;
-  text-align: center;
-  border-bottom: 1px solid rgba(192,39,45,0.2);
-}
+.section-inner { max-width: 1280px; margin: 0 auto; padding: 5rem 2rem; }
+.section-eyebrow { font-family: 'Barlow Condensed', sans-serif; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.4em; text-transform: uppercase; color: #C0272D; margin-bottom: 0.5rem; display: block; }
+.section-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.2rem, 5vw, 3.5rem); letter-spacing: 0.06em; color: #EEF2FA; margin-bottom: 2.5rem; line-height: 1; display: block; }
+.section-title .accent { color: #C0272D; }
 
-.page-eyebrow { font-family: 'Barlow Condensed', sans-serif; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.4em; text-transform: uppercase; color: var(--red); margin-bottom: 0.5rem; }
-.page-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(3rem, 8vw, 6rem); letter-spacing: 0.06em; line-height: 1; color: var(--white); }
-.page-title .accent { color: var(--red); }
-.page-subtitle { font-family: 'Barlow', sans-serif; font-size: 1rem; color: var(--muted); margin-top: 1rem; max-width: 540px; margin-left: auto; margin-right: auto; line-height: 1.7; }
-
-/* ── HOW TO APPLY ── */
-.steps-section { background: var(--navy-mid); padding: 5rem 0; }
+.steps-section { background-color: #162550; padding: 5rem 0; }
 .steps-inner { max-width: 1280px; margin: 0 auto; padding: 0 2rem; }
-
-.section-eyebrow { font-family: 'Barlow Condensed', sans-serif; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.4em; text-transform: uppercase; color: var(--red); margin-bottom: 0.5rem; }
-.section-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.2rem, 5vw, 3.5rem); letter-spacing: 0.06em; color: var(--white); margin-bottom: 2.5rem; line-height: 1; }
-.section-title .accent { color: var(--red); }
-
 .steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
-
-.step-card { background: var(--navy); border: 1px solid rgba(255,255,255,0.07); border-radius: 8px; padding: 2rem 1.5rem; display: flex; flex-direction: column; gap: 0.75rem; transition: border-color 0.25s ease, transform 0.25s ease; }
+.step-card { background-color: #0f1c3f; border: 1px solid rgba(255,255,255,0.07); border-radius: 8px; padding: 2rem 1.5rem; display: flex; flex-direction: column; gap: 0.75rem; transition: border-color 0.25s ease, transform 0.25s ease; }
 .step-card:hover { border-color: rgba(192,39,45,0.4); transform: translateY(-3px); }
+.step-number { font-family: 'Bebas Neue', sans-serif; font-size: 2.5rem; color: #C0272D; line-height: 1; opacity: 0.5; }
+.step-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.3rem; letter-spacing: 0.08em; color: #EEF2FA; }
+.step-desc { font-family: 'Barlow', sans-serif; font-size: 0.88rem; color: #7a8aaa; line-height: 1.7; }
 
-.step-number { font-family: 'Bebas Neue', sans-serif; font-size: 2.5rem; color: var(--red); line-height: 1; opacity: 0.5; }
-.step-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.3rem; letter-spacing: 0.08em; color: var(--white); }
-.step-desc { font-family: 'Barlow', sans-serif; font-size: 0.88rem; color: var(--muted); line-height: 1.7; }
-
-@media (max-width: 680px) { .steps-grid { grid-template-columns: 1fr; } }
-
-/* ── DOCUMENTS ── */
-.docs-section { background: var(--navy); padding: 5rem 0; }
+.docs-section { background-color: #0f1c3f; padding: 5rem 0; }
 .docs-inner { max-width: 1280px; margin: 0 auto; padding: 0 2rem; }
-.docs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
-
-.doc-card {
-  background: var(--navy-mid);
-  border: 1px solid rgba(255,255,255,0.07);
-  border-radius: 8px;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  transition: border-color 0.25s ease, transform 0.25s ease;
-}
-
+.docs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start; }
+.doc-card { background-color: #162550; border: 1px solid rgba(255,255,255,0.07); border-radius: 8px; overflow: hidden; display: flex; flex-direction: column; transition: border-color 0.25s ease, transform 0.25s ease; width: 100%; }
 .doc-card:hover { border-color: rgba(192,39,45,0.35); transform: translateY(-3px); }
-
-.doc-icon-wrap {
-  background: linear-gradient(135deg, var(--navy-light), var(--navy));
-  padding: 3rem 2rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  text-align: center;
-  border-bottom: 1px solid rgba(255,255,255,0.07);
-}
-
+.doc-icon-wrap { background: linear-gradient(135deg, #1e3370, #0f1c3f); padding: 3rem 2rem; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.07); }
 .doc-icon { font-size: 3.5rem; }
+.doc-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; letter-spacing: 0.08em; color: #EEF2FA; }
+.doc-desc { font-family: 'Barlow', sans-serif; font-size: 0.85rem; color: #7a8aaa; line-height: 1.6; max-width: 280px; }
+.doc-tag { font-family: 'Barlow Condensed', sans-serif; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; padding: 0.25rem 0.75rem; border-radius: 20px; }
+.doc-tag.required { background-color: #C0272D; color: #EEF2FA; }
+.doc-tag.read { background-color: rgba(245,200,66,0.15); color: #F5C842; border: 1px solid rgba(245,200,66,0.3); }
+.doc-actions { padding: 1.5rem; display: flex; flex-direction: column; gap: 0.75rem; }
+.doc-btn { display: flex; align-items: center; justify-content: center; gap: 0.6rem; font-family: 'Bebas Neue', sans-serif; font-size: 1rem; letter-spacing: 0.15em; text-decoration: none; padding: 0.85rem 1.5rem; border-radius: 4px; transition: all 0.2s ease; text-align: center; }
+.doc-btn.download { background-color: #C0272D; color: #EEF2FA; }
+.doc-btn.download:hover { background-color: #a01f24; transform: translateY(-1px); }
+.doc-btn.view { background-color: transparent; border: 1px solid rgba(255,255,255,0.15); color: #7a8aaa; }
+.doc-btn.view:hover { border-color: #EEF2FA; color: #EEF2FA; }
 
-.doc-title {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 1.6rem;
-  letter-spacing: 0.08em;
-  color: var(--white);
-}
-
-.doc-desc {
-  font-family: 'Barlow', sans-serif;
-  font-size: 0.85rem;
-  color: var(--muted);
-  line-height: 1.6;
-  max-width: 280px;
-}
-
-.doc-tag {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  padding: 0.25rem 0.75rem;
-  border-radius: 20px;
-}
-
-.doc-tag.required { background: var(--red); color: var(--white); }
-.doc-tag.read { background: rgba(245,200,66,0.15); color: var(--gold); border: 1px solid rgba(245,200,66,0.3); }
-
-.doc-actions {
-  padding: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-}
-
-.doc-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.6rem;
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 1rem;
-  letter-spacing: 0.15em;
-  text-decoration: none;
-  padding: 0.85rem 1.5rem;
-  border-radius: 4px;
-  transition: all 0.2s ease;
-  text-align: center;
-}
-
-.doc-btn.download {
-  background: var(--red);
-  color: var(--white);
-}
-
-.doc-btn.download:hover { background: #a01f24; transform: translateY(-1px); }
-
-.doc-btn.view {
-  background: transparent;
-  border: 1px solid rgba(255,255,255,0.15);
-  color: var(--muted);
-}
-
-.doc-btn.view:hover { border-color: var(--white); color: var(--white); }
-
-.doc-btn svg { flex-shrink: 0; }
-
-@media (max-width: 680px) { .docs-grid { grid-template-columns: 1fr; } }
-
-/* ── PERKS ── */
-.perks-section { background: var(--navy-mid); padding: 5rem 0; }
+.perks-section { background-color: #162550; padding: 5rem 0; }
 .perks-inner { max-width: 1280px; margin: 0 auto; padding: 0 2rem; }
-
 .perks-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; }
-
-.perk-card { background: var(--navy); border: 1px solid rgba(255,255,255,0.07); border-radius: 8px; padding: 1.75rem 1.25rem; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 0.75rem; transition: border-color 0.25s ease, transform 0.25s ease; }
+.perk-card { background-color: #0f1c3f; border: 1px solid rgba(255,255,255,0.07); border-radius: 8px; padding: 1.75rem 1.25rem; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 0.75rem; transition: border-color 0.25s ease, transform 0.25s ease; }
 .perk-card:hover { border-color: rgba(192,39,45,0.35); transform: translateY(-3px); }
 .perk-icon { font-size: 2rem; }
-.perk-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; letter-spacing: 0.08em; color: var(--white); }
-.perk-desc { font-family: 'Barlow', sans-serif; font-size: 0.82rem; color: var(--muted); line-height: 1.6; }
+.perk-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; letter-spacing: 0.08em; color: #EEF2FA; }
+.perk-desc { font-family: 'Barlow', sans-serif; font-size: 0.82rem; color: #7a8aaa; line-height: 1.6; }
 
-@media (max-width: 768px) { .perks-grid { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 480px) { .perks-grid { grid-template-columns: 1fr; } }
-
-/* ── CTA ── */
-.cta-section { background: var(--navy); padding: 5rem 0; text-align: center; }
+.cta-section { background-color: #0f1c3f; padding: 5rem 0; text-align: center; }
 .cta-inner { max-width: 600px; margin: 0 auto; padding: 0 2rem; }
-.cta-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2rem, 5vw, 3.5rem); letter-spacing: 0.06em; color: var(--white); margin-bottom: 1rem; }
-.cta-title .accent { color: var(--red); }
-.cta-desc { font-family: 'Barlow', sans-serif; font-size: 0.95rem; color: var(--muted); line-height: 1.7; margin-bottom: 2rem; }
-.cta-contact { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
-.cta-btn { font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; letter-spacing: 0.15em; padding: 0.9rem 2.4rem; text-decoration: none; clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%); transition: background 0.2s ease, transform 0.15s ease; display: inline-block; }
-.cta-btn.primary { background: var(--red); color: var(--white); }
-.cta-btn.primary:hover { background: var(--navy-light); transform: translateY(-2px); }
-.cta-btn.outline { border: 1px solid rgba(255,255,255,0.2); color: var(--white); }
-.cta-btn.outline:hover { border-color: var(--red); color: var(--red); transform: translateY(-2px); }
+.cta-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2rem, 5vw, 3.5rem); letter-spacing: 0.06em; color: #EEF2FA; margin-bottom: 1rem; }
+.cta-title .accent { color: #C0272D; }
+.cta-desc { font-family: 'Barlow', sans-serif; font-size: 0.95rem; color: #7a8aaa; line-height: 1.7; margin-bottom: 2rem; }
+.cta-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+.cta-btn { font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; letter-spacing: 0.15em; padding: 0.9rem 2.4rem; text-decoration: none; clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%); transition: background-color 0.2s ease, transform 0.15s ease; display: inline-block; }
+.cta-btn.primary { background-color: #C0272D; color: #EEF2FA; }
+.cta-btn.primary:hover { background-color: #1e3370; transform: translateY(-2px); }
+.cta-btn.outline { border: 1px solid rgba(255,255,255,0.2); color: #EEF2FA; }
+.cta-btn.outline:hover { border-color: #C0272D; color: #C0272D; transform: translateY(-2px); }
 
-/* ── FOOTER ── */
-footer { background: #06080f; border-top: 1px solid rgba(192,39,45,0.3); }
+footer { background-color: #06080f; border-top: 1px solid rgba(192,39,45,0.3); }
 .footer-inner { max-width: 1280px; margin: 0 auto; padding: 3rem 2rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 2rem; }
 .footer-brand { display: flex; align-items: center; gap: 0.85rem; }
-.footer-logo-wrap { width: 52px; height: 52px; border-radius: 50%; overflow: hidden; border: 2px solid var(--red); flex-shrink: 0; background: var(--navy-mid); }
+.footer-logo-wrap { width: 52px; height: 52px; border-radius: 50%; overflow: hidden; border: 2px solid #C0272D; flex-shrink: 0; background-color: #162550; }
 .footer-logo-img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.footer-logo-name { font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; letter-spacing: 0.1em; color: var(--white); line-height: 1; }
-.footer-logo-tag { font-family: 'Barlow Condensed', sans-serif; font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--muted); margin-top: 0.2rem; }
-.footer-phone { font-family: 'Barlow Condensed', sans-serif; font-size: 1.1rem; font-weight: 700; letter-spacing: 0.1em; color: var(--white); text-decoration: none; display: flex; align-items: center; gap: 0.5rem; transition: color 0.2s ease; }
-.footer-phone:hover { color: var(--red); }
+.footer-logo-name { font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; letter-spacing: 0.1em; color: #EEF2FA; line-height: 1; }
+.footer-logo-tag { font-family: 'Barlow Condensed', sans-serif; font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase; color: #7a8aaa; margin-top: 0.2rem; }
+.footer-phone { font-family: 'Barlow Condensed', sans-serif; font-size: 1.1rem; font-weight: 700; letter-spacing: 0.1em; color: #EEF2FA; text-decoration: none; display: flex; align-items: center; gap: 0.5rem; transition: color 0.2s ease; }
+.footer-phone:hover { color: #C0272D; }
 .footer-social { display: flex; align-items: center; gap: 0.75rem; }
-.social-icon { display: flex; align-items: center; justify-content: center; width: 42px; height: 42px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.12); color: var(--muted); text-decoration: none; transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease; }
-.social-icon:hover { background: #1877F2; color: var(--white); border-color: #1877F2; }
-.social-icon.instagram:hover { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); color: var(--white); border-color: transparent; }
-.social-icon.tiktok:hover { background: #010101; color: var(--white); border-color: #69C9D0; }
+.social-icon { display: flex; align-items: center; justify-content: center; width: 42px; height: 42px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.12); color: #7a8aaa; text-decoration: none; transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease; }
+.social-icon:hover { background-color: #1877F2; color: #EEF2FA; border-color: #1877F2; }
+.social-icon.instagram:hover { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); color: #EEF2FA; border-color: transparent; }
+.social-icon.tiktok:hover { background-color: #010101; color: #EEF2FA; border-color: #69C9D0; }
 .footer-bottom { border-top: 1px solid rgba(255,255,255,0.06); padding: 1.25rem 2rem; max-width: 1280px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; }
-.footer-disclaimer { font-family: 'Barlow Condensed', sans-serif; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--red); opacity: 0.8; }
-.footer-copy { font-family: 'Barlow', sans-serif; font-size: 0.75rem; color: var(--muted); opacity: 0.6; }
-@media (max-width: 680px) { .footer-inner { justify-content: center; text-align: center; } .footer-brand { flex-direction: column; align-items: center; } .footer-bottom { justify-content: center; text-align: center; } }
-```
+.footer-disclaimer { font-family: 'Barlow Condensed', sans-serif; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: #C0272D; opacity: 0.8; }
+.footer-copy { font-family: 'Barlow', sans-serif; font-size: 0.75rem; color: #7a8aaa; opacity: 0.6; }
+
+@media (max-width: 768px) { .docs-grid { grid-template-columns: 1fr; } .perks-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 680px) {
+  .header-inner { padding: 0 1rem; height: 66px; }
+  .logo-img-wrap { width: 42px; height: 42px; }
+  .logo-name { font-size: 1.2rem; }
+  .logo-tagline { font-size: 0.5rem; }
+  .hamburger { display: flex; }
+  nav { display: none; position: fixed; top: 66px; left: 0; right: 0; background-color: #0f1c3f; flex-direction: column; align-items: stretch; padding: 0.5rem 0 1rem; border-top: 2px solid #C0272D; z-index: 9999; }
+  nav.open { display: flex; }
+  nav a { padding: 0.9rem 1.5rem; font-size: 1rem; color: #EEF2FA; border-bottom: 1px solid rgba(255,255,255,0.06); }
+  nav a.active { color: #C0272D; }
+  nav a::after { display: none; }
+  .nav-divider { display: none; }
+  .page-hero { padding: 2.5rem 1.25rem; }
+  .steps-inner { padding: 0 1.25rem; }
+  .steps-grid { grid-template-columns: 1fr; }
+  .docs-inner { padding: 0 1.25rem; }
+  .perks-inner { padding: 0 1.25rem; }
+  .perks-grid { grid-template-columns: 1fr; }
+  .cta-btns { flex-direction: column; align-items: center; }
+  .footer-inner { flex-direction: column; align-items: center; text-align: center; padding: 2rem 1rem; }
+  .footer-brand { flex-direction: column; align-items: center; }
+  .footer-bottom { flex-direction: column; align-items: center; text-align: center; padding: 1rem; }
+}
+
 
   </style>
 </head>
 <body>
-
-  <!-- Header -->
-
   <header>
     <div class="header-inner">
       <a href="index.html" class="logo">
-        <div class="logo-img-wrap">
-          <img src="https://placehold.co/56x56/0f1c3f/7a8aaa?text=LOGO" alt="Double J Sports Bar Logo" class="logo-img"/>
-        </div>
-        <div class="logo-text">
-          <span class="logo-name">Double J</span>
-          <span class="logo-tagline">Sports Bar &amp; Grill</span>
-        </div>
+        <div class="logo-img-wrap"><img src="https://placehold.co/56x56/0f1c3f/7a8aaa?text=LOGO" alt="Logo" class="logo-img"/></div>
+        <div class="logo-text"><span class="logo-name">Double J</span><span class="logo-tagline">Sports Bar &amp; Grill</span></div>
       </a>
       <nav id="main-nav">
-        <a href="index.html">Home</a>
-        <div class="nav-divider"></div>
-        <a href="menu.html">Drink Menu</a>
-        <div class="nav-divider"></div>
-        <a href="events.html">Weekly Events</a>
-        <div class="nav-divider"></div>
-        <a href="social.html">Connect</a>
-        <div class="nav-divider"></div>
-        <a href="community.html">Community Activism</a>
-        <div class="nav-divider"></div>
-        <a href="#" class="active">Apply Now</a>
+        <a href="index.html">Home</a><div class="nav-divider"></div>
+        <a href="drink-menu.html">Drink Menu</a><div class="nav-divider"></div>
+        <a href="weekly-events.html">Weekly Events</a><div class="nav-divider"></div>
+        <a href="connect.html">Connect</a><div class="nav-divider"></div>
+        <a href="community-activism.html">Community Activism</a><div class="nav-divider"></div>
+        <a href="apply-now.html" class="active">Apply Now</a>
       </nav>
       <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
     </div>
   </header>
-
-  <!-- Page Hero -->
 
   <div class="page-hero">
     <p class="page-eyebrow">Join the Team</p>
@@ -310,21 +168,9 @@ footer { background: #06080f; border-top: 1px solid rgba(192,39,45,0.3); }
       <p class="section-eyebrow">Getting Started</p>
       <h2 class="section-title">How to <span class="accent">Apply</span></h2>
       <div class="steps-grid">
-        <div class="step-card">
-          <div class="step-number">01</div>
-          <div class="step-title">Download the Application</div>
-          <p class="step-desc">Click the download button below to save a copy of our employment application. Fill it out completely — print it or complete it digitally.</p>
-        </div>
-        <div class="step-card">
-          <div class="step-number">02</div>
-          <div class="step-title">Read the Alcohol Policy</div>
-          <p class="step-desc">All staff are required to read and acknowledge our alcohol service policy before starting. Download, read, and sign it along with your application.</p>
-        </div>
-        <div class="step-card">
-          <div class="step-number">03</div>
-          <div class="step-title">Bring It In</div>
-          <p class="step-desc">Drop off your completed application and signed alcohol policy in person at Double J Sports Bar, 1101 Essington Rd., Joliet, IL 60435.</p>
-        </div>
+        <div class="step-card"><div class="step-number">01</div><div class="step-title">Download the Application</div><p class="step-desc">Click the download button below to save a copy of our employment application. Fill it out completely — print it or complete it digitally.</p></div>
+        <div class="step-card"><div class="step-number">02</div><div class="step-title">Read the Alcohol Policy</div><p class="step-desc">All staff are required to read and acknowledge our alcohol service policy before starting. Download, read, and sign it along with your application.</p></div>
+        <div class="step-card"><div class="step-number">03</div><div class="step-title">Bring It In</div><p class="step-desc">Drop off your completed application and signed alcohol policy in person at Double J Sports Bar, 1101 Essington Rd., Joliet, IL 60435.</p></div>
       </div>
     </div>
   </section>
@@ -334,72 +180,46 @@ footer { background: #06080f; border-top: 1px solid rgba(192,39,45,0.3); }
   <section class="docs-section">
     <div class="docs-inner">
       <p class="section-eyebrow">Required Documents</p>
-      <h2 class="section-title">Download <span class="accent">& Review</span></h2>
+      <h2 class="section-title">Download <span class="accent">&amp; Review</span></h2>
       <div class="docs-grid">
-
-```
-    <!-- Application -->
-    <div class="doc-card">
-      <div class="doc-icon-wrap">
-        <div class="doc-icon">📋</div>
-        <div class="doc-title">Employment Application</div>
-        <p class="doc-desc">Complete this form with your personal info, work history, and availability. Bring the signed copy in person.</p>
-        <span class="doc-tag required">Required — Fill Out & Return</span>
-      </div>
-      <div class="doc-actions">
-        <a
-          href="https://drive.google.com/uc?export=download&id=1KtECx_3IUy9nABmFoYTNd3e8F1D0xVGD"
-          class="doc-btn download"
-          download
-        >
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          Download Application
-        </a>
-        <a
-          href="https://drive.google.com/file/d/1KtECx_3IUy9nABmFoYTNd3e8F1D0xVGD/preview"
-          target="_blank"
-          rel="noopener"
-          class="doc-btn view"
-        >
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-          Preview in Browser
-        </a>
-      </div>
-    </div>
-
-    <!-- Alcohol Policy -->
-    <div class="doc-card">
-      <div class="doc-icon-wrap">
-        <div class="doc-icon">📄</div>
-        <div class="doc-title">Alcohol Service Policy</div>
-        <p class="doc-desc">All Double J staff are required to read and acknowledge our alcohol service policy prior to their first shift.</p>
-        <span class="doc-tag read">Required — Read & Sign</span>
-      </div>
-      <div class="doc-actions">
-        <a
-          href="https://drive.google.com/uc?export=download&id=1uBuQFJM4GrlMq6FKCZ2-3deuEbS3oqqP"
-          class="doc-btn download"
-          download
-        >
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          Download Alcohol Policy
-        </a>
-        <a
-          href="https://drive.google.com/file/d/1uBuQFJM4GrlMq6FKCZ2-3deuEbS3oqqP/preview"
-          target="_blank"
-          rel="noopener"
-          class="doc-btn view"
-        >
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-          Preview in Browser
-        </a>
+        <div class="doc-card">
+          <div class="doc-icon-wrap">
+            <div class="doc-icon">📋</div>
+            <div class="doc-title">Employment Application</div>
+            <p class="doc-desc">Complete this form with your personal info, work history, and availability. Bring the signed copy in person.</p>
+            <span class="doc-tag required">Required — Fill Out &amp; Return</span>
+          </div>
+          <div class="doc-actions">
+            <a href="https://drive.google.com/uc?export=download&id=1KtECx_3IUy9nABmFoYTNd3e8F1D0xVGD" class="doc-btn download" download>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Download Application
+            </a>
+            <a href="https://drive.google.com/file/d/1KtECx_3IUy9nABmFoYTNd3e8F1D0xVGD/preview" target="_blank" rel="noopener" class="doc-btn view">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              Preview in Browser
+            </a>
+          </div>
+        </div>
+        <div class="doc-card">
+          <div class="doc-icon-wrap">
+            <div class="doc-icon">📄</div>
+            <div class="doc-title">Alcohol Service Policy</div>
+            <p class="doc-desc">All Double J staff are required to read and acknowledge our alcohol service policy prior to their first shift.</p>
+            <span class="doc-tag read">Required — Read &amp; Sign</span>
+          </div>
+          <div class="doc-actions">
+            <a href="https://drive.google.com/uc?export=download&id=1uBuQFJM4GrlMq6FKCZ2-3deuEbS3oqqP" class="doc-btn download" download>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Download Alcohol Policy
+            </a>
+            <a href="https://drive.google.com/file/d/1uBuQFJM4GrlMq6FKCZ2-3deuEbS3oqqP/preview" target="_blank" rel="noopener" class="doc-btn view">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              Preview in Browser
+            </a>
+          </div>
+        </div>
       </div>
     </div>
-
-  </div>
-</div>
-```
-
   </section>
 
   <!-- Perks -->
@@ -409,26 +229,10 @@ footer { background: #06080f; border-top: 1px solid rgba(192,39,45,0.3); }
       <p class="section-eyebrow">Why Work Here</p>
       <h2 class="section-title">Life at <span class="accent">Double J</span></h2>
       <div class="perks-grid">
-        <div class="perk-card">
-          <div class="perk-icon">🏆</div>
-          <div class="perk-title">Great Atmosphere</div>
-          <p class="perk-desc">Work in one of Joliet's most loved sports bars with a team that feels like family.</p>
-        </div>
-        <div class="perk-card">
-          <div class="perk-icon">📺</div>
-          <div class="perk-title">Never Miss a Game</div>
-          <p class="perk-desc">40+ screens means you catch every game while you work. Best office in town.</p>
-        </div>
-        <div class="perk-card">
-          <div class="perk-icon">🤝</div>
-          <div class="perk-title">Community Focused</div>
-          <p class="perk-desc">We give back to Joliet through charity events, sponsorships, and drives all year long.</p>
-        </div>
-        <div class="perk-card">
-          <div class="perk-icon">🎉</div>
-          <div class="perk-title">Flexible Scheduling</div>
-          <p class="perk-desc">We work with your schedule. Day, night, weekends — there's a shift that fits your life.</p>
-        </div>
+        <div class="perk-card"><div class="perk-icon">🏆</div><div class="perk-title">Great Atmosphere</div><p class="perk-desc">Work in one of Joliet's most loved sports bars with a team that feels like family.</p></div>
+        <div class="perk-card"><div class="perk-icon">📺</div><div class="perk-title">Never Miss a Game</div><p class="perk-desc">40+ screens means you catch every game while you work. Best office in town.</p></div>
+        <div class="perk-card"><div class="perk-icon">🤝</div><div class="perk-title">Community Focused</div><p class="perk-desc">We give back to Joliet through charity events, sponsorships, and drives all year long.</p></div>
+        <div class="perk-card"><div class="perk-icon">🎉</div><div class="perk-title">Flexible Scheduling</div><p class="perk-desc">We work with your schedule. Day, night, weekends — there's a shift that fits your life.</p></div>
       </div>
     </div>
   </section>
@@ -439,40 +243,24 @@ footer { background: #06080f; border-top: 1px solid rgba(192,39,45,0.3); }
     <div class="cta-inner">
       <h2 class="cta-title">Ready to <span class="accent">Join Us?</span></h2>
       <p class="cta-desc">Download both documents above, fill them out, and bring them in to Double J at 1101 Essington Rd., Joliet, IL 60435. Have questions? Give us a call!</p>
-      <div class="cta-contact">
-        <a href="tel:+18155550000" class="cta-btn primary">📞 Call Us</a>
+      <div class="cta-btns">
+        <a href="tel:+18157308488" class="cta-btn primary">📞 Call Us</a>
         <a href="https://www.google.com/maps/search/?api=1&query=1101+Essington+Rd+Joliet+IL+60435" target="_blank" class="cta-btn outline">📍 Get Directions</a>
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
-
   <footer>
     <div class="footer-inner">
       <div class="footer-brand">
-        <div class="footer-logo-wrap">
-          <img src="https://placehold.co/56x56/0f1c3f/7a8aaa?text=LOGO" alt="Double J Sports Bar" class="footer-logo-img"/>
-        </div>
-        <div>
-          <div class="footer-logo-name">Double J</div>
-          <div class="footer-logo-tag">Sports Bar &amp; Grill · Joliet, IL</div>
-        </div>
+        <div class="footer-logo-wrap"><img src="https://placehold.co/56x56/0f1c3f/7a8aaa?text=LOGO" alt="Double J" class="footer-logo-img"/></div>
+        <div><div class="footer-logo-name">Double J</div><div class="footer-logo-tag">Sports Bar &amp; Grill · Joliet, IL</div></div>
       </div>
-      <a href="tel:+18155550000" class="footer-phone">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8a19.79 19.79 0 01-3.07-8.67A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
-        (815) 555-0000
-      </a>
+      <a href="tel:+18157308488" class="footer-phone"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8a19.79 19.79 0 01-3.07-8.67A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>(815) 730-8488</a>
       <div class="footer-social">
-        <a href="https://www.facebook.com/doublejsportsbar" target="_blank" rel="noopener" aria-label="Facebook" class="social-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.513c-1.491 0-1.956.93-1.956 1.886v2.268h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>
-        </a>
-        <a href="https://www.instagram.com/doublejsportsbar" target="_blank" rel="noopener" aria-label="Instagram" class="social-icon instagram">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-        </a>
-        <a href="https://www.tiktok.com/@doublejsportsbarjoliet" target="_blank" rel="noopener" aria-label="TikTok" class="social-icon tiktok">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.32 6.32 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.76a4.85 4.85 0 01-1.01-.07z"/></svg>
-        </a>
+        <a href="https://www.facebook.com/doublejsportsbar" target="_blank" rel="noopener" aria-label="Facebook" class="social-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.513c-1.491 0-1.956.93-1.956 1.886v2.268h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg></a>
+        <a href="https://www.instagram.com/doublejsportsbar" target="_blank" rel="noopener" aria-label="Instagram" class="social-icon instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+        <a href="https://www.tiktok.com/@doublejsportsbarjoliet" target="_blank" rel="noopener" aria-label="TikTok" class="social-icon tiktok"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.32 6.32 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.76a4.85 4.85 0 01-1.01-.07z"/></svg></a>
       </div>
     </div>
     <div class="footer-bottom">
@@ -485,6 +273,15 @@ footer { background: #06080f; border-top: 1px solid rgba(192,39,45,0.3); }
     document.getElementById('footer-year').textContent = new Date().getFullYear();
     document.getElementById('hamburger').addEventListener('click', () => {
       document.getElementById('main-nav').classList.toggle('open');
+    });
+    document.querySelectorAll('#main-nav a').forEach(link => {
+      link.addEventListener('click', function() {
+        const href = this.getAttribute('href');
+        if (href && href !== '#') {
+          document.getElementById('main-nav').classList.remove('open');
+          window.location.href = href;
+        }
+      });
     });
   </script>
 
