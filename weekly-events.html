@@ -8,749 +8,168 @@
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@400;600;700&family=Barlow:wght@400;500&display=swap" rel="stylesheet"/>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background-color: #0f1c3f; font-family: 'Barlow', sans-serif; color: #EEF2FA; }
 
-```
-:root {
-  --navy: #0f1c3f;
-  --navy-mid: #162550;
-  --navy-light: #1e3370;
-  --red: #C0272D;
-  --white: #EEF2FA;
-  --muted: #7a8aaa;
-  --gold: #F5C842;
-}
 
-body {
-  background: var(--navy);
-  font-family: 'Barlow', sans-serif;
-  color: var(--white);
-}
-
-/* ── HEADER ── */
-header {
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  z-index: 100;
-  background: rgba(15,28,63,0.97);
-  border-bottom: 1px solid rgba(192,39,45,0.35);
-  backdrop-filter: blur(8px);
-}
-
-.header-inner {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 0 2rem;
-  height: 76px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 2rem;
-}
-
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  text-decoration: none;
-  flex-shrink: 0;
-}
-
-.logo-img-wrap {
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  overflow: hidden;
-  border: 2px solid var(--red);
-  flex-shrink: 0;
-  background: var(--navy-mid);
-  transition: transform 0.3s ease;
-}
-
+header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background-color: rgba(15,28,63,0.97); border-bottom: 1px solid rgba(192,39,45,0.35); backdrop-filter: blur(8px); }
+.header-inner { max-width: 1280px; margin: 0 auto; padding: 0 2rem; height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
+.logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; flex-shrink: 0; }
+.logo-img-wrap { width: 56px; height: 56px; border-radius: 50%; overflow: hidden; border: 2px solid #C0272D; flex-shrink: 0; background-color: #162550; transition: transform 0.3s ease; }
 .logo:hover .logo-img-wrap { transform: scale(1.06); }
 .logo-img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .logo-text { display: flex; flex-direction: column; line-height: 1; }
-
-.logo-name {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 1.65rem;
-  letter-spacing: 0.1em;
-  color: var(--white);
-}
-
-.logo-tagline {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 0.65rem;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  color: var(--red);
-  font-weight: 600;
-}
-
-nav {
-  display: flex;
-  align-items: center;
-  gap: 0.25rem;
-}
-
-nav a {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 0.9rem;
-  font-weight: 700;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  text-decoration: none;
-  color: var(--muted);
-  padding: 0.45rem 0.85rem;
-  position: relative;
-  transition: color 0.2s ease;
-}
-
-nav a::after {
-  content: '';
-  position: absolute;
-  bottom: 0; left: 50%; right: 50%;
-  height: 2px;
-  background: var(--red);
-  transition: left 0.25s ease, right 0.25s ease;
-}
-
-nav a:hover { color: var(--white); }
+.logo-name { font-family: 'Bebas Neue', sans-serif; font-size: 1.65rem; letter-spacing: 0.1em; color: #EEF2FA; }
+.logo-tagline { font-family: 'Barlow Condensed', sans-serif; font-size: 0.65rem; letter-spacing: 0.3em; text-transform: uppercase; color: #C0272D; font-weight: 600; }
+nav { display: flex; align-items: center; gap: 0.25rem; }
+nav a { font-family: 'Barlow Condensed', sans-serif; font-size: 0.9rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; text-decoration: none; color: #7a8aaa; padding: 0.45rem 0.85rem; position: relative; transition: color 0.2s ease; }
+nav a::after { content: ''; position: absolute; bottom: 0; left: 50%; right: 50%; height: 2px; background-color: #C0272D; transition: left 0.25s ease, right 0.25s ease; }
+nav a:hover { color: #EEF2FA; }
 nav a:hover::after { left: 0.85rem; right: 0.85rem; }
-nav a.active { color: var(--red); }
+nav a.active { color: #C0272D; }
+.nav-divider { width: 1px; height: 14px; background-color: rgba(255,255,255,0.12); }
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 6px; }
+.hamburger span { display: block; width: 24px; height: 2px; background-color: #EEF2FA; }
 
-.nav-divider {
-  width: 1px;
-  height: 14px;
-  background: rgba(255,255,255,0.12);
-}
+/* PAGE HERO */
+.page-hero { margin-top: 76px; background-image: linear-gradient(160deg, rgba(192,39,45,0.12) 0%, transparent 50%); background-color: #0f1c3f; padding: 4rem 2rem; text-align: center; border-bottom: 1px solid rgba(192,39,45,0.2); }
+.page-eyebrow { font-family: 'Barlow Condensed', sans-serif; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.4em; text-transform: uppercase; color: #C0272D; margin-bottom: 0.5rem; }
+.page-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(3rem, 8vw, 6rem); letter-spacing: 0.06em; line-height: 1; color: #EEF2FA; }
+.page-title .accent { color: #C0272D; }
+.page-subtitle { font-family: 'Barlow', sans-serif; font-size: 1rem; color: #7a8aaa; margin-top: 1rem; max-width: 520px; margin-left: auto; margin-right: auto; line-height: 1.7; }
 
-.hamburger {
-  display: none;
-  flex-direction: column;
-  gap: 5px;
-  cursor: pointer;
-  padding: 6px;
-}
-.hamburger span { display: block; width: 24px; height: 2px; background: var(--white); }
+/* SHARED */
+.section-inner { max-width: 1280px; margin: 0 auto; padding: 4rem 2rem; }
+.section-eyebrow { font-family: 'Barlow Condensed', sans-serif; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.4em; text-transform: uppercase; color: #C0272D; margin-bottom: 0.5rem; display: block; }
+.section-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.2rem, 5vw, 3.5rem); letter-spacing: 0.06em; color: #EEF2FA; margin-bottom: 2.5rem; line-height: 1; display: block; }
+.section-title .accent { color: #C0272D; }
 
-@media (max-width: 680px) {
-  .hamburger { display: flex; }
-  nav {
-    display: none;
-    position: absolute;
-    top: 76px; left: 0; right: 0;
-    background: rgba(15,28,63,0.98);
-    flex-direction: column;
-    align-items: stretch;
-    padding: 1rem 0;
-    border-top: 1px solid rgba(192,39,45,0.3);
-    backdrop-filter: blur(8px);
-  }
-  nav.open { display: flex; }
-  nav a { padding: 0.75rem 2rem; }
-  nav a::after { display: none; }
-  .nav-divider { display: none; }
-}
+/* TABS */
+.tabs-bar { background-color: #162550; border-bottom: 1px solid rgba(255,255,255,0.06); position: sticky; top: 76px; z-index: 90; overflow-x: auto; }
+.tabs-inner { max-width: 1280px; margin: 0 auto; padding: 0 2rem; display: flex; white-space: nowrap; }
+.tab-btn { font-family: 'Bebas Neue', sans-serif; font-size: 1rem; letter-spacing: 0.12em; color: #7a8aaa; background: none; border: none; border-bottom: 3px solid transparent; padding: 1rem 1.25rem; cursor: pointer; transition: color 0.2s ease, border-color 0.2s ease; }
+.tab-btn:hover { color: #EEF2FA; }
+.tab-btn.active { color: #EEF2FA; border-bottom-color: #C0272D; }
 
-/* ── PAGE HERO ── */
-.page-hero {
-  margin-top: 76px;
-  background:
-    linear-gradient(160deg, rgba(192,39,45,0.12) 0%, transparent 50%),
-    repeating-linear-gradient(0deg, transparent, transparent 59px, rgba(255,255,255,0.03) 59px, rgba(255,255,255,0.03) 60px),
-    repeating-linear-gradient(90deg, transparent, transparent 59px, rgba(255,255,255,0.03) 59px, rgba(255,255,255,0.03) 60px),
-    var(--navy);
-  padding: 4rem 2rem;
-  text-align: center;
-  border-bottom: 1px solid rgba(192,39,45,0.2);
-}
-
-.page-eyebrow {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.4em;
-  text-transform: uppercase;
-  color: var(--red);
-  margin-bottom: 0.5rem;
-}
-
-.page-title {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(3rem, 8vw, 6rem);
-  letter-spacing: 0.06em;
-  line-height: 1;
-  color: var(--white);
-}
-
-.page-title .accent { color: var(--red); }
-
-.page-subtitle {
-  font-family: 'Barlow', sans-serif;
-  font-size: 1rem;
-  color: var(--muted);
-  margin-top: 1rem;
-  max-width: 520px;
-  margin-left: auto;
-  margin-right: auto;
-  line-height: 1.7;
-}
-
-/* ── SPORT TABS ── */
-.tabs-bar {
-  background: var(--navy-mid);
-  border-bottom: 1px solid rgba(255,255,255,0.06);
-  position: sticky;
-  top: 76px;
-  z-index: 90;
-}
-
-.tabs-inner {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 0 2rem;
-  display: flex;
-  gap: 0;
-}
-
-.tab-btn {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 1rem;
-  letter-spacing: 0.12em;
-  color: var(--muted);
-  background: none;
-  border: none;
-  border-bottom: 3px solid transparent;
-  padding: 1rem 1.5rem;
-  cursor: pointer;
-  transition: color 0.2s ease, border-color 0.2s ease;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.tab-btn:hover { color: var(--white); }
-
-.tab-btn.active {
-  color: var(--white);
-  border-bottom-color: var(--red);
-}
-
-.tab-badge {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 0.65rem;
-  font-weight: 700;
-  background: var(--red);
-  color: var(--white);
-  border-radius: 20px;
-  padding: 0.1rem 0.45rem;
-  letter-spacing: 0.05em;
-  display: none;
-}
-
-.tab-badge.show { display: inline-block; }
-
-/* ── SCHEDULE SECTION ── */
-.schedule-section {
-  padding: 3rem 0 5rem;
-}
-
-.schedule-inner {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 0 2rem;
-}
-
+/* SPORT PANELS */
 .sport-panel { display: none; }
 .sport-panel.active { display: block; }
+.sport-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem; padding-bottom: 1rem; border-bottom: 1px solid rgba(255,255,255,0.07); }
+.sport-icon { font-size: 2rem; line-height: 1; }
+.sport-label { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; letter-spacing: 0.08em; color: #EEF2FA; }
+.sport-updated { font-family: 'Barlow Condensed', sans-serif; font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: #7a8aaa; margin-left: auto; }
 
-.sport-header {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  margin-bottom: 2rem;
-  padding-bottom: 1rem;
-  border-bottom: 1px solid rgba(255,255,255,0.07);
-}
-
-.sport-icon {
-  font-size: 2rem;
-  line-height: 1;
-}
-
-.sport-label {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 2rem;
-  letter-spacing: 0.08em;
-  color: var(--white);
-}
-
-.sport-updated {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 0.72rem;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--muted);
-  margin-left: auto;
-}
-
-/* ── GAME CARDS ── */
-.games-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
-}
-
-.game-card {
-  background: var(--navy-mid);
-  border: 1px solid rgba(255,255,255,0.07);
-  border-radius: 8px;
-  padding: 1.25rem 1.5rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  transition: border-color 0.2s ease, transform 0.2s ease;
-}
-
-.game-card:hover {
-  border-color: rgba(192,39,45,0.35);
-  transform: translateY(-2px);
-}
-
-.game-card.live {
-  border-color: var(--red);
-  background: rgba(192,39,45,0.06);
-}
-
-.game-status {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.status-badge {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  padding: 0.2rem 0.6rem;
-  border-radius: 20px;
-}
-
-.status-live {
-  background: var(--red);
-  color: var(--white);
-  animation: pulse 1.5s ease infinite;
-}
-
-.status-final {
-  background: rgba(255,255,255,0.08);
-  color: var(--muted);
-}
-
-.status-upcoming {
-  background: rgba(30,51,112,0.8);
-  color: #7a9fff;
-  border: 1px solid rgba(122,159,255,0.2);
-}
-
-@keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.6; }
-}
-
-.game-detail {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 0.72rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--muted);
-}
-
-.game-matchup {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.game-team {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.5rem;
-}
-
-.team-info {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-}
-
-.team-logo {
-  width: 28px;
-  height: 28px;
-  object-fit: contain;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.05);
-}
-
-.team-name {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 1rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  color: var(--white);
-}
-
-.team-record {
-  font-family: 'Barlow', sans-serif;
-  font-size: 0.7rem;
-  color: var(--muted);
-}
-
-.team-score {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 1.5rem;
-  letter-spacing: 0.05em;
-  color: var(--white);
-  min-width: 2rem;
-  text-align: right;
-}
-
-.team-score.winner { color: var(--gold); }
-
-.game-divider {
-  height: 1px;
-  background: rgba(255,255,255,0.06);
-}
-
-.game-time {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 0.8rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  color: #7a9fff;
-}
-
-/* Loading & empty states */
-.loading-state,
-.empty-state {
-  grid-column: 1 / -1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 4rem 2rem;
-  text-align: center;
-  color: var(--muted);
-  gap: 1rem;
-}
-
-.loading-spinner {
-  width: 36px;
-  height: 36px;
-  border: 3px solid rgba(255,255,255,0.08);
-  border-top-color: var(--red);
-  border-radius: 50%;
-  animation: spin 0.8s linear infinite;
-}
-
-@keyframes spin {
-  to { transform: rotate(360deg); }
-}
-
+/* GAME CARDS */
+.games-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+.game-card { background-color: #162550; border: 1px solid rgba(255,255,255,0.07); border-radius: 8px; padding: 1.25rem 1.5rem; display: flex; flex-direction: column; gap: 0.75rem; transition: border-color 0.2s ease, transform 0.2s ease; }
+.game-card:hover { border-color: rgba(192,39,45,0.35); transform: translateY(-2px); }
+.game-card.live { border-color: #C0272D; background-color: rgba(192,39,45,0.06); }
+.game-status { display: flex; align-items: center; justify-content: space-between; }
+.status-badge { font-family: 'Barlow Condensed', sans-serif; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; padding: 0.2rem 0.6rem; border-radius: 20px; }
+.status-live { background-color: #C0272D; color: #EEF2FA; animation: pulse 1.5s ease infinite; }
+.status-final { background-color: rgba(255,255,255,0.08); color: #7a8aaa; }
+.status-upcoming { background-color: rgba(30,51,112,0.8); color: #7a9fff; border: 1px solid rgba(122,159,255,0.2); }
+@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.6; } }
+.game-detail { font-family: 'Barlow Condensed', sans-serif; font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: #7a8aaa; }
+.game-matchup { display: flex; flex-direction: column; gap: 0.5rem; }
+.game-team { display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; }
+.team-info { display: flex; align-items: center; gap: 0.6rem; }
+.team-name { font-family: 'Barlow Condensed', sans-serif; font-size: 1rem; font-weight: 700; letter-spacing: 0.06em; color: #EEF2FA; }
+.team-record { font-family: 'Barlow', sans-serif; font-size: 0.7rem; color: #7a8aaa; }
+.team-score { font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; letter-spacing: 0.05em; color: #EEF2FA; min-width: 2rem; text-align: right; }
+.team-score.winner { color: #F5C842; }
+.game-divider { height: 1px; background-color: rgba(255,255,255,0.06); }
+.game-time { font-family: 'Barlow Condensed', sans-serif; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.1em; color: #7a9fff; }
+.loading-state, .empty-state { grid-column: 1 / -1; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 4rem 2rem; text-align: center; color: #7a8aaa; gap: 1rem; }
+.loading-spinner { width: 36px; height: 36px; border: 3px solid rgba(255,255,255,0.08); border-top-color: #C0272D; border-radius: 50%; animation: spin 0.8s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
 .empty-icon { font-size: 2.5rem; opacity: 0.4; }
+.empty-text { font-family: 'Barlow Condensed', sans-serif; font-size: 1rem; letter-spacing: 0.1em; text-transform: uppercase; }
 
-.empty-text {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 1rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+/* THIS WEEK */
+.weekly-section { background-color: #162550; padding: 5rem 0; }
+.weekly-inner { max-width: 1280px; margin: 0 auto; padding: 0 2rem; }
+.weekly-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+.weekly-card { background-color: #0f1c3f; border: 1px solid rgba(255,255,255,0.07); border-radius: 8px; overflow: hidden; transition: transform 0.25s ease, border-color 0.25s ease; }
+.weekly-card:hover { transform: translateY(-4px); border-color: rgba(192,39,45,0.4); }
+.weekly-card.featured { border-color: #C0272D; grid-column: span 2; }
+.weekly-day { background-color: #C0272D; font-family: 'Bebas Neue', sans-serif; font-size: 1rem; letter-spacing: 0.2em; color: #EEF2FA; padding: 0.5rem 1.25rem; }
+.weekly-body { padding: 1.25rem 1.5rem; display: flex; flex-direction: column; gap: 0.5rem; }
+.weekly-time { font-family: 'Barlow Condensed', sans-serif; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #7a8aaa; }
+.weekly-name { font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; letter-spacing: 0.06em; color: #EEF2FA; line-height: 1; }
+.weekly-card.featured .weekly-name { font-size: 1.7rem; }
+.weekly-desc { font-family: 'Barlow', sans-serif; font-size: 0.85rem; color: #7a8aaa; line-height: 1.6; }
+.weekly-tag { display: inline-block; font-family: 'Barlow Condensed', sans-serif; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; padding: 0.2rem 0.65rem; border-radius: 20px; border: 1px solid rgba(192,39,45,0.4); color: #C0272D; margin-top: 0.25rem; width: fit-content; }
+.weekly-card.featured .weekly-tag { background-color: #C0272D; color: #EEF2FA; border-color: #C0272D; }
+
+/* FOOTER */
+footer { background-color: #06080f; border-top: 1px solid rgba(192,39,45,0.3); }
+.footer-inner { max-width: 1280px; margin: 0 auto; padding: 3rem 2rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 2rem; }
+.footer-brand { display: flex; align-items: center; gap: 0.85rem; }
+.footer-logo-wrap { width: 52px; height: 52px; border-radius: 50%; overflow: hidden; border: 2px solid #C0272D; flex-shrink: 0; background-color: #162550; }
+.footer-logo-img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.footer-logo-name { font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; letter-spacing: 0.1em; color: #EEF2FA; line-height: 1; }
+.footer-logo-tag { font-family: 'Barlow Condensed', sans-serif; font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase; color: #7a8aaa; margin-top: 0.2rem; }
+.footer-phone { font-family: 'Barlow Condensed', sans-serif; font-size: 1.1rem; font-weight: 700; letter-spacing: 0.1em; color: #EEF2FA; text-decoration: none; display: flex; align-items: center; gap: 0.5rem; transition: color 0.2s ease; }
+.footer-phone:hover { color: #C0272D; }
+.footer-social { display: flex; align-items: center; gap: 0.75rem; }
+.social-icon { display: flex; align-items: center; justify-content: center; width: 42px; height: 42px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.12); color: #7a8aaa; text-decoration: none; transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease; }
+.social-icon:hover { background-color: #1877F2; color: #EEF2FA; border-color: #1877F2; }
+.social-icon.instagram:hover { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); color: #EEF2FA; border-color: transparent; }
+.social-icon.tiktok:hover { background-color: #010101; color: #EEF2FA; border-color: #69C9D0; }
+.footer-bottom { border-top: 1px solid rgba(255,255,255,0.06); padding: 1.25rem 2rem; max-width: 1280px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; }
+.footer-disclaimer { font-family: 'Barlow Condensed', sans-serif; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: #C0272D; opacity: 0.8; }
+.footer-copy { font-family: 'Barlow', sans-serif; font-size: 0.75rem; color: #7a8aaa; opacity: 0.6; }
+
+/* MOBILE */
+@media (max-width: 680px) {
+  .header-inner { padding: 0 1rem; height: 66px; }
+  .logo-img-wrap { width: 42px; height: 42px; }
+  .logo-name { font-size: 1.2rem; }
+  .logo-tagline { font-size: 0.5rem; }
+  .hamburger { display: flex; }
+  nav { display: none; position: fixed; top: 66px; left: 0; right: 0; background-color: #0f1c3f; flex-direction: column; align-items: stretch; padding: 0.5rem 0 1rem; border-top: 2px solid #C0272D; z-index: 9999; }
+  nav.open { display: flex; }
+  nav a { padding: 0.9rem 1.5rem; font-size: 1rem; color: #EEF2FA; border-bottom: 1px solid rgba(255,255,255,0.06); }
+  nav a.active { color: #C0272D; }
+  nav a::after { display: none; }
+  .nav-divider { display: none; }
+  .page-hero { padding: 2.5rem 1.25rem; }
+  .tabs-bar { top: 66px; }
+  .section-inner { padding: 2.5rem 1.25rem; }
+  .section-title { font-size: 1.8rem; }
+  .games-grid { grid-template-columns: 1fr; }
+  .weekly-inner { padding: 0 1.25rem; }
+  .weekly-grid { grid-template-columns: 1fr; }
+  .weekly-card.featured { grid-column: span 1; }
+  .footer-inner { flex-direction: column; align-items: center; text-align: center; padding: 2rem 1rem; }
+  .footer-brand { flex-direction: column; align-items: center; }
+  .footer-bottom { flex-direction: column; align-items: center; text-align: center; padding: 1rem; }
 }
-
 @media (max-width: 900px) {
   .games-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
-@media (max-width: 580px) {
-  .games-grid { grid-template-columns: 1fr; }
-  .tabs-inner { overflow-x: auto; }
-}
-
-/* ── THIS WEEK AT DOUBLE J ── */
-.weekly-section {
-  background: var(--navy-mid);
-  padding: 5rem 0;
-}
-
-.weekly-inner {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 0 2rem;
-}
-
-.weekly-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.25rem;
-}
-
-.weekly-card {
-  background: var(--navy);
-  border: 1px solid rgba(255,255,255,0.07);
-  border-radius: 8px;
-  overflow: hidden;
-  transition: transform 0.25s ease, border-color 0.25s ease;
-}
-
-.weekly-card:hover {
-  transform: translateY(-4px);
-  border-color: rgba(192,39,45,0.4);
-}
-
-.weekly-card.featured {
-  border-color: var(--red);
-  grid-column: span 2;
-}
-
-.weekly-day {
-  background: var(--red);
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 1rem;
-  letter-spacing: 0.2em;
-  color: var(--white);
-  padding: 0.5rem 1.25rem;
-}
-
-.weekly-card.featured .weekly-day {
-  background: var(--red);
-  font-size: 1.1rem;
-}
-
-.weekly-body {
-  padding: 1.25rem 1.5rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.weekly-time {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--muted);
-}
-
-.weekly-name {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 1.4rem;
-  letter-spacing: 0.06em;
-  color: var(--white);
-  line-height: 1;
-}
-
-.weekly-card.featured .weekly-name { font-size: 1.7rem; }
-
-.weekly-desc {
-  font-family: 'Barlow', sans-serif;
-  font-size: 0.85rem;
-  color: var(--muted);
-  line-height: 1.6;
-}
-
-.weekly-tag {
-  display: inline-block;
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  padding: 0.2rem 0.65rem;
-  border-radius: 20px;
-  border: 1px solid rgba(192,39,45,0.4);
-  color: var(--red);
-  margin-top: 0.25rem;
-  width: fit-content;
-}
-
-.weekly-card.featured .weekly-tag {
-  background: var(--red);
-  color: var(--white);
-  border-color: var(--red);
-}
-
-@media (max-width: 900px) {
-  .weekly-grid { grid-template-columns: repeat(2, 1fr); }
-  .weekly-card.featured { grid-column: span 1; }
-}
-
-@media (max-width: 580px) {
-  .weekly-grid { grid-template-columns: 1fr; }
-  .weekly-card.featured { grid-column: span 1; }
-}
-
-/* ── FOOTER ── */
-footer {
-  background: #06080f;
-  border-top: 1px solid rgba(192,39,45,0.3);
-}
-
-.footer-inner {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 3rem 2rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 2rem;
-}
-
-.footer-brand { display: flex; align-items: center; gap: 0.85rem; }
-
-.footer-logo-wrap {
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  overflow: hidden;
-  border: 2px solid var(--red);
-  flex-shrink: 0;
-  background: var(--navy-mid);
-}
-
-.footer-logo-img { width: 100%; height: 100%; object-fit: cover; display: block; }
-
-.footer-logo-name {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 1.4rem;
-  letter-spacing: 0.1em;
-  color: var(--white);
-  line-height: 1;
-}
-
-.footer-logo-tag {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 0.65rem;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  color: var(--muted);
-  margin-top: 0.2rem;
-}
-
-.footer-phone {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 1.1rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  color: var(--white);
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  transition: color 0.2s ease;
-}
-
-.footer-phone:hover { color: var(--red); }
-
-.footer-social { display: flex; align-items: center; gap: 0.75rem; }
-
-.social-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  border: 1px solid rgba(255,255,255,0.12);
-  color: var(--muted);
-  text-decoration: none;
-  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
-}
-
-.social-icon:hover { background: #1877F2; color: var(--white); border-color: #1877F2; }
-.social-icon.instagram:hover { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); color: var(--white); border-color: transparent; }
-.social-icon.tiktok:hover { background: #010101; color: var(--white); border-color: #69C9D0; }
-
-.footer-bottom {
-  border-top: 1px solid rgba(255,255,255,0.06);
-  padding: 1.25rem 2rem;
-  max-width: 1280px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-
-.footer-disclaimer {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 0.75rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--red);
-  opacity: 0.8;
-}
-
-.footer-copy {
-  font-family: 'Barlow', sans-serif;
-  font-size: 0.75rem;
-  color: var(--muted);
-  opacity: 0.6;
-}
-
-@media (max-width: 680px) {
-  .footer-inner { justify-content: center; text-align: center; }
-  .footer-brand { flex-direction: column; align-items: center; }
-  .footer-bottom { justify-content: center; text-align: center; }
-}
-```
 
   </style>
 </head>
 <body>
-
-  <!-- Header -->
-
   <header>
     <div class="header-inner">
       <a href="index.html" class="logo">
-        <div class="logo-img-wrap">
-          <img src="https://placehold.co/56x56/0f1c3f/7a8aaa?text=LOGO" alt="Double J Sports Bar Logo" class="logo-img"/>
-        </div>
-        <div class="logo-text">
-          <span class="logo-name">Double J</span>
-          <span class="logo-tagline">Sports Bar &amp; Grill</span>
-        </div>
+        <div class="logo-img-wrap"><img src="https://i.imgur.com/Gk6PvB3.jpeg" alt="Logo" class="logo-img"/></div>
+        <div class="logo-text"><span class="logo-name">Double J</span><span class="logo-tagline">Sports Bar &amp; Grill</span></div>
       </a>
-
-```
-  <nav id="main-nav">
-    <a href="index.html">Home</a>
-    <div class="nav-divider"></div>
-    <a href="#">Drink Menu</a>
-    <div class="nav-divider"></div>
-    <a href="#" class="active">Weekly Events</a>
-    <div class="nav-divider"></div>
-    <a href="social.html">Connect</a>
-    <div class="nav-divider"></div>
-    <a href="community.html">Community Activism</a>
-    <div class="nav-divider"></div>
-    <a href="#">Apply Now</a>
-  </nav>
-
-  <div class="hamburger" id="hamburger">
-    <span></span><span></span><span></span>
-  </div>
-</div>
-```
-
+      <nav id="main-nav">
+        <a href="index.html">Home</a><div class="nav-divider"></div>
+        <a href="drink-menu.html">Drink Menu</a><div class="nav-divider"></div>
+        <a href="weekly-events.html" class="active">Weekly Events</a><div class="nav-divider"></div>
+        <a href="connect.html">Connect</a><div class="nav-divider"></div>
+        <a href="community-activism.html">Community Activism</a><div class="nav-divider"></div>
+        <a href="apply-now.html">Apply Now</a>
+      </nav>
+      <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+    </div>
   </header>
-
-  <!-- Page Hero -->
 
   <div class="page-hero">
     <p class="page-eyebrow">On the Screens This Week</p>
@@ -758,64 +177,29 @@ footer {
     <p class="page-subtitle">Live scores and upcoming matchups pulled directly from ESPN. We've got every game on — come watch with us.</p>
   </div>
 
-  <!-- Sport Tabs -->
-
   <div class="tabs-bar">
     <div class="tabs-inner">
-      <button class="tab-btn active" data-sport="mlb" onclick="switchTab('mlb')">
-        ⚾ MLB <span class="tab-badge" id="badge-mlb"></span>
-      </button>
-      <button class="tab-btn" data-sport="nhl" onclick="switchTab('nhl')">
-        🏒 NHL <span class="tab-badge" id="badge-nhl"></span>
-      </button>
-      <button class="tab-btn" data-sport="ncaamb" onclick="switchTab('ncaamb')">
-        🏀 College Basketball <span class="tab-badge" id="badge-ncaamb"></span>
-      </button>
+      <button class="tab-btn active" data-sport="mlb" onclick="switchTab('mlb')">⚾ MLB</button>
+      <button class="tab-btn" data-sport="nhl" onclick="switchTab('nhl')">🏒 NHL</button>
+      <button class="tab-btn" data-sport="ncaamb" onclick="switchTab('ncaamb')">🏀 College Basketball</button>
     </div>
   </div>
 
-  <!-- Schedule Panels -->
-
-  <section class="schedule-section">
-    <div class="schedule-inner">
-
-```
-  <div class="sport-panel active" id="panel-mlb">
-    <div class="sport-header">
-      <span class="sport-icon">⚾</span>
-      <span class="sport-label">MLB — Major League Baseball</span>
-      <span class="sport-updated" id="updated-mlb"></span>
+  <section style="background-color:#0f1c3f; padding: 3rem 0 5rem;">
+    <div class="section-inner">
+      <div class="sport-panel active" id="panel-mlb">
+        <div class="sport-header"><span class="sport-icon">⚾</span><span class="sport-label">MLB — Major League Baseball</span><span class="sport-updated" id="updated-mlb"></span></div>
+        <div class="games-grid" id="grid-mlb"><div class="loading-state"><div class="loading-spinner"></div></div></div>
+      </div>
+      <div class="sport-panel" id="panel-nhl">
+        <div class="sport-header"><span class="sport-icon">🏒</span><span class="sport-label">NHL — National Hockey League</span><span class="sport-updated" id="updated-nhl"></span></div>
+        <div class="games-grid" id="grid-nhl"><div class="loading-state"><div class="loading-spinner"></div></div></div>
+      </div>
+      <div class="sport-panel" id="panel-ncaamb">
+        <div class="sport-header"><span class="sport-icon">🏀</span><span class="sport-label">NCAA Men's Basketball</span><span class="sport-updated" id="updated-ncaamb"></span></div>
+        <div class="games-grid" id="grid-ncaamb"><div class="loading-state"><div class="loading-spinner"></div></div></div>
+      </div>
     </div>
-    <div class="games-grid" id="grid-mlb">
-      <div class="loading-state"><div class="loading-spinner"></div></div>
-    </div>
-  </div>
-
-  <div class="sport-panel" id="panel-nhl">
-    <div class="sport-header">
-      <span class="sport-icon">🏒</span>
-      <span class="sport-label">NHL — National Hockey League</span>
-      <span class="sport-updated" id="updated-nhl"></span>
-    </div>
-    <div class="games-grid" id="grid-nhl">
-      <div class="loading-state"><div class="loading-spinner"></div></div>
-    </div>
-  </div>
-
-  <div class="sport-panel" id="panel-ncaamb">
-    <div class="sport-header">
-      <span class="sport-icon">🏀</span>
-      <span class="sport-label">NCAA Men's Basketball</span>
-      <span class="sport-updated" id="updated-ncaamb"></span>
-    </div>
-    <div class="games-grid" id="grid-ncaamb">
-      <div class="loading-state"><div class="loading-spinner"></div></div>
-    </div>
-  </div>
-
-</div>
-```
-
   </section>
 
   <!-- This Week at Double J -->
@@ -825,113 +209,49 @@ footer {
       <p class="section-eyebrow">Don't Miss Out</p>
       <h2 class="section-title">This Week at <span class="accent">Double J</span></h2>
       <div class="weekly-grid">
-
-```
-    <div class="weekly-card">
-      <div class="weekly-day">Monday</div>
-      <div class="weekly-body">
-        <div class="weekly-time">🕖 6:00 PM – Close</div>
-        <div class="weekly-name">Event Name Placeholder</div>
-        <div class="weekly-desc">Short description of the event goes here. Update this with your actual Monday night special or recurring event.</div>
-        <div class="weekly-tag">Free Entry</div>
+        <div class="weekly-card"><div class="weekly-day">Monday</div><div class="weekly-body"><div class="weekly-time">🕖 6:00 PM – Close</div><div class="weekly-name">Event Name Placeholder</div><div class="weekly-desc">Short description of the event goes here. Update this with your actual Monday night special or recurring event.</div><div class="weekly-tag">Free Entry</div></div></div>
+        <div class="weekly-card"><div class="weekly-day">Tuesday</div><div class="weekly-body"><div class="weekly-time">🕖 7:00 PM – Close</div><div class="weekly-name">Event Name Placeholder</div><div class="weekly-desc">Short description of the event goes here. Update this with your actual Tuesday night event details.</div><div class="weekly-tag">Free Entry</div></div></div>
+        <div class="weekly-card"><div class="weekly-day">Wednesday</div><div class="weekly-body"><div class="weekly-time">🕗 7:30 PM – Close</div><div class="weekly-name">Event Name Placeholder</div><div class="weekly-desc">Short description of the event goes here. Update this with your actual Wednesday night event details.</div><div class="weekly-tag">Free Entry</div></div></div>
+        <div class="weekly-card"><div class="weekly-day">Friday</div><div class="weekly-body"><div class="weekly-time">🕗 8:00 PM – Close</div><div class="weekly-name">Event Name Placeholder</div><div class="weekly-desc">Short description of the event goes here. Update this with your actual Friday night event details.</div><div class="weekly-tag">Free Entry</div></div></div>
+        <div class="weekly-card featured"><div class="weekly-day">Saturday</div><div class="weekly-body"><div class="weekly-time">🕖 6:00 PM – Close</div><div class="weekly-name">Event Name Placeholder</div><div class="weekly-desc">Short description of the event goes here. Update this with your biggest event of the week — Saturday nights at Double J!</div><div class="weekly-tag">Featured Event</div></div></div>
       </div>
     </div>
-
-    <div class="weekly-card">
-      <div class="weekly-day">Tuesday</div>
-      <div class="weekly-body">
-        <div class="weekly-time">🕖 7:00 PM – Close</div>
-        <div class="weekly-name">Event Name Placeholder</div>
-        <div class="weekly-desc">Short description of the event goes here. Update this with your actual Tuesday night event details.</div>
-        <div class="weekly-tag">Free Entry</div>
-      </div>
-    </div>
-
-    <div class="weekly-card">
-      <div class="weekly-day">Wednesday</div>
-      <div class="weekly-body">
-        <div class="weekly-time">🕗 7:30 PM – Close</div>
-        <div class="weekly-name">Event Name Placeholder</div>
-        <div class="weekly-desc">Short description of the event goes here. Update this with your actual Wednesday night event details.</div>
-        <div class="weekly-tag">Free Entry</div>
-      </div>
-    </div>
-
-    <div class="weekly-card">
-      <div class="weekly-day">Friday</div>
-      <div class="weekly-body">
-        <div class="weekly-time">🕗 8:00 PM – Close</div>
-        <div class="weekly-name">Event Name Placeholder</div>
-        <div class="weekly-desc">Short description of the event goes here. Update this with your actual Friday night event details.</div>
-        <div class="weekly-tag">Free Entry</div>
-      </div>
-    </div>
-
-    <div class="weekly-card featured">
-      <div class="weekly-day">Saturday</div>
-      <div class="weekly-body">
-        <div class="weekly-time">🕖 6:00 PM – Close</div>
-        <div class="weekly-name">Event Name Placeholder</div>
-        <div class="weekly-desc">Short description of the event goes here. Update this with your biggest event of the week — Saturday nights at Double J!</div>
-        <div class="weekly-tag">Featured Event</div>
-      </div>
-    </div>
-
-  </div>
-</div>
-```
-
   </section>
-
-  <!-- Footer -->
 
   <footer>
     <div class="footer-inner">
       <div class="footer-brand">
-        <div class="footer-logo-wrap">
-          <img src="https://placehold.co/56x56/0f1c3f/7a8aaa?text=LOGO" alt="Double J Sports Bar" class="footer-logo-img"/>
-        </div>
-        <div>
-          <div class="footer-logo-name">Double J</div>
-          <div class="footer-logo-tag">Sports Bar &amp; Grill · Joliet, IL</div>
-        </div>
+        <div class="footer-logo-wrap"><img src="https://i.imgur.com/Gk6PvB3.jpeg" alt="Double J" class="footer-logo-img"/></div>
+        <div><div class="footer-logo-name">Double J</div><div class="footer-logo-tag">Sports Bar &amp; Grill · Joliet, IL</div></div>
       </div>
-
-```
-  <a href="tel:+18155550000" class="footer-phone">
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8a19.79 19.79 0 01-3.07-8.67A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
-    (815) 555-0000
-  </a>
-
-  <div class="footer-social">
-    <a href="https://www.facebook.com/doublejsportsbar" target="_blank" rel="noopener" aria-label="Facebook" class="social-icon">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.513c-1.491 0-1.956.93-1.956 1.886v2.268h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>
-    </a>
-    <a href="https://www.instagram.com/doublejsportsbar" target="_blank" rel="noopener" aria-label="Instagram" class="social-icon instagram">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-    </a>
-    <a href="https://www.tiktok.com/@doublejsportsbarjoliet" target="_blank" rel="noopener" aria-label="TikTok" class="social-icon tiktok">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.32 6.32 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.76a4.85 4.85 0 01-1.01-.07z"/></svg>
-    </a>
-  </div>
-</div>
-
-<div class="footer-bottom">
-  <p class="footer-disclaimer">Please drink responsibly. Must be 21+ to consume alcohol.</p>
-  <p class="footer-copy">&copy; <span id="footer-year"></span> Double J Sports Bar &amp; Grill. All rights reserved.</p>
-</div>
-```
-
+      <a href="tel:+18157308488" class="footer-phone"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8a19.79 19.79 0 01-3.07-8.67A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>(815) 730-8488</a>
+      <div class="footer-social">
+        <a href="https://www.facebook.com/doublejsportsbar" target="_blank" rel="noopener" aria-label="Facebook" class="social-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.513c-1.491 0-1.956.93-1.956 1.886v2.268h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg></a>
+        <a href="https://www.instagram.com/doublejsportsbar" target="_blank" rel="noopener" aria-label="Instagram" class="social-icon instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+        <a href="https://www.tiktok.com/@doublejsportsbarjoliet" target="_blank" rel="noopener" aria-label="TikTok" class="social-icon tiktok"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.32 6.32 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.76a4.85 4.85 0 01-1.01-.07z"/></svg></a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-disclaimer">Please drink responsibly. Must be 21+ to consume alcohol.</p>
+      <p class="footer-copy">&copy; <span id="footer-year"></span> Double J Sports Bar &amp; Grill. All rights reserved.</p>
+    </div>
   </footer>
 
   <script>
     document.getElementById('footer-year').textContent = new Date().getFullYear();
-
     document.getElementById('hamburger').addEventListener('click', () => {
       document.getElementById('main-nav').classList.toggle('open');
     });
+    document.querySelectorAll('#main-nav a').forEach(link => {
+      link.addEventListener('click', function() {
+        const href = this.getAttribute('href');
+        if (href && href !== '#') {
+          document.getElementById('main-nav').classList.remove('open');
+          window.location.href = href;
+        }
+      });
+    });
 
-    // ── Tab switching ──
     function switchTab(sport) {
       document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
       document.querySelectorAll('.sport-panel').forEach(p => p.classList.remove('active'));
@@ -939,131 +259,62 @@ footer {
       document.getElementById(`panel-${sport}`).classList.add('active');
     }
 
-    // ── ESPN API ──
     const SPORTS = [
-      { key: 'mlb',    path: 'baseball/mlb',               label: 'MLB'  },
-      { key: 'nhl',    path: 'hockey/nhl',                 label: 'NHL'  },
-      { key: 'ncaamb', path: 'basketball/mens-college-basketball', label: 'NCAAMB' },
+      { key: 'mlb', path: 'baseball/mlb' },
+      { key: 'nhl', path: 'hockey/nhl' },
+      { key: 'ncaamb', path: 'basketball/mens-college-basketball' },
     ];
 
     function formatTime(dateStr) {
       try {
-        const d = new Date(dateStr);
-        return d.toLocaleString('en-US', {
-          weekday: 'short', month: 'short', day: 'numeric',
-          hour: 'numeric', minute: '2-digit', timeZoneName: 'short'
-        });
+        return new Date(dateStr).toLocaleString('en-US', { weekday: 'short', month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit', timeZoneName: 'short' });
       } catch { return dateStr; }
     }
 
     function buildCard(event) {
-      const comp   = event.competitions[0];
-      const home   = comp.competitors.find(c => c.homeAway === 'home');
-      const away   = comp.competitors.find(c => c.homeAway === 'away');
+      const comp = event.competitions[0];
+      const home = comp.competitors.find(c => c.homeAway === 'home');
+      const away = comp.competitors.find(c => c.homeAway === 'away');
       const status = event.status.type;
-      const detail = event.status.type.shortDetail || '';
-
-      const isLive   = status.state === 'in';
-      const isFinal  = status.state === 'post';
-      const isPre    = status.state === 'pre';
-
-      const homeScore = home?.score ?? '';
-      const awayScore = away?.score ?? '';
-      const homeName  = home?.team?.shortDisplayName || home?.team?.abbreviation || '';
-      const awayName  = away?.team?.shortDisplayName || away?.team?.abbreviation || '';
-      const homeLogo  = home?.team?.logo || '';
-      const awayLogo  = away?.team?.logo || '';
-      const homeRec   = home?.records?.[0]?.summary || '';
-      const awayRec   = away?.records?.[0]?.summary || '';
-
+      const isLive = status.state === 'in', isFinal = status.state === 'post', isPre = status.state === 'pre';
+      const homeScore = home?.score ?? '', awayScore = away?.score ?? '';
+      const homeName = home?.team?.shortDisplayName || home?.team?.abbreviation || '';
+      const awayName = away?.team?.shortDisplayName || away?.team?.abbreviation || '';
+      const homeLogo = home?.team?.logo || '', awayLogo = away?.team?.logo || '';
+      const homeRec = home?.records?.[0]?.summary || '', awayRec = away?.records?.[0]?.summary || '';
       let homeWin = false, awayWin = false;
-      if (isFinal && homeScore !== '' && awayScore !== '') {
-        homeWin = parseInt(homeScore) > parseInt(awayScore);
-        awayWin = parseInt(awayScore) > parseInt(homeScore);
-      }
-
-      const badgeHtml = isLive
-        ? `<span class="status-badge status-live">● Live</span>`
-        : isFinal
-        ? `<span class="status-badge status-final">Final</span>`
-        : `<span class="status-badge status-upcoming">Upcoming</span>`;
-
-      const timeHtml = isPre
-        ? `<div class="game-time">${formatTime(event.date)}</div>`
-        : `<div class="game-detail">${detail}</div>`;
-
+      if (isFinal && homeScore !== '' && awayScore !== '') { homeWin = parseInt(homeScore) > parseInt(awayScore); awayWin = !homeWin; }
+      const badge = isLive ? `<span class="status-badge status-live">● Live</span>` : isFinal ? `<span class="status-badge status-final">Final</span>` : `<span class="status-badge status-upcoming">Upcoming</span>`;
       const logoStyle = 'width:28px;height:28px;object-fit:contain;border-radius:50%;background:rgba(255,255,255,0.05);';
-
-      return `
-        <div class="game-card ${isLive ? 'live' : ''}">
-          <div class="game-status">
-            ${badgeHtml}
-            <div class="game-detail">${comp.venue?.fullName || ''}</div>
-          </div>
-          <div class="game-matchup">
-            <div class="game-team">
-              <div class="team-info">
-                ${awayLogo ? `<img src="${awayLogo}" style="${logoStyle}" alt="${awayName}"/>` : ''}
-                <div>
-                  <div class="team-name">${awayName}</div>
-                  ${awayRec ? `<div class="team-record">${awayRec}</div>` : ''}
-                </div>
-              </div>
-              ${!isPre ? `<div class="team-score ${awayWin ? 'winner' : ''}">${awayScore}</div>` : ''}
-            </div>
-            <div class="game-divider"></div>
-            <div class="game-team">
-              <div class="team-info">
-                ${homeLogo ? `<img src="${homeLogo}" style="${logoStyle}" alt="${homeName}"/>` : ''}
-                <div>
-                  <div class="team-name">${homeName}</div>
-                  ${homeRec ? `<div class="team-record">${homeRec}</div>` : ''}
-                </div>
-              </div>
-              ${!isPre ? `<div class="team-score ${homeWin ? 'winner' : ''}">${homeScore}</div>` : ''}
-            </div>
-          </div>
-          ${timeHtml}
-        </div>`;
+      return `<div class="game-card ${isLive ? 'live' : ''}">
+        <div class="game-status">${badge}<div class="game-detail">${comp.venue?.fullName || ''}</div></div>
+        <div class="game-matchup">
+          <div class="game-team"><div class="team-info">${awayLogo ? `<img src="${awayLogo}" style="${logoStyle}" alt="${awayName}"/>` : ''}<div><div class="team-name">${awayName}</div>${awayRec ? `<div class="team-record">${awayRec}</div>` : ''}</div></div>${!isPre ? `<div class="team-score ${awayWin ? 'winner' : ''}">${awayScore}</div>` : ''}</div>
+          <div class="game-divider"></div>
+          <div class="game-team"><div class="team-info">${homeLogo ? `<img src="${homeLogo}" style="${logoStyle}" alt="${homeName}"/>` : ''}<div><div class="team-name">${homeName}</div>${homeRec ? `<div class="team-record">${homeRec}</div>` : ''}</div></div>${!isPre ? `<div class="team-score ${homeWin ? 'winner' : ''}">${homeScore}</div>` : ''}</div>
+        </div>
+        ${isPre ? `<div class="game-time">${formatTime(event.date)}</div>` : `<div class="game-detail">${status.shortDetail || ''}</div>`}
+      </div>`;
     }
 
     async function loadSport(sport) {
-      const grid    = document.getElementById(`grid-${sport.key}`);
+      const grid = document.getElementById(`grid-${sport.key}`);
       const updated = document.getElementById(`updated-${sport.key}`);
-      const badge   = document.getElementById(`badge-${sport.key}`);
-
       try {
-        const res  = await fetch(`https://site.api.espn.com/apis/site/v2/sports/${sport.path}/scoreboard`);
+        const res = await fetch(`https://site.api.espn.com/apis/site/v2/sports/${sport.path}/scoreboard`);
         const data = await res.json();
         const events = data.events || [];
-
-        if (events.length === 0) {
-          grid.innerHTML = `<div class="empty-state"><div class="empty-icon">📅</div><div class="empty-text">No games scheduled right now</div></div>`;
-          return;
-        }
-
-        // Sort: live first, then upcoming, then final
+        if (!events.length) { grid.innerHTML = `<div class="empty-state"><div class="empty-icon">📅</div><div class="empty-text">No games scheduled right now</div></div>`; return; }
         const order = { in: 0, pre: 1, post: 2 };
         events.sort((a, b) => (order[a.status.type.state] ?? 3) - (order[b.status.type.state] ?? 3));
-
-        const liveCount = events.filter(e => e.status.type.state === 'in').length;
-        if (liveCount > 0) {
-          badge.textContent = `${liveCount} Live`;
-          badge.classList.add('show');
-        }
-
         grid.innerHTML = events.map(buildCard).join('');
         updated.textContent = `Updated ${new Date().toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' })}`;
-
       } catch {
-        grid.innerHTML = `<div class="empty-state"><div class="empty-icon">⚠️</div><div class="empty-text">Could not load schedule — please try again</div></div>`;
+        grid.innerHTML = `<div class="empty-state"><div class="empty-icon">📅</div><div class="empty-text">Scores will appear here when games are live</div></div>`;
       }
     }
 
-    // Load all sports on page load
     SPORTS.forEach(loadSport);
-
-    // Auto-refresh every 60 seconds
     setInterval(() => SPORTS.forEach(loadSport), 60000);
   </script>
 
