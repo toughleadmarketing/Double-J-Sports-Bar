@@ -318,10 +318,10 @@ nav a::after { display: none; }
     <div class="hero-inner">
       <p class="hero-eyebrow">Joliet's home for the game</p>
       <h1 class="hero-title">Where Every<br><span class="accent">Game</span><br>Is an Event</h1>
-      <p class="hero-sub">20+ screens · Cold Beer · Game-day Specials · Outdoor Patio· Live Music</p>
+      <p class="hero-sub">40+ screens · Cold drafts · Game-day specials · Private party rooms</p>
       <div class="hero-ctas">
         <a href="drink-menu.html" class="btn-primary">View Menu</a>
-        <a href="connect.html" class="btn-outline">Book a Party</a>
+        <a href="#" class="btn-outline">Book a Party</a>
       </div>
     </div>
   </section>
@@ -359,7 +359,7 @@ nav a::after { display: none; }
         </div>
         <!-- Photo 7 — replace src with your Imgur URL -->
         <div class="gallery-item">
-          <img src="https://i.imgur.com/9WCJNZM.jpeg" alt="Bar atmosphere 7"/>
+          <img src="https://placehold.co/600x220/0f1c3f/0f1c3f" alt="Bar atmosphere 7"/>
           <div class="gallery-overlay"></div>
         </div>
       </div>
@@ -377,7 +377,7 @@ nav a::after { display: none; }
         <iframe
           src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fdoublejsportsbar&tabs=timeline&width=500&height=600&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=true&appId"
           width="500" height="600"
-          style="border:none;overflow:hidden;display:none;"
+          style="border:none;overflow:hidden;"
           scrolling="no" frameborder="0" allowfullscreen="true"
           allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
           id="fb-embed"
@@ -494,7 +494,7 @@ nav a::after { display: none; }
         .map(g => `<span><strong style="color:#ffd0d0;margin-right:0.4rem">${g.label}</strong>${g.text}</span>`)
         .join('');
       const totalWidth = track.scrollWidth;
-      const duration = Math.max(8, totalWidth / 200);
+      const duration = Math.max(5, totalWidth / 400);
       track.style.animationDuration = `${duration}s`;
     }
 
@@ -506,14 +506,29 @@ nav a::after { display: none; }
     const fbEmbed = document.getElementById('fb-embed');
     const fbPlaceholder = document.getElementById('fb-placeholder');
     if (fbEmbed) {
+      // Always try to show the embed first
+      fbEmbed.style.display = 'block';
+      fbPlaceholder.style.display = 'none';
+
+      // Fall back to placeholder if embed fails to load
       fbEmbed.addEventListener('error', () => {
         fbEmbed.style.display = 'none';
         fbPlaceholder.style.display = 'flex';
       });
-      if (fbEmbed.src.includes('YOUR_PAGE_URL')) {
-        fbEmbed.style.display = 'none';
-        fbPlaceholder.style.display = 'flex';
-      }
+
+      // Facebook embeds often block in certain environments
+      // If the iframe doesn't load content within 5 seconds, show placeholder
+      setTimeout(() => {
+        try {
+          const iframeDoc = fbEmbed.contentDocument || fbEmbed.contentWindow?.document;
+          if (!iframeDoc || iframeDoc.body?.innerHTML === '') {
+            fbEmbed.style.display = 'none';
+            fbPlaceholder.style.display = 'flex';
+          }
+        } catch(e) {
+          // Cross-origin — embed is loading from Facebook's servers, leave it visible
+        }
+      }, 5000);
     }
   </script>
 
