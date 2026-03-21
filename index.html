@@ -377,7 +377,7 @@ nav a::after { display: none; }
         <iframe
           src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fdoublejsportsbar&tabs=timeline&width=500&height=600&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=true&appId"
           width="500" height="600"
-          style="border:none;overflow:hidden;"
+          style="border:none;overflow:hidden;display:none;"
           scrolling="no" frameborder="0" allowfullscreen="true"
           allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
           id="fb-embed"
@@ -494,7 +494,7 @@ nav a::after { display: none; }
         .map(g => `<span><strong style="color:#ffd0d0;margin-right:0.4rem">${g.label}</strong>${g.text}</span>`)
         .join('');
       const totalWidth = track.scrollWidth;
-      const duration = Math.max(5, totalWidth / 400);
+      const duration = Math.max(8, totalWidth / 200);
       track.style.animationDuration = `${duration}s`;
     }
 
@@ -506,29 +506,14 @@ nav a::after { display: none; }
     const fbEmbed = document.getElementById('fb-embed');
     const fbPlaceholder = document.getElementById('fb-placeholder');
     if (fbEmbed) {
-      // Always try to show the embed first
-      fbEmbed.style.display = 'block';
-      fbPlaceholder.style.display = 'none';
-
-      // Fall back to placeholder if embed fails to load
       fbEmbed.addEventListener('error', () => {
         fbEmbed.style.display = 'none';
         fbPlaceholder.style.display = 'flex';
       });
-
-      // Facebook embeds often block in certain environments
-      // If the iframe doesn't load content within 5 seconds, show placeholder
-      setTimeout(() => {
-        try {
-          const iframeDoc = fbEmbed.contentDocument || fbEmbed.contentWindow?.document;
-          if (!iframeDoc || iframeDoc.body?.innerHTML === '') {
-            fbEmbed.style.display = 'none';
-            fbPlaceholder.style.display = 'flex';
-          }
-        } catch(e) {
-          // Cross-origin — embed is loading from Facebook's servers, leave it visible
-        }
-      }, 5000);
+      if (fbEmbed.src.includes('YOUR_PAGE_URL')) {
+        fbEmbed.style.display = 'none';
+        fbPlaceholder.style.display = 'flex';
+      }
     }
   </script>
 
