@@ -8,413 +8,202 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-body {
-  background-color: #0f1c3f;
-  font-family: 'Barlow', sans-serif;
-  color: #EEF2FA;
-}
+    body { background-color: #0f1c3f; font-family: 'Barlow', sans-serif; color: #EEF2FA; }
 
-/* ── HEADER ── */
-header {
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  z-index: 100;
-  background-color: rgba(15,28,63,0.97);
-  border-bottom: 1px solid rgba(192,39,45,0.35);
-  backdrop-filter: blur(8px);
-}
+    /* ── HEADER ── */
+    header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background-color: rgba(15,28,63,0.97); border-bottom: 1px solid rgba(192,39,45,0.35); backdrop-filter: blur(8px); }
+    .header-inner { max-width: 1280px; margin: 0 auto; padding: 0 2rem; height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
+    .logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; flex-shrink: 0; }
+    .logo-img-wrap { width: 56px; height: 56px; border-radius: 50%; overflow: hidden; border: 2px solid #C0272D; flex-shrink: 0; background-color: #162550; transition: transform 0.3s ease; }
+    .logo:hover .logo-img-wrap { transform: scale(1.06); }
+    .logo-img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .logo-text { display: flex; flex-direction: column; line-height: 1; }
+    .logo-name { font-family: 'Bebas Neue', sans-serif; font-size: 1.65rem; letter-spacing: 0.1em; color: #EEF2FA; }
+    .logo-tagline { font-family: 'Barlow Condensed', sans-serif; font-size: 0.65rem; letter-spacing: 0.3em; text-transform: uppercase; color: #C0272D; font-weight: 600; }
+    nav { display: flex; align-items: center; gap: 0.25rem; }
+    nav a { font-family: 'Barlow Condensed', sans-serif; font-size: 0.9rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; text-decoration: none; color: #7a8aaa; padding: 0.45rem 0.85rem; position: relative; transition: color 0.2s ease; }
+    nav a::after { content: ''; position: absolute; bottom: 0; left: 50%; right: 50%; height: 2px; background-color: #C0272D; transition: left 0.25s ease, right 0.25s ease; }
+    nav a:hover { color: #EEF2FA; }
+    nav a:hover::after { left: 0.85rem; right: 0.85rem; }
+    nav a.active { color: #C0272D; }
+    .nav-divider { width: 1px; height: 14px; background-color: rgba(255,255,255,0.12); }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 6px; }
+    .hamburger span { display: block; width: 24px; height: 2px; background-color: #EEF2FA; }
+    .hidden { display: none !important; }
 
-.header-inner {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 0 2rem;
-  height: 76px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 2rem;
-}
+    /* ── TICKER ── */
+    .ticker-bar { background: #C0272D; overflow: hidden; height: 28px; display: flex; align-items: center; position: fixed; top: 76px; left: 0; right: 0; z-index: 99; }
+    .ticker-label { background: #1e3370; color: #EEF2FA; font-family: 'Bebas Neue', sans-serif; font-size: 0.8rem; letter-spacing: 0.15em; padding: 0 1rem; height: 100%; display: flex; align-items: center; flex-shrink: 0; }
+    .ticker-track { display: flex; white-space: nowrap; flex-wrap: nowrap; animation: ticker 10s linear infinite; }
+    .ticker-track span { font-family: 'Barlow Condensed', sans-serif; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.92); padding: 0 2.5rem; white-space: nowrap; flex-shrink: 0; }
+    .ticker-track span em { color: #ffd0d0; font-style: normal; }
+    @keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
-.logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; flex-shrink: 0; }
-.logo-img-wrap { width: 56px; height: 56px; border-radius: 50%; overflow: hidden; border: 2px solid #C0272D; flex-shrink: 0; background-color: #162550; transition: transform 0.3s ease; }
-.logo:hover .logo-img-wrap { transform: scale(1.06); }
-.logo-img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.logo-text { display: flex; flex-direction: column; line-height: 1; }
-.logo-name { font-family: 'Bebas Neue', sans-serif; font-size: 1.65rem; letter-spacing: 0.1em; color: #EEF2FA; }
-.logo-tagline { font-family: 'Barlow Condensed', sans-serif; font-size: 0.65rem; letter-spacing: 0.3em; text-transform: uppercase; color: #C0272D; font-weight: 600; }
+    /* ── MONTHLY POLL ── */
+    .poll-section { background-color: #0a1428; border-bottom: 1px solid rgba(192,39,45,0.2); padding: 1.5rem 2rem; margin-top: 104px; }
+    .poll-inner { max-width: 860px; margin: 0 auto; }
+    .poll-card { display: flex; flex-direction: column; gap: 1rem; }
+    .poll-header { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; }
+    .poll-label { font-family: 'Barlow Condensed', sans-serif; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: #C0272D; }
+    .poll-month { font-family: 'Barlow Condensed', sans-serif; font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: #7a8aaa; }
+    .poll-question { font-family: 'Bebas Neue', sans-serif; font-size: clamp(1.2rem, 3vw, 1.8rem); letter-spacing: 0.06em; color: #EEF2FA; line-height: 1.1; }
+    .poll-options { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.75rem; }
+    .poll-option { background-color: #162550; border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; padding: 0.75rem 1rem; cursor: pointer; transition: all 0.2s ease; text-align: center; }
+    .poll-option:hover { background-color: #1e3370; border-color: #C0272D; transform: translateY(-2px); }
+    .poll-option-name { font-family: 'Barlow Condensed', sans-serif; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.08em; color: #EEF2FA; }
+    .poll-results { display: flex; flex-direction: column; gap: 0.6rem; }
+    .poll-results.hidden { display: none; }
+    .poll-result-item { display: grid; grid-template-columns: 180px 1fr 44px; align-items: center; gap: 0.75rem; }
+    .poll-result-label { font-family: 'Barlow Condensed', sans-serif; font-size: 0.82rem; font-weight: 700; letter-spacing: 0.06em; color: #EEF2FA; }
+    .poll-result-bar-wrap { background-color: #162550; border-radius: 20px; height: 10px; overflow: hidden; }
+    .poll-result-bar { height: 100%; background-color: #C0272D; border-radius: 20px; width: 0%; transition: width 0.6s ease; }
+    .poll-result-bar.winner { background-color: #F5C842; }
+    .poll-result-pct { font-family: 'Bebas Neue', sans-serif; font-size: 0.9rem; color: #7a8aaa; text-align: right; }
+    .poll-thanks { font-family: 'Barlow Condensed', sans-serif; font-size: 0.78rem; letter-spacing: 0.1em; color: #7a8aaa; text-align: center; margin-top: 0.25rem; }
 
-nav { display: flex; align-items: center; gap: 0.25rem; }
-nav a { font-family: 'Barlow Condensed', sans-serif; font-size: 0.9rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; text-decoration: none; color: #7a8aaa; padding: 0.45rem 0.85rem; position: relative; transition: color 0.2s ease; }
-nav a::after { content: ''; position: absolute; bottom: 0; left: 50%; right: 50%; height: 2px; background-color: #C0272D; transition: left 0.25s ease, right 0.25s ease; }
-nav a:hover { color: #EEF2FA; }
-nav a:hover::after { left: 0.85rem; right: 0.85rem; }
-nav a.active { color: #C0272D; }
-.nav-divider { width: 1px; height: 14px; background-color: rgba(255,255,255,0.12); }
+    /* ── PAGE HERO ── */
+    .page-hero { background-image: linear-gradient(160deg, rgba(192,39,45,0.12) 0%, transparent 50%); background-color: #0f1c3f; padding: 4rem 2rem; text-align: center; border-bottom: 1px solid rgba(192,39,45,0.2); }
+    .page-eyebrow { font-family: 'Barlow Condensed', sans-serif; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.4em; text-transform: uppercase; color: #C0272D; margin-bottom: 0.5rem; }
+    .page-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(3rem, 8vw, 6rem); letter-spacing: 0.06em; line-height: 1; color: #EEF2FA; }
+    .page-title .accent { color: #C0272D; }
 
-.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 6px; }
-.hamburger span { display: block; width: 24px; height: 2px; background-color: #EEF2FA; }
+    /* ── SHARED ── */
+    .section-inner { max-width: 1280px; margin: 0 auto; padding: 5rem 2rem; }
+    .section-eyebrow { font-family: 'Barlow Condensed', sans-serif; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.4em; text-transform: uppercase; color: #C0272D; margin-bottom: 0.5rem; display: block; }
+    .section-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.2rem, 5vw, 3.5rem); letter-spacing: 0.06em; color: #EEF2FA; margin-bottom: 2.5rem; line-height: 1; display: block; }
+    .section-title .accent { color: #C0272D; }
 
-.hidden { display: none !important; }
+    /* ── SOCIAL CARDS ── */
+    .social-links-section { background-color: #162550; }
+    .social-cards-wrap { max-width: 900px; }
+    .social-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; align-items: stretch; }
+    .social-card { display: flex; flex-direction: column; align-items: center; justify-content: flex-start; gap: 1rem; padding: 2.5rem 1.5rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.08); background-color: #0f1c3f; text-decoration: none; color: #EEF2FA; transition: transform 0.25s ease, border-color 0.25s ease, background-color 0.25s ease; text-align: center; min-width: 0; width: 100%; }
+    .social-card svg { width: 40px; height: 40px; flex-shrink: 0; display: block; }
+    .social-card:hover { transform: translateY(-4px); }
+    .social-card.facebook:hover { border-color: #1877F2; background-color: rgba(24,119,242,0.08); }
+    .social-card.instagram:hover { border-color: #d6249f; background-color: rgba(214,36,159,0.08); }
+    .social-card.tiktok:hover { border-color: #69C9D0; background-color: rgba(105,201,208,0.08); }
+    .social-card-name { font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; letter-spacing: 0.1em; }
+    .social-card-handle { font-family: 'Barlow Condensed', sans-serif; font-size: 0.85rem; letter-spacing: 0.1em; color: #7a8aaa; width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; text-align: center; }
+    .social-card-btn { font-family: 'Barlow Condensed', sans-serif; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; padding: 0.4rem 1.2rem; border-radius: 4px; margin-top: 0.25rem; }
+    .social-card.facebook .social-card-btn { color: #1877F2; border: 1px solid #1877F2; }
+    .social-card.instagram .social-card-btn { color: #d6249f; border: 1px solid #d6249f; }
+    .social-card.tiktok .social-card-btn { color: #69C9D0; border: 1px solid #69C9D0; }
 
-/* ── MONTHLY POLL ── */
-.poll-section {
-  background-color: #0a1428;
-  border-bottom: 1px solid rgba(192,39,45,0.2);
-  padding: 1.5rem 2rem;
-  margin-top: 104px;
-}
-.poll-inner { max-width: 860px; margin: 0 auto; }
-.poll-card { display: flex; flex-direction: column; gap: 1rem; }
-.poll-header { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; }
-.poll-label { font-family: 'Barlow Condensed', sans-serif; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: #C0272D; }
-.poll-month { font-family: 'Barlow Condensed', sans-serif; font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: #7a8aaa; }
-.poll-question { font-family: 'Bebas Neue', sans-serif; font-size: clamp(1.2rem, 3vw, 1.8rem); letter-spacing: 0.06em; color: #EEF2FA; line-height: 1.1; }
-.poll-options { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.75rem; }
-.poll-option { background-color: #162550; border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; padding: 0.75rem 1rem; cursor: pointer; transition: all 0.2s ease; text-align: center; }
-.poll-option:hover { background-color: #1e3370; border-color: #C0272D; transform: translateY(-2px); }
-.poll-option-name { font-family: 'Barlow Condensed', sans-serif; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.08em; color: #EEF2FA; }
-.poll-results { display: flex; flex-direction: column; gap: 0.6rem; }
-.poll-results.hidden { display: none; }
-.poll-result-item { display: grid; grid-template-columns: 180px 1fr 44px; align-items: center; gap: 0.75rem; }
-.poll-result-label { font-family: 'Barlow Condensed', sans-serif; font-size: 0.82rem; font-weight: 700; letter-spacing: 0.06em; color: #EEF2FA; }
-.poll-result-bar-wrap { background-color: #162550; border-radius: 20px; height: 10px; overflow: hidden; }
-.poll-result-bar { height: 100%; background-color: #C0272D; border-radius: 20px; width: 0%; transition: width 0.6s ease; }
-.poll-result-bar.winner { background-color: #F5C842; }
-.poll-result-pct { font-family: 'Bebas Neue', sans-serif; font-size: 0.9rem; color: #7a8aaa; text-align: right; }
-.poll-thanks { font-family: 'Barlow Condensed', sans-serif; font-size: 0.78rem; letter-spacing: 0.1em; color: #7a8aaa; text-align: center; margin-top: 0.25rem; }
+    /* ── 360 TOUR ── */
+    .tour-section { background-color: #0f1c3f; }
+    .tour-embed { width: 100%; aspect-ratio: 16 / 9; border-radius: 8px; overflow: hidden; border: 1px solid rgba(192,39,45,0.25); }
+    .tour-embed iframe { width: 100%; height: 100%; border: none; display: block; }
 
-@media (max-width: 680px) {
-  .poll-section { padding: 1.25rem 1rem; margin-top: 92px; }
-  .poll-options { grid-template-columns: repeat(2, 1fr); }
-  .poll-result-item { grid-template-columns: 1fr 1fr 36px; }
-  .poll-result-label { font-size: 0.72rem; }
-}
+    /* ── CONTACT & MAP ── */
+    .contact-section { background-color: #162550; }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1.6fr; gap: 3rem; align-items: start; }
+    .contact-info { display: flex; flex-direction: column; gap: 2rem; }
+    .contact-block { display: flex; flex-direction: column; gap: 0.4rem; }
+    .contact-label { font-family: 'Barlow Condensed', sans-serif; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.35em; text-transform: uppercase; color: #C0272D; }
+    .contact-value { font-family: 'Barlow Condensed', sans-serif; font-size: 1.15rem; font-weight: 600; letter-spacing: 0.05em; color: #EEF2FA; line-height: 1.4; }
+    .contact-value a { color: #EEF2FA; text-decoration: none; transition: color 0.2s ease; }
+    .contact-value a:hover { color: #C0272D; }
+    .map-buttons { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 0.5rem; }
+    .map-btn { display: flex; align-items: center; gap: 0.5rem; font-family: 'Barlow Condensed', sans-serif; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; padding: 0.6rem 1.2rem; border-radius: 4px; transition: all 0.2s ease; }
+    .map-btn.google { border: 1px solid #4285F4; color: #4285F4; }
+    .map-btn.google:hover { background-color: #4285F4; color: #EEF2FA; }
+    .map-btn.apple { border: 1px solid #EEF2FA; color: #EEF2FA; }
+    .map-btn.apple:hover { background-color: #EEF2FA; color: #0f1c3f; }
+    .map-wrap { border-radius: 8px; overflow: hidden; border: 1px solid rgba(192,39,45,0.25); height: 380px; }
+    .map-wrap iframe { width: 100%; height: 100%; border: none; display: block; }
 
-/* ── PAGE HERO ── */
-.page-hero {
-  background-image: linear-gradient(160deg, rgba(192,39,45,0.12) 0%, transparent 50%);
-  background-color: #0f1c3f;
-  padding: 4rem 2rem;
-  text-align: center;
-  border-bottom: 1px solid rgba(192,39,45,0.2);
-}
+    /* ── FAQ ── */
+    .faq-section { background-color: #0f1c3f; }
+    .faq-list { display: flex; flex-direction: column; border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; overflow: hidden; }
+    .faq-item { border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .faq-item:last-child { border-bottom: none; }
+    .faq-question { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1.4rem 1.75rem; background-color: #162550; border: none; cursor: pointer; color: #EEF2FA; font-family: 'Barlow Condensed', sans-serif; font-size: 1.1rem; font-weight: 700; letter-spacing: 0.05em; text-align: left; transition: background-color 0.2s ease; }
+    .faq-question:hover { background-color: #1e3370; }
+    .faq-question[aria-expanded="true"] { background-color: #1e3370; color: #C0272D; }
+    .faq-icon { flex-shrink: 0; transition: transform 0.3s ease; color: #C0272D; }
+    .faq-question[aria-expanded="true"] .faq-icon { transform: rotate(180deg); }
+    .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.3s ease; padding: 0 1.75rem; background-color: #0f1c3f; }
+    .faq-answer.open { max-height: 200px; padding: 1.25rem 1.75rem; }
+    .faq-answer p { font-family: 'Barlow', sans-serif; font-size: 0.95rem; color: #7a8aaa; line-height: 1.7; }
 
-.page-eyebrow { font-family: 'Barlow Condensed', sans-serif; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.4em; text-transform: uppercase; color: #C0272D; margin-bottom: 0.5rem; }
-.page-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(3rem, 8vw, 6rem); letter-spacing: 0.06em; line-height: 1; color: #EEF2FA; }
-.page-title .accent { color: #C0272D; }
+    /* ── AGE GATE ── */
+    #age-gate { position: fixed; inset: 0; z-index: 10000; background: rgba(6,8,15,0.97); display: flex; align-items: center; justify-content: center; padding: 1.5rem; backdrop-filter: blur(6px); animation: ageFadeIn 0.4s ease both; }
+    @keyframes ageFadeIn { from { opacity: 0; } to { opacity: 1; } }
+    #age-gate.hidden { display: none; }
+    .age-gate-box { background: #162550; border: 1px solid rgba(192,39,45,0.4); border-radius: 12px; padding: 3rem 2.5rem; max-width: 420px; width: 100%; text-align: center; box-shadow: 0 0 80px rgba(192,39,45,0.15); animation: ageFadeIn 0.5s 0.1s ease both; }
+    .age-gate-logo { width: 72px; height: 72px; border-radius: 50%; overflow: hidden; border: 2px solid #C0272D; margin: 0 auto 1.5rem; background: #0f1c3f; }
+    .age-gate-logo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .age-gate-eyebrow { font-family: 'Barlow Condensed', sans-serif; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.35em; text-transform: uppercase; color: #C0272D; margin-bottom: 0.5rem; }
+    .age-gate-title { font-family: 'Bebas Neue', sans-serif; font-size: 2.6rem; letter-spacing: 0.06em; color: #EEF2FA; line-height: 1; margin-bottom: 0.5rem; }
+    .age-gate-sub { font-family: 'Barlow', sans-serif; font-size: 0.88rem; color: #7a8aaa; margin-bottom: 2rem; line-height: 1.6; }
+    .age-gate-label { font-family: 'Barlow Condensed', sans-serif; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #7a8aaa; display: block; margin-bottom: 0.6rem; text-align: left; }
+    .age-gate-inputs { display: grid; grid-template-columns: 1fr 1fr 1.4fr; gap: 0.5rem; margin-bottom: 1.25rem; }
+    .age-gate-inputs input { background: #0f1c3f; border: 1px solid rgba(255,255,255,0.12); border-radius: 6px; color: #EEF2FA; font-family: 'Barlow Condensed', sans-serif; font-size: 1.1rem; font-weight: 600; letter-spacing: 0.05em; padding: 0.7rem 0.5rem; text-align: center; width: 100%; outline: none; transition: border-color 0.2s ease; -moz-appearance: textfield; }
+    .age-gate-inputs input::-webkit-outer-spin-button,
+    .age-gate-inputs input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+    .age-gate-inputs input::placeholder { color: rgba(255,255,255,0.2); font-size: 0.85rem; }
+    .age-gate-inputs input:focus { border-color: #C0272D; }
+    .age-gate-inputs input.error { border-color: #C0272D; background: rgba(192,39,45,0.08); }
+    .age-gate-btn { font-family: 'Bebas Neue', sans-serif; font-size: 1.15rem; letter-spacing: 0.15em; background: #C0272D; color: #EEF2FA; border: none; cursor: pointer; padding: 0.9rem 2rem; width: 100%; border-radius: 6px; transition: background 0.2s ease, transform 0.15s ease; margin-bottom: 1rem; }
+    .age-gate-btn:hover { background: #1e3370; transform: translateY(-2px); }
+    .age-gate-error { font-family: 'Barlow Condensed', sans-serif; font-size: 0.85rem; font-weight: 600; letter-spacing: 0.05em; color: #C0272D; min-height: 1.2em; margin-bottom: 0.75rem; }
+    .age-gate-disclaimer { font-family: 'Barlow', sans-serif; font-size: 0.72rem; color: #7a8aaa; opacity: 0.7; line-height: 1.5; }
 
-/* ── SHARED ── */
-.section-inner { max-width: 1280px; margin: 0 auto; padding: 5rem 2rem; }
-.section-eyebrow { font-family: 'Barlow Condensed', sans-serif; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.4em; text-transform: uppercase; color: #C0272D; margin-bottom: 0.5rem; display: block; }
-.section-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.2rem, 5vw, 3.5rem); letter-spacing: 0.06em; color: #EEF2FA; margin-bottom: 2.5rem; line-height: 1; display: block; }
-.section-title .accent { color: #C0272D; }
+    /* ── FOOTER ── */
+    footer { background-color: #06080f; border-top: 1px solid rgba(192,39,45,0.3); }
+    .footer-inner { max-width: 1280px; margin: 0 auto; padding: 3rem 2rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 2rem; }
+    .footer-brand { display: flex; align-items: center; gap: 0.85rem; }
+    .footer-logo-wrap { width: 52px; height: 52px; border-radius: 50%; overflow: hidden; border: 2px solid #C0272D; flex-shrink: 0; background-color: #162550; }
+    .footer-logo-img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .footer-logo-name { font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; letter-spacing: 0.1em; color: #EEF2FA; line-height: 1; }
+    .footer-logo-tag { font-family: 'Barlow Condensed', sans-serif; font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase; color: #7a8aaa; margin-top: 0.2rem; }
+    .footer-phone { font-family: 'Barlow Condensed', sans-serif; font-size: 1.1rem; font-weight: 700; letter-spacing: 0.1em; color: #EEF2FA; text-decoration: none; display: flex; align-items: center; gap: 0.5rem; transition: color 0.2s ease; }
+    .footer-phone:hover { color: #C0272D; }
+    .footer-social { display: flex; align-items: center; gap: 0.75rem; }
+    .social-icon { display: flex; align-items: center; justify-content: center; width: 42px; height: 42px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.12); color: #7a8aaa; text-decoration: none; transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease; }
+    .social-icon:hover { background-color: #1877F2; color: #EEF2FA; border-color: #1877F2; }
+    .social-icon.instagram:hover { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); color: #EEF2FA; border-color: transparent; }
+    .social-icon.tiktok:hover { background-color: #010101; color: #EEF2FA; border-color: #69C9D0; }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.06); padding: 1.25rem 2rem; max-width: 1280px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; }
+    .footer-disclaimer { font-family: 'Barlow Condensed', sans-serif; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: #C0272D; opacity: 0.8; }
+    .footer-copy { font-family: 'Barlow', sans-serif; font-size: 0.75rem; color: #7a8aaa; opacity: 0.6; }
 
-/* ── SOCIAL CARDS ── */
-.social-links-section { background-color: #162550; }
-.social-cards-wrap { max-width: 900px; }
-
-.social-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; align-items: stretch; }
-
-.social-card { display: flex; flex-direction: column; align-items: center; justify-content: flex-start; gap: 1rem; padding: 2.5rem 1.5rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.08); background-color: #0f1c3f; text-decoration: none; color: #EEF2FA; transition: transform 0.25s ease, border-color 0.25s ease, background-color 0.25s ease; text-align: center; min-width: 0; width: 100%; }
-.social-card svg { width: 40px; height: 40px; flex-shrink: 0; display: block; }
-.social-card:hover { transform: translateY(-4px); }
-.social-card.facebook:hover { border-color: #1877F2; background-color: rgba(24,119,242,0.08); }
-.social-card.instagram:hover { border-color: #d6249f; background-color: rgba(214,36,159,0.08); }
-.social-card.tiktok:hover { border-color: #69C9D0; background-color: rgba(105,201,208,0.08); }
-.social-card-name { font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; letter-spacing: 0.1em; }
-.social-card-handle { font-family: 'Barlow Condensed', sans-serif; font-size: 0.85rem; letter-spacing: 0.1em; color: #7a8aaa; width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; text-align: center; }
-.social-card-btn { font-family: 'Barlow Condensed', sans-serif; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; padding: 0.4rem 1.2rem; border-radius: 4px; margin-top: 0.25rem; }
-.social-card.facebook .social-card-btn { color: #1877F2; border: 1px solid #1877F2; }
-.social-card.instagram .social-card-btn { color: #d6249f; border: 1px solid #d6249f; }
-.social-card.tiktok .social-card-btn { color: #69C9D0; border: 1px solid #69C9D0; }
-
-/* ── 360 TOUR ── */
-.tour-section { background-color: #0f1c3f; }
-.tour-embed { width: 100%; aspect-ratio: 16 / 9; border-radius: 8px; overflow: hidden; border: 1px solid rgba(192,39,45,0.25); }
-.tour-embed iframe { width: 100%; height: 100%; border: none; display: block; }
-
-/* ── CONTACT & MAP ── */
-.contact-section { background-color: #162550; }
-.contact-grid { display: grid; grid-template-columns: 1fr 1.6fr; gap: 3rem; align-items: start; }
-.contact-info { display: flex; flex-direction: column; gap: 2rem; }
-.contact-block { display: flex; flex-direction: column; gap: 0.4rem; }
-.contact-label { font-family: 'Barlow Condensed', sans-serif; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.35em; text-transform: uppercase; color: #C0272D; }
-.contact-value { font-family: 'Barlow Condensed', sans-serif; font-size: 1.15rem; font-weight: 600; letter-spacing: 0.05em; color: #EEF2FA; line-height: 1.4; }
-.contact-value a { color: #EEF2FA; text-decoration: none; transition: color 0.2s ease; }
-.contact-value a:hover { color: #C0272D; }
-
-.map-buttons { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 0.5rem; }
-.map-btn { display: flex; align-items: center; gap: 0.5rem; font-family: 'Barlow Condensed', sans-serif; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; padding: 0.6rem 1.2rem; border-radius: 4px; transition: all 0.2s ease; }
-.map-btn.google { border: 1px solid #4285F4; color: #4285F4; }
-.map-btn.google:hover { background-color: #4285F4; color: #EEF2FA; }
-.map-btn.apple { border: 1px solid #EEF2FA; color: #EEF2FA; }
-.map-btn.apple:hover { background-color: #EEF2FA; color: #0f1c3f; }
-
-.map-wrap { border-radius: 8px; overflow: hidden; border: 1px solid rgba(192,39,45,0.25); height: 380px; }
-.map-wrap iframe { width: 100%; height: 100%; border: none; display: block; }
-
-/* ── FAQ ── */
-.faq-section { background-color: #0f1c3f; }
-.faq-list { display: flex; flex-direction: column; border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; overflow: hidden; }
-.faq-item { border-bottom: 1px solid rgba(255,255,255,0.08); }
-.faq-item:last-child { border-bottom: none; }
-.faq-question { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1.4rem 1.75rem; background-color: #162550; border: none; cursor: pointer; color: #EEF2FA; font-family: 'Barlow Condensed', sans-serif; font-size: 1.1rem; font-weight: 700; letter-spacing: 0.05em; text-align: left; transition: background-color 0.2s ease; }
-.faq-question:hover { background-color: #1e3370; }
-.faq-question[aria-expanded="true"] { background-color: #1e3370; color: #C0272D; }
-.faq-icon { flex-shrink: 0; transition: transform 0.3s ease; color: #C0272D; }
-.faq-question[aria-expanded="true"] .faq-icon { transform: rotate(180deg); }
-.faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.3s ease; padding: 0 1.75rem; background-color: #0f1c3f; }
-.faq-answer.open { max-height: 200px; padding: 1.25rem 1.75rem; }
-.faq-answer p { font-family: 'Barlow', sans-serif; font-size: 0.95rem; color: #7a8aaa; line-height: 1.7; }
-
-/* ── FOOTER ── */
-footer { background-color: #06080f; border-top: 1px solid rgba(192,39,45,0.3); }
-.footer-inner { max-width: 1280px; margin: 0 auto; padding: 3rem 2rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 2rem; }
-.footer-brand { display: flex; align-items: center; gap: 0.85rem; }
-.footer-logo-wrap { width: 52px; height: 52px; border-radius: 50%; overflow: hidden; border: 2px solid #C0272D; flex-shrink: 0; background-color: #162550; }
-.footer-logo-img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.footer-logo-name { font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; letter-spacing: 0.1em; color: #EEF2FA; line-height: 1; }
-.footer-logo-tag { font-family: 'Barlow Condensed', sans-serif; font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase; color: #7a8aaa; margin-top: 0.2rem; }
-.footer-phone { font-family: 'Barlow Condensed', sans-serif; font-size: 1.1rem; font-weight: 700; letter-spacing: 0.1em; color: #EEF2FA; text-decoration: none; display: flex; align-items: center; gap: 0.5rem; transition: color 0.2s ease; }
-.footer-phone:hover { color: #C0272D; }
-.footer-social { display: flex; align-items: center; gap: 0.75rem; }
-.social-icon { display: flex; align-items: center; justify-content: center; width: 42px; height: 42px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.12); color: #7a8aaa; text-decoration: none; transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease; }
-.social-icon:hover { background-color: #1877F2; color: #EEF2FA; border-color: #1877F2; }
-.social-icon.instagram:hover { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); color: #EEF2FA; border-color: transparent; }
-.social-icon.tiktok:hover { background-color: #010101; color: #EEF2FA; border-color: #69C9D0; }
-.footer-bottom { border-top: 1px solid rgba(255,255,255,0.06); padding: 1.25rem 2rem; max-width: 1280px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; }
-.footer-disclaimer { font-family: 'Barlow Condensed', sans-serif; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: #C0272D; opacity: 0.8; }
-.footer-copy { font-family: 'Barlow', sans-serif; font-size: 0.75rem; color: #7a8aaa; opacity: 0.6; }
-
-.fb-visit-btn { font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; letter-spacing: 0.15em; background-color: #1877F2; color: #EEF2FA; padding: 0.75rem 2rem; text-decoration: none; border-radius: 4px; display: inline-block; transition: background-color 0.2s ease, transform 0.15s ease; }
-.fb-visit-btn:hover { background-color: #1464d0; transform: translateY(-2px); }
-
-/* ── MOBILE ── */
-@media (max-width: 680px) {
-  .header-inner { padding: 0 1rem; height: 66px; }
-  .logo-img-wrap { width: 42px; height: 42px; }
-  .logo-name { font-size: 1.2rem; }
-  .logo-tagline { font-size: 0.5rem; letter-spacing: 0.2em; }
-  .hamburger { display: flex; }
-
-  .ticker-bar { top: 66px; height: 26px; }
-  .ticker-label { font-size: 0.65rem; padding: 0 0.5rem; white-space: nowrap; }
-  .ticker-track { display: flex; flex-wrap: nowrap; white-space: nowrap; }
-  .ticker-track span { font-size: 0.65rem; padding: 0 1rem; white-space: nowrap; flex-shrink: 0; }
-
-  nav {
-    display: none;
-    position: fixed;
-    top: 66px; left: 0; right: 0;
-    background-color: #0f1c3f;
-    flex-direction: column;
-    align-items: stretch;
-    padding: 0.5rem 0 1rem;
-    border-top: 2px solid #C0272D;
-    z-index: 9999;
-  }
-  nav.open { display: flex; }
-  nav a { padding: 0.9rem 1.5rem; font-size: 1rem; color: #EEF2FA; border-bottom: 1px solid rgba(255,255,255,0.06); }
-  nav a.active { color: #C0272D; }
-  nav a::after { display: none; }
-  .nav-divider { display: none; }
-
-  .page-hero { margin-top: 92px; padding: 2.5rem 1.25rem; }
-  .page-title { font-size: clamp(2.5rem, 12vw, 4rem); }
-
-  .section-inner { padding: 2.5rem 1.25rem; }
-  .section-title { font-size: 1.8rem; }
-
-  .social-cards { grid-template-columns: 1fr; }
-  .contact-grid { grid-template-columns: 1fr; }
-  .map-wrap { height: 260px; }
-
-  .footer-inner { flex-direction: column; align-items: center; text-align: center; padding: 2rem 1rem; }
-  .footer-brand { flex-direction: column; align-items: center; }
-  .footer-bottom { flex-direction: column; align-items: center; text-align: center; padding: 1rem; }
-}
-
-/* ── AGE GATE ── */
-#age-gate {
-  position: fixed;
-  inset: 0;
-  z-index: 10000;
-  background: rgba(6, 8, 15, 0.97);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 1.5rem;
-  backdrop-filter: blur(6px);
-  animation: ageFadeIn 0.4s ease both;
-}
-@keyframes ageFadeIn { from { opacity: 0; } to { opacity: 1; } }
-#age-gate.hidden { display: none; }
-.age-gate-box {
-  background: #162550;
-  border: 1px solid rgba(192,39,45,0.4);
-  border-radius: 12px;
-  padding: 3rem 2.5rem;
-  max-width: 420px;
-  width: 100%;
-  text-align: center;
-  box-shadow: 0 0 80px rgba(192,39,45,0.15);
-  animation: ageFadeIn 0.5s 0.1s ease both;
-}
-.age-gate-logo {
-  width: 72px;
-  height: 72px;
-  border-radius: 50%;
-  overflow: hidden;
-  border: 2px solid #C0272D;
-  margin: 0 auto 1.5rem;
-  background: #0f1c3f;
-}
-.age-gate-logo img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.age-gate-eyebrow {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.35em;
-  text-transform: uppercase;
-  color: #C0272D;
-  margin-bottom: 0.5rem;
-}
-.age-gate-title {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 2.6rem;
-  letter-spacing: 0.06em;
-  color: #EEF2FA;
-  line-height: 1;
-  margin-bottom: 0.5rem;
-}
-.age-gate-sub {
-  font-family: 'Barlow', sans-serif;
-  font-size: 0.88rem;
-  color: #7a8aaa;
-  margin-bottom: 2rem;
-  line-height: 1.6;
-}
-.age-gate-label {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: #7a8aaa;
-  display: block;
-  margin-bottom: 0.6rem;
-  text-align: left;
-}
-.age-gate-inputs {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1.4fr;
-  gap: 0.5rem;
-  margin-bottom: 1.25rem;
-}
-.age-gate-inputs input {
-  background: #0f1c3f;
-  border: 1px solid rgba(255,255,255,0.12);
-  border-radius: 6px;
-  color: #EEF2FA;
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 1.1rem;
-  font-weight: 600;
-  letter-spacing: 0.05em;
-  padding: 0.7rem 0.5rem;
-  text-align: center;
-  width: 100%;
-  outline: none;
-  transition: border-color 0.2s ease;
-  -moz-appearance: textfield;
-}
-.age-gate-inputs input::-webkit-outer-spin-button,
-.age-gate-inputs input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
-.age-gate-inputs input::placeholder { color: rgba(255,255,255,0.2); font-size: 0.85rem; }
-.age-gate-inputs input:focus { border-color: #C0272D; }
-.age-gate-inputs input.error { border-color: #C0272D; background: rgba(192,39,45,0.08); }
-.age-gate-btn {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 1.15rem;
-  letter-spacing: 0.15em;
-  background: #C0272D;
-  color: #EEF2FA;
-  border: none;
-  cursor: pointer;
-  padding: 0.9rem 2rem;
-  width: 100%;
-  border-radius: 6px;
-  transition: background 0.2s ease, transform 0.15s ease;
-  margin-bottom: 1rem;
-}
-.age-gate-btn:hover { background: #1e3370; transform: translateY(-2px); }
-.age-gate-error {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 0.85rem;
-  font-weight: 600;
-  letter-spacing: 0.05em;
-  color: #C0272D;
-  min-height: 1.2em;
-  margin-bottom: 0.75rem;
-}
-.age-gate-disclaimer {
-  font-family: 'Barlow', sans-serif;
-  font-size: 0.72rem;
-  color: #7a8aaa;
-  opacity: 0.7;
-  line-height: 1.5;
-}
-@media (max-width: 480px) {
-  .age-gate-box { padding: 2rem 1.25rem; }
-  .age-gate-title { font-size: 2rem; }
-}
-
-/* ── TICKER ── */
-.ticker-bar {
-  background: #C0272D;
-  overflow: hidden;
-  height: 28px;
-  display: flex;
-  align-items: center;
-  position: fixed;
-  top: 76px;
-  left: 0;
-  right: 0;
-  z-index: 99;
-}
-.ticker-label {
-  background: #1e3370;
-  color: #EEF2FA;
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 0.8rem;
-  letter-spacing: 0.15em;
-  padding: 0 1rem;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  flex-shrink: 0;
-}
-.ticker-track {
-  display: flex;
-  white-space: nowrap;
-  flex-wrap: nowrap;
-  animation: ticker 10s linear infinite;
-}
-.ticker-track span {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.92);
-  padding: 0 2.5rem;
-  white-space: nowrap;
-  flex-shrink: 0;
-}
-.ticker-track span em { color: #ffd0d0; font-style: normal; }
-@keyframes ticker {
-  0%   { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
+    /* ── MOBILE ── */
+    @media (max-width: 480px) {
+      .age-gate-box { padding: 2rem 1.25rem; }
+      .age-gate-title { font-size: 2rem; }
+    }
+    @media (max-width: 680px) {
+      .header-inner { padding: 0 1rem; height: 66px; }
+      .logo-img-wrap { width: 42px; height: 42px; }
+      .logo-name { font-size: 1.2rem; }
+      .logo-tagline { font-size: 0.5rem; letter-spacing: 0.2em; }
+      .hamburger { display: flex; }
+      nav { display: none; position: fixed; top: 66px; left: 0; right: 0; background-color: #0f1c3f; flex-direction: column; align-items: stretch; padding: 0.5rem 0 1rem; border-top: 2px solid #C0272D; z-index: 9999; }
+      nav.open { display: flex; }
+      nav a { padding: 0.9rem 1.5rem; font-size: 1rem; color: #EEF2FA; border-bottom: 1px solid rgba(255,255,255,0.06); }
+      nav a.active { color: #C0272D; }
+      nav a::after { display: none; }
+      .nav-divider { display: none; }
+      .ticker-bar { top: 66px; height: 26px; }
+      .ticker-label { font-size: 0.65rem; padding: 0 0.5rem; white-space: nowrap; }
+      .ticker-track span { font-size: 0.65rem; padding: 0 1rem; }
+      .poll-section { padding: 1.25rem 1rem; margin-top: 92px; }
+      .poll-options { grid-template-columns: repeat(2, 1fr); }
+      .poll-result-item { grid-template-columns: 1fr 1fr 36px; }
+      .poll-result-label { font-size: 0.72rem; }
+      .page-hero { margin-top: 92px; padding: 2.5rem 1.25rem; }
+      .page-title { font-size: clamp(2.5rem, 12vw, 4rem); }
+      .section-inner { padding: 2.5rem 1.25rem; }
+      .section-title { font-size: 1.8rem; }
+      .social-cards { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .map-wrap { height: 260px; }
+      .footer-inner { flex-direction: column; align-items: center; text-align: center; padding: 2rem 1rem; }
+      .footer-brand { flex-direction: column; align-items: center; }
+      .footer-bottom { flex-direction: column; align-items: center; text-align: center; padding: 1rem; }
+    }
   </style>
 </head>
 <body>
@@ -451,7 +240,6 @@ footer { background-color: #06080f; border-top: 1px solid rgba(192,39,45,0.3); }
           <span class="logo-tagline">Sports Bar &amp; Grill</span>
         </div>
       </a>
-
       <nav id="main-nav">
         <a href="index.html">Home</a>
         <div class="nav-divider"></div>
@@ -465,7 +253,6 @@ footer { background-color: #06080f; border-top: 1px solid rgba(192,39,45,0.3); }
         <div class="nav-divider"></div>
         <a href="apply-now.html">Apply Now</a>
       </nav>
-
       <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
     </div>
   </header>
@@ -490,18 +277,10 @@ footer { background-color: #06080f; border-top: 1px solid rgba(192,39,45,0.3); }
         </div>
         <h3 class="poll-question">Which #1 Seed Will Be Eliminated First?</h3>
         <div class="poll-options" id="poll-options">
-          <button class="poll-option" onclick="castVote('duke')">
-            <span class="poll-option-name">🔵 Duke Blue Devils</span>
-          </button>
-          <button class="poll-option" onclick="castVote('michigan')">
-            <span class="poll-option-name">🟡 Michigan Wolverines</span>
-          </button>
-          <button class="poll-option" onclick="castVote('arizona')">
-            <span class="poll-option-name">🔴 Arizona Wildcats</span>
-          </button>
-          <button class="poll-option" onclick="castVote('florida')">
-            <span class="poll-option-name">🟠 Florida Gators</span>
-          </button>
+          <button class="poll-option" onclick="castVote('duke')"><span class="poll-option-name">🔵 Duke Blue Devils</span></button>
+          <button class="poll-option" onclick="castVote('michigan')"><span class="poll-option-name">🟡 Michigan Wolverines</span></button>
+          <button class="poll-option" onclick="castVote('arizona')"><span class="poll-option-name">🔴 Arizona Wildcats</span></button>
+          <button class="poll-option" onclick="castVote('florida')"><span class="poll-option-name">🟠 Florida Gators</span></button>
         </div>
         <div class="poll-results hidden" id="poll-results">
           <div class="poll-result-item" id="result-duke">
@@ -543,39 +322,27 @@ footer { background-color: #06080f; border-top: 1px solid rgba(192,39,45,0.3); }
       <h2 class="section-title">Our <span class="accent">Platforms</span></h2>
       <div class="social-cards-wrap">
         <div class="social-cards">
-
           <a href="https://www.facebook.com/doublejsportsbar" target="_blank" rel="noopener" class="social-card facebook">
             <svg width="40" height="40" viewBox="0 0 24 24" fill="#1877F2"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.513c-1.491 0-1.956.93-1.956 1.886v2.268h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>
             <div class="social-card-name">Facebook</div>
             <div class="social-card-handle">facebook.com/doublejsportsbar</div>
             <div class="social-card-btn">Follow Us</div>
           </a>
-
           <a href="https://www.instagram.com/doublejsportsbar" target="_blank" rel="noopener" class="social-card instagram">
             <svg width="40" height="40" viewBox="0 0 24 24" fill="url(#igGrad)">
-              <defs>
-                <radialGradient id="igGrad" cx="30%" cy="107%" r="150%">
-                  <stop offset="0%" stop-color="#fdf497"/>
-                  <stop offset="5%" stop-color="#fdf497"/>
-                  <stop offset="45%" stop-color="#fd5949"/>
-                  <stop offset="60%" stop-color="#d6249f"/>
-                  <stop offset="90%" stop-color="#285AEB"/>
-                </radialGradient>
-              </defs>
+              <defs><radialGradient id="igGrad" cx="30%" cy="107%" r="150%"><stop offset="0%" stop-color="#fdf497"/><stop offset="5%" stop-color="#fdf497"/><stop offset="45%" stop-color="#fd5949"/><stop offset="60%" stop-color="#d6249f"/><stop offset="90%" stop-color="#285AEB"/></radialGradient></defs>
               <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
             </svg>
             <div class="social-card-name">Instagram</div>
             <div class="social-card-handle">instagram.com/doublejsportsbar</div>
             <div class="social-card-btn">Follow Us</div>
           </a>
-
           <a href="https://www.tiktok.com/@doublejsportsbarjoliet" target="_blank" rel="noopener" class="social-card tiktok">
             <svg width="40" height="40" viewBox="0 0 24 24" fill="#69C9D0"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.32 6.32 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.76a4.85 4.85 0 01-1.01-.07z"/></svg>
             <div class="social-card-name">TikTok</div>
             <div class="social-card-handle">@doublejsportsbarjoliet</div>
             <div class="social-card-btn">Follow Us</div>
           </a>
-
         </div>
       </div>
     </div>
@@ -670,9 +437,7 @@ footer { background-color: #06080f; border-top: 1px solid rgba(192,39,45,0.3); }
   <footer>
     <div class="footer-inner">
       <div class="footer-brand">
-        <div class="footer-logo-wrap">
-          <img src="https://i.imgur.com/Gk6PvB3.jpeg" alt='Double "J" Sports Bar' class="footer-logo-img"/>
-        </div>
+        <div class="footer-logo-wrap"><img src="https://i.imgur.com/Gk6PvB3.jpeg" alt='Double "J" Sports Bar' class="footer-logo-img"/></div>
         <div>
           <div class="footer-logo-name">Double "J"</div>
           <div class="footer-logo-tag">Sports Bar &amp; Grill · Joliet, IL</div>
@@ -683,15 +448,9 @@ footer { background-color: #06080f; border-top: 1px solid rgba(192,39,45,0.3); }
         (815) 730-8488
       </a>
       <div class="footer-social">
-        <a href="https://www.facebook.com/doublejsportsbar" target="_blank" rel="noopener" aria-label="Facebook" class="social-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.513c-1.491 0-1.956.93-1.956 1.886v2.268h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>
-        </a>
-        <a href="https://www.instagram.com/doublejsportsbar" target="_blank" rel="noopener" aria-label="Instagram" class="social-icon instagram">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-        </a>
-        <a href="https://www.tiktok.com/@doublejsportsbarjoliet" target="_blank" rel="noopener" aria-label="TikTok" class="social-icon tiktok">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.32 6.32 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.76a4.85 4.85 0 01-1.01-.07z"/></svg>
-        </a>
+        <a href="https://www.facebook.com/doublejsportsbar" target="_blank" rel="noopener" aria-label="Facebook" class="social-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.513c-1.491 0-1.956.93-1.956 1.886v2.268h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg></a>
+        <a href="https://www.instagram.com/doublejsportsbar" target="_blank" rel="noopener" aria-label="Instagram" class="social-icon instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+        <a href="https://www.tiktok.com/@doublejsportsbarjoliet" target="_blank" rel="noopener" aria-label="TikTok" class="social-icon tiktok"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.32 6.32 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.76a4.85 4.85 0 01-1.01-.07z"/></svg></a>
       </div>
     </div>
     <div class="footer-bottom">
@@ -705,11 +464,11 @@ footer { background-color: #06080f; border-top: 1px solid rgba(192,39,45,0.3); }
 
     // ── AGE GATE ──
     (function() {
-      const gate     = document.getElementById('age-gate');
-      const errorEl  = document.getElementById('ag-error');
-      const monthEl  = document.getElementById('ag-month');
-      const dayEl    = document.getElementById('ag-day');
-      const yearEl   = document.getElementById('ag-year');
+      const gate    = document.getElementById('age-gate');
+      const errorEl = document.getElementById('ag-error');
+      const monthEl = document.getElementById('ag-month');
+      const dayEl   = document.getElementById('ag-day');
+      const yearEl  = document.getElementById('ag-year');
 
       if (sessionStorage.getItem('age-verified') === 'true') {
         gate.classList.add('hidden');
@@ -727,11 +486,9 @@ footer { background-color: #06080f; border-top: 1px solid rgba(192,39,45,0.3); }
       function verify() {
         errorEl.textContent = '';
         [monthEl, dayEl, yearEl].forEach(el => el.classList.remove('error'));
-
         const m = parseInt(monthEl.value, 10);
         const d = parseInt(dayEl.value, 10);
         const y = parseInt(yearEl.value, 10);
-
         if (!m || !d || !y || monthEl.value === '' || dayEl.value === '' || yearEl.value === '') {
           errorEl.textContent = 'Please enter your full date of birth.';
           [monthEl, dayEl, yearEl].forEach(el => { if (!el.value) el.classList.add('error'); });
@@ -742,13 +499,11 @@ footer { background-color: #06080f; border-top: 1px solid rgba(192,39,45,0.3); }
           [monthEl, dayEl, yearEl].forEach(el => el.classList.add('error'));
           return;
         }
-
         const dob   = new Date(y, m - 1, d);
         const today = new Date();
         let age = today.getFullYear() - dob.getFullYear();
         const mDiff = today.getMonth() - dob.getMonth();
         if (mDiff < 0 || (mDiff === 0 && today.getDate() < dob.getDate())) age--;
-
         if (age >= 21) {
           sessionStorage.setItem('age-verified', 'true');
           gate.style.transition = 'opacity 0.4s ease';
@@ -774,12 +529,9 @@ footer { background-color: #06080f; border-top: 1px solid rgba(192,39,45,0.3); }
       });
     });
 
-    // ── MONTHLY POLL ──
-    // Votes are stored in shared persistent storage so all visitors contribute
-    // to the same running tally. Each visitor's personal choice is tracked in
-    // sessionStorage so they can't vote twice per session.
-    const POLL_VOTED_KEY = 'dj-poll-voted-march-2026'; // sessionStorage: did THIS visitor vote?
-    const SHARED_KEY     = 'dj-poll-votes-march-2026'; // shared storage: all votes combined
+    // ── MONTHLY POLL (shared storage — all visitors contribute to same tally) ──
+    const POLL_VOTED_KEY = 'dj-poll-voted-march-2026';
+    const SHARED_KEY     = 'dj-poll-votes-march-2026';
     const defaultVotes   = { duke: 0, michigan: 0, arizona: 0, florida: 0 };
 
     function showResults(votes, myVote) {
@@ -800,25 +552,17 @@ footer { background-color: #06080f; border-top: 1px solid rgba(192,39,45,0.3); }
     }
 
     async function castVote(team) {
-      // Read current shared votes
       let votes = { ...defaultVotes };
       try {
         const result = await window.storage.get(SHARED_KEY, true);
         if (result) votes = JSON.parse(result.value);
       } catch {}
-
-      // Increment and save back to shared storage
       votes[team] = (votes[team] || 0) + 1;
       try { await window.storage.set(SHARED_KEY, JSON.stringify(votes), true); } catch {}
-
-      // Remember this visitor voted (session only — resets when browser closes)
       try { sessionStorage.setItem(POLL_VOTED_KEY, team); } catch {}
-
       showResults(votes, team);
     }
 
-    // On load: check if this visitor already voted this session,
-    // and always show the latest shared totals if so
     (async function() {
       try {
         const myVote = sessionStorage.getItem(POLL_VOTED_KEY);
@@ -857,9 +601,8 @@ footer { background-color: #06080f; border-top: 1px solid rgba(192,39,45,0.3); }
       { key: 'soccer/usa.1',   label: 'MLS' },
     ];
     async function fetchScores(league) {
-      const url = `https://site.api.espn.com/apis/site/v2/sports/${league.key}/scoreboard`;
       try {
-        const res  = await fetch(url);
+        const res  = await fetch(`https://site.api.espn.com/apis/site/v2/sports/${league.key}/scoreboard`);
         const data = await res.json();
         return (data.events || []).map(event => {
           const comp      = event.competitions[0];
@@ -893,8 +636,7 @@ footer { background-color: #06080f; border-top: 1px solid rgba(192,39,45,0.3); }
       track.innerHTML = items
         .map(g => `<span><strong style="color:#ffd0d0;margin-right:0.4rem">${g.label}</strong>${g.text}</span>`)
         .join('');
-      const totalWidth = track.scrollWidth;
-      const duration   = Math.max(5, totalWidth / 1800);
+      const duration = Math.max(5, track.scrollWidth / 1800);
       track.style.animationDuration = `${duration}s`;
     }
     buildTicker();
