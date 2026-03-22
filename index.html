@@ -538,7 +538,7 @@ gap: 4px;
         .map(g => `<span><strong style="color:#ffd0d0;margin-right:0.4rem">${g.label}</strong>${g.text}</span>`)
         .join('');
       const totalWidth = track.scrollWidth;
-      const duration = Math.max(5, totalWidth / 400);
+      const duration = Math.max(5, totalWidth / 1800);
       track.style.animationDuration = `${duration}s`;
     }
     buildTicker();
