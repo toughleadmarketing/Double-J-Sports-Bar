@@ -38,11 +38,13 @@
     @keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
     /* ── PAGE HERO ── */
-    .page-hero { margin-top: 104px; background-image: linear-gradient(160deg, rgba(192,39,45,0.12) 0%, transparent 50%); background-color: #0f1c3f; padding: 4rem 2rem; text-align: center; border-bottom: 1px solid rgba(192,39,45,0.2); }
+    .page-hero { margin-top: 104px; position: relative; background-image: url('https://i.imgur.com/nLg6641.jpeg'); background-size: cover; background-position: center; background-repeat: no-repeat; padding: 7rem 2rem; text-align: center; border-bottom: 1px solid rgba(192,39,45,0.2); }
+    .page-hero::before { content: ''; position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(6,8,15,0.55) 0%, rgba(6,8,15,0.7) 100%); }
+    .page-hero > * { position: relative; z-index: 1; }
     .page-eyebrow { font-family: 'Barlow Condensed', sans-serif; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.4em; text-transform: uppercase; color: #C0272D; margin-bottom: 0.5rem; }
     .page-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(3rem, 8vw, 6rem); letter-spacing: 0.06em; line-height: 1; color: #EEF2FA; }
     .page-title .accent { color: #C0272D; }
-    .page-subtitle { font-family: 'Barlow', sans-serif; font-size: 1rem; color: #7a8aaa; margin-top: 1rem; max-width: 540px; margin-left: auto; margin-right: auto; line-height: 1.7; }
+    .page-subtitle { font-family: 'Barlow', sans-serif; font-size: 1rem; color: rgba(238,242,250,0.85); margin-top: 1rem; max-width: 540px; margin-left: auto; margin-right: auto; line-height: 1.7; }
 
     /* ── SHARED ── */
     .section-eyebrow { font-family: 'Barlow Condensed', sans-serif; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.4em; text-transform: uppercase; color: #C0272D; margin-bottom: 0.5rem; display: block; }
@@ -175,7 +177,7 @@
       .ticker-bar { top: 66px; height: 26px; }
       .ticker-label { font-size: 0.65rem; padding: 0 0.5rem; white-space: nowrap; }
       .ticker-track span { font-size: 0.65rem; padding: 0 1rem; }
-      .page-hero { margin-top: 92px; padding: 2.5rem 1.25rem; }
+      .page-hero { margin-top: 92px; padding: 4rem 1.25rem; background-position: center; }
       .steps-inner, .docs-inner, .perks-inner, .looking-inner, .cta-inner { padding: 0 1.25rem; }
       .steps-grid { grid-template-columns: 1fr; }
       .perks-grid { grid-template-columns: 1fr; }
