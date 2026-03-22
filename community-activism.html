@@ -12,7 +12,7 @@
 
 ```
 /* ── HEADER ── */
-header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background-color: rgba(15,28,63,0.97); border-bottom: 1px solid rgba(192,39,45,0.35); backdrop-filter: blur(8px); }
+header { position: fixed; top: 0; left: 0; right: 0; z-index: 102; background-color: rgba(15,28,63,0.97); border-bottom: 1px solid rgba(192,39,45,0.35); backdrop-filter: blur(8px); }
 .header-inner { max-width: 1280px; margin: 0 auto; padding: 0 2rem; height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
 .logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; flex-shrink: 0; }
 .logo-img-wrap { width: 56px; height: 56px; border-radius: 50%; overflow: hidden; border: 2px solid #C0272D; flex-shrink: 0; background-color: #162550; transition: transform 0.3s ease; }
@@ -32,7 +32,7 @@ nav a.active { color: #C0272D; }
 .hamburger span { display: block; width: 24px; height: 2px; background-color: #EEF2FA; }
 
 /* ── SCORES TICKER ── */
-.ticker-bar { background: #C0272D; overflow: hidden; height: 28px; display: flex; align-items: center; position: fixed; top: 76px; left: 0; right: 0; z-index: 99; }
+.ticker-bar { background: #C0272D; overflow: hidden; height: 28px; display: flex; align-items: center; position: fixed; top: 76px; left: 0; right: 0; z-index: 101; }
 .ticker-label { background: #1e3370; color: #EEF2FA; font-family: 'Bebas Neue', sans-serif; font-size: 0.8rem; letter-spacing: 0.15em; padding: 0 1rem; height: 100%; display: flex; align-items: center; flex-shrink: 0; }
 .ticker-track { display: flex; white-space: nowrap; flex-wrap: nowrap; animation: ticker 10s linear infinite; }
 .ticker-track span { font-family: 'Barlow Condensed', sans-serif; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.92); padding: 0 2.5rem; white-space: nowrap; flex-shrink: 0; }
@@ -176,7 +176,7 @@ footer { background-color: #06080f; border-top: 1px solid rgba(192,39,45,0.3); }
 
   <!-- Age Gate -->
 
-  <div id="age-gate">
+  <div id="age-gate" style="display:none;">
     <div class="age-gate-box">
       <div class="age-gate-logo">
         <img src="https://i.imgur.com/Gk6PvB3.jpeg" alt='Double "J" Sports Bar'/>
@@ -373,7 +373,8 @@ footer { background-color: #06080f; border-top: 1px solid rgba(192,39,45,0.3); }
       const monthEl = document.getElementById('ag-month');
       const dayEl   = document.getElementById('ag-day');
       const yearEl  = document.getElementById('ag-year');
-      if (sessionStorage.getItem('age-verified') === 'true') { gate.classList.add('hidden'); return; }
+      if (sessionStorage.getItem('age-verified') === 'true') { return; }
+      gate.style.display = 'flex';
       monthEl.addEventListener('input', () => { if (monthEl.value.length >= 2) dayEl.focus(); });
       dayEl.addEventListener('input',   () => { if (dayEl.value.length >= 2)   yearEl.focus(); });
       document.getElementById('ag-submit').addEventListener('click', verify);
