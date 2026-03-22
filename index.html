@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content='Double "J" Sports Bar &amp; Grill in Joliet, IL — cold drinks, 20+ screens, live music, game-day specials, outdoor patio, and video gaming. Joliet&apos;s home for the game.'/>
+  <link rel="icon" type="image/jpeg" href="https://i.imgur.com/Gk6PvB3.jpeg"/>
   <title>Double "J" Sports Bar</title>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@400;600;700&family=Barlow:wght@400;500&display=swap" rel="stylesheet"/>
   <style>
@@ -426,7 +428,7 @@ gap: 4px;
   .age-gate-box { padding: 2rem 1.25rem; }
   .age-gate-title { font-size: 2rem; }
 }
-</style>
+  </style>
 </head>
 <body>
   <!-- Age Gate -->
@@ -710,13 +712,11 @@ gap: 4px;
       const dayEl   = document.getElementById('ag-day');
       const yearEl  = document.getElementById('ag-year');
 
-      // If already verified this session, skip gate
       if (sessionStorage.getItem('age-verified') === 'true') {
         gate.classList.add('hidden');
         return;
       }
 
-      // Auto-advance: move to next field when filled
       monthEl.addEventListener('input', () => { if (monthEl.value.length >= 2) dayEl.focus(); });
       dayEl.addEventListener('input',   () => { if (dayEl.value.length >= 2)   yearEl.focus(); });
 
@@ -756,7 +756,6 @@ gap: 4px;
           gate.style.opacity = '0';
           setTimeout(() => gate.classList.add('hidden'), 400);
         } else {
-          // Redirect underage visitors
           window.location.replace('https://www.google.com');
         }
       }
