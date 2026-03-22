@@ -42,10 +42,30 @@
     /* ── MONTHLY POLL ── */
     .poll-section { background-color: #0a1428; border-bottom: 1px solid rgba(192,39,45,0.2); padding: 2rem 2rem; margin-top: 104px; }
     .poll-inner { max-width: 860px; margin: 0 auto; }
-    .poll-card { display: flex; flex-direction: column; gap: 0; background-color: #162550; border: 1px solid rgba(192,39,45,0.35); border-radius: 10px; overflow: hidden; }
-    .poll-header { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; padding: 1rem 1.5rem; border-bottom: 1px solid rgba(192,39,45,0.25); background-color: #0f1c3f; }
-    .poll-label { font-family: 'Barlow Condensed', sans-serif; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: #C0272D; }
-    .poll-month { font-family: 'Barlow Condensed', sans-serif; font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: #7a8aaa; }
+    .poll-card { background-color: #0f1c3f; border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; overflow: hidden; }
+    .poll-header { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; padding: 0.85rem 1.25rem; background-color: #C0272D; }
+    .poll-label { font-family: 'Bebas Neue', sans-serif; font-size: 0.95rem; letter-spacing: 0.2em; color: #EEF2FA; }
+    .poll-month { font-family: 'Barlow Condensed', sans-serif; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.7); }
+    .poll-question-bar { padding: 1rem 1.25rem 0.75rem; border-bottom: 1px solid rgba(255,255,255,0.07); }
+    .poll-question-text { font-family: 'Bebas Neue', sans-serif; font-size: clamp(1.1rem, 2.5vw, 1.5rem); letter-spacing: 0.06em; color: #EEF2FA; line-height: 1.1; }
+    .poll-body { padding: 1rem 1.25rem 1.25rem; display: flex; flex-direction: column; gap: 0.6rem; }
+    .poll-option-btn { width: 100%; background: none; border: none; cursor: pointer; padding: 0; text-align: left; }
+    .poll-option-btn:disabled { cursor: default; }
+    .poll-option-row { display: flex; align-items: center; gap: 0.85rem; padding: 0.6rem 0.85rem; border-radius: 6px; border: 1px solid rgba(255,255,255,0.08); background-color: #162550; transition: border-color 0.2s ease, background-color 0.2s ease; position: relative; overflow: hidden; }
+    .poll-option-btn:not(:disabled):hover .poll-option-row { border-color: rgba(192,39,45,0.5); background-color: #1e3370; }
+    .poll-option-btn.voted .poll-option-row { border-color: #C0272D; }
+    .poll-team-logo { width: 32px; height: 32px; object-fit: contain; flex-shrink: 0; }
+    .poll-team-info { display: flex; flex-direction: column; gap: 0.1rem; flex: 1; min-width: 0; }
+    .poll-team-name { font-family: 'Barlow Condensed', sans-serif; font-size: 0.95rem; font-weight: 700; letter-spacing: 0.06em; color: #EEF2FA; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .poll-team-conf { font-family: 'Barlow Condensed', sans-serif; font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: #7a8aaa; }
+    .poll-pct { font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; letter-spacing: 0.05em; color: #EEF2FA; min-width: 3rem; text-align: right; flex-shrink: 0; display: none; }
+    .poll-bar { position: absolute; left: 0; top: 0; bottom: 0; border-radius: 6px; opacity: 0.15; width: 0%; transition: width 0.7s ease; }
+    .poll-check { font-size: 0.85rem; color: #C0272D; flex-shrink: 0; display: none; }
+    .poll-voted-state .poll-pct { display: block; }
+    .poll-voted-state .poll-check { display: block; }
+    .poll-footer { display: flex; align-items: center; justify-content: space-between; padding: 0.65rem 1.25rem; border-top: 1px solid rgba(255,255,255,0.07); background-color: rgba(0,0,0,0.2); }
+    .poll-total { font-family: 'Barlow Condensed', sans-serif; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: #7a8aaa; }
+    .poll-loading { font-family: 'Barlow Condensed', sans-serif; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: #7a8aaa; }
     .poll-question { font-family: 'Bebas Neue', sans-serif; font-size: clamp(1.2rem, 3vw, 1.8rem); letter-spacing: 0.06em; color: #EEF2FA; line-height: 1.1; }
     .poll-options { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.75rem; }
     .poll-option { background-color: #162550; border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; padding: 0.75rem 1rem; cursor: pointer; transition: all 0.2s ease; text-align: center; }
@@ -267,12 +287,21 @@
   <!-- Monthly Poll -->
   <div class="poll-section">
     <div class="poll-inner">
-      <div class="poll-card">
+      <div class="poll-card" id="poll-card">
         <div class="poll-header">
           <span class="poll-label">🗳️ Double "J" Monthly Poll</span>
           <span class="poll-month">March 2026</span>
         </div>
-        <iframe src="https://strawpoll.com/embed/poy9kbJxDgJ" style="width:100%;min-height:420px;border:none;display:block;" frameborder="0" allowfullscreen></iframe>
+        <div class="poll-question-bar">
+          <div class="poll-question-text">Which #1 Seed Will Be Eliminated First?</div>
+        </div>
+        <div class="poll-body" id="poll-body">
+          <div class="poll-loading">Loading poll...</div>
+        </div>
+        <div class="poll-footer">
+          <span class="poll-total" id="poll-total"></span>
+          <span class="poll-loading" id="poll-status">Tap to vote</span>
+        </div>
       </div>
     </div>
   </div>
@@ -496,6 +525,96 @@
         }
       });
     });
+
+    // ── ESPN-STYLED POLL ──
+    const POLL_VOTED_KEY = 'dj-poll-voted-march-2026';
+    const SHARED_KEY     = 'dj-poll-votes-march-2026';
+
+    const TEAMS = [
+      { id: 'duke',     name: 'Duke Blue Devils',     conf: 'ACC · #1 Seed',     color: '#003087', espnId: '150'  },
+      { id: 'michigan', name: 'Michigan Wolverines',  conf: 'Big Ten · #1 Seed', color: '#00274C', espnId: '130'  },
+      { id: 'arizona',  name: 'Arizona Wildcats',     conf: 'Big 12 · #1 Seed',  color: '#CC0033', espnId: '12'   },
+      { id: 'florida',  name: 'Florida Gators',       conf: 'SEC · #1 Seed',     color: '#0021A5', espnId: '57'   },
+    ];
+
+    function logoUrl(espnId) {
+      return `https://a.espncdn.com/i/teamlogos/ncaa/500/${espnId}.png`;
+    }
+
+    async function getVotes() {
+      try {
+        const result = await window.storage.get(SHARED_KEY, true);
+        if (result) return JSON.parse(result.value);
+      } catch {}
+      return { duke: 0, michigan: 0, arizona: 0, florida: 0 };
+    }
+
+    async function saveVote(team, votes) {
+      votes[team] = (votes[team] || 0) + 1;
+      try { await window.storage.set(SHARED_KEY, JSON.stringify(votes), true); } catch {}
+      try { sessionStorage.setItem(POLL_VOTED_KEY, team); } catch {}
+      return votes;
+    }
+
+    function totalVotes(votes) {
+      return Object.values(votes).reduce((a, b) => a + b, 0);
+    }
+
+    function renderPoll(votes, myVote) {
+      const body    = document.getElementById('poll-body');
+      const status  = document.getElementById('poll-status');
+      const total   = document.getElementById('poll-total');
+      const hasVoted = !!myVote;
+      const tot     = totalVotes(votes);
+      const maxVotes = Math.max(...Object.values(votes));
+
+      total.textContent = tot > 0 ? `${tot} vote${tot !== 1 ? 's' : ''}` : '';
+      status.textContent = hasVoted ? '✅ Thanks for voting!' : 'Tap to vote';
+
+      body.innerHTML = TEAMS.map(team => {
+        const pct     = tot > 0 ? Math.round((votes[team.id] / tot) * 100) : 0;
+        const isWinner = hasVoted && votes[team.id] === maxVotes && tot > 0;
+        const isMyVote = myVote === team.id;
+        return `
+          <button class="poll-option-btn ${isMyVote ? 'voted' : ''} ${hasVoted ? 'poll-voted-state' : ''}"
+            onclick="${hasVoted ? '' : `doPollVote('${team.id}')`}"
+            ${hasVoted ? 'disabled' : ''}>
+            <div class="poll-option-row">
+              <div class="poll-bar" style="width:${hasVoted ? pct : 0}%;background-color:${team.color};"></div>
+              <img class="poll-team-logo" src="${logoUrl(team.espnId)}" alt="${team.name}" onerror="this.style.display='none'"/>
+              <div class="poll-team-info">
+                <div class="poll-team-name">${team.name}</div>
+                <div class="poll-team-conf">${team.conf}</div>
+              </div>
+              <div class="poll-pct" style="color:${isWinner ? '#F5C842' : '#EEF2FA'}">${pct}%</div>
+              <div class="poll-check">${isMyVote ? '✓' : ''}</div>
+            </div>
+          </button>`;
+      }).join('');
+
+      // Animate bars in
+      if (hasVoted) {
+        setTimeout(() => {
+          document.querySelectorAll('.poll-bar').forEach((bar, i) => {
+            const team = TEAMS[i];
+            const pct  = tot > 0 ? Math.round((votes[team.id] / tot) * 100) : 0;
+            bar.style.width = pct + '%';
+          });
+        }, 50);
+      }
+    }
+
+    async function doPollVote(teamId) {
+      let votes = await getVotes();
+      votes = await saveVote(teamId, votes);
+      renderPoll(votes, teamId);
+    }
+
+    (async function initPoll() {
+      const votes  = await getVotes();
+      const myVote = sessionStorage.getItem(POLL_VOTED_KEY);
+      renderPoll(votes, myVote);
+    })();
 
     // ── FAQ ──
     document.querySelectorAll('.faq-question').forEach(btn => {
