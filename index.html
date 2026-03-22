@@ -293,9 +293,163 @@ gap: 4px;
 .footer-brand { flex-direction: column; align-items: center; }
 .footer-bottom { flex-direction: column; align-items: center; text-align: center; padding: 1rem; gap: 0.4rem; }
 }
+/* ── AGE GATE ── */
+#age-gate {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  background: rgba(6, 8, 15, 0.97);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  backdrop-filter: blur(6px);
+  animation: ageFadeIn 0.4s ease both;
+}
+@keyframes ageFadeIn { from { opacity: 0; } to { opacity: 1; } }
+#age-gate.hidden { display: none; }
+.age-gate-box {
+  background: #162550;
+  border: 1px solid rgba(192,39,45,0.4);
+  border-radius: 12px;
+  padding: 3rem 2.5rem;
+  max-width: 420px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 0 80px rgba(192,39,45,0.15);
+  animation: ageFadeIn 0.5s 0.1s ease both;
+}
+.age-gate-logo {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid #C0272D;
+  margin: 0 auto 1.5rem;
+  background: #0f1c3f;
+}
+.age-gate-logo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.age-gate-eyebrow {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: #C0272D;
+  margin-bottom: 0.5rem;
+}
+.age-gate-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2.6rem;
+  letter-spacing: 0.06em;
+  color: #EEF2FA;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+.age-gate-sub {
+  font-family: 'Barlow', sans-serif;
+  font-size: 0.88rem;
+  color: #7a8aaa;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+.age-gate-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #7a8aaa;
+  display: block;
+  margin-bottom: 0.6rem;
+  text-align: left;
+}
+.age-gate-inputs {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.4fr;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+.age-gate-inputs input {
+  background: #0f1c3f;
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 6px;
+  color: #EEF2FA;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  padding: 0.7rem 0.5rem;
+  text-align: center;
+  width: 100%;
+  outline: none;
+  transition: border-color 0.2s ease;
+  -moz-appearance: textfield;
+}
+.age-gate-inputs input::-webkit-outer-spin-button,
+.age-gate-inputs input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+.age-gate-inputs input::placeholder { color: rgba(255,255,255,0.2); font-size: 0.85rem; }
+.age-gate-inputs input:focus { border-color: #C0272D; }
+.age-gate-inputs input.error { border-color: #C0272D; background: rgba(192,39,45,0.08); }
+.age-gate-btn {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.15rem;
+  letter-spacing: 0.15em;
+  background: #C0272D;
+  color: #EEF2FA;
+  border: none;
+  cursor: pointer;
+  padding: 0.9rem 2rem;
+  width: 100%;
+  clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+  transition: background 0.2s ease, transform 0.15s ease;
+  margin-bottom: 1rem;
+}
+.age-gate-btn:hover { background: #1e3370; transform: translateY(-2px); }
+.age-gate-error {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: #C0272D;
+  min-height: 1.2em;
+  margin-bottom: 0.75rem;
+}
+.age-gate-disclaimer {
+  font-family: 'Barlow', sans-serif;
+  font-size: 0.72rem;
+  color: #7a8aaa;
+  opacity: 0.7;
+  line-height: 1.5;
+}
+@media (max-width: 480px) {
+  .age-gate-box { padding: 2rem 1.25rem; }
+  .age-gate-title { font-size: 2rem; }
+}
 </style>
 </head>
 <body>
+  <!-- Age Gate -->
+  <div id="age-gate">
+    <div class="age-gate-box">
+      <div class="age-gate-logo">
+        <img src="https://i.imgur.com/Gk6PvB3.jpeg" alt='Double "J" Sports Bar'/>
+      </div>
+      <p class="age-gate-eyebrow">Age Verification Required</p>
+      <h2 class="age-gate-title">Are You 21+?</h2>
+      <p class="age-gate-sub">Double "J" Sports Bar serves alcohol. Please confirm your date of birth to enter.</p>
+      <label class="age-gate-label">Enter Your Date of Birth</label>
+      <div class="age-gate-inputs">
+        <input type="number" id="ag-month" placeholder="MM" min="1" max="12" maxlength="2" inputmode="numeric"/>
+        <input type="number" id="ag-day" placeholder="DD" min="1" max="31" maxlength="2" inputmode="numeric"/>
+        <input type="number" id="ag-year" placeholder="YYYY" min="1900" max="2099" maxlength="4" inputmode="numeric"/>
+      </div>
+      <div class="age-gate-error" id="ag-error"></div>
+      <button class="age-gate-btn" id="ag-submit">Enter Site</button>
+      <p class="age-gate-disclaimer">By entering, you confirm you are of legal drinking age (21+) in the United States. This site is intended for adults only.</p>
+    </div>
+  </div>
+
   <header id="site-header">
     <div class="header-inner">
       <a href="index.html" class="logo">
@@ -547,6 +701,66 @@ gap: 4px;
     buildTicker();
     setInterval(buildTicker, 60000);
     document.getElementById('footer-year').textContent = new Date().getFullYear();
+
+    // ── AGE GATE ──
+    (function() {
+      const gate = document.getElementById('age-gate');
+      const errorEl = document.getElementById('ag-error');
+      const monthEl = document.getElementById('ag-month');
+      const dayEl   = document.getElementById('ag-day');
+      const yearEl  = document.getElementById('ag-year');
+
+      // If already verified this session, skip gate
+      if (sessionStorage.getItem('age-verified') === 'true') {
+        gate.classList.add('hidden');
+        return;
+      }
+
+      // Auto-advance: move to next field when filled
+      monthEl.addEventListener('input', () => { if (monthEl.value.length >= 2) dayEl.focus(); });
+      dayEl.addEventListener('input',   () => { if (dayEl.value.length >= 2)   yearEl.focus(); });
+
+      document.getElementById('ag-submit').addEventListener('click', verify);
+      [monthEl, dayEl, yearEl].forEach(el => {
+        el.addEventListener('keydown', e => { if (e.key === 'Enter') verify(); });
+      });
+
+      function verify() {
+        errorEl.textContent = '';
+        [monthEl, dayEl, yearEl].forEach(el => el.classList.remove('error'));
+
+        const m = parseInt(monthEl.value, 10);
+        const d = parseInt(dayEl.value, 10);
+        const y = parseInt(yearEl.value, 10);
+
+        if (!m || !d || !y || monthEl.value === '' || dayEl.value === '' || yearEl.value === '') {
+          errorEl.textContent = 'Please enter your full date of birth.';
+          [monthEl, dayEl, yearEl].forEach(el => { if (!el.value) el.classList.add('error'); });
+          return;
+        }
+        if (m < 1 || m > 12 || d < 1 || d > 31 || y < 1900 || y > new Date().getFullYear()) {
+          errorEl.textContent = 'Please enter a valid date.';
+          [monthEl, dayEl, yearEl].forEach(el => el.classList.add('error'));
+          return;
+        }
+
+        const dob = new Date(y, m - 1, d);
+        const today = new Date();
+        let age = today.getFullYear() - dob.getFullYear();
+        const mDiff = today.getMonth() - dob.getMonth();
+        if (mDiff < 0 || (mDiff === 0 && today.getDate() < dob.getDate())) age--;
+
+        if (age >= 21) {
+          sessionStorage.setItem('age-verified', 'true');
+          gate.style.transition = 'opacity 0.4s ease';
+          gate.style.opacity = '0';
+          setTimeout(() => gate.classList.add('hidden'), 400);
+        } else {
+          // Redirect underage visitors
+          window.location.replace('https://www.google.com');
+        }
+      }
+    })();
   </script>
 </body>
 </html>
