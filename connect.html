@@ -775,17 +775,13 @@ footer { background-color: #06080f; border-top: 1px solid rgba(192,39,45,0.3); }
     });
 
     // ── MONTHLY POLL ──
-    const POLL_KEY  = 'dj-poll-march-2026';
-    const VOTES_KEY = 'dj-poll-votes-march-2026';
-    const defaultVotes = { duke: 0, michigan: 0, arizona: 0, florida: 0 };
+    // Votes are stored in shared persistent storage so all visitors contribute
+    // to the same running tally. Each visitor's personal choice is tracked in
+    // sessionStorage so they can't vote twice per session.
+    const POLL_VOTED_KEY = 'dj-poll-voted-march-2026'; // sessionStorage: did THIS visitor vote?
+    const SHARED_KEY     = 'dj-poll-votes-march-2026'; // shared storage: all votes combined
+    const defaultVotes   = { duke: 0, michigan: 0, arizona: 0, florida: 0 };
 
-    function getVotes() {
-      try { return JSON.parse(localStorage.getItem(VOTES_KEY)) || { ...defaultVotes }; }
-      catch { return { ...defaultVotes }; }
-    }
-    function saveVotes(votes) {
-      try { localStorage.setItem(VOTES_KEY, JSON.stringify(votes)); } catch {}
-    }
     function showResults(votes, myVote) {
       const total    = Object.values(votes).reduce((a, b) => a + b, 0);
       const options  = ['duke', 'michigan', 'arizona', 'florida'];
@@ -802,17 +798,38 @@ footer { background-color: #06080f; border-top: 1px solid rgba(192,39,45,0.3); }
       document.getElementById('poll-results').classList.remove('hidden');
       document.getElementById('poll-thanks').textContent = '✅ Thanks for voting! Results update in real time.';
     }
-    function castVote(team) {
-      const votes = getVotes();
+
+    async function castVote(team) {
+      // Read current shared votes
+      let votes = { ...defaultVotes };
+      try {
+        const result = await window.storage.get(SHARED_KEY, true);
+        if (result) votes = JSON.parse(result.value);
+      } catch {}
+
+      // Increment and save back to shared storage
       votes[team] = (votes[team] || 0) + 1;
-      saveVotes(votes);
-      try { localStorage.setItem(POLL_KEY, team); } catch {}
+      try { await window.storage.set(SHARED_KEY, JSON.stringify(votes), true); } catch {}
+
+      // Remember this visitor voted (session only — resets when browser closes)
+      try { sessionStorage.setItem(POLL_VOTED_KEY, team); } catch {}
+
       showResults(votes, team);
     }
-    (function() {
+
+    // On load: check if this visitor already voted this session,
+    // and always show the latest shared totals if so
+    (async function() {
       try {
-        const myVote = localStorage.getItem(POLL_KEY);
-        if (myVote) showResults(getVotes(), myVote);
+        const myVote = sessionStorage.getItem(POLL_VOTED_KEY);
+        if (myVote) {
+          let votes = { ...defaultVotes };
+          try {
+            const result = await window.storage.get(SHARED_KEY, true);
+            if (result) votes = JSON.parse(result.value);
+          } catch {}
+          showResults(votes, myVote);
+        }
       } catch {}
     })();
 
