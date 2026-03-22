@@ -9,7 +9,6 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-```
 body {
   background-color: #0f1c3f;
   font-family: 'Barlow', sans-serif;
@@ -198,14 +197,12 @@ footer { background-color: #06080f; border-top: 1px solid rgba(192,39,45,0.3); }
   .logo-name { font-size: 1.2rem; }
   .logo-tagline { font-size: 0.5rem; letter-spacing: 0.2em; }
   .hamburger { display: flex; }
-```
 
-.ticker-bar { top: 66px; height: 26px; }
-.ticker-label { font-size: 0.65rem; padding: 0 0.5rem; white-space: nowrap; }
-.ticker-track { display: flex; flex-wrap: nowrap; white-space: nowrap; }
-.ticker-track span { font-size: 0.65rem; padding: 0 1rem; white-space: nowrap; flex-shrink: 0; }
+  .ticker-bar { top: 66px; height: 26px; }
+  .ticker-label { font-size: 0.65rem; padding: 0 0.5rem; white-space: nowrap; }
+  .ticker-track { display: flex; flex-wrap: nowrap; white-space: nowrap; }
+  .ticker-track span { font-size: 0.65rem; padding: 0 1rem; white-space: nowrap; flex-shrink: 0; }
 
-```
   nav {
     display: none;
     position: fixed;
@@ -237,103 +234,192 @@ footer { background-color: #06080f; border-top: 1px solid rgba(192,39,45,0.3); }
   .footer-brand { flex-direction: column; align-items: center; }
   .footer-bottom { flex-direction: column; align-items: center; text-align: center; padding: 1rem; }
 }
-```
 
 /* ── AGE GATE ── */
 #age-gate {
-position: fixed;
-inset: 0;
-z-index: 10000;
-background: rgba(6, 8, 15, 0.97);
-display: flex;
-align-items: center;
-justify-content: center;
-padding: 1.5rem;
-backdrop-filter: blur(6px);
-animation: ageFadeIn 0.4s ease both;
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  background: rgba(6, 8, 15, 0.97);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  backdrop-filter: blur(6px);
+  animation: ageFadeIn 0.4s ease both;
 }
 @keyframes ageFadeIn { from { opacity: 0; } to { opacity: 1; } }
 #age-gate.hidden { display: none; }
 .age-gate-box {
-background: #162550;
-border: 1px solid rgba(192,39,45,0.4);
-border-radius: 12px;
-padding: 3rem 2.5rem;
-max-width: 420px;
-width: 100%;
-text-align: center;
-box-shadow: 0 0 80px rgba(192,39,45,0.15);
-animation: ageFadeIn 0.5s 0.1s ease both;
+  background: #162550;
+  border: 1px solid rgba(192,39,45,0.4);
+  border-radius: 12px;
+  padding: 3rem 2.5rem;
+  max-width: 420px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 0 80px rgba(192,39,45,0.15);
+  animation: ageFadeIn 0.5s 0.1s ease both;
 }
-.age-gate-logo { width: 72px; height: 72px; border-radius: 50%; overflow: hidden; border: 2px solid #C0272D; margin: 0 auto 1.5rem; background: #0f1c3f; }
+.age-gate-logo {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid #C0272D;
+  margin: 0 auto 1.5rem;
+  background: #0f1c3f;
+}
 .age-gate-logo img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.age-gate-eyebrow { font-family: ‘Barlow Condensed’, sans-serif; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.35em; text-transform: uppercase; color: #C0272D; margin-bottom: 0.5rem; }
-.age-gate-title { font-family: ‘Bebas Neue’, sans-serif; font-size: 2.6rem; letter-spacing: 0.06em; color: #EEF2FA; line-height: 1; margin-bottom: 0.5rem; }
-.age-gate-sub { font-family: ‘Barlow’, sans-serif; font-size: 0.88rem; color: #7a8aaa; margin-bottom: 2rem; line-height: 1.6; }
-.age-gate-label { font-family: ‘Barlow Condensed’, sans-serif; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #7a8aaa; display: block; margin-bottom: 0.6rem; text-align: left; }
-.age-gate-inputs { display: grid; grid-template-columns: 1fr 1fr 1.4fr; gap: 0.5rem; margin-bottom: 1.25rem; }
-.age-gate-inputs input { background: #0f1c3f; border: 1px solid rgba(255,255,255,0.12); border-radius: 6px; color: #EEF2FA; font-family: ‘Barlow Condensed’, sans-serif; font-size: 1.1rem; font-weight: 600; letter-spacing: 0.05em; padding: 0.7rem 0.5rem; text-align: center; width: 100%; outline: none; transition: border-color 0.2s ease; -moz-appearance: textfield; }
+.age-gate-eyebrow {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: #C0272D;
+  margin-bottom: 0.5rem;
+}
+.age-gate-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2.6rem;
+  letter-spacing: 0.06em;
+  color: #EEF2FA;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+.age-gate-sub {
+  font-family: 'Barlow', sans-serif;
+  font-size: 0.88rem;
+  color: #7a8aaa;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+.age-gate-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #7a8aaa;
+  display: block;
+  margin-bottom: 0.6rem;
+  text-align: left;
+}
+.age-gate-inputs {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.4fr;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+.age-gate-inputs input {
+  background: #0f1c3f;
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 6px;
+  color: #EEF2FA;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  padding: 0.7rem 0.5rem;
+  text-align: center;
+  width: 100%;
+  outline: none;
+  transition: border-color 0.2s ease;
+  -moz-appearance: textfield;
+}
 .age-gate-inputs input::-webkit-outer-spin-button,
 .age-gate-inputs input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
 .age-gate-inputs input::placeholder { color: rgba(255,255,255,0.2); font-size: 0.85rem; }
 .age-gate-inputs input:focus { border-color: #C0272D; }
 .age-gate-inputs input.error { border-color: #C0272D; background: rgba(192,39,45,0.08); }
-.age-gate-btn { font-family: ‘Bebas Neue’, sans-serif; font-size: 1.15rem; letter-spacing: 0.15em; background: #C0272D; color: #EEF2FA; border: none; cursor: pointer; padding: 0.9rem 2rem; width: 100%; clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%); transition: background 0.2s ease, transform 0.15s ease; margin-bottom: 1rem; }
+.age-gate-btn {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.15rem;
+  letter-spacing: 0.15em;
+  background: #C0272D;
+  color: #EEF2FA;
+  border: none;
+  cursor: pointer;
+  padding: 0.9rem 2rem;
+  width: 100%;
+  border-radius: 6px;
+  transition: background 0.2s ease, transform 0.15s ease;
+  margin-bottom: 1rem;
+}
 .age-gate-btn:hover { background: #1e3370; transform: translateY(-2px); }
-.age-gate-error { font-family: ‘Barlow Condensed’, sans-serif; font-size: 0.85rem; font-weight: 600; letter-spacing: 0.05em; color: #C0272D; min-height: 1.2em; margin-bottom: 0.75rem; }
-.age-gate-disclaimer { font-family: ‘Barlow’, sans-serif; font-size: 0.72rem; color: #7a8aaa; opacity: 0.7; line-height: 1.5; }
-@media (max-width: 480px) { .age-gate-box { padding: 2rem 1.25rem; } .age-gate-title { font-size: 2rem; } }
+.age-gate-error {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: #C0272D;
+  min-height: 1.2em;
+  margin-bottom: 0.75rem;
+}
+.age-gate-disclaimer {
+  font-family: 'Barlow', sans-serif;
+  font-size: 0.72rem;
+  color: #7a8aaa;
+  opacity: 0.7;
+  line-height: 1.5;
+}
+@media (max-width: 480px) {
+  .age-gate-box { padding: 2rem 1.25rem; }
+  .age-gate-title { font-size: 2rem; }
+}
+
 /* ── TICKER ── */
 .ticker-bar {
-background: #C0272D;
-overflow: hidden;
-height: 28px;
-display: flex;
-align-items: center;
-position: fixed;
-top: 76px;
-left: 0;
-right: 0;
-z-index: 99;
+  background: #C0272D;
+  overflow: hidden;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  position: fixed;
+  top: 76px;
+  left: 0;
+  right: 0;
+  z-index: 99;
 }
 .ticker-label {
-background: #1e3370;
-color: #EEF2FA;
-font-family: ‘Bebas Neue’, sans-serif;
-font-size: 0.8rem;
-letter-spacing: 0.15em;
-padding: 0 1rem;
-height: 100%;
-display: flex;
-align-items: center;
-flex-shrink: 0;
+  background: #1e3370;
+  color: #EEF2FA;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  padding: 0 1rem;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
 }
 .ticker-track {
-display: flex;
-white-space: nowrap;
-flex-wrap: nowrap;
-animation: ticker 10s linear infinite;
+  display: flex;
+  white-space: nowrap;
+  flex-wrap: nowrap;
+  animation: ticker 10s linear infinite;
 }
 .ticker-track span {
-font-family: ‘Barlow Condensed’, sans-serif;
-font-size: 0.78rem;
-font-weight: 600;
-letter-spacing: 0.1em;
-text-transform: uppercase;
-color: rgba(255,255,255,0.92);
-padding: 0 2.5rem;
-white-space: nowrap;
-flex-shrink: 0;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.92);
+  padding: 0 2.5rem;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 .ticker-track span em { color: #ffd0d0; font-style: normal; }
 @keyframes ticker {
-0%   { transform: translateX(0); }
-100% { transform: translateX(-50%); }
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
-</style>
-
+  </style>
 </head>
 <body>
+
   <!-- Age Gate -->
   <div id="age-gate">
     <div class="age-gate-box">
@@ -359,7 +445,7 @@ flex-shrink: 0;
     <div class="header-inner">
       <a href="index.html" class="logo">
         <div class="logo-img-wrap">
-          <img src="https://placehold.co/56x56/0f1c3f/7a8aaa?text=LOGO" alt="Double "J" Sports Bar Logo" class="logo-img"/>
+          <img src="https://i.imgur.com/Gk6PvB3.jpeg" alt='Double "J" Sports Bar Logo' class="logo-img"/>
         </div>
         <div class="logo-text">
           <span class="logo-name">Double "J"</span>
@@ -367,29 +453,25 @@ flex-shrink: 0;
         </div>
       </a>
 
-```
-  <nav id="main-nav">
-    <a href="index.html">Home</a>
-    <div class="nav-divider"></div>
-    <a href="drink-menu.html">Drink Menu</a>
-    <div class="nav-divider"></div>
-    <a href="weekly-events.html">Weekly Events</a>
-    <div class="nav-divider"></div>
-    <a href="connect.html" class="active">Connect</a>
-    <div class="nav-divider"></div>
-    <a href="community-activism.html">Community Activism</a>
-    <div class="nav-divider"></div>
-    <a href="apply-now.html">Apply Now</a>
-  </nav>
+      <nav id="main-nav">
+        <a href="index.html">Home</a>
+        <div class="nav-divider"></div>
+        <a href="drink-menu.html">Drink Menu</a>
+        <div class="nav-divider"></div>
+        <a href="weekly-events.html">Weekly Events</a>
+        <div class="nav-divider"></div>
+        <a href="connect.html" class="active">Connect</a>
+        <div class="nav-divider"></div>
+        <a href="community-activism.html">Community Activism</a>
+        <div class="nav-divider"></div>
+        <a href="apply-now.html">Apply Now</a>
+      </nav>
 
-  <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
-</div>
-```
-
+      <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+    </div>
   </header>
 
   <!-- Score Ticker -->
-
   <div class="ticker-bar">
     <div class="ticker-label">Live&nbsp;Now</div>
     <div style="overflow:hidden; flex:1;">
@@ -399,10 +481,7 @@ flex-shrink: 0;
     </div>
   </div>
 
-  <!-- Page Hero -->
-
   <!-- Monthly Poll -->
-
   <div class="poll-section">
     <div class="poll-inner">
       <div class="poll-card">
@@ -452,13 +531,13 @@ flex-shrink: 0;
     </div>
   </div>
 
+  <!-- Page Hero -->
   <div class="page-hero">
     <p class="page-eyebrow">Stay Connected</p>
     <h1 class="page-title">Find Us <span class="accent">Online</span></h1>
   </div>
 
   <!-- Social Platform Links -->
-
   <section class="social-links-section">
     <div class="section-inner">
       <p class="section-eyebrow">Follow Along</p>
@@ -466,43 +545,44 @@ flex-shrink: 0;
       <div class="social-cards-wrap">
         <div class="social-cards">
 
-```
-    <a href="https://www.facebook.com/doublejsportsbar" target="_blank" rel="noopener" class="social-card facebook">
-      <svg width="40" height="40" viewBox="0 0 24 24" fill="#1877F2"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.513c-1.491 0-1.956.93-1.956 1.886v2.268h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>
-      <div class="social-card-name">Facebook</div>
-      <div class="social-card-handle">facebook.com/doublejsportsbar</div>
-      <div class="social-card-btn">Follow Us</div>
-    </a>
+          <a href="https://www.facebook.com/doublejsportsbar" target="_blank" rel="noopener" class="social-card facebook">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="#1877F2"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.513c-1.491 0-1.956.93-1.956 1.886v2.268h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>
+            <div class="social-card-name">Facebook</div>
+            <div class="social-card-handle">facebook.com/doublejsportsbar</div>
+            <div class="social-card-btn">Follow Us</div>
+          </a>
 
-    <a href="https://www.instagram.com/doublejsportsbar" target="_blank" rel="noopener" class="social-card instagram">
-      <svg width="40" height="40" viewBox="0 0 24 24" fill="url(#igGrad)">
-        <defs>
-          <radialGradient id="igGrad" cx="30%" cy="107%" r="150%">
-            <stop offset="0%" stop-color="#fdf497"/>
-            <stop offset="5%" stop-color="#fdf497"/>
-            <stop offset="45%" stop-color="#fd5949"/>
-            <stop offset="60%" stop-color="#d6249f"/>
-            <stop offset="90%" stop-color="#285AEB"/>
-          </radialGradient>
-        </defs>
-        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
-      </svg>
-      <div class="social-card-name">Instagram</div>
-      <div class="social-card-handle">instagram.com/doublejsportsbar</div>
-      <div class="social-card-btn">Follow Us</div>
-    </a>
+          <a href="https://www.instagram.com/doublejsportsbar" target="_blank" rel="noopener" class="social-card instagram">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="url(#igGrad)">
+              <defs>
+                <radialGradient id="igGrad" cx="30%" cy="107%" r="150%">
+                  <stop offset="0%" stop-color="#fdf497"/>
+                  <stop offset="5%" stop-color="#fdf497"/>
+                  <stop offset="45%" stop-color="#fd5949"/>
+                  <stop offset="60%" stop-color="#d6249f"/>
+                  <stop offset="90%" stop-color="#285AEB"/>
+                </radialGradient>
+              </defs>
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+            </svg>
+            <div class="social-card-name">Instagram</div>
+            <div class="social-card-handle">instagram.com/doublejsportsbar</div>
+            <div class="social-card-btn">Follow Us</div>
+          </a>
 
-    <a href="https://www.tiktok.com/@doublejsportsbarjoliet" target="_blank" rel="noopener" class="social-card tiktok">
-      <svg width="40" height="40" viewBox="0 0 24 24" fill="#69C9D0"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.32 6.32 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.76a4.85 4.85 0 01-1.01-.07z"/></svg>
-      <div class="social-card-name">TikTok</div>
-      <div class="social-card-handle">@doublejsportsbarjoliet</div>
-      <div class="social-card-btn">Follow Us</div>
-    </a>
+          <a href="https://www.tiktok.com/@doublejsportsbarjoliet" target="_blank" rel="noopener" class="social-card tiktok">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="#69C9D0"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.32 6.32 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.76a4.85 4.85 0 01-1.01-.07z"/></svg>
+            <div class="social-card-name">TikTok</div>
+            <div class="social-card-handle">@doublejsportsbarjoliet</div>
+            <div class="social-card-btn">Follow Us</div>
+          </a>
 
+        </div>
+      </div>
     </div>
-  </div>
-```
+  </section>
 
+  <!-- 360 Tour -->
   <section class="tour-section">
     <div class="section-inner">
       <p class="section-eyebrow">Step Inside</p>
@@ -514,7 +594,6 @@ flex-shrink: 0;
   </section>
 
   <!-- Contact & Map -->
-
   <section class="contact-section">
     <div class="section-inner">
       <p class="section-eyebrow">Come See Us</p>
@@ -551,7 +630,6 @@ flex-shrink: 0;
   </section>
 
   <!-- FAQ -->
-
   <section class="faq-section">
     <div class="section-inner">
       <p class="section-eyebrow">Got Questions?</p>
@@ -590,12 +668,11 @@ flex-shrink: 0;
   </section>
 
   <!-- Footer -->
-
   <footer>
     <div class="footer-inner">
       <div class="footer-brand">
         <div class="footer-logo-wrap">
-          <img src="https://placehold.co/56x56/0f1c3f/7a8aaa?text=LOGO" alt="Double "J" Sports Bar" class="footer-logo-img"/>
+          <img src="https://i.imgur.com/Gk6PvB3.jpeg" alt='Double "J" Sports Bar' class="footer-logo-img"/>
         </div>
         <div>
           <div class="footer-logo-name">Double "J"</div>
@@ -627,70 +704,67 @@ flex-shrink: 0;
   <script>
     document.getElementById('footer-year').textContent = new Date().getFullYear();
 
-    // Hamburger toggle
-    // ── MONTHLY POLL ──
-    const POLL_KEY = 'dj-poll-march-2026';
-    const VOTES_KEY = 'dj-poll-votes-march-2026';
+    // ── AGE GATE ──
+    (function() {
+      const gate     = document.getElementById('age-gate');
+      const errorEl  = document.getElementById('ag-error');
+      const monthEl  = document.getElementById('ag-month');
+      const dayEl    = document.getElementById('ag-day');
+      const yearEl   = document.getElementById('ag-year');
 
-    // Default seed votes so results look realistic
-    const defaultVotes = { duke: 12, michigan: 8, arizona: 15, florida: 10 };
+      if (sessionStorage.getItem('age-verified') === 'true') {
+        gate.classList.add('hidden');
+        return;
+      }
 
-    function getVotes() {
-      try {
-        return JSON.parse(localStorage.getItem(VOTES_KEY)) || { ...defaultVotes };
-      } catch { return { ...defaultVotes }; }
-    }
+      monthEl.addEventListener('input', () => { if (monthEl.value.length >= 2) dayEl.focus(); });
+      dayEl.addEventListener('input',   () => { if (dayEl.value.length >= 2)   yearEl.focus(); });
 
-    function saveVotes(votes) {
-      try { localStorage.setItem(VOTES_KEY, JSON.stringify(votes)); } catch {}
-    }
-
-    function showResults(votes, myVote) {
-      const total = Object.values(votes).reduce((a, b) => a + b, 0);
-      const options = ['duke', 'michigan', 'arizona', 'florida'];
-      const maxVotes = Math.max(...Object.values(votes));
-
-      options.forEach(key => {
-        const pct = total > 0 ? Math.round((votes[key] / total) * 100) : 0;
-        document.getElementById(`pct-${key}`).textContent = pct + '%';
-        const bar = document.getElementById(`bar-${key}`);
-        setTimeout(() => { bar.style.width = pct + '%'; }, 50);
-        if (votes[key] === maxVotes) bar.classList.add('winner');
-        if (key === myVote) {
-          document.getElementById(`result-${key}`).style.opacity = '1';
-        } else {
-          document.getElementById(`result-${key}`).style.opacity = '0.7';
-        }
+      document.getElementById('ag-submit').addEventListener('click', verify);
+      [monthEl, dayEl, yearEl].forEach(el => {
+        el.addEventListener('keydown', e => { if (e.key === 'Enter') verify(); });
       });
 
-      document.getElementById('poll-options').classList.add('hidden');
-      document.getElementById('poll-results').classList.remove('hidden');
-      document.getElementById('poll-thanks').textContent = '✅ Thanks for voting! Results update in real time.';
-    }
+      function verify() {
+        errorEl.textContent = '';
+        [monthEl, dayEl, yearEl].forEach(el => el.classList.remove('error'));
 
-    function castVote(team) {
-      const votes = getVotes();
-      votes[team] = (votes[team] || 0) + 1;
-      saveVotes(votes);
-      try { localStorage.setItem(POLL_KEY, team); } catch {}
-      showResults(votes, team);
-    }
+        const m = parseInt(monthEl.value, 10);
+        const d = parseInt(dayEl.value, 10);
+        const y = parseInt(yearEl.value, 10);
 
-    // On load: if already voted, show results
-    (function() {
-      try {
-        const myVote = localStorage.getItem(POLL_KEY);
-        if (myVote) {
-          showResults(getVotes(), myVote);
+        if (!m || !d || !y || monthEl.value === '' || dayEl.value === '' || yearEl.value === '') {
+          errorEl.textContent = 'Please enter your full date of birth.';
+          [monthEl, dayEl, yearEl].forEach(el => { if (!el.value) el.classList.add('error'); });
+          return;
         }
-      } catch {}
+        if (m < 1 || m > 12 || d < 1 || d > 31 || y < 1900 || y > new Date().getFullYear()) {
+          errorEl.textContent = 'Please enter a valid date.';
+          [monthEl, dayEl, yearEl].forEach(el => el.classList.add('error'));
+          return;
+        }
+
+        const dob   = new Date(y, m - 1, d);
+        const today = new Date();
+        let age = today.getFullYear() - dob.getFullYear();
+        const mDiff = today.getMonth() - dob.getMonth();
+        if (mDiff < 0 || (mDiff === 0 && today.getDate() < dob.getDate())) age--;
+
+        if (age >= 21) {
+          sessionStorage.setItem('age-verified', 'true');
+          gate.style.transition = 'opacity 0.4s ease';
+          gate.style.opacity = '0';
+          setTimeout(() => gate.classList.add('hidden'), 400);
+        } else {
+          window.location.replace('https://www.google.com');
+        }
+      }
     })();
 
+    // ── HAMBURGER ──
     document.getElementById('hamburger').addEventListener('click', () => {
       document.getElementById('main-nav').classList.toggle('open');
     });
-
-    // Close nav and navigate when a link is clicked
     document.querySelectorAll('#main-nav a').forEach(link => {
       link.addEventListener('click', function(e) {
         const href = this.getAttribute('href');
@@ -700,6 +774,50 @@ flex-shrink: 0;
         }
       });
     });
+
+    // ── MONTHLY POLL ──
+    const POLL_KEY  = 'dj-poll-march-2026';
+    const VOTES_KEY = 'dj-poll-votes-march-2026';
+    const defaultVotes = { duke: 12, michigan: 8, arizona: 15, florida: 10 };
+
+    function getVotes() {
+      try { return JSON.parse(localStorage.getItem(VOTES_KEY)) || { ...defaultVotes }; }
+      catch { return { ...defaultVotes }; }
+    }
+    function saveVotes(votes) {
+      try { localStorage.setItem(VOTES_KEY, JSON.stringify(votes)); } catch {}
+    }
+    function showResults(votes, myVote) {
+      const total    = Object.values(votes).reduce((a, b) => a + b, 0);
+      const options  = ['duke', 'michigan', 'arizona', 'florida'];
+      const maxVotes = Math.max(...Object.values(votes));
+      options.forEach(key => {
+        const pct = total > 0 ? Math.round((votes[key] / total) * 100) : 0;
+        document.getElementById(`pct-${key}`).textContent = pct + '%';
+        const bar = document.getElementById(`bar-${key}`);
+        setTimeout(() => { bar.style.width = pct + '%'; }, 50);
+        if (votes[key] === maxVotes) bar.classList.add('winner');
+        document.getElementById(`result-${key}`).style.opacity = key === myVote ? '1' : '0.7';
+      });
+      document.getElementById('poll-options').classList.add('hidden');
+      document.getElementById('poll-results').classList.remove('hidden');
+      document.getElementById('poll-thanks').textContent = '✅ Thanks for voting! Results update in real time.';
+    }
+    function castVote(team) {
+      const votes = getVotes();
+      votes[team] = (votes[team] || 0) + 1;
+      saveVotes(votes);
+      try { localStorage.setItem(POLL_KEY, team); } catch {}
+      showResults(votes, team);
+    }
+    (function() {
+      try {
+        const myVote = localStorage.getItem(POLL_KEY);
+        if (myVote) showResults(getVotes(), myVote);
+      } catch {}
+    })();
+
+    // ── FAQ ──
     document.querySelectorAll('.faq-question').forEach(btn => {
       btn.addEventListener('click', () => {
         const isOpen = btn.getAttribute('aria-expanded') === 'true';
@@ -725,18 +843,18 @@ flex-shrink: 0;
     async function fetchScores(league) {
       const url = `https://site.api.espn.com/apis/site/v2/sports/${league.key}/scoreboard`;
       try {
-        const res = await fetch(url);
+        const res  = await fetch(url);
         const data = await res.json();
         return (data.events || []).map(event => {
-          const comp = event.competitions[0];
-          const home = comp.competitors.find(c => c.homeAway === 'home');
-          const away = comp.competitors.find(c => c.homeAway === 'away');
-          const status = event.status.type.shortDetail || '';
-          const homeAbbr = home?.team?.abbreviation || home?.team?.shortDisplayName || '';
-          const awayAbbr = away?.team?.abbreviation || away?.team?.shortDisplayName || '';
+          const comp      = event.competitions[0];
+          const home      = comp.competitors.find(c => c.homeAway === 'home');
+          const away      = comp.competitors.find(c => c.homeAway === 'away');
+          const status    = event.status.type.shortDetail || '';
+          const homeAbbr  = home?.team?.abbreviation || home?.team?.shortDisplayName || '';
+          const awayAbbr  = away?.team?.abbreviation || away?.team?.shortDisplayName || '';
           const homeScore = home?.score ?? '';
           const awayScore = away?.score ?? '';
-          const hasScore = homeScore !== '' && awayScore !== '';
+          const hasScore  = homeScore !== '' && awayScore !== '';
           return {
             label: league.label,
             text: hasScore
@@ -747,10 +865,10 @@ flex-shrink: 0;
       } catch { return []; }
     }
     async function buildTicker() {
-      const track = document.getElementById('ticker-track');
+      const track   = document.getElementById('ticker-track');
       if (!track) return;
       const results = await Promise.all(LEAGUES.map(fetchScores));
-      const all = results.flat();
+      const all     = results.flat();
       if (all.length === 0) {
         track.innerHTML = '<span>No live games right now — check back soon!</span>';
         return;
@@ -760,7 +878,7 @@ flex-shrink: 0;
         .map(g => `<span><strong style="color:#ffd0d0;margin-right:0.4rem">${g.label}</strong>${g.text}</span>`)
         .join('');
       const totalWidth = track.scrollWidth;
-      const duration = Math.max(5, totalWidth / 1800);
+      const duration   = Math.max(5, totalWidth / 1800);
       track.style.animationDuration = `${duration}s`;
     }
     buildTicker();
