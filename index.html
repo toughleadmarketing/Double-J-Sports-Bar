@@ -81,11 +81,7 @@ overflow: hidden;
 height: 28px;
 display: flex;
 align-items: center;
-position: fixed;
-top: 76px;
-left: 0;
-right: 0;
-z-index: 99;
+margin-top: 76px;
 }
 .ticker-label {
 background: #1e3370;
@@ -256,7 +252,8 @@ nav a { padding: 0.9rem 1.5rem; font-size: 1rem; color: #EEF2FA; border-bottom: 
 nav a.active { color: #C0272D; }
 nav a::after { display: none; }
 .nav-divider { display: none; }
-.ticker-bar { margin-top: 66px; height: 26px; overflow: hidden; }
+.ticker-bar { top: 66px; height: 26px; }
+.video-section { margin-top: 92px; }
 .ticker-label { font-size: 0.65rem; padding: 0 0.5rem; white-space: nowrap; }
 .ticker-track { display: flex; flex-wrap: nowrap; white-space: nowrap; }
 .ticker-track span { font-size: 0.65rem; padding: 0 1rem; white-space: nowrap; flex-shrink: 0; }
@@ -394,7 +391,7 @@ gap: 4px;
   <!-- J&J Gaming Section -->
   <section class="gaming-section">
     <div class="section-inner">
-      <p class="section-eyebrow">Now Available at Double J</p>
+      <p class="section-eyebrow">Available at Double J</p>
       <h2 class="section-title">J&amp;J <span class="accent">Gaming</span></h2>
       <div class="gaming-grid">
         <div class="gaming-info">
@@ -541,7 +538,7 @@ gap: 4px;
         .map(g => `<span><strong style="color:#ffd0d0;margin-right:0.4rem">${g.label}</strong>${g.text}</span>`)
         .join('');
       const totalWidth = track.scrollWidth;
-      const duration = Math.max(5, totalWidth / 900);
+      const duration = Math.max(5, totalWidth / 400);
       track.style.animationDuration = `${duration}s`;
     }
     buildTicker();
