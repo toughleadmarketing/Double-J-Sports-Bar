@@ -1,137 +1,232 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Drink Menu — Double J Sports Bar</title>
+  <title>Drink Menu — Double "J" Sports Bar</title>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@400;600;700&family=Barlow:wght@400;500&display=swap" rel="stylesheet"/>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     body { background-color: #0f1c3f; font-family: 'Barlow', sans-serif; color: #EEF2FA; }
 
-```
-header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background-color: rgba(15,28,63,0.97); border-bottom: 1px solid rgba(192,39,45,0.35); backdrop-filter: blur(8px); }
-.header-inner { max-width: 1280px; margin: 0 auto; padding: 0 2rem; height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
-.logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; flex-shrink: 0; }
-.logo-img-wrap { width: 56px; height: 56px; border-radius: 50%; overflow: hidden; border: 2px solid #C0272D; flex-shrink: 0; background-color: #162550; transition: transform 0.3s ease; }
-.logo:hover .logo-img-wrap { transform: scale(1.06); }
-.logo-img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.logo-text { display: flex; flex-direction: column; line-height: 1; }
-.logo-name { font-family: 'Bebas Neue', sans-serif; font-size: 1.65rem; letter-spacing: 0.1em; color: #EEF2FA; }
-.logo-tagline { font-family: 'Barlow Condensed', sans-serif; font-size: 0.65rem; letter-spacing: 0.3em; text-transform: uppercase; color: #C0272D; font-weight: 600; }
-nav { display: flex; align-items: center; gap: 0.25rem; }
-nav a { font-family: 'Barlow Condensed', sans-serif; font-size: 0.9rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; text-decoration: none; color: #7a8aaa; padding: 0.45rem 0.85rem; position: relative; transition: color 0.2s ease; }
-nav a::after { content: ''; position: absolute; bottom: 0; left: 50%; right: 50%; height: 2px; background-color: #C0272D; transition: left 0.25s ease, right 0.25s ease; }
-nav a:hover { color: #EEF2FA; }
-nav a:hover::after { left: 0.85rem; right: 0.85rem; }
-nav a.active { color: #C0272D; }
-.nav-divider { width: 1px; height: 14px; background-color: rgba(255,255,255,0.12); }
-.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 6px; }
-.hamburger span { display: block; width: 24px; height: 2px; background-color: #EEF2FA; }
+    /* ── HEADER ── */
+    header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background-color: rgba(15,28,63,0.97); border-bottom: 1px solid rgba(192,39,45,0.35); backdrop-filter: blur(8px); }
+    .header-inner { max-width: 1280px; margin: 0 auto; padding: 0 2rem; height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
+    .logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; flex-shrink: 0; }
+    .logo-img-wrap { width: 56px; height: 56px; border-radius: 50%; overflow: hidden; border: 2px solid #C0272D; flex-shrink: 0; background-color: #162550; transition: transform 0.3s ease; }
+    .logo:hover .logo-img-wrap { transform: scale(1.06); }
+    .logo-img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .logo-text { display: flex; flex-direction: column; line-height: 1; }
+    .logo-name { font-family: 'Bebas Neue', sans-serif; font-size: 1.65rem; letter-spacing: 0.1em; color: #EEF2FA; }
+    .logo-tagline { font-family: 'Barlow Condensed', sans-serif; font-size: 0.65rem; letter-spacing: 0.3em; text-transform: uppercase; color: #C0272D; font-weight: 600; }
+    nav { display: flex; align-items: center; gap: 0.25rem; }
+    nav a { font-family: 'Barlow Condensed', sans-serif; font-size: 0.9rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; text-decoration: none; color: #7a8aaa; padding: 0.45rem 0.85rem; position: relative; transition: color 0.2s ease; }
+    nav a::after { content: ''; position: absolute; bottom: 0; left: 50%; right: 50%; height: 2px; background-color: #C0272D; transition: left 0.25s ease, right 0.25s ease; }
+    nav a:hover { color: #EEF2FA; }
+    nav a:hover::after { left: 0.85rem; right: 0.85rem; }
+    nav a.active { color: #C0272D; }
+    .nav-divider { width: 1px; height: 14px; background-color: rgba(255,255,255,0.12); }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 6px; }
+    .hamburger span { display: block; width: 24px; height: 2px; background-color: #EEF2FA; }
 
-.page-hero { margin-top: 76px; background-image: linear-gradient(160deg, rgba(192,39,45,0.12) 0%, transparent 50%); background-color: #0f1c3f; padding: 4rem 2rem; text-align: center; border-bottom: 1px solid rgba(192,39,45,0.2); }
-.page-eyebrow { font-family: 'Barlow Condensed', sans-serif; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.4em; text-transform: uppercase; color: #C0272D; margin-bottom: 0.5rem; }
-.page-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(3rem, 8vw, 6rem); letter-spacing: 0.06em; line-height: 1; color: #EEF2FA; }
-.page-title .accent { color: #C0272D; }
-.page-subtitle { font-family: 'Barlow', sans-serif; font-size: 1rem; color: #7a8aaa; margin-top: 1rem; max-width: 520px; margin-left: auto; margin-right: auto; line-height: 1.7; }
+    /* ── TICKER ── */
+    .ticker-bar { background: #C0272D; overflow: hidden; height: 28px; display: flex; align-items: center; position: fixed; top: 76px; left: 0; right: 0; z-index: 99; }
+    .ticker-label { background: #1e3370; color: #EEF2FA; font-family: 'Bebas Neue', sans-serif; font-size: 0.8rem; letter-spacing: 0.15em; padding: 0 1rem; height: 100%; display: flex; align-items: center; flex-shrink: 0; }
+    .ticker-track { display: flex; white-space: nowrap; flex-wrap: nowrap; animation: ticker 10s linear infinite; }
+    .ticker-track span { font-family: 'Barlow Condensed', sans-serif; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.92); padding: 0 2.5rem; white-space: nowrap; flex-shrink: 0; }
+    .ticker-track span em { color: #ffd0d0; font-style: normal; }
+    @keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
-.tabs-bar { background-color: #162550; border-bottom: 1px solid rgba(255,255,255,0.06); overflow-x: auto; }
-.tabs-inner { max-width: 1280px; margin: 0 auto; padding: 0 2rem; display: flex; white-space: nowrap; }
-.tab-btn { font-family: 'Bebas Neue', sans-serif; font-size: 1rem; letter-spacing: 0.12em; color: #7a8aaa; background: none; border: none; border-bottom: 3px solid transparent; padding: 1rem 1.25rem; cursor: pointer; transition: color 0.2s ease, border-color 0.2s ease; }
-.tab-btn:hover { color: #EEF2FA; }
-.tab-btn.active { color: #EEF2FA; border-bottom-color: #C0272D; }
+    /* ── PAGE HERO ── */
+    .page-hero { margin-top: 104px; background-image: linear-gradient(160deg, rgba(192,39,45,0.12) 0%, transparent 50%); background-color: #0f1c3f; padding: 4rem 2rem; text-align: center; border-bottom: 1px solid rgba(192,39,45,0.2); }
+    .page-eyebrow { font-family: 'Barlow Condensed', sans-serif; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.4em; text-transform: uppercase; color: #C0272D; margin-bottom: 0.5rem; }
+    .page-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(3rem, 8vw, 6rem); letter-spacing: 0.06em; line-height: 1; color: #EEF2FA; }
+    .page-title .accent { color: #C0272D; }
+    .page-subtitle { font-family: 'Barlow', sans-serif; font-size: 1rem; color: #7a8aaa; margin-top: 1rem; max-width: 520px; margin-left: auto; margin-right: auto; line-height: 1.7; }
 
-.menu-panel { display: none; }
-.menu-panel.active { display: block; }
-.section-wrap { max-width: 1280px; margin: 0 auto; padding: 4rem 2rem; }
-.menu-section-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(1.8rem, 4vw, 2.8rem); letter-spacing: 0.1em; color: #EEF2FA; margin-bottom: 0.25rem; padding-bottom: 0.75rem; border-bottom: 2px solid #C0272D; display: inline-block; }
-.menu-section-title .accent { color: #C0272D; }
+    /* ── TABS ── */
+    .tabs-bar { background-color: #162550; border-bottom: 1px solid rgba(255,255,255,0.06); overflow-x: auto; }
+    .tabs-inner { max-width: 1280px; margin: 0 auto; padding: 0 2rem; display: flex; white-space: nowrap; }
+    .tab-btn { font-family: 'Bebas Neue', sans-serif; font-size: 1rem; letter-spacing: 0.12em; color: #7a8aaa; background: none; border: none; border-bottom: 3px solid transparent; padding: 1rem 1.25rem; cursor: pointer; transition: color 0.2s ease, border-color 0.2s ease; }
+    .tab-btn:hover { color: #EEF2FA; }
+    .tab-btn.active { color: #EEF2FA; border-bottom-color: #C0272D; }
 
-.bottles-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2.5rem; margin-top: 2.5rem; }
-.beer-col-title { font-family: 'Barlow Condensed', sans-serif; font-size: 1rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #4dd9e0; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid rgba(77,217,224,0.25); }
-.beer-list { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
-.beer-list li { font-family: 'Barlow Condensed', sans-serif; font-size: 0.95rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #EEF2FA; }
-.beer-list li.sub { font-weight: 400; color: #7a8aaa; text-transform: none; font-size: 0.88rem; padding-left: 0.75rem; }
-.beer-list li.brand { color: #F5C842; margin-top: 0.5rem; }
+    /* ── MENU PANELS ── */
+    .menu-panel { display: none; }
+    .menu-panel.active { display: block; }
+    .section-wrap { max-width: 1280px; margin: 0 auto; padding: 4rem 2rem; }
+    .menu-section-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(1.8rem, 4vw, 2.8rem); letter-spacing: 0.1em; color: #EEF2FA; margin-bottom: 0.25rem; padding-bottom: 0.75rem; border-bottom: 2px solid #C0272D; display: inline-block; }
+    .menu-section-title .accent { color: #C0272D; }
 
-.cocktails-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-top: 2.5rem; }
-.cocktail-col-title { font-family: 'Barlow Condensed', sans-serif; font-size: 1rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #4dd9e0; margin-bottom: 1.5rem; padding-bottom: 0.5rem; border-bottom: 1px solid rgba(77,217,224,0.25); }
-.cocktail-item { display: flex; flex-direction: column; gap: 0.25rem; margin-bottom: 1.5rem; }
-.cocktail-name-row { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; }
-.cocktail-name { font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem; letter-spacing: 0.08em; color: #EEF2FA; }
-.cocktail-price { font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; color: #F5C842; white-space: nowrap; }
-.cocktail-ingredients { font-family: 'Barlow', sans-serif; font-size: 0.82rem; color: #7a8aaa; line-height: 1.5; }
+    /* ── BOTTLES ── */
+    .bottles-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2.5rem; margin-top: 2.5rem; }
+    .beer-col-title { font-family: 'Barlow Condensed', sans-serif; font-size: 1rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #4dd9e0; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid rgba(77,217,224,0.25); }
+    .beer-list { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+    .beer-list li { font-family: 'Barlow Condensed', sans-serif; font-size: 0.95rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #EEF2FA; }
+    .beer-list li.sub { font-weight: 400; color: #7a8aaa; text-transform: none; font-size: 0.88rem; padding-left: 0.75rem; }
+    .beer-list li.brand { color: #F5C842; margin-top: 0.5rem; }
 
-.nonalc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-top: 2.5rem; }
-.nonalc-sub-title { font-family: 'Barlow Condensed', sans-serif; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #7a8aaa; margin: 1.5rem 0 0.75rem; padding-bottom: 0.4rem; border-bottom: 1px solid rgba(255,255,255,0.07); }
-.nonalc-box { border: 1px solid rgba(77,217,224,0.2); border-radius: 6px; padding: 1rem 1.25rem; margin-bottom: 1rem; }
-.nonalc-box-title { font-family: 'Barlow Condensed', sans-serif; font-size: 0.9rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: #4dd9e0; margin-bottom: 0.5rem; }
-.wine-brand { font-family: 'Barlow Condensed', sans-serif; font-size: 0.9rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: #F5C842; margin-bottom: 0.5rem; }
-.wine-highlight { border: 1px solid #d63384; border-radius: 6px; padding: 0.75rem 1.25rem; margin-top: 1rem; color: #f599c8; font-family: 'Barlow Condensed', sans-serif; font-size: 1rem; font-weight: 700; letter-spacing: 0.1em; }
+    /* ── COCKTAILS ── */
+    .cocktails-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-top: 2.5rem; }
+    .cocktail-col-title { font-family: 'Barlow Condensed', sans-serif; font-size: 1rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #4dd9e0; margin-bottom: 1.5rem; padding-bottom: 0.5rem; border-bottom: 1px solid rgba(77,217,224,0.25); }
+    .cocktail-item { display: flex; flex-direction: column; gap: 0.25rem; margin-bottom: 1.5rem; }
+    .cocktail-name-row { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; }
+    .cocktail-name { font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem; letter-spacing: 0.08em; color: #EEF2FA; }
+    .cocktail-price { font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; color: #F5C842; white-space: nowrap; }
+    .cocktail-ingredients { font-family: 'Barlow', sans-serif; font-size: 0.82rem; color: #7a8aaa; line-height: 1.5; }
 
-.specials-everyday { font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; letter-spacing: 0.15em; color: #F5C842; text-align: center; background-color: rgba(245,200,66,0.08); border: 1px solid rgba(245,200,66,0.2); border-radius: 6px; padding: 0.85rem 2rem; margin-bottom: 2.5rem; }
-.specials-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1rem; }
-.special-card { background-color: #0f1c3f; border: 1px solid rgba(255,255,255,0.07); border-radius: 8px; overflow: hidden; transition: transform 0.2s ease, border-color 0.2s ease; }
-.special-card:hover { transform: translateY(-3px); border-color: rgba(192,39,45,0.4); }
-.special-day { background-color: #1e3370; font-family: 'Bebas Neue', sans-serif; font-size: 1rem; letter-spacing: 0.15em; color: #EEF2FA; text-align: center; padding: 0.5rem; }
-.special-body { padding: 1rem; display: flex; flex-direction: column; gap: 0.6rem; }
-.special-item { font-family: 'Barlow Condensed', sans-serif; font-size: 0.82rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #EEF2FA; line-height: 1.4; }
-.special-item em { font-style: normal; color: #F5C842; }
-.special-divider { height: 1px; background-color: rgba(255,255,255,0.07); }
+    /* ── NON-ALC ── */
+    .nonalc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-top: 2.5rem; }
+    .nonalc-sub-title { font-family: 'Barlow Condensed', sans-serif; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #7a8aaa; margin: 1.5rem 0 0.75rem; padding-bottom: 0.4rem; border-bottom: 1px solid rgba(255,255,255,0.07); }
+    .nonalc-box { border: 1px solid rgba(77,217,224,0.2); border-radius: 6px; padding: 1rem 1.25rem; margin-bottom: 1rem; }
+    .nonalc-box-title { font-family: 'Barlow Condensed', sans-serif; font-size: 0.9rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: #4dd9e0; margin-bottom: 0.5rem; }
+    .wine-brand { font-family: 'Barlow Condensed', sans-serif; font-size: 0.9rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: #F5C842; margin-bottom: 0.5rem; }
+    .wine-highlight { border: 1px solid #d63384; border-radius: 6px; padding: 0.75rem 1.25rem; margin-top: 1rem; color: #f599c8; font-family: 'Barlow Condensed', sans-serif; font-size: 1rem; font-weight: 700; letter-spacing: 0.1em; }
 
-footer { background-color: #06080f; border-top: 1px solid rgba(192,39,45,0.3); }
-.footer-inner { max-width: 1280px; margin: 0 auto; padding: 3rem 2rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 2rem; }
-.footer-brand { display: flex; align-items: center; gap: 0.85rem; }
-.footer-logo-wrap { width: 52px; height: 52px; border-radius: 50%; overflow: hidden; border: 2px solid #C0272D; flex-shrink: 0; background-color: #162550; }
-.footer-logo-img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.footer-logo-name { font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; letter-spacing: 0.1em; color: #EEF2FA; line-height: 1; }
-.footer-logo-tag { font-family: 'Barlow Condensed', sans-serif; font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase; color: #7a8aaa; margin-top: 0.2rem; }
-.footer-phone { font-family: 'Barlow Condensed', sans-serif; font-size: 1.1rem; font-weight: 700; letter-spacing: 0.1em; color: #EEF2FA; text-decoration: none; display: flex; align-items: center; gap: 0.5rem; transition: color 0.2s ease; }
-.footer-phone:hover { color: #C0272D; }
-.footer-social { display: flex; align-items: center; gap: 0.75rem; }
-.social-icon { display: flex; align-items: center; justify-content: center; width: 42px; height: 42px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.12); color: #7a8aaa; text-decoration: none; transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease; }
-.social-icon:hover { background-color: #1877F2; color: #EEF2FA; border-color: #1877F2; }
-.social-icon.instagram:hover { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); color: #EEF2FA; border-color: transparent; }
-.social-icon.tiktok:hover { background-color: #010101; color: #EEF2FA; border-color: #69C9D0; }
-.footer-bottom { border-top: 1px solid rgba(255,255,255,0.06); padding: 1.25rem 2rem; max-width: 1280px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; }
-.footer-disclaimer { font-family: 'Barlow Condensed', sans-serif; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: #C0272D; opacity: 0.8; }
-.footer-copy { font-family: 'Barlow', sans-serif; font-size: 0.75rem; color: #7a8aaa; opacity: 0.6; }
+    /* ── SPECIALS ── */
+    .specials-everyday { font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; letter-spacing: 0.15em; color: #F5C842; text-align: center; background-color: rgba(245,200,66,0.08); border: 1px solid rgba(245,200,66,0.2); border-radius: 6px; padding: 0.85rem 2rem; margin-bottom: 2.5rem; }
+    .specials-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1rem; }
+    .special-card { background-color: #0f1c3f; border: 1px solid rgba(255,255,255,0.07); border-radius: 8px; overflow: hidden; transition: transform 0.2s ease, border-color 0.2s ease; }
+    .special-card:hover { transform: translateY(-3px); border-color: rgba(192,39,45,0.4); }
+    .special-day { background-color: #1e3370; font-family: 'Bebas Neue', sans-serif; font-size: 1rem; letter-spacing: 0.15em; color: #EEF2FA; text-align: center; padding: 0.5rem; }
+    .special-body { padding: 1rem; display: flex; flex-direction: column; gap: 0.6rem; }
+    .special-item { font-family: 'Barlow Condensed', sans-serif; font-size: 0.82rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #EEF2FA; line-height: 1.4; }
+    .special-item em { font-style: normal; color: #F5C842; }
+    .special-divider { height: 1px; background-color: rgba(255,255,255,0.07); }
 
-@media (max-width: 900px) { .bottles-grid { grid-template-columns: repeat(2, 1fr); } .specials-grid { grid-template-columns: repeat(3, 1fr); } }
-@media (max-width: 680px) {
-  .header-inner { padding: 0 1rem; height: 66px; }
-  .logo-img-wrap { width: 42px; height: 42px; }
-  .logo-name { font-size: 1.2rem; }
-  .logo-tagline { font-size: 0.5rem; }
-  .hamburger { display: flex; }
-  nav { display: none; position: fixed; top: 66px; left: 0; right: 0; background-color: #0f1c3f; flex-direction: column; align-items: stretch; padding: 0.5rem 0 1rem; border-top: 2px solid #C0272D; z-index: 9999; }
-  nav.open { display: flex; }
-  nav a { padding: 0.9rem 1.5rem; font-size: 1rem; color: #EEF2FA; border-bottom: 1px solid rgba(255,255,255,0.06); }
-  nav a.active { color: #C0272D; }
-  nav a::after { display: none; }
-  .nav-divider { display: none; }
-  .page-hero { padding: 2.5rem 1.25rem; }
-  .tabs-bar { top: 66px; }
-  .section-wrap { padding: 2.5rem 1.25rem; }
-  .bottles-grid { grid-template-columns: 1fr; gap: 2rem; }
-  .cocktails-grid { grid-template-columns: 1fr; }
-  .nonalc-grid { grid-template-columns: 1fr; }
-  .specials-grid { grid-template-columns: repeat(2, 1fr); }
-  .footer-inner { flex-direction: column; align-items: center; text-align: center; padding: 2rem 1rem; }
-  .footer-brand { flex-direction: column; align-items: center; }
-  .footer-bottom { flex-direction: column; align-items: center; text-align: center; padding: 1rem; }
-}
-```
+    /* ── PHOTO GALLERY ── */
+    .gallery-section { background-color: #0a1428; padding: 5rem 0; border-top: 1px solid rgba(192,39,45,0.15); }
+    .gallery-inner { max-width: 1280px; margin: 0 auto; padding: 0 2rem; }
+    .gallery-eyebrow { font-family: 'Barlow Condensed', sans-serif; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.4em; text-transform: uppercase; color: #C0272D; margin-bottom: 0.5rem; display: block; }
+    .gallery-heading { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.2rem, 5vw, 3.5rem); letter-spacing: 0.06em; color: #EEF2FA; margin-bottom: 2rem; line-height: 1; display: block; }
+    .gallery-heading .accent { color: #C0272D; }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-auto-rows: 220px;
+      gap: 8px;
+    }
+    .gallery-item { position: relative; overflow: hidden; cursor: pointer; border-radius: 4px; }
+    .gallery-item.tall { grid-row: span 2; }
+    .gallery-item.wide { grid-column: span 2; }
+    .gallery-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s ease; }
+    .gallery-item:hover img { transform: scale(1.06); }
+    .gallery-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(192,39,45,0.35), transparent); opacity: 0; transition: opacity 0.3s ease; }
+    .gallery-item:hover .gallery-overlay { opacity: 1; }
 
+    /* ── AGE GATE ── */
+    #age-gate { position: fixed; inset: 0; z-index: 10000; background: rgba(6,8,15,0.97); display: flex; align-items: center; justify-content: center; padding: 1.5rem; backdrop-filter: blur(6px); animation: ageFadeIn 0.4s ease both; }
+    @keyframes ageFadeIn { from { opacity: 0; } to { opacity: 1; } }
+    #age-gate.hidden { display: none; }
+    .age-gate-box { background: #162550; border: 1px solid rgba(192,39,45,0.4); border-radius: 12px; padding: 3rem 2.5rem; max-width: 420px; width: 100%; text-align: center; box-shadow: 0 0 80px rgba(192,39,45,0.15); animation: ageFadeIn 0.5s 0.1s ease both; }
+    .age-gate-logo { width: 72px; height: 72px; border-radius: 50%; overflow: hidden; border: 2px solid #C0272D; margin: 0 auto 1.5rem; background: #0f1c3f; }
+    .age-gate-logo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .age-gate-eyebrow { font-family: 'Barlow Condensed', sans-serif; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.35em; text-transform: uppercase; color: #C0272D; margin-bottom: 0.5rem; }
+    .age-gate-title { font-family: 'Bebas Neue', sans-serif; font-size: 2.6rem; letter-spacing: 0.06em; color: #EEF2FA; line-height: 1; margin-bottom: 0.5rem; }
+    .age-gate-sub { font-family: 'Barlow', sans-serif; font-size: 0.88rem; color: #7a8aaa; margin-bottom: 2rem; line-height: 1.6; }
+    .age-gate-label { font-family: 'Barlow Condensed', sans-serif; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #7a8aaa; display: block; margin-bottom: 0.6rem; text-align: left; }
+    .age-gate-inputs { display: grid; grid-template-columns: 1fr 1fr 1.4fr; gap: 0.5rem; margin-bottom: 1.25rem; }
+    .age-gate-inputs input { background: #0f1c3f; border: 1px solid rgba(255,255,255,0.12); border-radius: 6px; color: #EEF2FA; font-family: 'Barlow Condensed', sans-serif; font-size: 1.1rem; font-weight: 600; letter-spacing: 0.05em; padding: 0.7rem 0.5rem; text-align: center; width: 100%; outline: none; transition: border-color 0.2s ease; -moz-appearance: textfield; }
+    .age-gate-inputs input::-webkit-outer-spin-button,
+    .age-gate-inputs input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+    .age-gate-inputs input::placeholder { color: rgba(255,255,255,0.2); font-size: 0.85rem; }
+    .age-gate-inputs input:focus { border-color: #C0272D; }
+    .age-gate-inputs input.error { border-color: #C0272D; background: rgba(192,39,45,0.08); }
+    .age-gate-btn { font-family: 'Bebas Neue', sans-serif; font-size: 1.15rem; letter-spacing: 0.15em; background: #C0272D; color: #EEF2FA; border: none; cursor: pointer; padding: 0.9rem 2rem; width: 100%; border-radius: 6px; transition: background 0.2s ease, transform 0.15s ease; margin-bottom: 1rem; }
+    .age-gate-btn:hover { background: #1e3370; transform: translateY(-2px); }
+    .age-gate-error { font-family: 'Barlow Condensed', sans-serif; font-size: 0.85rem; font-weight: 600; letter-spacing: 0.05em; color: #C0272D; min-height: 1.2em; margin-bottom: 0.75rem; }
+    .age-gate-disclaimer { font-family: 'Barlow', sans-serif; font-size: 0.72rem; color: #7a8aaa; opacity: 0.7; line-height: 1.5; }
+    @media (max-width: 480px) { .age-gate-box { padding: 2rem 1.25rem; } .age-gate-title { font-size: 2rem; } }
+
+    /* ── FOOTER ── */
+    footer { background-color: #06080f; border-top: 1px solid rgba(192,39,45,0.3); }
+    .footer-inner { max-width: 1280px; margin: 0 auto; padding: 3rem 2rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 2rem; }
+    .footer-brand { display: flex; align-items: center; gap: 0.85rem; }
+    .footer-logo-wrap { width: 52px; height: 52px; border-radius: 50%; overflow: hidden; border: 2px solid #C0272D; flex-shrink: 0; background-color: #162550; }
+    .footer-logo-img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .footer-logo-name { font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; letter-spacing: 0.1em; color: #EEF2FA; line-height: 1; }
+    .footer-logo-tag { font-family: 'Barlow Condensed', sans-serif; font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase; color: #7a8aaa; margin-top: 0.2rem; }
+    .footer-phone { font-family: 'Barlow Condensed', sans-serif; font-size: 1.1rem; font-weight: 700; letter-spacing: 0.1em; color: #EEF2FA; text-decoration: none; display: flex; align-items: center; gap: 0.5rem; transition: color 0.2s ease; }
+    .footer-phone:hover { color: #C0272D; }
+    .footer-social { display: flex; align-items: center; gap: 0.75rem; }
+    .social-icon { display: flex; align-items: center; justify-content: center; width: 42px; height: 42px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.12); color: #7a8aaa; text-decoration: none; transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease; }
+    .social-icon:hover { background-color: #1877F2; color: #EEF2FA; border-color: #1877F2; }
+    .social-icon.instagram:hover { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); color: #EEF2FA; border-color: transparent; }
+    .social-icon.tiktok:hover { background-color: #010101; color: #EEF2FA; border-color: #69C9D0; }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.06); padding: 1.25rem 2rem; max-width: 1280px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; }
+    .footer-disclaimer { font-family: 'Barlow Condensed', sans-serif; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: #C0272D; opacity: 0.8; }
+    .footer-copy { font-family: 'Barlow', sans-serif; font-size: 0.75rem; color: #7a8aaa; opacity: 0.6; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .bottles-grid { grid-template-columns: repeat(2, 1fr); }
+      .specials-grid { grid-template-columns: repeat(3, 1fr); }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 180px; }
+      .gallery-item.tall { grid-row: span 1; }
+      .gallery-item.wide { grid-column: span 2; }
+    }
+    @media (max-width: 680px) {
+      .header-inner { padding: 0 1rem; height: 66px; }
+      .logo-img-wrap { width: 42px; height: 42px; }
+      .logo-name { font-size: 1.2rem; }
+      .logo-tagline { font-size: 0.5rem; }
+      .hamburger { display: flex; }
+      nav { display: none; position: fixed; top: 66px; left: 0; right: 0; background-color: #0f1c3f; flex-direction: column; align-items: stretch; padding: 0.5rem 0 1rem; border-top: 2px solid #C0272D; z-index: 9999; }
+      nav.open { display: flex; }
+      nav a { padding: 0.9rem 1.5rem; font-size: 1rem; color: #EEF2FA; border-bottom: 1px solid rgba(255,255,255,0.06); }
+      nav a.active { color: #C0272D; }
+      nav a::after { display: none; }
+      .nav-divider { display: none; }
+      .ticker-bar { top: 66px; height: 26px; }
+      .ticker-label { font-size: 0.65rem; padding: 0 0.5rem; white-space: nowrap; }
+      .ticker-track span { font-size: 0.65rem; padding: 0 1rem; }
+      .page-hero { margin-top: 92px; padding: 2.5rem 1.25rem; }
+      .section-wrap { padding: 2.5rem 1.25rem; }
+      .gallery-inner { padding: 0 1.25rem; }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 140px; gap: 4px; }
+      .gallery-item.tall { grid-row: span 1; }
+      .gallery-item.wide { grid-column: span 2; }
+      .bottles-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .cocktails-grid { grid-template-columns: 1fr; }
+      .nonalc-grid { grid-template-columns: 1fr; }
+      .specials-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-inner { flex-direction: column; align-items: center; text-align: center; padding: 2rem 1rem; }
+      .footer-brand { flex-direction: column; align-items: center; }
+      .footer-bottom { flex-direction: column; align-items: center; text-align: center; padding: 1rem; }
+    }
   </style>
 </head>
 <body>
+
+  <!-- Age Gate -->
+  <div id="age-gate">
+    <div class="age-gate-box">
+      <div class="age-gate-logo">
+        <img src="https://i.imgur.com/Gk6PvB3.jpeg" alt='Double "J" Sports Bar'/>
+      </div>
+      <p class="age-gate-eyebrow">Age Verification Required</p>
+      <h2 class="age-gate-title">Are You 21+?</h2>
+      <p class="age-gate-sub">Double "J" Sports Bar serves alcohol. Please confirm your date of birth to enter.</p>
+      <label class="age-gate-label">Enter Your Date of Birth</label>
+      <div class="age-gate-inputs">
+        <input type="number" id="ag-month" placeholder="MM" min="1" max="12" maxlength="2" inputmode="numeric"/>
+        <input type="number" id="ag-day" placeholder="DD" min="1" max="31" maxlength="2" inputmode="numeric"/>
+        <input type="number" id="ag-year" placeholder="YYYY" min="1900" max="2099" maxlength="4" inputmode="numeric"/>
+      </div>
+      <div class="age-gate-error" id="ag-error"></div>
+      <button class="age-gate-btn" id="ag-submit">Enter Site</button>
+      <p class="age-gate-disclaimer">By entering, you confirm you are of legal drinking age (21+) in the United States. This site is intended for adults only.</p>
+    </div>
+  </div>
+
   <header>
     <div class="header-inner">
       <a href="index.html" class="logo">
-        <div class="logo-img-wrap"><img src="https://i.imgur.com/Gk6PvB3.jpeg" alt="Logo" class="logo-img"/></div>
-        <div class="logo-text"><span class="logo-name">Double J</span><span class="logo-tagline">Sports Bar &amp; Grill</span></div>
+        <div class="logo-img-wrap"><img src="https://i.imgur.com/Gk6PvB3.jpeg" alt='Double "J" Sports Bar Logo' class="logo-img"/></div>
+        <div class="logo-text">
+          <span class="logo-name">Double "J"</span>
+          <span class="logo-tagline">Sports Bar &amp; Grill</span>
+        </div>
       </a>
       <nav id="main-nav">
         <a href="index.html">Home</a><div class="nav-divider"></div>
@@ -145,37 +240,69 @@ footer { background-color: #06080f; border-top: 1px solid rgba(192,39,45,0.3); }
     </div>
   </header>
 
+  <!-- Score Ticker -->
+  <div class="ticker-bar">
+    <div class="ticker-label">Live&nbsp;Now</div>
+    <div style="overflow:hidden; flex:1;">
+      <div class="ticker-track" id="ticker-track">
+        <span>Loading scores...</span>
+      </div>
+    </div>
+  </div>
+
   <div class="page-hero">
     <p class="page-eyebrow">Cold &amp; Refreshing</p>
     <h1 class="page-title">The <span class="accent">Drink Menu</span></h1>
-    <p class="page-subtitle">From ice-cold domestics to seasonal cocktails — there's something for everyone at Double J.</p>
+    <p class="page-subtitle">From ice-cold domestics to seasonal cocktails — there's something for everyone at Double "J".</p>
   </div>
 
   <div class="tabs-bar">
     <div class="tabs-inner">
-      <button class="tab-btn active" data-tab="bottles" onclick="switchTab('bottles')">🍺 Bottles &amp; Cans</button>
-      <button class="tab-btn" data-tab="cocktails" onclick="switchTab('cocktails')">🍹 Cocktails &amp; Mocktails</button>
-      <button class="tab-btn" data-tab="nonalc" onclick="switchTab('nonalc')">🍷 Non-Alc &amp; Wine</button>
-      <button class="tab-btn" data-tab="specials" onclick="switchTab('specials')">⭐ Weekly Specials</button>
+      <button class="tab-btn active" data-tab="bottles"   onclick="switchTab('bottles')">🍺 Bottles &amp; Cans</button>
+      <button class="tab-btn"        data-tab="cocktails" onclick="switchTab('cocktails')">🍹 Cocktails &amp; Mocktails</button>
+      <button class="tab-btn"        data-tab="nonalc"    onclick="switchTab('nonalc')">🍷 Non-Alc &amp; Wine</button>
+      <button class="tab-btn"        data-tab="specials"  onclick="switchTab('specials')">⭐ Weekly Specials</button>
     </div>
   </div>
 
   <!-- BOTTLES & CANS -->
-
   <div class="menu-panel active" id="tab-bottles">
     <div class="section-wrap">
       <div class="menu-section-title">Bottles <span class="accent">&amp;</span> Cans</div>
       <div class="bottles-grid">
-        <div><div class="beer-col-title">Domestics</div><ul class="beer-list"><li>Bud Light</li><li>Bud Light Lime</li><li>Budweiser</li><li>Miller Light</li><li>Coors Light</li><li>Coors Banquet</li><li>Michelob Ultra</li><li>Busch Light (16oz)</li><li>Keystone</li><li>Miller High Life</li><li>Miller High Life Light</li><li>Miller 64 (Extra Light)</li><li>MGD</li><li>PBR</li><li>PBR Light</li><li>Yuengling</li><li>Yuengling Flight</li></ul></div>
-        <div><div class="beer-col-title">Premium</div><ul class="beer-list"><li>Corona Extra</li><li>Corona Light</li><li>Corona Premier</li><li>Corona Familiar</li><li>Corona Sun Brew</li><li>Modelo</li><li>Pacifico</li><li>Dos X's Lager</li><li>Heineken</li><li>Samuel Adams Lager</li><li>Stella Artois</li><li>Moosehead</li><li>Peroni</li><li>Garage Beer Light</li><li>Garage Beer Lime</li><li>Blue Moon</li><li>Guinness</li></ul></div>
-        <div><div class="beer-col-title">IPA's</div><ul class="beer-list"><li class="brand">Revolution Brewing:</li><li class="sub">Fist City</li><li class="sub">Anti-Hero</li><li class="sub">Fistmas 🎅❄️</li><li class="brand" style="margin-top:1rem;">Goose Island:</li><li class="sub">312</li><li class="sub">India Pale Ale</li><li style="margin-top:1rem;">Shock Top</li></ul></div>
-        <div><div class="beer-col-title">Crisp &amp; Twisted</div><ul class="beer-list"><li>Angry Orchard</li><li class="brand" style="margin-top:0.75rem;">Twisted Tea:</li><li class="sub">Original</li><li class="sub">Light Lemon</li><li class="sub">Raspberry</li><li class="sub">Rocket Pop</li><li style="margin-top:0.75rem;">Hard Mike's Lemonade</li></ul></div>
+        <div>
+          <div class="beer-col-title">Domestics</div>
+          <ul class="beer-list">
+            <li>Bud Light</li><li>Bud Light Lime</li><li>Budweiser</li><li>Miller Light</li><li>Coors Light</li><li>Coors Banquet</li><li>Michelob Ultra</li><li>Busch Light (16oz)</li><li>Keystone</li><li>Miller High Life</li><li>Miller High Life Light</li><li>Miller 64 (Extra Light)</li><li>MGD</li><li>PBR</li><li>PBR Light</li><li>Yuengling</li><li>Yuengling Flight</li>
+          </ul>
+        </div>
+        <div>
+          <div class="beer-col-title">Premium</div>
+          <ul class="beer-list">
+            <li>Corona Extra</li><li>Corona Light</li><li>Corona Premier</li><li>Corona Familiar</li><li>Corona Sun Brew</li><li>Modelo</li><li>Pacifico</li><li>Dos X's Lager</li><li>Heineken</li><li>Samuel Adams Lager</li><li>Stella Artois</li><li>Moosehead</li><li>Peroni</li><li>Garage Beer Light</li><li>Garage Beer Lime</li><li>Blue Moon</li><li>Guinness</li>
+          </ul>
+        </div>
+        <div>
+          <div class="beer-col-title">IPA's</div>
+          <ul class="beer-list">
+            <li class="brand">Revolution Brewing:</li><li class="sub">Fist City</li><li class="sub">Anti-Hero</li><li class="sub">Fistmas 🎅❄️</li>
+            <li class="brand" style="margin-top:1rem;">Goose Island:</li><li class="sub">312</li><li class="sub">India Pale Ale</li>
+            <li style="margin-top:1rem;">Shock Top</li>
+          </ul>
+        </div>
+        <div>
+          <div class="beer-col-title">Crisp &amp; Twisted</div>
+          <ul class="beer-list">
+            <li>Angry Orchard</li>
+            <li class="brand" style="margin-top:0.75rem;">Twisted Tea:</li><li class="sub">Original</li><li class="sub">Light Lemon</li><li class="sub">Raspberry</li><li class="sub">Rocket Pop</li>
+            <li style="margin-top:0.75rem;">Hard Mike's Lemonade</li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
 
   <!-- COCKTAILS & MOCKTAILS -->
-
   <div class="menu-panel" id="tab-cocktails">
     <div class="section-wrap">
       <div class="menu-section-title">Seasonal <span class="accent">Cocktails</span> &amp; Mocktails</div>
@@ -200,7 +327,6 @@ footer { background-color: #06080f; border-top: 1px solid rgba(192,39,45,0.3); }
   </div>
 
   <!-- NON-ALC & WINE -->
-
   <div class="menu-panel" id="tab-nonalc">
     <div class="section-wrap">
       <div class="menu-section-title">Non-Alcoholic <span class="accent">&amp;</span> Wine</div>
@@ -223,7 +349,6 @@ footer { background-color: #06080f; border-top: 1px solid rgba(192,39,45,0.3); }
   </div>
 
   <!-- WEEKLY SPECIALS -->
-
   <div class="menu-panel" id="tab-specials">
     <div class="section-wrap">
       <div class="menu-section-title">Weekly <span class="accent">Specials</span></div>
@@ -240,13 +365,57 @@ footer { background-color: #06080f; border-top: 1px solid rgba(192,39,45,0.3); }
     </div>
   </div>
 
+  <!-- PHOTO GALLERY -->
+  <section class="gallery-section">
+    <div class="gallery-inner">
+      <span class="gallery-eyebrow">The Vibe</span>
+      <span class="gallery-heading">Inside <span class="accent">Double "J"</span></span>
+      <div class="gallery-grid">
+        <div class="gallery-item tall">
+          <img src="https://i.imgur.com/CJ7yfm6.jpeg" alt="Double J bar atmosphere"/>
+          <div class="gallery-overlay"></div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://i.imgur.com/Wsb0a12.jpeg" alt="Double J sports bar"/>
+          <div class="gallery-overlay"></div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://i.imgur.com/CkuDK9i.jpeg" alt="Double J drinks"/>
+          <div class="gallery-overlay"></div>
+        </div>
+        <div class="gallery-item wide">
+          <img src="https://i.imgur.com/aLXbunX.jpeg" alt="Double J bar interior"/>
+          <div class="gallery-overlay"></div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://i.imgur.com/h0aD5V3.jpeg" alt="Double J atmosphere"/>
+          <div class="gallery-overlay"></div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://i.imgur.com/M0CO3QX.jpeg" alt="Double J sports screens"/>
+          <div class="gallery-overlay"></div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://i.imgur.com/9WCJNZM.jpeg" alt="Double J patio"/>
+          <div class="gallery-overlay"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <footer>
     <div class="footer-inner">
       <div class="footer-brand">
-        <div class="footer-logo-wrap"><img src="https://i.imgur.com/Gk6PvB3.jpeg" alt="Double J" class="footer-logo-img"/></div>
-        <div><div class="footer-logo-name">Double J</div><div class="footer-logo-tag">Sports Bar &amp; Grill · Joliet, IL</div></div>
+        <div class="footer-logo-wrap"><img src="https://i.imgur.com/Gk6PvB3.jpeg" alt='Double "J" Sports Bar' class="footer-logo-img"/></div>
+        <div>
+          <div class="footer-logo-name">Double "J"</div>
+          <div class="footer-logo-tag">Sports Bar &amp; Grill · Joliet, IL</div>
+        </div>
       </div>
-      <a href="tel:+18157308488" class="footer-phone"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8a19.79 19.79 0 01-3.07-8.67A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>(815) 730-8488</a>
+      <a href="tel:+18157308488" class="footer-phone">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8a19.79 19.79 0 01-3.07-8.67A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
+        (815) 730-8488
+      </a>
       <div class="footer-social">
         <a href="https://www.facebook.com/doublejsportsbar" target="_blank" rel="noopener" aria-label="Facebook" class="social-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.513c-1.491 0-1.956.93-1.956 1.886v2.268h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg></a>
         <a href="https://www.instagram.com/doublejsportsbar" target="_blank" rel="noopener" aria-label="Instagram" class="social-icon instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
@@ -255,12 +424,67 @@ footer { background-color: #06080f; border-top: 1px solid rgba(192,39,45,0.3); }
     </div>
     <div class="footer-bottom">
       <p class="footer-disclaimer">Please drink responsibly. Must be 21+ to consume alcohol.</p>
-      <p class="footer-copy">&copy; <span id="footer-year"></span> Double J Sports Bar &amp; Grill. All rights reserved.</p>
+      <p class="footer-copy">&copy; <span id="footer-year"></span> Double "J" Sports Bar &amp; Grill. All rights reserved.</p>
     </div>
   </footer>
 
   <script>
     document.getElementById('footer-year').textContent = new Date().getFullYear();
+
+    // ── AGE GATE ──
+    (function() {
+      const gate    = document.getElementById('age-gate');
+      const errorEl = document.getElementById('ag-error');
+      const monthEl = document.getElementById('ag-month');
+      const dayEl   = document.getElementById('ag-day');
+      const yearEl  = document.getElementById('ag-year');
+
+      if (sessionStorage.getItem('age-verified') === 'true') {
+        gate.classList.add('hidden');
+        return;
+      }
+
+      monthEl.addEventListener('input', () => { if (monthEl.value.length >= 2) dayEl.focus(); });
+      dayEl.addEventListener('input',   () => { if (dayEl.value.length >= 2)   yearEl.focus(); });
+
+      document.getElementById('ag-submit').addEventListener('click', verify);
+      [monthEl, dayEl, yearEl].forEach(el => {
+        el.addEventListener('keydown', e => { if (e.key === 'Enter') verify(); });
+      });
+
+      function verify() {
+        errorEl.textContent = '';
+        [monthEl, dayEl, yearEl].forEach(el => el.classList.remove('error'));
+        const m = parseInt(monthEl.value, 10);
+        const d = parseInt(dayEl.value, 10);
+        const y = parseInt(yearEl.value, 10);
+        if (!m || !d || !y || monthEl.value === '' || dayEl.value === '' || yearEl.value === '') {
+          errorEl.textContent = 'Please enter your full date of birth.';
+          [monthEl, dayEl, yearEl].forEach(el => { if (!el.value) el.classList.add('error'); });
+          return;
+        }
+        if (m < 1 || m > 12 || d < 1 || d > 31 || y < 1900 || y > new Date().getFullYear()) {
+          errorEl.textContent = 'Please enter a valid date.';
+          [monthEl, dayEl, yearEl].forEach(el => el.classList.add('error'));
+          return;
+        }
+        const dob   = new Date(y, m - 1, d);
+        const today = new Date();
+        let age = today.getFullYear() - dob.getFullYear();
+        const mDiff = today.getMonth() - dob.getMonth();
+        if (mDiff < 0 || (mDiff === 0 && today.getDate() < dob.getDate())) age--;
+        if (age >= 21) {
+          sessionStorage.setItem('age-verified', 'true');
+          gate.style.transition = 'opacity 0.4s ease';
+          gate.style.opacity = '0';
+          setTimeout(() => gate.classList.add('hidden'), 400);
+        } else {
+          window.location.replace('https://www.google.com');
+        }
+      }
+    })();
+
+    // ── HAMBURGER ──
     document.getElementById('hamburger').addEventListener('click', () => {
       document.getElementById('main-nav').classList.toggle('open');
     });
@@ -273,12 +497,64 @@ footer { background-color: #06080f; border-top: 1px solid rgba(192,39,45,0.3); }
         }
       });
     });
+
+    // ── MENU TABS ──
     function switchTab(tab) {
       document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
       document.querySelectorAll('.menu-panel').forEach(p => p.classList.remove('active'));
       document.querySelector(`[data-tab="${tab}"]`).classList.add('active');
       document.getElementById(`tab-${tab}`).classList.add('active');
     }
+
+    // ── LIVE SCORES TICKER ──
+    const LEAGUES = [
+      { key: 'football/nfl',   label: 'NFL' },
+      { key: 'basketball/nba', label: 'NBA' },
+      { key: 'baseball/mlb',   label: 'MLB' },
+      { key: 'hockey/nhl',     label: 'NHL' },
+      { key: 'soccer/usa.1',   label: 'MLS' },
+    ];
+    async function fetchScores(league) {
+      try {
+        const res  = await fetch(`https://site.api.espn.com/apis/site/v2/sports/${league.key}/scoreboard`);
+        const data = await res.json();
+        return (data.events || []).map(event => {
+          const comp      = event.competitions[0];
+          const home      = comp.competitors.find(c => c.homeAway === 'home');
+          const away      = comp.competitors.find(c => c.homeAway === 'away');
+          const status    = event.status.type.shortDetail || '';
+          const homeAbbr  = home?.team?.abbreviation || home?.team?.shortDisplayName || '';
+          const awayAbbr  = away?.team?.abbreviation || away?.team?.shortDisplayName || '';
+          const homeScore = home?.score ?? '';
+          const awayScore = away?.score ?? '';
+          const hasScore  = homeScore !== '' && awayScore !== '';
+          return {
+            label: league.label,
+            text: hasScore
+              ? `${awayAbbr} <em>${awayScore}</em> – ${homeAbbr} <em>${homeScore}</em> &nbsp;·&nbsp; ${status}`
+              : `${awayAbbr} vs ${homeAbbr} &nbsp;·&nbsp; ${status}`
+          };
+        });
+      } catch { return []; }
+    }
+    async function buildTicker() {
+      const track   = document.getElementById('ticker-track');
+      if (!track) return;
+      const results = await Promise.all(LEAGUES.map(fetchScores));
+      const all     = results.flat();
+      if (all.length === 0) {
+        track.innerHTML = '<span>No live games right now — check back soon!</span>';
+        return;
+      }
+      const items = [...all, ...all];
+      track.innerHTML = items
+        .map(g => `<span><strong style="color:#ffd0d0;margin-right:0.4rem">${g.label}</strong>${g.text}</span>`)
+        .join('');
+      const duration = Math.max(5, track.scrollWidth / 1800);
+      track.style.animationDuration = `${duration}s`;
+    }
+    buildTicker();
+    setInterval(buildTicker, 60000);
   </script>
 
 </body>
