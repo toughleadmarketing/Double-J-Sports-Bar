@@ -81,7 +81,11 @@ overflow: hidden;
 height: 28px;
 display: flex;
 align-items: center;
-margin-top: 76px;
+position: fixed;
+top: 76px;
+left: 0;
+right: 0;
+z-index: 99;
 }
 .ticker-label {
 background: #1e3370;
@@ -253,7 +257,6 @@ nav a.active { color: #C0272D; }
 nav a::after { display: none; }
 .nav-divider { display: none; }
 .ticker-bar { top: 66px; height: 26px; }
-.video-section { margin-top: 92px; }
 .ticker-label { font-size: 0.65rem; padding: 0 0.5rem; white-space: nowrap; }
 .ticker-track { display: flex; flex-wrap: nowrap; white-space: nowrap; }
 .ticker-track span { font-size: 0.65rem; padding: 0 1rem; white-space: nowrap; flex-shrink: 0; }
@@ -347,7 +350,7 @@ gap: 4px;
       <p class="hero-sub">20+ Screens · Live Music · Game-Day Specials · Outdoor Patio · Video Gaming</p>
       <div class="hero-ctas">
         <a href="drink-menu.html" class="btn-primary">View Menu</a>
-        <a href="#" class="btn-outline">Book a Party</a>
+        <a href="connect.html" class="btn-outline">Book a Party</a>
       </div>
     </div>
   </section>
