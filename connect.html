@@ -541,12 +541,14 @@
       return `https://a.espncdn.com/i/teamlogos/ncaa/500/${espnId}.png`;
     }
 
+    const SEED_VOTES = { duke: 31, michigan: 18, arizona: 24, florida: 14 };
+
     async function getVotes() {
       try {
         const result = await window.storage.get(SHARED_KEY, true);
         if (result) return JSON.parse(result.value);
       } catch {}
-      return { duke: 0, michigan: 0, arizona: 0, florida: 0 };
+      return { ...SEED_VOTES };
     }
 
     async function saveVote(team, votes) {
