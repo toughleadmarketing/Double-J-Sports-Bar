@@ -410,6 +410,61 @@ flex-shrink: 0;
 
   <script>
     document.getElementById('footer-year').textContent = new Date().getFullYear();
+
+    // ── AGE GATE ──
+    (function() {
+      const gate    = document.getElementById('age-gate');
+      const errorEl = document.getElementById('ag-error');
+      const monthEl = document.getElementById('ag-month');
+      const dayEl   = document.getElementById('ag-day');
+      const yearEl  = document.getElementById('ag-year');
+
+      if (sessionStorage.getItem('age-verified') === 'true') {
+        gate.classList.add('hidden');
+        return;
+      }
+
+      monthEl.addEventListener('input', () => { if (monthEl.value.length >= 2) dayEl.focus(); });
+      dayEl.addEventListener('input',   () => { if (dayEl.value.length >= 2)   yearEl.focus(); });
+
+      document.getElementById('ag-submit').addEventListener('click', verify);
+      [monthEl, dayEl, yearEl].forEach(el => {
+        el.addEventListener('keydown', e => { if (e.key === 'Enter') verify(); });
+      });
+
+      function verify() {
+        errorEl.textContent = '';
+        [monthEl, dayEl, yearEl].forEach(el => el.classList.remove('error'));
+        const m = parseInt(monthEl.value, 10);
+        const d = parseInt(dayEl.value, 10);
+        const y = parseInt(yearEl.value, 10);
+        if (!m || !d || !y || monthEl.value === '' || dayEl.value === '' || yearEl.value === '') {
+          errorEl.textContent = 'Please enter your full date of birth.';
+          [monthEl, dayEl, yearEl].forEach(el => { if (!el.value) el.classList.add('error'); });
+          return;
+        }
+        if (m < 1 || m > 12 || d < 1 || d > 31 || y < 1900 || y > new Date().getFullYear()) {
+          errorEl.textContent = 'Please enter a valid date.';
+          [monthEl, dayEl, yearEl].forEach(el => el.classList.add('error'));
+          return;
+        }
+        const dob   = new Date(y, m - 1, d);
+        const today = new Date();
+        let age = today.getFullYear() - dob.getFullYear();
+        const mDiff = today.getMonth() - dob.getMonth();
+        if (mDiff < 0 || (mDiff === 0 && today.getDate() < dob.getDate())) age--;
+        if (age >= 21) {
+          sessionStorage.setItem('age-verified', 'true');
+          gate.style.transition = 'opacity 0.4s ease';
+          gate.style.opacity = '0';
+          setTimeout(() => gate.classList.add('hidden'), 400);
+        } else {
+          window.location.replace('https://www.google.com');
+        }
+      }
+    })();
+
+    // ── HAMBURGER ──
     document.getElementById('hamburger').addEventListener('click', () => {
       document.getElementById('main-nav').classList.toggle('open');
     });
