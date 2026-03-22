@@ -4,11 +4,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Connect — Double J Sports Bar</title>
+  <title>Connect — Double "J" Sports Bar</title>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@400;600;700&family=Barlow:wght@400;500&display=swap" rel="stylesheet"/>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+```
 body {
   background-color: #0f1c3f;
   font-family: 'Barlow', sans-serif;
@@ -55,9 +56,44 @@ nav a.active { color: #C0272D; }
 .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 6px; }
 .hamburger span { display: block; width: 24px; height: 2px; background-color: #EEF2FA; }
 
+.hidden { display: none !important; }
+
+/* ── MONTHLY POLL ── */
+.poll-section {
+  background-color: #0a1428;
+  border-bottom: 1px solid rgba(192,39,45,0.2);
+  padding: 1.5rem 2rem;
+  margin-top: 104px;
+}
+.poll-inner { max-width: 860px; margin: 0 auto; }
+.poll-card { display: flex; flex-direction: column; gap: 1rem; }
+.poll-header { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; }
+.poll-label { font-family: 'Barlow Condensed', sans-serif; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: #C0272D; }
+.poll-month { font-family: 'Barlow Condensed', sans-serif; font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: #7a8aaa; }
+.poll-question { font-family: 'Bebas Neue', sans-serif; font-size: clamp(1.2rem, 3vw, 1.8rem); letter-spacing: 0.06em; color: #EEF2FA; line-height: 1.1; }
+.poll-options { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.75rem; }
+.poll-option { background-color: #162550; border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; padding: 0.75rem 1rem; cursor: pointer; transition: all 0.2s ease; text-align: center; }
+.poll-option:hover { background-color: #1e3370; border-color: #C0272D; transform: translateY(-2px); }
+.poll-option-name { font-family: 'Barlow Condensed', sans-serif; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.08em; color: #EEF2FA; }
+.poll-results { display: flex; flex-direction: column; gap: 0.6rem; }
+.poll-results.hidden { display: none; }
+.poll-result-item { display: grid; grid-template-columns: 180px 1fr 44px; align-items: center; gap: 0.75rem; }
+.poll-result-label { font-family: 'Barlow Condensed', sans-serif; font-size: 0.82rem; font-weight: 700; letter-spacing: 0.06em; color: #EEF2FA; }
+.poll-result-bar-wrap { background-color: #162550; border-radius: 20px; height: 10px; overflow: hidden; }
+.poll-result-bar { height: 100%; background-color: #C0272D; border-radius: 20px; width: 0%; transition: width 0.6s ease; }
+.poll-result-bar.winner { background-color: #F5C842; }
+.poll-result-pct { font-family: 'Bebas Neue', sans-serif; font-size: 0.9rem; color: #7a8aaa; text-align: right; }
+.poll-thanks { font-family: 'Barlow Condensed', sans-serif; font-size: 0.78rem; letter-spacing: 0.1em; color: #7a8aaa; text-align: center; margin-top: 0.25rem; }
+
+@media (max-width: 680px) {
+  .poll-section { padding: 1.25rem 1rem; margin-top: 92px; }
+  .poll-options { grid-template-columns: repeat(2, 1fr); }
+  .poll-result-item { grid-template-columns: 1fr 1fr 36px; }
+  .poll-result-label { font-size: 0.72rem; }
+}
+
 /* ── PAGE HERO ── */
 .page-hero {
-  margin-top: 76px;
   background-image: linear-gradient(160deg, rgba(192,39,45,0.12) 0%, transparent 50%);
   background-color: #0f1c3f;
   padding: 4rem 2rem;
@@ -162,7 +198,14 @@ footer { background-color: #06080f; border-top: 1px solid rgba(192,39,45,0.3); }
   .logo-name { font-size: 1.2rem; }
   .logo-tagline { font-size: 0.5rem; letter-spacing: 0.2em; }
   .hamburger { display: flex; }
+```
 
+.ticker-bar { top: 66px; height: 26px; }
+.ticker-label { font-size: 0.65rem; padding: 0 0.5rem; white-space: nowrap; }
+.ticker-track { display: flex; flex-wrap: nowrap; white-space: nowrap; }
+.ticker-track span { font-size: 0.65rem; padding: 0 1rem; white-space: nowrap; flex-shrink: 0; }
+
+```
   nav {
     display: none;
     position: fixed;
@@ -194,23 +237,137 @@ footer { background-color: #06080f; border-top: 1px solid rgba(192,39,45,0.3); }
   .footer-brand { flex-direction: column; align-items: center; }
   .footer-bottom { flex-direction: column; align-items: center; text-align: center; padding: 1rem; }
 }
+```
 
-  </style>
+/* ── AGE GATE ── */
+#age-gate {
+position: fixed;
+inset: 0;
+z-index: 10000;
+background: rgba(6, 8, 15, 0.97);
+display: flex;
+align-items: center;
+justify-content: center;
+padding: 1.5rem;
+backdrop-filter: blur(6px);
+animation: ageFadeIn 0.4s ease both;
+}
+@keyframes ageFadeIn { from { opacity: 0; } to { opacity: 1; } }
+#age-gate.hidden { display: none; }
+.age-gate-box {
+background: #162550;
+border: 1px solid rgba(192,39,45,0.4);
+border-radius: 12px;
+padding: 3rem 2.5rem;
+max-width: 420px;
+width: 100%;
+text-align: center;
+box-shadow: 0 0 80px rgba(192,39,45,0.15);
+animation: ageFadeIn 0.5s 0.1s ease both;
+}
+.age-gate-logo { width: 72px; height: 72px; border-radius: 50%; overflow: hidden; border: 2px solid #C0272D; margin: 0 auto 1.5rem; background: #0f1c3f; }
+.age-gate-logo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.age-gate-eyebrow { font-family: ‘Barlow Condensed’, sans-serif; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.35em; text-transform: uppercase; color: #C0272D; margin-bottom: 0.5rem; }
+.age-gate-title { font-family: ‘Bebas Neue’, sans-serif; font-size: 2.6rem; letter-spacing: 0.06em; color: #EEF2FA; line-height: 1; margin-bottom: 0.5rem; }
+.age-gate-sub { font-family: ‘Barlow’, sans-serif; font-size: 0.88rem; color: #7a8aaa; margin-bottom: 2rem; line-height: 1.6; }
+.age-gate-label { font-family: ‘Barlow Condensed’, sans-serif; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #7a8aaa; display: block; margin-bottom: 0.6rem; text-align: left; }
+.age-gate-inputs { display: grid; grid-template-columns: 1fr 1fr 1.4fr; gap: 0.5rem; margin-bottom: 1.25rem; }
+.age-gate-inputs input { background: #0f1c3f; border: 1px solid rgba(255,255,255,0.12); border-radius: 6px; color: #EEF2FA; font-family: ‘Barlow Condensed’, sans-serif; font-size: 1.1rem; font-weight: 600; letter-spacing: 0.05em; padding: 0.7rem 0.5rem; text-align: center; width: 100%; outline: none; transition: border-color 0.2s ease; -moz-appearance: textfield; }
+.age-gate-inputs input::-webkit-outer-spin-button,
+.age-gate-inputs input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+.age-gate-inputs input::placeholder { color: rgba(255,255,255,0.2); font-size: 0.85rem; }
+.age-gate-inputs input:focus { border-color: #C0272D; }
+.age-gate-inputs input.error { border-color: #C0272D; background: rgba(192,39,45,0.08); }
+.age-gate-btn { font-family: ‘Bebas Neue’, sans-serif; font-size: 1.15rem; letter-spacing: 0.15em; background: #C0272D; color: #EEF2FA; border: none; cursor: pointer; padding: 0.9rem 2rem; width: 100%; clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%); transition: background 0.2s ease, transform 0.15s ease; margin-bottom: 1rem; }
+.age-gate-btn:hover { background: #1e3370; transform: translateY(-2px); }
+.age-gate-error { font-family: ‘Barlow Condensed’, sans-serif; font-size: 0.85rem; font-weight: 600; letter-spacing: 0.05em; color: #C0272D; min-height: 1.2em; margin-bottom: 0.75rem; }
+.age-gate-disclaimer { font-family: ‘Barlow’, sans-serif; font-size: 0.72rem; color: #7a8aaa; opacity: 0.7; line-height: 1.5; }
+@media (max-width: 480px) { .age-gate-box { padding: 2rem 1.25rem; } .age-gate-title { font-size: 2rem; } }
+/* ── TICKER ── */
+.ticker-bar {
+background: #C0272D;
+overflow: hidden;
+height: 28px;
+display: flex;
+align-items: center;
+position: fixed;
+top: 76px;
+left: 0;
+right: 0;
+z-index: 99;
+}
+.ticker-label {
+background: #1e3370;
+color: #EEF2FA;
+font-family: ‘Bebas Neue’, sans-serif;
+font-size: 0.8rem;
+letter-spacing: 0.15em;
+padding: 0 1rem;
+height: 100%;
+display: flex;
+align-items: center;
+flex-shrink: 0;
+}
+.ticker-track {
+display: flex;
+white-space: nowrap;
+flex-wrap: nowrap;
+animation: ticker 10s linear infinite;
+}
+.ticker-track span {
+font-family: ‘Barlow Condensed’, sans-serif;
+font-size: 0.78rem;
+font-weight: 600;
+letter-spacing: 0.1em;
+text-transform: uppercase;
+color: rgba(255,255,255,0.92);
+padding: 0 2.5rem;
+white-space: nowrap;
+flex-shrink: 0;
+}
+.ticker-track span em { color: #ffd0d0; font-style: normal; }
+@keyframes ticker {
+0%   { transform: translateX(0); }
+100% { transform: translateX(-50%); }
+}
+</style>
+
 </head>
 <body>
+  <!-- Age Gate -->
+  <div id="age-gate">
+    <div class="age-gate-box">
+      <div class="age-gate-logo">
+        <img src="https://i.imgur.com/Gk6PvB3.jpeg" alt='Double "J" Sports Bar'/>
+      </div>
+      <p class="age-gate-eyebrow">Age Verification Required</p>
+      <h2 class="age-gate-title">Are You 21+?</h2>
+      <p class="age-gate-sub">Double "J" Sports Bar serves alcohol. Please confirm your date of birth to enter.</p>
+      <label class="age-gate-label">Enter Your Date of Birth</label>
+      <div class="age-gate-inputs">
+        <input type="number" id="ag-month" placeholder="MM" min="1" max="12" maxlength="2" inputmode="numeric"/>
+        <input type="number" id="ag-day" placeholder="DD" min="1" max="31" maxlength="2" inputmode="numeric"/>
+        <input type="number" id="ag-year" placeholder="YYYY" min="1900" max="2099" maxlength="4" inputmode="numeric"/>
+      </div>
+      <div class="age-gate-error" id="ag-error"></div>
+      <button class="age-gate-btn" id="ag-submit">Enter Site</button>
+      <p class="age-gate-disclaimer">By entering, you confirm you are of legal drinking age (21+) in the United States. This site is intended for adults only.</p>
+    </div>
+  </div>
 
   <header>
     <div class="header-inner">
       <a href="index.html" class="logo">
         <div class="logo-img-wrap">
-          <img src="https://i.imgur.com/Gk6PvB3.jpeg" alt="Double J Sports Bar Logo" class="logo-img"/>
+          <img src="https://placehold.co/56x56/0f1c3f/7a8aaa?text=LOGO" alt="Double "J" Sports Bar Logo" class="logo-img"/>
         </div>
         <div class="logo-text">
-          <span class="logo-name">Double J</span>
+          <span class="logo-name">Double "J"</span>
           <span class="logo-tagline">Sports Bar &amp; Grill</span>
         </div>
       </a>
 
+```
   <nav id="main-nav">
     <a href="index.html">Home</a>
     <div class="nav-divider"></div>
@@ -227,10 +384,73 @@ footer { background-color: #06080f; border-top: 1px solid rgba(192,39,45,0.3); }
 
   <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
 </div>
+```
 
   </header>
 
+  <!-- Score Ticker -->
+
+  <div class="ticker-bar">
+    <div class="ticker-label">Live&nbsp;Now</div>
+    <div style="overflow:hidden; flex:1;">
+      <div class="ticker-track" id="ticker-track">
+        <span>Loading scores...</span>
+      </div>
+    </div>
+  </div>
+
   <!-- Page Hero -->
+
+  <!-- Monthly Poll -->
+
+  <div class="poll-section">
+    <div class="poll-inner">
+      <div class="poll-card">
+        <div class="poll-header">
+          <span class="poll-label">🗳️ Double "J" Monthly Poll</span>
+          <span class="poll-month">March 2026</span>
+        </div>
+        <h3 class="poll-question">Which #1 Seed Will Be Eliminated First?</h3>
+        <div class="poll-options" id="poll-options">
+          <button class="poll-option" onclick="castVote('duke')">
+            <span class="poll-option-name">🔵 Duke Blue Devils</span>
+          </button>
+          <button class="poll-option" onclick="castVote('michigan')">
+            <span class="poll-option-name">🟡 Michigan Wolverines</span>
+          </button>
+          <button class="poll-option" onclick="castVote('arizona')">
+            <span class="poll-option-name">🔴 Arizona Wildcats</span>
+          </button>
+          <button class="poll-option" onclick="castVote('florida')">
+            <span class="poll-option-name">🟠 Florida Gators</span>
+          </button>
+        </div>
+        <div class="poll-results hidden" id="poll-results">
+          <div class="poll-result-item" id="result-duke">
+            <div class="poll-result-label">🔵 Duke Blue Devils</div>
+            <div class="poll-result-bar-wrap"><div class="poll-result-bar" id="bar-duke"></div></div>
+            <div class="poll-result-pct" id="pct-duke">0%</div>
+          </div>
+          <div class="poll-result-item" id="result-michigan">
+            <div class="poll-result-label">🟡 Michigan Wolverines</div>
+            <div class="poll-result-bar-wrap"><div class="poll-result-bar" id="bar-michigan"></div></div>
+            <div class="poll-result-pct" id="pct-michigan">0%</div>
+          </div>
+          <div class="poll-result-item" id="result-arizona">
+            <div class="poll-result-label">🔴 Arizona Wildcats</div>
+            <div class="poll-result-bar-wrap"><div class="poll-result-bar" id="bar-arizona"></div></div>
+            <div class="poll-result-pct" id="pct-arizona">0%</div>
+          </div>
+          <div class="poll-result-item" id="result-florida">
+            <div class="poll-result-label">🟠 Florida Gators</div>
+            <div class="poll-result-bar-wrap"><div class="poll-result-bar" id="bar-florida"></div></div>
+            <div class="poll-result-pct" id="pct-florida">0%</div>
+          </div>
+          <p class="poll-thanks" id="poll-thanks"></p>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <div class="page-hero">
     <p class="page-eyebrow">Stay Connected</p>
@@ -246,6 +466,7 @@ footer { background-color: #06080f; border-top: 1px solid rgba(192,39,45,0.3); }
       <div class="social-cards-wrap">
         <div class="social-cards">
 
+```
     <a href="https://www.facebook.com/doublejsportsbar" target="_blank" rel="noopener" class="social-card facebook">
       <svg width="40" height="40" viewBox="0 0 24 24" fill="#1877F2"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.513c-1.491 0-1.956.93-1.956 1.886v2.268h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>
       <div class="social-card-name">Facebook</div>
@@ -280,7 +501,7 @@ footer { background-color: #06080f; border-top: 1px solid rgba(192,39,45,0.3); }
 
     </div>
   </div>
-
+```
 
   <section class="tour-section">
     <div class="section-inner">
@@ -297,7 +518,7 @@ footer { background-color: #06080f; border-top: 1px solid rgba(192,39,45,0.3); }
   <section class="contact-section">
     <div class="section-inner">
       <p class="section-eyebrow">Come See Us</p>
-      <h2 class="section-title">Find <span class="accent">Double J</span></h2>
+      <h2 class="section-title">Find <span class="accent">Double "J"</span></h2>
       <div class="contact-grid">
         <div class="contact-info">
           <div class="contact-block">
@@ -341,7 +562,7 @@ footer { background-color: #06080f; border-top: 1px solid rgba(192,39,45,0.3); }
             <span>Can we make reservations?</span>
             <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
           </button>
-          <div class="faq-answer"><p>Reservations can be made for certain events. You are allowed to host parties at Double J Sports Bar both inside and on our patio.</p></div>
+          <div class="faq-answer"><p>Reservations can be made for certain events. You are allowed to host parties at Double "J" Sports Bar both inside and on our patio.</p></div>
         </div>
         <div class="faq-item">
           <button class="faq-question" aria-expanded="false">
@@ -374,10 +595,10 @@ footer { background-color: #06080f; border-top: 1px solid rgba(192,39,45,0.3); }
     <div class="footer-inner">
       <div class="footer-brand">
         <div class="footer-logo-wrap">
-          <img src="https://i.imgur.com/Gk6PvB3.jpeg" alt="Double J Sports Bar" class="footer-logo-img"/>
+          <img src="https://placehold.co/56x56/0f1c3f/7a8aaa?text=LOGO" alt="Double "J" Sports Bar" class="footer-logo-img"/>
         </div>
         <div>
-          <div class="footer-logo-name">Double J</div>
+          <div class="footer-logo-name">Double "J"</div>
           <div class="footer-logo-tag">Sports Bar &amp; Grill · Joliet, IL</div>
         </div>
       </div>
@@ -399,7 +620,7 @@ footer { background-color: #06080f; border-top: 1px solid rgba(192,39,45,0.3); }
     </div>
     <div class="footer-bottom">
       <p class="footer-disclaimer">Please drink responsibly. Must be 21+ to consume alcohol.</p>
-      <p class="footer-copy">&copy; <span id="footer-year"></span> Double J Sports Bar &amp; Grill. All rights reserved.</p>
+      <p class="footer-copy">&copy; <span id="footer-year"></span> Double "J" Sports Bar &amp; Grill. All rights reserved.</p>
     </div>
   </footer>
 
@@ -407,6 +628,64 @@ footer { background-color: #06080f; border-top: 1px solid rgba(192,39,45,0.3); }
     document.getElementById('footer-year').textContent = new Date().getFullYear();
 
     // Hamburger toggle
+    // ── MONTHLY POLL ──
+    const POLL_KEY = 'dj-poll-march-2026';
+    const VOTES_KEY = 'dj-poll-votes-march-2026';
+
+    // Default seed votes so results look realistic
+    const defaultVotes = { duke: 12, michigan: 8, arizona: 15, florida: 10 };
+
+    function getVotes() {
+      try {
+        return JSON.parse(localStorage.getItem(VOTES_KEY)) || { ...defaultVotes };
+      } catch { return { ...defaultVotes }; }
+    }
+
+    function saveVotes(votes) {
+      try { localStorage.setItem(VOTES_KEY, JSON.stringify(votes)); } catch {}
+    }
+
+    function showResults(votes, myVote) {
+      const total = Object.values(votes).reduce((a, b) => a + b, 0);
+      const options = ['duke', 'michigan', 'arizona', 'florida'];
+      const maxVotes = Math.max(...Object.values(votes));
+
+      options.forEach(key => {
+        const pct = total > 0 ? Math.round((votes[key] / total) * 100) : 0;
+        document.getElementById(`pct-${key}`).textContent = pct + '%';
+        const bar = document.getElementById(`bar-${key}`);
+        setTimeout(() => { bar.style.width = pct + '%'; }, 50);
+        if (votes[key] === maxVotes) bar.classList.add('winner');
+        if (key === myVote) {
+          document.getElementById(`result-${key}`).style.opacity = '1';
+        } else {
+          document.getElementById(`result-${key}`).style.opacity = '0.7';
+        }
+      });
+
+      document.getElementById('poll-options').classList.add('hidden');
+      document.getElementById('poll-results').classList.remove('hidden');
+      document.getElementById('poll-thanks').textContent = '✅ Thanks for voting! Results update in real time.';
+    }
+
+    function castVote(team) {
+      const votes = getVotes();
+      votes[team] = (votes[team] || 0) + 1;
+      saveVotes(votes);
+      try { localStorage.setItem(POLL_KEY, team); } catch {}
+      showResults(votes, team);
+    }
+
+    // On load: if already voted, show results
+    (function() {
+      try {
+        const myVote = localStorage.getItem(POLL_KEY);
+        if (myVote) {
+          showResults(getVotes(), myVote);
+        }
+      } catch {}
+    })();
+
     document.getElementById('hamburger').addEventListener('click', () => {
       document.getElementById('main-nav').classList.toggle('open');
     });
@@ -434,6 +713,58 @@ footer { background-color: #06080f; border-top: 1px solid rgba(192,39,45,0.3); }
         }
       });
     });
+
+    // ── LIVE SCORES TICKER ──
+    const LEAGUES = [
+      { key: 'football/nfl',   label: 'NFL' },
+      { key: 'basketball/nba', label: 'NBA' },
+      { key: 'baseball/mlb',   label: 'MLB' },
+      { key: 'hockey/nhl',     label: 'NHL' },
+      { key: 'soccer/usa.1',   label: 'MLS' },
+    ];
+    async function fetchScores(league) {
+      const url = `https://site.api.espn.com/apis/site/v2/sports/${league.key}/scoreboard`;
+      try {
+        const res = await fetch(url);
+        const data = await res.json();
+        return (data.events || []).map(event => {
+          const comp = event.competitions[0];
+          const home = comp.competitors.find(c => c.homeAway === 'home');
+          const away = comp.competitors.find(c => c.homeAway === 'away');
+          const status = event.status.type.shortDetail || '';
+          const homeAbbr = home?.team?.abbreviation || home?.team?.shortDisplayName || '';
+          const awayAbbr = away?.team?.abbreviation || away?.team?.shortDisplayName || '';
+          const homeScore = home?.score ?? '';
+          const awayScore = away?.score ?? '';
+          const hasScore = homeScore !== '' && awayScore !== '';
+          return {
+            label: league.label,
+            text: hasScore
+              ? `${awayAbbr} <em>${awayScore}</em> – ${homeAbbr} <em>${homeScore}</em> &nbsp;·&nbsp; ${status}`
+              : `${awayAbbr} vs ${homeAbbr} &nbsp;·&nbsp; ${status}`
+          };
+        });
+      } catch { return []; }
+    }
+    async function buildTicker() {
+      const track = document.getElementById('ticker-track');
+      if (!track) return;
+      const results = await Promise.all(LEAGUES.map(fetchScores));
+      const all = results.flat();
+      if (all.length === 0) {
+        track.innerHTML = '<span>No live games right now — check back soon!</span>';
+        return;
+      }
+      const items = [...all, ...all];
+      track.innerHTML = items
+        .map(g => `<span><strong style="color:#ffd0d0;margin-right:0.4rem">${g.label}</strong>${g.text}</span>`)
+        .join('');
+      const totalWidth = track.scrollWidth;
+      const duration = Math.max(5, totalWidth / 1800);
+      track.style.animationDuration = `${duration}s`;
+    }
+    buildTicker();
+    setInterval(buildTicker, 60000);
   </script>
 
 </body>
