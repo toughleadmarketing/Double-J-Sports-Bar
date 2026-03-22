@@ -67,7 +67,7 @@
 
     /* ── GAME CARDS ── */
     .games-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
-    .game-card { background-color: #162550; border: 1px solid rgba(255,255,255,0.07); border-radius: 8px; padding: 1.25rem 1.5rem; display: flex; flex-direction: column; gap: 0.75rem; transition: border-color 0.2s ease, transform 0.2s ease; }
+    .game-card { background-color: #162550; border: 1px solid rgba(255,255,255,0.07); border-radius: 8px; padding: 1.25rem 1.5rem; display: flex; flex-direction: column; gap: 0.75rem; transition: border-color 0.2s ease, transform 0.2s ease; min-width: 0; overflow: hidden; }
     .game-card:hover { border-color: rgba(192,39,45,0.35); transform: translateY(-2px); }
     .game-card.live { border-color: #C0272D; background-color: rgba(192,39,45,0.06); }
     .game-status { display: flex; align-items: center; justify-content: space-between; }
@@ -169,17 +169,22 @@
       .ticker-track span { font-size: 0.65rem; padding: 0 1rem; white-space: nowrap; flex-shrink: 0; }
       .page-hero { margin-top: 92px; padding: 2.5rem 1.25rem; }
       .tabs-bar { top: 92px; }
-      .section-inner { padding: 2.5rem 1.25rem; }
+      .section-inner { padding: 2.5rem 1rem; }
       .section-title { font-size: 1.8rem; }
-      .games-grid { grid-template-columns: 1fr; }
-      .weekly-inner { padding: 0 1.25rem; }
+      .games-grid { grid-template-columns: 1fr; gap: 0.75rem; }
+      .game-card { padding: 1rem 1.1rem; min-width: 0; }
+      .team-name { font-size: 0.9rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 160px; }
+      .team-score { font-size: 1.25rem; }
+      .game-detail { font-size: 0.65rem; white-space: normal; word-break: break-word; overflow-wrap: break-word; }
+      .sport-label { font-size: 1.4rem; }
+      .weekly-inner { padding: 0 1rem; }
       .weekly-grid { grid-template-columns: 1fr; }
       .weekly-card.featured { grid-column: span 1; }
       .footer-inner { flex-direction: column; align-items: center; text-align: center; padding: 2rem 1rem; }
       .footer-brand { flex-direction: column; align-items: center; }
       .footer-bottom { flex-direction: column; align-items: center; text-align: center; padding: 1rem; }
     }
-    @media (max-width: 900px) {
+    @media (max-width: 900px) and (min-width: 681px) {
       .games-grid { grid-template-columns: repeat(2, 1fr); }
     }
   </style>
@@ -255,7 +260,7 @@
     </div>
   </div>
 
-  <section style="background-color:#0f1c3f; padding: 3rem 0 5rem;">
+  <section style="background-color:#0f1c3f; padding: 3rem 0 5rem; overflow-x: hidden;">
     <div class="section-inner">
 
       <div class="sport-panel active" id="panel-nba">
