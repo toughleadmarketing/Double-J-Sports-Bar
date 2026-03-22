@@ -1,144 +1,201 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Community Activism — Double J Sports Bar</title>
+  <title>Community Activism — Double "J" Sports Bar</title>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@400;600;700&family=Barlow:wght@400;500&display=swap" rel="stylesheet"/>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     body { background-color: #0f1c3f; font-family: 'Barlow', sans-serif; color: #EEF2FA; }
 
-```
-header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background-color: rgba(15,28,63,0.97); border-bottom: 1px solid rgba(192,39,45,0.35); backdrop-filter: blur(8px); }
-.header-inner { max-width: 1280px; margin: 0 auto; padding: 0 2rem; height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
-.logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; flex-shrink: 0; }
-.logo-img-wrap { width: 56px; height: 56px; border-radius: 50%; overflow: hidden; border: 2px solid #C0272D; flex-shrink: 0; background-color: #162550; transition: transform 0.3s ease; }
-.logo:hover .logo-img-wrap { transform: scale(1.06); }
-.logo-img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.logo-text { display: flex; flex-direction: column; line-height: 1; }
-.logo-name { font-family: 'Bebas Neue', sans-serif; font-size: 1.65rem; letter-spacing: 0.1em; color: #EEF2FA; }
-.logo-tagline { font-family: 'Barlow Condensed', sans-serif; font-size: 0.65rem; letter-spacing: 0.3em; text-transform: uppercase; color: #C0272D; font-weight: 600; }
-nav { display: flex; align-items: center; gap: 0.25rem; }
-nav a { font-family: 'Barlow Condensed', sans-serif; font-size: 0.9rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; text-decoration: none; color: #7a8aaa; padding: 0.45rem 0.85rem; position: relative; transition: color 0.2s ease; }
-nav a::after { content: ''; position: absolute; bottom: 0; left: 50%; right: 50%; height: 2px; background-color: #C0272D; transition: left 0.25s ease, right 0.25s ease; }
-nav a:hover { color: #EEF2FA; }
-nav a:hover::after { left: 0.85rem; right: 0.85rem; }
-nav a.active { color: #C0272D; }
-.nav-divider { width: 1px; height: 14px; background-color: rgba(255,255,255,0.12); }
-.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 6px; }
-.hamburger span { display: block; width: 24px; height: 2px; background-color: #EEF2FA; }
+    /* ── HEADER ── */
+    header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background-color: rgba(15,28,63,0.97); border-bottom: 1px solid rgba(192,39,45,0.35); backdrop-filter: blur(8px); }
+    .header-inner { max-width: 1280px; margin: 0 auto; padding: 0 2rem; height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
+    .logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; flex-shrink: 0; }
+    .logo-img-wrap { width: 56px; height: 56px; border-radius: 50%; overflow: hidden; border: 2px solid #C0272D; flex-shrink: 0; background-color: #162550; transition: transform 0.3s ease; }
+    .logo:hover .logo-img-wrap { transform: scale(1.06); }
+    .logo-img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .logo-text { display: flex; flex-direction: column; line-height: 1; }
+    .logo-name { font-family: 'Bebas Neue', sans-serif; font-size: 1.65rem; letter-spacing: 0.1em; color: #EEF2FA; }
+    .logo-tagline { font-family: 'Barlow Condensed', sans-serif; font-size: 0.65rem; letter-spacing: 0.3em; text-transform: uppercase; color: #C0272D; font-weight: 600; }
+    nav { display: flex; align-items: center; gap: 0.25rem; }
+    nav a { font-family: 'Barlow Condensed', sans-serif; font-size: 0.9rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; text-decoration: none; color: #7a8aaa; padding: 0.45rem 0.85rem; position: relative; transition: color 0.2s ease; }
+    nav a::after { content: ''; position: absolute; bottom: 0; left: 50%; right: 50%; height: 2px; background-color: #C0272D; transition: left 0.25s ease, right 0.25s ease; }
+    nav a:hover { color: #EEF2FA; }
+    nav a:hover::after { left: 0.85rem; right: 0.85rem; }
+    nav a.active { color: #C0272D; }
+    .nav-divider { width: 1px; height: 14px; background-color: rgba(255,255,255,0.12); }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 6px; }
+    .hamburger span { display: block; width: 24px; height: 2px; background-color: #EEF2FA; }
 
-/* REVIEWS TICKER */
-.reviews-bar { margin-top: 76px; background-color: #162550; border-bottom: 1px solid rgba(192,39,45,0.2); overflow: hidden; position: relative; }
-.reviews-bar::before, .reviews-bar::after { content: ''; position: absolute; top: 0; bottom: 0; width: 80px; z-index: 2; pointer-events: none; }
-.reviews-bar::before { left: 0; background: linear-gradient(to right, #162550, transparent); }
-.reviews-bar::after { right: 0; background: linear-gradient(to left, #162550, transparent); }
-.reviews-track { display: flex; align-items: center; white-space: nowrap; animation: reviewScroll 50s linear infinite; padding: 1rem 0; }
-.reviews-track:hover { animation-play-state: paused; }
-.review-card { display: inline-flex; flex-direction: column; gap: 0.4rem; background-color: #0f1c3f; border: 1px solid rgba(255,255,255,0.07); border-radius: 8px; padding: 1rem 1.5rem; margin: 0 0.75rem; min-width: 280px; max-width: 320px; white-space: normal; vertical-align: top; }
-.review-stars { display: flex; gap: 2px; color: #F5C842; font-size: 0.85rem; }
-.review-text { font-family: 'Barlow', sans-serif; font-size: 0.82rem; color: #EEF2FA; line-height: 1.5; opacity: 0.9; }
-.review-author { font-family: 'Barlow Condensed', sans-serif; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #7a8aaa; }
-@keyframes reviewScroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+    /* ── SCORES TICKER ── */
+    .ticker-bar { background: #C0272D; overflow: hidden; height: 28px; display: flex; align-items: center; position: fixed; top: 76px; left: 0; right: 0; z-index: 99; }
+    .ticker-label { background: #1e3370; color: #EEF2FA; font-family: 'Bebas Neue', sans-serif; font-size: 0.8rem; letter-spacing: 0.15em; padding: 0 1rem; height: 100%; display: flex; align-items: center; flex-shrink: 0; }
+    .ticker-track { display: flex; white-space: nowrap; flex-wrap: nowrap; animation: ticker 10s linear infinite; }
+    .ticker-track span { font-family: 'Barlow Condensed', sans-serif; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.92); padding: 0 2.5rem; white-space: nowrap; flex-shrink: 0; }
+    .ticker-track span em { color: #ffd0d0; font-style: normal; }
+    @keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
-/* PAGE HERO */
-.page-hero { background-image: linear-gradient(160deg, rgba(192,39,45,0.12) 0%, transparent 50%); background-color: #0f1c3f; padding: 4rem 2rem; text-align: center; border-bottom: 1px solid rgba(192,39,45,0.2); }
-.page-eyebrow { font-family: 'Barlow Condensed', sans-serif; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.4em; text-transform: uppercase; color: #C0272D; margin-bottom: 0.5rem; }
-.page-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(3rem, 8vw, 6rem); letter-spacing: 0.06em; line-height: 1; color: #EEF2FA; }
-.page-title .accent { color: #C0272D; }
-.page-subtitle { font-family: 'Barlow', sans-serif; font-size: 1rem; color: #7a8aaa; margin-top: 1rem; max-width: 560px; margin-left: auto; margin-right: auto; line-height: 1.7; }
+    /* ── REVIEWS TICKER ── */
+    .reviews-bar { margin-top: 104px; background-color: #162550; border-bottom: 1px solid rgba(192,39,45,0.2); overflow: hidden; position: relative; }
+    .reviews-bar::before, .reviews-bar::after { content: ''; position: absolute; top: 0; bottom: 0; width: 80px; z-index: 2; pointer-events: none; }
+    .reviews-bar::before { left: 0; background: linear-gradient(to right, #162550, transparent); }
+    .reviews-bar::after { right: 0; background: linear-gradient(to left, #162550, transparent); }
+    .reviews-track { display: flex; align-items: center; white-space: nowrap; animation: reviewScroll 50s linear infinite; padding: 1rem 0; }
+    .reviews-track:hover { animation-play-state: paused; }
+    .review-card { display: inline-flex; flex-direction: column; gap: 0.4rem; background-color: #0f1c3f; border: 1px solid rgba(255,255,255,0.07); border-radius: 8px; padding: 1rem 1.5rem; margin: 0 0.75rem; min-width: 280px; max-width: 320px; white-space: normal; vertical-align: top; }
+    .review-stars { display: flex; gap: 2px; color: #F5C842; font-size: 0.85rem; }
+    .review-text { font-family: 'Barlow', sans-serif; font-size: 0.82rem; color: #EEF2FA; line-height: 1.5; opacity: 0.9; }
+    .review-author { font-family: 'Barlow Condensed', sans-serif; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #7a8aaa; }
+    @keyframes reviewScroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
-/* SHARED */
-.section-inner { max-width: 1280px; margin: 0 auto; padding: 5rem 2rem; }
-.section-eyebrow { font-family: 'Barlow Condensed', sans-serif; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.4em; text-transform: uppercase; color: #C0272D; margin-bottom: 0.5rem; display: block; }
-.section-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.2rem, 5vw, 3.5rem); letter-spacing: 0.06em; color: #EEF2FA; margin-bottom: 2.5rem; line-height: 1; display: block; }
-.section-title .accent { color: #C0272D; }
+    /* ── PAGE HERO ── */
+    .page-hero { background-image: linear-gradient(160deg, rgba(192,39,45,0.12) 0%, transparent 50%); background-color: #0f1c3f; padding: 4rem 2rem; text-align: center; border-bottom: 1px solid rgba(192,39,45,0.2); }
+    .page-eyebrow { font-family: 'Barlow Condensed', sans-serif; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.4em; text-transform: uppercase; color: #C0272D; margin-bottom: 0.5rem; }
+    .page-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(3rem, 8vw, 6rem); letter-spacing: 0.06em; line-height: 1; color: #EEF2FA; }
+    .page-title .accent { color: #C0272D; }
+    .page-subtitle { font-family: 'Barlow', sans-serif; font-size: 1rem; color: #7a8aaa; margin-top: 1rem; max-width: 560px; margin-left: auto; margin-right: auto; line-height: 1.7; }
 
-/* INITIATIVES */
-.initiatives-section { background-color: #162550; }
-.initiatives-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
-.initiative-card { background-color: #0f1c3f; border: 1px solid rgba(255,255,255,0.07); border-radius: 8px; overflow: hidden; transition: transform 0.25s ease, border-color 0.25s ease; }
-.initiative-card:hover { transform: translateY(-4px); border-color: rgba(192,39,45,0.4); }
-.initiative-img { width: 100%; height: 180px; object-fit: cover; display: block; }
-.initiative-body { padding: 1.5rem; }
-.initiative-tag { font-family: 'Barlow Condensed', sans-serif; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; color: #C0272D; margin-bottom: 0.5rem; }
-.initiative-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; letter-spacing: 0.06em; color: #EEF2FA; margin-bottom: 0.75rem; }
-.initiative-desc { font-family: 'Barlow', sans-serif; font-size: 0.9rem; color: #7a8aaa; line-height: 1.7; }
+    /* ── SHARED ── */
+    .section-inner { max-width: 1280px; margin: 0 auto; padding: 5rem 2rem; }
+    .section-eyebrow { font-family: 'Barlow Condensed', sans-serif; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.4em; text-transform: uppercase; color: #C0272D; margin-bottom: 0.5rem; display: block; }
+    .section-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.2rem, 5vw, 3.5rem); letter-spacing: 0.06em; color: #EEF2FA; margin-bottom: 2.5rem; line-height: 1; display: block; }
+    .section-title .accent { color: #C0272D; }
 
-/* RESTAURANTS */
-.restaurants-section { background-color: #0f1c3f; }
-.restaurants-sub { font-family: 'Barlow', sans-serif; font-size: 0.95rem; color: #7a8aaa; margin-top: -1.75rem; margin-bottom: 2.5rem; max-width: 600px; line-height: 1.7; }
-.restaurants-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
-.restaurant-card { display: flex; flex-direction: column; align-items: center; gap: 0.85rem; padding: 1.75rem 1.25rem; background-color: #162550; border: 1px solid rgba(255,255,255,0.07); border-radius: 8px; text-decoration: none; text-align: center; transition: transform 0.25s ease, border-color 0.25s ease; }
-.restaurant-card:hover { transform: translateY(-4px); border-color: rgba(192,39,45,0.45); }
-.restaurant-logo { width: 100%; max-width: 160px; height: 90px; object-fit: contain; border-radius: 6px; }
-.restaurant-name { font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem; letter-spacing: 0.08em; color: #EEF2FA; }
-.restaurant-cta { font-family: 'Barlow Condensed', sans-serif; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #C0272D; transition: color 0.2s ease; }
-.restaurant-card:hover .restaurant-cta { color: #EEF2FA; }
+    /* ── INITIATIVES ── */
+    .initiatives-section { background-color: #162550; }
+    .initiatives-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+    .initiative-card { background-color: #0f1c3f; border: 1px solid rgba(255,255,255,0.07); border-radius: 8px; overflow: hidden; transition: transform 0.25s ease, border-color 0.25s ease; }
+    .initiative-card:hover { transform: translateY(-4px); border-color: rgba(192,39,45,0.4); }
+    .initiative-img { width: 100%; height: 180px; object-fit: cover; display: block; }
+    .initiative-body { padding: 1.5rem; }
+    .initiative-tag { font-family: 'Barlow Condensed', sans-serif; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; color: #C0272D; margin-bottom: 0.5rem; }
+    .initiative-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; letter-spacing: 0.06em; color: #EEF2FA; margin-bottom: 0.75rem; }
+    .initiative-desc { font-family: 'Barlow', sans-serif; font-size: 0.9rem; color: #7a8aaa; line-height: 1.7; }
 
-/* PARTNERS */
-.partners-section { background-color: #162550; }
-.partners-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; }
-.partner-card { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem; padding: 2rem 1rem; background-color: #0f1c3f; border: 1px solid rgba(255,255,255,0.07); border-radius: 8px; text-align: center; transition: border-color 0.25s ease, transform 0.25s ease; }
-.partner-card:hover { border-color: rgba(192,39,45,0.4); transform: translateY(-3px); }
-.partner-logo { width: 80px; height: 80px; object-fit: contain; border-radius: 6px; }
-.partner-name { font-family: 'Barlow Condensed', sans-serif; font-size: 0.9rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #EEF2FA; line-height: 1.3; }
+    /* ── RESTAURANTS ── */
+    .restaurants-section { background-color: #0f1c3f; }
+    .restaurants-sub { font-family: 'Barlow', sans-serif; font-size: 0.95rem; color: #7a8aaa; margin-top: -1.75rem; margin-bottom: 2.5rem; max-width: 600px; line-height: 1.7; }
+    .restaurants-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+    .restaurant-card { display: flex; flex-direction: column; align-items: center; gap: 0.85rem; padding: 1.75rem 1.25rem; background-color: #162550; border: 1px solid rgba(255,255,255,0.07); border-radius: 8px; text-decoration: none; text-align: center; transition: transform 0.25s ease, border-color 0.25s ease; }
+    .restaurant-card:hover { transform: translateY(-4px); border-color: rgba(192,39,45,0.45); }
+    .restaurant-logo { width: 100%; max-width: 160px; height: 90px; object-fit: contain; border-radius: 6px; }
+    .restaurant-name { font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem; letter-spacing: 0.08em; color: #EEF2FA; }
+    .restaurant-cta { font-family: 'Barlow Condensed', sans-serif; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #C0272D; transition: color 0.2s ease; }
+    .restaurant-card:hover .restaurant-cta { color: #EEF2FA; }
 
-/* FOOTER */
-footer { background-color: #06080f; border-top: 1px solid rgba(192,39,45,0.3); }
-.footer-inner { max-width: 1280px; margin: 0 auto; padding: 3rem 2rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 2rem; }
-.footer-brand { display: flex; align-items: center; gap: 0.85rem; }
-.footer-logo-wrap { width: 52px; height: 52px; border-radius: 50%; overflow: hidden; border: 2px solid #C0272D; flex-shrink: 0; background-color: #162550; }
-.footer-logo-img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.footer-logo-name { font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; letter-spacing: 0.1em; color: #EEF2FA; line-height: 1; }
-.footer-logo-tag { font-family: 'Barlow Condensed', sans-serif; font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase; color: #7a8aaa; margin-top: 0.2rem; }
-.footer-phone { font-family: 'Barlow Condensed', sans-serif; font-size: 1.1rem; font-weight: 700; letter-spacing: 0.1em; color: #EEF2FA; text-decoration: none; display: flex; align-items: center; gap: 0.5rem; transition: color 0.2s ease; }
-.footer-phone:hover { color: #C0272D; }
-.footer-social { display: flex; align-items: center; gap: 0.75rem; }
-.social-icon { display: flex; align-items: center; justify-content: center; width: 42px; height: 42px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.12); color: #7a8aaa; text-decoration: none; transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease; }
-.social-icon:hover { background-color: #1877F2; color: #EEF2FA; border-color: #1877F2; }
-.social-icon.instagram:hover { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); color: #EEF2FA; border-color: transparent; }
-.social-icon.tiktok:hover { background-color: #010101; color: #EEF2FA; border-color: #69C9D0; }
-.footer-bottom { border-top: 1px solid rgba(255,255,255,0.06); padding: 1.25rem 2rem; max-width: 1280px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; }
-.footer-disclaimer { font-family: 'Barlow Condensed', sans-serif; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: #C0272D; opacity: 0.8; }
-.footer-copy { font-family: 'Barlow', sans-serif; font-size: 0.75rem; color: #7a8aaa; opacity: 0.6; }
+    /* ── PARTNERS ── */
+    .partners-section { background-color: #162550; }
+    .partners-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; }
+    .partner-card { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem; padding: 2rem 1rem; background-color: #0f1c3f; border: 1px solid rgba(255,255,255,0.07); border-radius: 8px; text-align: center; transition: border-color 0.25s ease, transform 0.25s ease; }
+    .partner-card:hover { border-color: rgba(192,39,45,0.4); transform: translateY(-3px); }
+    .partner-logo { width: 80px; height: 80px; object-fit: contain; border-radius: 6px; }
+    .partner-name { font-family: 'Barlow Condensed', sans-serif; font-size: 0.9rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #EEF2FA; line-height: 1.3; }
 
-/* MOBILE */
-@media (max-width: 680px) {
-  .header-inner { padding: 0 1rem; height: 66px; }
-  .logo-img-wrap { width: 42px; height: 42px; }
-  .logo-name { font-size: 1.2rem; }
-  .logo-tagline { font-size: 0.5rem; }
-  .hamburger { display: flex; }
-  nav { display: none; position: fixed; top: 66px; left: 0; right: 0; background-color: #0f1c3f; flex-direction: column; align-items: stretch; padding: 0.5rem 0 1rem; border-top: 2px solid #C0272D; z-index: 9999; }
-  nav.open { display: flex; }
-  nav a { padding: 0.9rem 1.5rem; font-size: 1rem; color: #EEF2FA; border-bottom: 1px solid rgba(255,255,255,0.06); }
-  nav a.active { color: #C0272D; }
-  nav a::after { display: none; }
-  .nav-divider { display: none; }
-  .reviews-bar { margin-top: 66px; }
-  .page-hero { padding: 2.5rem 1.25rem; }
-  .section-inner { padding: 2.5rem 1.25rem; }
-  .section-title { font-size: 1.8rem; }
-  .initiatives-grid { grid-template-columns: 1fr; }
-  .restaurants-grid { grid-template-columns: repeat(2, 1fr); }
-  .partners-grid { grid-template-columns: repeat(2, 1fr); }
-  .footer-inner { flex-direction: column; align-items: center; text-align: center; padding: 2rem 1rem; }
-  .footer-brand { flex-direction: column; align-items: center; }
-  .footer-bottom { flex-direction: column; align-items: center; text-align: center; padding: 1rem; }
-}
-```
+    /* ── AGE GATE ── */
+    #age-gate { position: fixed; inset: 0; z-index: 10000; background: rgba(6,8,15,0.97); display: flex; align-items: center; justify-content: center; padding: 1.5rem; backdrop-filter: blur(6px); animation: ageFadeIn 0.4s ease both; }
+    @keyframes ageFadeIn { from { opacity: 0; } to { opacity: 1; } }
+    #age-gate.hidden { display: none; }
+    .age-gate-box { background: #162550; border: 1px solid rgba(192,39,45,0.4); border-radius: 12px; padding: 3rem 2.5rem; max-width: 420px; width: 100%; text-align: center; box-shadow: 0 0 80px rgba(192,39,45,0.15); animation: ageFadeIn 0.5s 0.1s ease both; }
+    .age-gate-logo { width: 72px; height: 72px; border-radius: 50%; overflow: hidden; border: 2px solid #C0272D; margin: 0 auto 1.5rem; background: #0f1c3f; }
+    .age-gate-logo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .age-gate-eyebrow { font-family: 'Barlow Condensed', sans-serif; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.35em; text-transform: uppercase; color: #C0272D; margin-bottom: 0.5rem; }
+    .age-gate-title { font-family: 'Bebas Neue', sans-serif; font-size: 2.6rem; letter-spacing: 0.06em; color: #EEF2FA; line-height: 1; margin-bottom: 0.5rem; }
+    .age-gate-sub { font-family: 'Barlow', sans-serif; font-size: 0.88rem; color: #7a8aaa; margin-bottom: 2rem; line-height: 1.6; }
+    .age-gate-label { font-family: 'Barlow Condensed', sans-serif; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #7a8aaa; display: block; margin-bottom: 0.6rem; text-align: left; }
+    .age-gate-inputs { display: grid; grid-template-columns: 1fr 1fr 1.4fr; gap: 0.5rem; margin-bottom: 1.25rem; }
+    .age-gate-inputs input { background: #0f1c3f; border: 1px solid rgba(255,255,255,0.12); border-radius: 6px; color: #EEF2FA; font-family: 'Barlow Condensed', sans-serif; font-size: 1.1rem; font-weight: 600; letter-spacing: 0.05em; padding: 0.7rem 0.5rem; text-align: center; width: 100%; outline: none; transition: border-color 0.2s ease; -moz-appearance: textfield; }
+    .age-gate-inputs input::-webkit-outer-spin-button,
+    .age-gate-inputs input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+    .age-gate-inputs input::placeholder { color: rgba(255,255,255,0.2); font-size: 0.85rem; }
+    .age-gate-inputs input:focus { border-color: #C0272D; }
+    .age-gate-inputs input.error { border-color: #C0272D; background: rgba(192,39,45,0.08); }
+    .age-gate-btn { font-family: 'Bebas Neue', sans-serif; font-size: 1.15rem; letter-spacing: 0.15em; background: #C0272D; color: #EEF2FA; border: none; cursor: pointer; padding: 0.9rem 2rem; width: 100%; border-radius: 6px; transition: background 0.2s ease, transform 0.15s ease; margin-bottom: 1rem; }
+    .age-gate-btn:hover { background: #1e3370; transform: translateY(-2px); }
+    .age-gate-error { font-family: 'Barlow Condensed', sans-serif; font-size: 0.85rem; font-weight: 600; letter-spacing: 0.05em; color: #C0272D; min-height: 1.2em; margin-bottom: 0.75rem; }
+    .age-gate-disclaimer { font-family: 'Barlow', sans-serif; font-size: 0.72rem; color: #7a8aaa; opacity: 0.7; line-height: 1.5; }
+    @media (max-width: 480px) { .age-gate-box { padding: 2rem 1.25rem; } .age-gate-title { font-size: 2rem; } }
 
+    /* ── FOOTER ── */
+    footer { background-color: #06080f; border-top: 1px solid rgba(192,39,45,0.3); }
+    .footer-inner { max-width: 1280px; margin: 0 auto; padding: 3rem 2rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 2rem; }
+    .footer-brand { display: flex; align-items: center; gap: 0.85rem; }
+    .footer-logo-wrap { width: 52px; height: 52px; border-radius: 50%; overflow: hidden; border: 2px solid #C0272D; flex-shrink: 0; background-color: #162550; }
+    .footer-logo-img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .footer-logo-name { font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; letter-spacing: 0.1em; color: #EEF2FA; line-height: 1; }
+    .footer-logo-tag { font-family: 'Barlow Condensed', sans-serif; font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase; color: #7a8aaa; margin-top: 0.2rem; }
+    .footer-phone { font-family: 'Barlow Condensed', sans-serif; font-size: 1.1rem; font-weight: 700; letter-spacing: 0.1em; color: #EEF2FA; text-decoration: none; display: flex; align-items: center; gap: 0.5rem; transition: color 0.2s ease; }
+    .footer-phone:hover { color: #C0272D; }
+    .footer-social { display: flex; align-items: center; gap: 0.75rem; }
+    .social-icon { display: flex; align-items: center; justify-content: center; width: 42px; height: 42px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.12); color: #7a8aaa; text-decoration: none; transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease; }
+    .social-icon:hover { background-color: #1877F2; color: #EEF2FA; border-color: #1877F2; }
+    .social-icon.instagram:hover { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); color: #EEF2FA; border-color: transparent; }
+    .social-icon.tiktok:hover { background-color: #010101; color: #EEF2FA; border-color: #69C9D0; }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.06); padding: 1.25rem 2rem; max-width: 1280px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; }
+    .footer-disclaimer { font-family: 'Barlow Condensed', sans-serif; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: #C0272D; opacity: 0.8; }
+    .footer-copy { font-family: 'Barlow', sans-serif; font-size: 0.75rem; color: #7a8aaa; opacity: 0.6; }
+
+    /* ── MOBILE ── */
+    @media (max-width: 680px) {
+      .header-inner { padding: 0 1rem; height: 66px; }
+      .logo-img-wrap { width: 42px; height: 42px; }
+      .logo-name { font-size: 1.2rem; }
+      .logo-tagline { font-size: 0.5rem; }
+      .hamburger { display: flex; }
+      nav { display: none; position: fixed; top: 66px; left: 0; right: 0; background-color: #0f1c3f; flex-direction: column; align-items: stretch; padding: 0.5rem 0 1rem; border-top: 2px solid #C0272D; z-index: 9999; }
+      nav.open { display: flex; }
+      nav a { padding: 0.9rem 1.5rem; font-size: 1rem; color: #EEF2FA; border-bottom: 1px solid rgba(255,255,255,0.06); }
+      nav a.active { color: #C0272D; }
+      nav a::after { display: none; }
+      .nav-divider { display: none; }
+      .ticker-bar { top: 66px; height: 26px; }
+      .ticker-label { font-size: 0.65rem; padding: 0 0.5rem; white-space: nowrap; }
+      .ticker-track span { font-size: 0.65rem; padding: 0 1rem; }
+      .reviews-bar { margin-top: 92px; }
+      .page-hero { padding: 2.5rem 1.25rem; }
+      .section-inner { padding: 2.5rem 1.25rem; }
+      .section-title { font-size: 1.8rem; }
+      .initiatives-grid { grid-template-columns: 1fr; }
+      .restaurants-grid { grid-template-columns: repeat(2, 1fr); }
+      .partners-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-inner { flex-direction: column; align-items: center; text-align: center; padding: 2rem 1rem; }
+      .footer-brand { flex-direction: column; align-items: center; }
+      .footer-bottom { flex-direction: column; align-items: center; text-align: center; padding: 1rem; }
+    }
   </style>
 </head>
 <body>
+
+  <!-- Age Gate -->
+  <div id="age-gate">
+    <div class="age-gate-box">
+      <div class="age-gate-logo">
+        <img src="https://i.imgur.com/Gk6PvB3.jpeg" alt='Double "J" Sports Bar'/>
+      </div>
+      <p class="age-gate-eyebrow">Age Verification Required</p>
+      <h2 class="age-gate-title">Are You 21+?</h2>
+      <p class="age-gate-sub">Double "J" Sports Bar serves alcohol. Please confirm your date of birth to enter.</p>
+      <label class="age-gate-label">Enter Your Date of Birth</label>
+      <div class="age-gate-inputs">
+        <input type="number" id="ag-month" placeholder="MM" min="1" max="12" maxlength="2" inputmode="numeric"/>
+        <input type="number" id="ag-day" placeholder="DD" min="1" max="31" maxlength="2" inputmode="numeric"/>
+        <input type="number" id="ag-year" placeholder="YYYY" min="1900" max="2099" maxlength="4" inputmode="numeric"/>
+      </div>
+      <div class="age-gate-error" id="ag-error"></div>
+      <button class="age-gate-btn" id="ag-submit">Enter Site</button>
+      <p class="age-gate-disclaimer">By entering, you confirm you are of legal drinking age (21+) in the United States. This site is intended for adults only.</p>
+    </div>
+  </div>
+
   <header>
     <div class="header-inner">
       <a href="index.html" class="logo">
-        <div class="logo-img-wrap"><img src="https://i.imgur.com/Gk6PvB3.jpeg" alt="Logo" class="logo-img"/></div>
-        <div class="logo-text"><span class="logo-name">Double J</span><span class="logo-tagline">Sports Bar &amp; Grill</span></div>
+        <div class="logo-img-wrap"><img src="https://i.imgur.com/Gk6PvB3.jpeg" alt='Double "J" Sports Bar Logo' class="logo-img"/></div>
+        <div class="logo-text">
+          <span class="logo-name">Double "J"</span>
+          <span class="logo-tagline">Sports Bar &amp; Grill</span>
+        </div>
       </a>
       <nav id="main-nav">
         <a href="index.html">Home</a><div class="nav-divider"></div>
@@ -152,8 +209,17 @@ footer { background-color: #06080f; border-top: 1px solid rgba(192,39,45,0.3); }
     </div>
   </header>
 
-  <!-- Reviews Ticker -->
+  <!-- Score Ticker -->
+  <div class="ticker-bar">
+    <div class="ticker-label">Live&nbsp;Now</div>
+    <div style="overflow:hidden; flex:1;">
+      <div class="ticker-track" id="ticker-track">
+        <span>Loading scores...</span>
+      </div>
+    </div>
+  </div>
 
+  <!-- Reviews Ticker -->
   <div class="reviews-bar">
     <div class="reviews-track">
       <div class="review-card"><div class="review-stars">★★★★★</div><div class="review-text">"Best sports bar in Joliet! Great atmosphere, always has every game on. Staff is super friendly and the drinks are cold."</div><div class="review-author">— Mike T.</div></div>
@@ -177,11 +243,10 @@ footer { background-color: #06080f; border-top: 1px solid rgba(192,39,45,0.3); }
   <div class="page-hero">
     <p class="page-eyebrow">More Than a Bar</p>
     <h1 class="page-title">Giving Back to <span class="accent">Joliet</span></h1>
-    <p class="page-subtitle">At Double J Sports Bar, we believe a great bar is part of a great community. We're proud to support the causes and organizations that make Joliet a better place to live.</p>
+    <p class="page-subtitle">At Double "J" Sports Bar, we believe a great bar is part of a great community. We're proud to support the causes and organizations that make Joliet a better place to live.</p>
   </div>
 
   <!-- Initiatives -->
-
   <section class="initiatives-section">
     <div class="section-inner">
       <p class="section-eyebrow">What We Support</p>
@@ -192,7 +257,7 @@ footer { background-color: #06080f; border-top: 1px solid rgba(192,39,45,0.3); }
           <div class="initiative-body">
             <div class="initiative-tag">Health &amp; Awareness</div>
             <div class="initiative-title">Pat Clark Cancer Foundation</div>
-            <p class="initiative-desc">Double J proudly supports the Pat Clark Cancer Foundation, helping raise awareness and funds for cancer research and support services in the Joliet community.</p>
+            <p class="initiative-desc">Double "J" proudly supports the Pat Clark Cancer Foundation, helping raise awareness and funds for cancer research and support services in the Joliet community.</p>
           </div>
         </div>
         <div class="initiative-card">
@@ -200,7 +265,7 @@ footer { background-color: #06080f; border-top: 1px solid rgba(192,39,45,0.3); }
           <div class="initiative-body">
             <div class="initiative-tag">Community Giving</div>
             <div class="initiative-title">Toys for Tots &amp; Food Drives</div>
-            <p class="initiative-desc">Every holiday season, Double J serves as a drop-off location and active organizer for Toys for Tots drives and local food drives — making sure no family in Joliet goes without.</p>
+            <p class="initiative-desc">Every holiday season, Double "J" serves as a drop-off location and active organizer for Toys for Tots drives and local food drives — making sure no family in Joliet goes without.</p>
           </div>
         </div>
         <div class="initiative-card">
@@ -208,14 +273,14 @@ footer { background-color: #06080f; border-top: 1px solid rgba(192,39,45,0.3); }
           <div class="initiative-body">
             <div class="initiative-tag">Youth &amp; Local Sports</div>
             <div class="initiative-title">Team Sponsorships</div>
-            <p class="initiative-desc">We sponsor local youth and adult sports teams throughout the Joliet area. From jerseys to tournament fees, Double J is in your corner both on and off the field.</p>
+            <p class="initiative-desc">We sponsor local youth and adult sports teams throughout the Joliet area. From jerseys to tournament fees, Double "J" is in your corner both on and off the field.</p>
           </div>
         </div>
         <div class="initiative-card">
           <img src="https://placehold.co/800x180/1e3370/EEF2FA" alt="Annual Golf Outing" class="initiative-img"/>
           <div class="initiative-body">
             <div class="initiative-tag">Annual Event</div>
-            <div class="initiative-title">Double J Annual Golf Outing</div>
+            <div class="initiative-title">Double "J" Annual Golf Outing</div>
             <p class="initiative-desc">Our annual golf outing brings the community together for a great day on the course while raising money for local causes. Stay tuned for this year's date and registration details.</p>
           </div>
         </div>
@@ -224,45 +289,44 @@ footer { background-color: #06080f; border-top: 1px solid rgba(192,39,45,0.3); }
   </section>
 
   <!-- Local Restaurants -->
-
   <section class="restaurants-section">
     <div class="section-inner">
       <p class="section-eyebrow">Order In &amp; Eat Here</p>
       <h2 class="section-title">Local <span class="accent">Restaurants</span></h2>
-      <p class="restaurants-sub">We don't serve food, but you're welcome to order from any of these local favorites and enjoy your meal right here at Double J!</p>
+      <p class="restaurants-sub">We don't serve food, but you're welcome to order from any of these local favorites and enjoy your meal right here at Double "J"!</p>
       <div class="restaurants-grid">
-        <a href="#" class="restaurant-card" target="_blank" rel="noopener"><img src="https://cemenos.hrpos.heartland.us/menu" alt="Cemeno's Pizza" class="restaurant-logo"/><div class="restaurant-name">Cemeno's Pizza</div><div class="restaurant-cta">View Menu →</div></a>
-        <a href="#" class="restaurant-card" target="_blank" rel="noopener"><img src="https://placehold.co/160x90/162550/162550" alt="Metro Bar &amp; Grill" class="restaurant-logo"/><div class="restaurant-name">Metro Bar &amp; Grill</div><div class="restaurant-cta">View Menu →</div></a>
-        <a href="#" class="restaurant-card" target="_blank" rel="noopener"><img src="https://placehold.co/160x90/162550/162550" alt="Domino's" class="restaurant-logo"/><div class="restaurant-name">Domino's</div><div class="restaurant-cta">View Menu →</div></a>
-        <a href="#" class="restaurant-card" target="_blank" rel="noopener"><img src="https://placehold.co/160x90/162550/162550" alt="Pizza Hut" class="restaurant-logo"/><div class="restaurant-name">Pizza Hut</div><div class="restaurant-cta">View Menu →</div></a>
-        <a href="#" class="restaurant-card" target="_blank" rel="noopener"><img src="https://placehold.co/160x90/162550/162550" alt="Papa John's" class="restaurant-logo"/><div class="restaurant-name">Papa John's</div><div class="restaurant-cta">View Menu →</div></a>
-        <a href="#" class="restaurant-card" target="_blank" rel="noopener"><img src="https://placehold.co/160x90/162550/162550" alt="Jet's Pizza" class="restaurant-logo"/><div class="restaurant-name">Jet's Pizza</div><div class="restaurant-cta">View Menu →</div></a>
+        <a href="#" class="restaurant-card" target="_blank" rel="noopener"><img src="https://placehold.co/160x90/162550/7a8aaa?text=Cemeno's" alt="Cemeno's Pizza" class="restaurant-logo"/><div class="restaurant-name">Cemeno's Pizza</div><div class="restaurant-cta">View Menu →</div></a>
+        <a href="#" class="restaurant-card" target="_blank" rel="noopener"><img src="https://placehold.co/160x90/162550/7a8aaa?text=Metro" alt="Metro Bar &amp; Grill" class="restaurant-logo"/><div class="restaurant-name">Metro Bar &amp; Grill</div><div class="restaurant-cta">View Menu →</div></a>
+        <a href="#" class="restaurant-card" target="_blank" rel="noopener"><img src="https://placehold.co/160x90/162550/7a8aaa?text=Domino's" alt="Domino's" class="restaurant-logo"/><div class="restaurant-name">Domino's</div><div class="restaurant-cta">View Menu →</div></a>
+        <a href="#" class="restaurant-card" target="_blank" rel="noopener"><img src="https://placehold.co/160x90/162550/7a8aaa?text=Pizza+Hut" alt="Pizza Hut" class="restaurant-logo"/><div class="restaurant-name">Pizza Hut</div><div class="restaurant-cta">View Menu →</div></a>
+        <a href="#" class="restaurant-card" target="_blank" rel="noopener"><img src="https://placehold.co/160x90/162550/7a8aaa?text=Papa+John's" alt="Papa John's" class="restaurant-logo"/><div class="restaurant-name">Papa John's</div><div class="restaurant-cta">View Menu →</div></a>
+        <a href="#" class="restaurant-card" target="_blank" rel="noopener"><img src="https://placehold.co/160x90/162550/7a8aaa?text=Jet's+Pizza" alt="Jet's Pizza" class="restaurant-logo"/><div class="restaurant-name">Jet's Pizza</div><div class="restaurant-cta">View Menu →</div></a>
       </div>
     </div>
   </section>
 
   <!-- Partners -->
-
   <section class="partners-section">
     <div class="section-inner">
       <p class="section-eyebrow">Who We Work With</p>
       <h2 class="section-title">Our <span class="accent">Partners</span></h2>
       <div class="partners-grid">
-        <div class="partner-card"><img src="https://placehold.co/80x80/162550/7a8aaa" alt="Pat Clark Cancer Foundation" class="partner-logo"/><div class="partner-name">Pat Clark Cancer Foundation</div></div>
-        <div class="partner-card"><img src="https://placehold.co/80x80/162550/7a8aaa" alt="Joliet Park District" class="partner-logo"/><div class="partner-name">Joliet Park District</div></div>
-        <div class="partner-card"><img src="https://placehold.co/80x80/162550/7a8aaa" alt="Big Brothers Big Sisters" class="partner-logo"/><div class="partner-name">Big Brothers Big Sisters</div></div>
-        <div class="partner-card"><img src="https://placehold.co/80x80/162550/7a8aaa" alt="Toys for Tots" class="partner-logo"/><div class="partner-name">Toys for Tots</div></div>
+        <div class="partner-card"><img src="https://placehold.co/80x80/0f1c3f/7a8aaa?text=PCCF" alt="Pat Clark Cancer Foundation" class="partner-logo"/><div class="partner-name">Pat Clark Cancer Foundation</div></div>
+        <div class="partner-card"><img src="https://placehold.co/80x80/0f1c3f/7a8aaa?text=JPD" alt="Joliet Park District" class="partner-logo"/><div class="partner-name">Joliet Park District</div></div>
+        <div class="partner-card"><img src="https://placehold.co/80x80/0f1c3f/7a8aaa?text=BBBS" alt="Big Brothers Big Sisters" class="partner-logo"/><div class="partner-name">Big Brothers Big Sisters</div></div>
+        <div class="partner-card"><img src="https://placehold.co/80x80/0f1c3f/7a8aaa?text=TFT" alt="Toys for Tots" class="partner-logo"/><div class="partner-name">Toys for Tots</div></div>
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
-
   <footer>
     <div class="footer-inner">
       <div class="footer-brand">
-        <div class="footer-logo-wrap"><img src="https://i.imgur.com/Gk6PvB3.jpeg" alt="Double J" class="footer-logo-img"/></div>
-        <div><div class="footer-logo-name">Double J</div><div class="footer-logo-tag">Sports Bar &amp; Grill · Joliet, IL</div></div>
+        <div class="footer-logo-wrap"><img src="https://i.imgur.com/Gk6PvB3.jpeg" alt='Double "J" Sports Bar' class="footer-logo-img"/></div>
+        <div>
+          <div class="footer-logo-name">Double "J"</div>
+          <div class="footer-logo-tag">Sports Bar &amp; Grill · Joliet, IL</div>
+        </div>
       </div>
       <a href="tel:+18157308488" class="footer-phone">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8a19.79 19.79 0 01-3.07-8.67A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
@@ -276,12 +340,67 @@ footer { background-color: #06080f; border-top: 1px solid rgba(192,39,45,0.3); }
     </div>
     <div class="footer-bottom">
       <p class="footer-disclaimer">Please drink responsibly. Must be 21+ to consume alcohol.</p>
-      <p class="footer-copy">&copy; <span id="footer-year"></span> Double J Sports Bar &amp; Grill. All rights reserved.</p>
+      <p class="footer-copy">&copy; <span id="footer-year"></span> Double "J" Sports Bar &amp; Grill. All rights reserved.</p>
     </div>
   </footer>
 
   <script>
     document.getElementById('footer-year').textContent = new Date().getFullYear();
+
+    // ── AGE GATE ──
+    (function() {
+      const gate    = document.getElementById('age-gate');
+      const errorEl = document.getElementById('ag-error');
+      const monthEl = document.getElementById('ag-month');
+      const dayEl   = document.getElementById('ag-day');
+      const yearEl  = document.getElementById('ag-year');
+
+      if (sessionStorage.getItem('age-verified') === 'true') {
+        gate.classList.add('hidden');
+        return;
+      }
+
+      monthEl.addEventListener('input', () => { if (monthEl.value.length >= 2) dayEl.focus(); });
+      dayEl.addEventListener('input',   () => { if (dayEl.value.length >= 2)   yearEl.focus(); });
+
+      document.getElementById('ag-submit').addEventListener('click', verify);
+      [monthEl, dayEl, yearEl].forEach(el => {
+        el.addEventListener('keydown', e => { if (e.key === 'Enter') verify(); });
+      });
+
+      function verify() {
+        errorEl.textContent = '';
+        [monthEl, dayEl, yearEl].forEach(el => el.classList.remove('error'));
+        const m = parseInt(monthEl.value, 10);
+        const d = parseInt(dayEl.value, 10);
+        const y = parseInt(yearEl.value, 10);
+        if (!m || !d || !y || monthEl.value === '' || dayEl.value === '' || yearEl.value === '') {
+          errorEl.textContent = 'Please enter your full date of birth.';
+          [monthEl, dayEl, yearEl].forEach(el => { if (!el.value) el.classList.add('error'); });
+          return;
+        }
+        if (m < 1 || m > 12 || d < 1 || d > 31 || y < 1900 || y > new Date().getFullYear()) {
+          errorEl.textContent = 'Please enter a valid date.';
+          [monthEl, dayEl, yearEl].forEach(el => el.classList.add('error'));
+          return;
+        }
+        const dob   = new Date(y, m - 1, d);
+        const today = new Date();
+        let age = today.getFullYear() - dob.getFullYear();
+        const mDiff = today.getMonth() - dob.getMonth();
+        if (mDiff < 0 || (mDiff === 0 && today.getDate() < dob.getDate())) age--;
+        if (age >= 21) {
+          sessionStorage.setItem('age-verified', 'true');
+          gate.style.transition = 'opacity 0.4s ease';
+          gate.style.opacity = '0';
+          setTimeout(() => gate.classList.add('hidden'), 400);
+        } else {
+          window.location.replace('https://www.google.com');
+        }
+      }
+    })();
+
+    // ── HAMBURGER ──
     document.getElementById('hamburger').addEventListener('click', () => {
       document.getElementById('main-nav').classList.toggle('open');
     });
@@ -294,6 +413,56 @@ footer { background-color: #06080f; border-top: 1px solid rgba(192,39,45,0.3); }
         }
       });
     });
+
+    // ── LIVE SCORES TICKER ──
+    const LEAGUES = [
+      { key: 'football/nfl',   label: 'NFL' },
+      { key: 'basketball/nba', label: 'NBA' },
+      { key: 'baseball/mlb',   label: 'MLB' },
+      { key: 'hockey/nhl',     label: 'NHL' },
+      { key: 'soccer/usa.1',   label: 'MLS' },
+    ];
+    async function fetchScores(league) {
+      try {
+        const res  = await fetch(`https://site.api.espn.com/apis/site/v2/sports/${league.key}/scoreboard`);
+        const data = await res.json();
+        return (data.events || []).map(event => {
+          const comp      = event.competitions[0];
+          const home      = comp.competitors.find(c => c.homeAway === 'home');
+          const away      = comp.competitors.find(c => c.homeAway === 'away');
+          const status    = event.status.type.shortDetail || '';
+          const homeAbbr  = home?.team?.abbreviation || home?.team?.shortDisplayName || '';
+          const awayAbbr  = away?.team?.abbreviation || away?.team?.shortDisplayName || '';
+          const homeScore = home?.score ?? '';
+          const awayScore = away?.score ?? '';
+          const hasScore  = homeScore !== '' && awayScore !== '';
+          return {
+            label: league.label,
+            text: hasScore
+              ? `${awayAbbr} <em>${awayScore}</em> – ${homeAbbr} <em>${homeScore}</em> &nbsp;·&nbsp; ${status}`
+              : `${awayAbbr} vs ${homeAbbr} &nbsp;·&nbsp; ${status}`
+          };
+        });
+      } catch { return []; }
+    }
+    async function buildTicker() {
+      const track   = document.getElementById('ticker-track');
+      if (!track) return;
+      const results = await Promise.all(LEAGUES.map(fetchScores));
+      const all     = results.flat();
+      if (all.length === 0) {
+        track.innerHTML = '<span>No live games right now — check back soon!</span>';
+        return;
+      }
+      const items = [...all, ...all];
+      track.innerHTML = items
+        .map(g => `<span><strong style="color:#ffd0d0;margin-right:0.4rem">${g.label}</strong>${g.text}</span>`)
+        .join('');
+      const duration = Math.max(5, track.scrollWidth / 1800);
+      track.style.animationDuration = `${duration}s`;
+    }
+    buildTicker();
+    setInterval(buildTicker, 60000);
   </script>
 
 </body>
