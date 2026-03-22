@@ -270,42 +270,11 @@
   <!-- Monthly Poll -->
   <div class="poll-section">
     <div class="poll-inner">
-      <div class="poll-card">
-        <div class="poll-header">
-          <span class="poll-label">🗳️ Double "J" Monthly Poll</span>
-          <span class="poll-month">March 2026</span>
-        </div>
-        <h3 class="poll-question">Which #1 Seed Will Be Eliminated First?</h3>
-        <div class="poll-options" id="poll-options">
-          <button class="poll-option" onclick="castVote('duke')"><span class="poll-option-name">🔵 Duke Blue Devils</span></button>
-          <button class="poll-option" onclick="castVote('michigan')"><span class="poll-option-name">🟡 Michigan Wolverines</span></button>
-          <button class="poll-option" onclick="castVote('arizona')"><span class="poll-option-name">🔴 Arizona Wildcats</span></button>
-          <button class="poll-option" onclick="castVote('florida')"><span class="poll-option-name">🟠 Florida Gators</span></button>
-        </div>
-        <div class="poll-results hidden" id="poll-results">
-          <div class="poll-result-item" id="result-duke">
-            <div class="poll-result-label">🔵 Duke Blue Devils</div>
-            <div class="poll-result-bar-wrap"><div class="poll-result-bar" id="bar-duke"></div></div>
-            <div class="poll-result-pct" id="pct-duke">0%</div>
-          </div>
-          <div class="poll-result-item" id="result-michigan">
-            <div class="poll-result-label">🟡 Michigan Wolverines</div>
-            <div class="poll-result-bar-wrap"><div class="poll-result-bar" id="bar-michigan"></div></div>
-            <div class="poll-result-pct" id="pct-michigan">0%</div>
-          </div>
-          <div class="poll-result-item" id="result-arizona">
-            <div class="poll-result-label">🔴 Arizona Wildcats</div>
-            <div class="poll-result-bar-wrap"><div class="poll-result-bar" id="bar-arizona"></div></div>
-            <div class="poll-result-pct" id="pct-arizona">0%</div>
-          </div>
-          <div class="poll-result-item" id="result-florida">
-            <div class="poll-result-label">🟠 Florida Gators</div>
-            <div class="poll-result-bar-wrap"><div class="poll-result-bar" id="bar-florida"></div></div>
-            <div class="poll-result-pct" id="pct-florida">0%</div>
-          </div>
-          <p class="poll-thanks" id="poll-thanks"></p>
-        </div>
+      <div class="poll-header">
+        <span class="poll-label">🗳️ Double "J" Monthly Poll</span>
+        <span class="poll-month">March 2026</span>
       </div>
+      <iframe src="https://strawpoll.com/embed/poy9kbJxDgJ" width="100%" height="400" frameborder="0" allowfullscreen style="border-radius:6px; margin-top:1rem; display:block;"></iframe>
     </div>
   </div>
 
@@ -528,54 +497,6 @@
         }
       });
     });
-
-    // ── MONTHLY POLL (shared storage — all visitors contribute to same tally) ──
-    const POLL_VOTED_KEY = 'dj-poll-voted-march-2026';
-    const SHARED_KEY     = 'dj-poll-votes-march-2026';
-    const defaultVotes   = { duke: 0, michigan: 0, arizona: 0, florida: 0 };
-
-    function showResults(votes, myVote) {
-      const total    = Object.values(votes).reduce((a, b) => a + b, 0);
-      const options  = ['duke', 'michigan', 'arizona', 'florida'];
-      const maxVotes = Math.max(...Object.values(votes));
-      options.forEach(key => {
-        const pct = total > 0 ? Math.round((votes[key] / total) * 100) : 0;
-        document.getElementById(`pct-${key}`).textContent = pct + '%';
-        const bar = document.getElementById(`bar-${key}`);
-        setTimeout(() => { bar.style.width = pct + '%'; }, 50);
-        if (votes[key] === maxVotes) bar.classList.add('winner');
-        document.getElementById(`result-${key}`).style.opacity = key === myVote ? '1' : '0.7';
-      });
-      document.getElementById('poll-options').classList.add('hidden');
-      document.getElementById('poll-results').classList.remove('hidden');
-      document.getElementById('poll-thanks').textContent = '✅ Thanks for voting! Results update in real time.';
-    }
-
-    async function castVote(team) {
-      let votes = { ...defaultVotes };
-      try {
-        const result = await window.storage.get(SHARED_KEY, true);
-        if (result) votes = JSON.parse(result.value);
-      } catch {}
-      votes[team] = (votes[team] || 0) + 1;
-      try { await window.storage.set(SHARED_KEY, JSON.stringify(votes), true); } catch {}
-      try { sessionStorage.setItem(POLL_VOTED_KEY, team); } catch {}
-      showResults(votes, team);
-    }
-
-    (async function() {
-      try {
-        const myVote = sessionStorage.getItem(POLL_VOTED_KEY);
-        if (myVote) {
-          let votes = { ...defaultVotes };
-          try {
-            const result = await window.storage.get(SHARED_KEY, true);
-            if (result) votes = JSON.parse(result.value);
-          } catch {}
-          showResults(votes, myVote);
-        }
-      } catch {}
-    })();
 
     // ── FAQ ──
     document.querySelectorAll('.faq-question').forEach(btn => {
