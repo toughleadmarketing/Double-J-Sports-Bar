@@ -40,10 +40,10 @@
     @keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
     /* ── MONTHLY POLL ── */
-    .poll-section { background-color: #0a1428; border-bottom: 1px solid rgba(192,39,45,0.2); padding: 1.5rem 2rem; margin-top: 104px; }
+    .poll-section { background-color: #0a1428; border-bottom: 1px solid rgba(192,39,45,0.2); padding: 2rem 2rem; margin-top: 104px; }
     .poll-inner { max-width: 860px; margin: 0 auto; }
-    .poll-card { display: flex; flex-direction: column; gap: 1rem; }
-    .poll-header { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; }
+    .poll-card { display: flex; flex-direction: column; gap: 0; background-color: #162550; border: 1px solid rgba(192,39,45,0.35); border-radius: 10px; overflow: hidden; }
+    .poll-header { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; padding: 1rem 1.5rem; border-bottom: 1px solid rgba(192,39,45,0.25); background-color: #0f1c3f; }
     .poll-label { font-family: 'Barlow Condensed', sans-serif; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: #C0272D; }
     .poll-month { font-family: 'Barlow Condensed', sans-serif; font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: #7a8aaa; }
     .poll-question { font-family: 'Bebas Neue', sans-serif; font-size: clamp(1.2rem, 3vw, 1.8rem); letter-spacing: 0.06em; color: #EEF2FA; line-height: 1.1; }
@@ -190,9 +190,6 @@
       .ticker-label { font-size: 0.65rem; padding: 0 0.5rem; white-space: nowrap; }
       .ticker-track span { font-size: 0.65rem; padding: 0 1rem; }
       .poll-section { padding: 1.25rem 1rem; margin-top: 92px; }
-      .poll-options { grid-template-columns: repeat(2, 1fr); }
-      .poll-result-item { grid-template-columns: 1fr 1fr 36px; }
-      .poll-result-label { font-size: 0.72rem; }
       .page-hero { margin-top: 92px; padding: 2.5rem 1.25rem; }
       .page-title { font-size: clamp(2.5rem, 12vw, 4rem); }
       .section-inner { padding: 2.5rem 1.25rem; }
@@ -270,11 +267,13 @@
   <!-- Monthly Poll -->
   <div class="poll-section">
     <div class="poll-inner">
-      <div class="poll-header">
-        <span class="poll-label">🗳️ Double "J" Monthly Poll</span>
-        <span class="poll-month">March 2026</span>
+      <div class="poll-card">
+        <div class="poll-header">
+          <span class="poll-label">🗳️ Double "J" Monthly Poll</span>
+          <span class="poll-month">March 2026</span>
+        </div>
+        <iframe src="https://strawpoll.com/embed/poy9kbJxDgJ" style="width:100%;min-height:420px;border:none;display:block;" frameborder="0" allowfullscreen></iframe>
       </div>
-      <iframe src="https://strawpoll.com/embed/poy9kbJxDgJ" width="100%" height="400" frameborder="0" allowfullscreen style="border-radius:6px; margin-top:1rem; display:block;"></iframe>
     </div>
   </div>
 
