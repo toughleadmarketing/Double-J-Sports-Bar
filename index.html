@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -6,6 +7,49 @@
   <meta name="description" content='Double "J" Sports Bar &amp; Grill in Joliet, IL — cold drinks, 20+ screens, live music, game-day specials, outdoor patio, and video gaming. Joliet&apos;s home for the game.'/>
   <link rel="icon" type="image/jpeg" href="https://i.imgur.com/Gk6PvB3.jpeg"/>
   <title>Double "J" Sports Bar</title>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": ["BarOrPub", "LocalBusiness"],
+    "name": "Double \"J\" Sports Bar & Grill",
+    "image": "https://i.imgur.com/Gk6PvB3.jpeg",
+    "url": "https://doublejsportsbar.com",
+    "telephone": "+18157308488",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "1101 Essington Rd",
+      "addressLocality": "Joliet",
+      "addressRegion": "IL",
+      "postalCode": "60435",
+      "addressCountry": "US"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 41.5402,
+      "longitude": -88.1616
+    },
+    "openingHoursSpecification": [
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday"], "opens": "11:00", "closes": "02:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Friday","Saturday"], "opens": "11:00", "closes": "03:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Sunday", "opens": "11:00", "closes": "02:00" }
+    ],
+    "servesCuisine": "American",
+    "priceRange": "$$",
+    "description": "Double \"J\" Sports Bar & Grill in Joliet, IL — 20+ screens, live music, game-day specials, outdoor patio, video gaming, and Kuira Ba Kitchen connected on-site.",
+    "amenityFeature": [
+      { "@type": "LocationFeatureSpecification", "name": "Outdoor Patio", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Live Music", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Video Gaming", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Private Party Room", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Full Bar", "value": true }
+    ],
+    "sameAs": [
+      "https://www.facebook.com/doublejsportsbar",
+      "https://www.instagram.com/doublejsportsbar",
+      "https://www.tiktok.com/@doublejsportsbarjoliet"
+    ]
+  }
+  </script>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@400;600;700&family=Barlow:wght@400;500&display=swap" rel="stylesheet"/>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -47,23 +91,8 @@ align-items: center;
 justify-content: space-between;
 gap: 2rem;
 }
-.logo {
-display: flex;
-align-items: center;
-gap: 0.75rem;
-text-decoration: none;
-flex-shrink: 0;
-}
-.logo-img-wrap {
-width: 56px;
-height: 56px;
-border-radius: 50%;
-overflow: hidden;
-border: 2px solid #C0272D;
-flex-shrink: 0;
-background-color: #162550;
-transition: transform 0.3s ease;
-}
+.logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; flex-shrink: 0; }
+.logo-img-wrap { width: 56px; height: 56px; border-radius: 50%; overflow: hidden; border: 2px solid #C0272D; flex-shrink: 0; background-color: #162550; transition: transform 0.3s ease; }
 .logo:hover .logo-img-wrap { transform: scale(1.06); }
 .logo-img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .logo-text { display: flex; flex-direction: column; line-height: 1; }
@@ -89,40 +118,11 @@ left: 0;
 right: 0;
 z-index: 99;
 }
-.ticker-label {
-background: #1e3370;
-color: #EEF2FA;
-font-family: 'Bebas Neue', sans-serif;
-font-size: 0.8rem;
-letter-spacing: 0.15em;
-padding: 0 1rem;
-height: 100%;
-display: flex;
-align-items: center;
-flex-shrink: 0;
-}
-.ticker-track {
-display: flex;
-white-space: nowrap;
-flex-wrap: nowrap;
-animation: ticker 10s linear infinite;
-}
-.ticker-track span {
-font-family: 'Barlow Condensed', sans-serif;
-font-size: 0.78rem;
-font-weight: 600;
-letter-spacing: 0.1em;
-text-transform: uppercase;
-color: rgba(255,255,255,0.92);
-padding: 0 2.5rem;
-white-space: nowrap;
-flex-shrink: 0;
-}
+.ticker-label { background: #1e3370; color: #EEF2FA; font-family: 'Bebas Neue', sans-serif; font-size: 0.8rem; letter-spacing: 0.15em; padding: 0 1rem; height: 100%; display: flex; align-items: center; flex-shrink: 0; }
+.ticker-track { display: flex; white-space: nowrap; flex-wrap: nowrap; animation: ticker 10s linear infinite; }
+.ticker-track span { font-family: 'Barlow Condensed', sans-serif; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.92); padding: 0 2.5rem; white-space: nowrap; flex-shrink: 0; }
 .ticker-track span em { color: #ffd0d0; font-style: normal; }
-@keyframes ticker {
-0%   { transform: translateX(0); }
-100% { transform: translateX(-50%); }
-}
+@keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 /* ── VIDEO SECTION ── */
 .video-section { width: 100%; background: #000; margin-top: 104px; }
 .video-wrap { position: relative; width: 100%; aspect-ratio: 16 / 6; overflow: hidden; }
@@ -134,12 +134,7 @@ flex-shrink: 0;
 .section-title .accent { color: #C0272D; }
 /* ── GALLERY ── */
 .gallery-section { background-color: #162550; }
-.gallery-grid {
-display: grid;
-grid-template-columns: repeat(3, 1fr);
-grid-auto-rows: 220px;
-gap: 8px;
-}
+.gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); grid-auto-rows: 220px; gap: 8px; }
 .gallery-item { position: relative; overflow: hidden; cursor: pointer; }
 .gallery-item.tall { grid-row: span 2; }
 .gallery-item.wide { grid-column: span 2; }
@@ -166,25 +161,8 @@ gap: 8px;
 .gaming-youtube-wrap { display: flex; flex-direction: column; justify-content: center; }
 .gaming-featured-below { margin-top: 2rem; }
 .gaming-game-card { background-color: #0f1c3f; border: 1px solid rgba(192,39,45,0.3); border-radius: 8px; overflow: hidden; }
-.gaming-game-header {
-  background: url('https://i.imgur.com/Ux4I2da.jpeg') center/cover no-repeat;
-  padding: 1.5rem 2rem;
-  min-height: 200px;
-  display: flex;
-  align-items: flex-start;
-}
-.gaming-game-tag {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  color: #fff;
-  background: rgba(192,39,45,0.85);
-  display: inline-block;
-  padding: 0.3rem 0.7rem;
-  border-radius: 3px;
-}
+.gaming-game-header { background: url('https://i.imgur.com/Ux4I2da.jpeg') center/cover no-repeat; padding: 1.5rem 2rem; min-height: 200px; display: flex; align-items: flex-start; }
+.gaming-game-tag { font-family: 'Barlow Condensed', sans-serif; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: #fff; background: rgba(192,39,45,0.85); display: inline-block; padding: 0.3rem 0.7rem; border-radius: 3px; }
 .gaming-game-title { font-family: 'Bebas Neue', sans-serif; font-size: 2.2rem; letter-spacing: 0.08em; color: #EEF2FA; line-height: 1; }
 .gaming-game-sub { font-family: 'Barlow Condensed', sans-serif; font-size: 0.8rem; letter-spacing: 0.15em; color: rgba(255,255,255,0.6); margin-top: 0.25rem; }
 .gaming-game-body { padding: 1.5rem 2rem; display: flex; flex-direction: column; gap: 1.25rem; }
@@ -199,20 +177,7 @@ gap: 8px;
 .gaming-tag { font-family: 'Barlow Condensed', sans-serif; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; color: #EEF2FA; background-color: #1e3370; border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; padding: 0.5rem 0.85rem; text-align: center; }
 .gaming-disclaimer { font-family: 'Barlow', sans-serif; font-size: 0.75rem; color: #7a8aaa; opacity: 0.7; text-align: center; border-top: 1px solid rgba(255,255,255,0.06); padding-top: 1.5rem; }
 /* ── HERO ── */
-.hero {
-min-height: calc(100vh - 104px);
-display: flex;
-align-items: center;
-justify-content: center;
-background:
-linear-gradient(160deg, rgba(192,39,45,0.1) 0%, transparent 50%),
-repeating-linear-gradient(0deg, transparent, transparent 59px, rgba(255,255,255,0.03) 59px, rgba(255,255,255,0.03) 60px),
-repeating-linear-gradient(90deg, transparent, transparent 59px, rgba(255,255,255,0.03) 59px, rgba(255,255,255,0.03) 60px),
-#0f1c3f;
-text-align: center;
-padding: 4rem 2rem;
-width: 100%;
-}
+.hero { min-height: calc(100vh - 104px); display: flex; align-items: center; justify-content: center; background: linear-gradient(160deg, rgba(192,39,45,0.1) 0%, transparent 50%), repeating-linear-gradient(0deg, transparent, transparent 59px, rgba(255,255,255,0.03) 59px, rgba(255,255,255,0.03) 60px), repeating-linear-gradient(90deg, transparent, transparent 59px, rgba(255,255,255,0.03) 59px, rgba(255,255,255,0.03) 60px), #0f1c3f; text-align: center; padding: 4rem 2rem; width: 100%; }
 .hero-inner { max-width: 780px; width: 100%; margin: 0 auto; text-align: center; }
 .hero-eyebrow { font-family: 'Barlow Condensed', sans-serif; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.4em; text-transform: uppercase; color: #C0272D; margin-bottom: 1.25rem; animation: fadeUp 0.6s ease both; }
 .hero-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(4rem, 11vw, 9rem); line-height: 0.92; letter-spacing: 0.04em; color: #EEF2FA; animation: fadeUp 0.6s 0.1s ease both; }
@@ -262,6 +227,7 @@ nav a::after { display: none; }
 .ticker-label { font-size: 0.65rem; padding: 0 0.5rem; white-space: nowrap; }
 .ticker-track { display: flex; flex-wrap: nowrap; white-space: nowrap; }
 .ticker-track span { font-size: 0.65rem; padding: 0 1rem; white-space: nowrap; flex-shrink: 0; }
+.video-section { margin-top: 92px; }
 .video-wrap { aspect-ratio: 16 / 9; }
 .hero { padding: 3rem 1.5rem; text-align: center; min-height: auto; }
 .hero-inner { width: 100%; max-width: 100%; }
@@ -272,11 +238,7 @@ nav a::after { display: none; }
 .section-inner { padding: 2.5rem 1.25rem; }
 .section-eyebrow { font-size: 0.6rem; letter-spacing: 0.3em; text-align: left; }
 .section-title { font-size: 1.8rem; text-align: left; margin-bottom: 1.5rem; }
-.gallery-grid {
-grid-template-columns: repeat(2, 1fr);
-grid-auto-rows: 140px;
-gap: 4px;
-}
+.gallery-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 140px; gap: 4px; }
 .gallery-item.tall { grid-row: span 1; grid-column: span 1; }
 .gallery-item.wide { grid-column: span 1; }
 .gallery-item img { object-fit: cover; }
@@ -297,137 +259,33 @@ gap: 4px;
 }
 /* ── AGE GATE ── */
 #age-gate {
-  position: fixed;
-  inset: 0;
-  z-index: 10000;
-  background: rgba(6, 8, 15, 0.97);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 1.5rem;
-  backdrop-filter: blur(6px);
-  animation: ageFadeIn 0.4s ease both;
+  position: fixed; inset: 0; z-index: 10000;
+  background: rgba(6,8,15,0.97);
+  display: none;
+  align-items: center; justify-content: center;
+  padding: 1.5rem; backdrop-filter: blur(6px);
 }
+#age-gate.visible { display: flex; animation: ageFadeIn 0.4s ease both; }
 @keyframes ageFadeIn { from { opacity: 0; } to { opacity: 1; } }
-#age-gate.hidden { display: none; }
-.age-gate-box {
-  background: #162550;
-  border: 1px solid rgba(192,39,45,0.4);
-  border-radius: 12px;
-  padding: 3rem 2.5rem;
-  max-width: 420px;
-  width: 100%;
-  text-align: center;
-  box-shadow: 0 0 80px rgba(192,39,45,0.15);
-  animation: ageFadeIn 0.5s 0.1s ease both;
-}
-.age-gate-logo {
-  width: 72px;
-  height: 72px;
-  border-radius: 50%;
-  overflow: hidden;
-  border: 2px solid #C0272D;
-  margin: 0 auto 1.5rem;
-  background: #0f1c3f;
-}
+#age-gate.hidden { display: none !important; }
+.age-gate-box { background: #162550; border: 1px solid rgba(192,39,45,0.4); border-radius: 12px; padding: 3rem 2.5rem; max-width: 420px; width: 100%; text-align: center; box-shadow: 0 0 80px rgba(192,39,45,0.15); }
+.age-gate-logo { width: 72px; height: 72px; border-radius: 50%; overflow: hidden; border: 2px solid #C0272D; margin: 0 auto 1.5rem; background: #0f1c3f; }
 .age-gate-logo img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.age-gate-eyebrow {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.35em;
-  text-transform: uppercase;
-  color: #C0272D;
-  margin-bottom: 0.5rem;
-}
-.age-gate-title {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 2.6rem;
-  letter-spacing: 0.06em;
-  color: #EEF2FA;
-  line-height: 1;
-  margin-bottom: 0.5rem;
-}
-.age-gate-sub {
-  font-family: 'Barlow', sans-serif;
-  font-size: 0.88rem;
-  color: #7a8aaa;
-  margin-bottom: 2rem;
-  line-height: 1.6;
-}
-.age-gate-label {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: #7a8aaa;
-  display: block;
-  margin-bottom: 0.6rem;
-  text-align: left;
-}
-.age-gate-inputs {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1.4fr;
-  gap: 0.5rem;
-  margin-bottom: 1.25rem;
-}
-.age-gate-inputs input {
-  background: #0f1c3f;
-  border: 1px solid rgba(255,255,255,0.12);
-  border-radius: 6px;
-  color: #EEF2FA;
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 1.1rem;
-  font-weight: 600;
-  letter-spacing: 0.05em;
-  padding: 0.7rem 0.5rem;
-  text-align: center;
-  width: 100%;
-  outline: none;
-  transition: border-color 0.2s ease;
-  -moz-appearance: textfield;
-}
-.age-gate-inputs input::-webkit-outer-spin-button,
-.age-gate-inputs input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+.age-gate-eyebrow { font-family: 'Barlow Condensed', sans-serif; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.35em; text-transform: uppercase; color: #C0272D; margin-bottom: 0.5rem; }
+.age-gate-title { font-family: 'Bebas Neue', sans-serif; font-size: 2.6rem; letter-spacing: 0.06em; color: #EEF2FA; line-height: 1; margin-bottom: 0.5rem; }
+.age-gate-sub { font-family: 'Barlow', sans-serif; font-size: 0.88rem; color: #7a8aaa; margin-bottom: 2rem; line-height: 1.6; }
+.age-gate-label { font-family: 'Barlow Condensed', sans-serif; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #7a8aaa; display: block; margin-bottom: 0.6rem; text-align: left; }
+.age-gate-inputs { display: grid; grid-template-columns: 1fr 1fr 1.4fr; gap: 0.5rem; margin-bottom: 1.25rem; }
+.age-gate-inputs input { background: #0f1c3f; border: 1px solid rgba(255,255,255,0.12); border-radius: 6px; color: #EEF2FA; font-family: 'Barlow Condensed', sans-serif; font-size: 1.1rem; font-weight: 600; letter-spacing: 0.05em; padding: 0.7rem 0.5rem; text-align: center; width: 100%; outline: none; transition: border-color 0.2s ease; -moz-appearance: textfield; }
+.age-gate-inputs input::-webkit-outer-spin-button, .age-gate-inputs input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
 .age-gate-inputs input::placeholder { color: rgba(255,255,255,0.2); font-size: 0.85rem; }
 .age-gate-inputs input:focus { border-color: #C0272D; }
 .age-gate-inputs input.error { border-color: #C0272D; background: rgba(192,39,45,0.08); }
-.age-gate-btn {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 1.15rem;
-  letter-spacing: 0.15em;
-  background: #C0272D;
-  color: #EEF2FA;
-  border: none;
-  cursor: pointer;
-  padding: 0.9rem 2rem;
-  width: 100%;
-  clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
-  transition: background 0.2s ease, transform 0.15s ease;
-  margin-bottom: 1rem;
-}
+.age-gate-btn { font-family: 'Bebas Neue', sans-serif; font-size: 1.15rem; letter-spacing: 0.15em; background: #C0272D; color: #EEF2FA; border: none; cursor: pointer; padding: 0.9rem 2rem; width: 100%; clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%); transition: background 0.2s ease, transform 0.15s ease; margin-bottom: 1rem; }
 .age-gate-btn:hover { background: #1e3370; transform: translateY(-2px); }
-.age-gate-error {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 0.85rem;
-  font-weight: 600;
-  letter-spacing: 0.05em;
-  color: #C0272D;
-  min-height: 1.2em;
-  margin-bottom: 0.75rem;
-}
-.age-gate-disclaimer {
-  font-family: 'Barlow', sans-serif;
-  font-size: 0.72rem;
-  color: #7a8aaa;
-  opacity: 0.7;
-  line-height: 1.5;
-}
-@media (max-width: 480px) {
-  .age-gate-box { padding: 2rem 1.25rem; }
-  .age-gate-title { font-size: 2rem; }
-}
+.age-gate-error { font-family: 'Barlow Condensed', sans-serif; font-size: 0.85rem; font-weight: 600; letter-spacing: 0.05em; color: #C0272D; min-height: 1.2em; margin-bottom: 0.75rem; }
+.age-gate-disclaimer { font-family: 'Barlow', sans-serif; font-size: 0.72rem; color: #7a8aaa; opacity: 0.7; line-height: 1.5; }
+@media (max-width: 480px) { .age-gate-box { padding: 2rem 1.25rem; } .age-gate-title { font-size: 2rem; } }
   </style>
 </head>
 <body>
@@ -481,16 +339,14 @@ gap: 4px;
       </div>
     </div>
   </header>
-  <!-- Score ticker -->
+
   <div class="ticker-bar">
     <div class="ticker-label">Live&nbsp;Now</div>
     <div style="overflow:hidden; flex:1;">
-      <div class="ticker-track" id="ticker-track">
-        <span>Loading scores...</span>
-      </div>
+      <div class="ticker-track" id="ticker-track"><span>Loading scores...</span></div>
     </div>
   </div>
-  <!-- Video Section -->
+
   <section class="video-section">
     <div class="video-wrap">
       <video id="hero-video" autoplay muted loop playsinline poster="https://placehold.co/1280x520/0f1c3f/7a8aaa?text=Your+Video+Goes+Here">
@@ -498,7 +354,7 @@ gap: 4px;
       </video>
     </div>
   </section>
-  <!-- Hero -->
+
   <section class="hero">
     <div class="hero-inner">
       <p class="hero-eyebrow">Joliet's home for the game</p>
@@ -510,53 +366,30 @@ gap: 4px;
       </div>
     </div>
   </section>
-  <!-- Photo Gallery -->
+
   <section class="gallery-section">
     <div class="section-inner">
       <p class="section-eyebrow">Inside Double "J"</p>
       <h2 class="section-title">The <span class="accent">Atmosphere</span></h2>
       <div class="gallery-grid">
-        <div class="gallery-item tall">
-          <img src="https://i.imgur.com/CJ7yfm6.jpeg" alt="Bar atmosphere 1"/>
-          <div class="gallery-overlay"></div>
-        </div>
-        <div class="gallery-item">
-          <img src="https://i.imgur.com/Wsb0a12.jpeg" alt="Bar atmosphere 2"/>
-          <div class="gallery-overlay"></div>
-        </div>
-        <div class="gallery-item">
-          <img src="https://i.imgur.com/CkuDK9i.jpeg" alt="Bar atmosphere 3"/>
-          <div class="gallery-overlay"></div>
-        </div>
-        <div class="gallery-item wide">
-          <img src="https://i.imgur.com/aLXbunX.jpeg" alt="Bar atmosphere 4"/>
-          <div class="gallery-overlay"></div>
-        </div>
-        <div class="gallery-item">
-          <img src="https://i.imgur.com/h0aD5V3.jpeg" alt="Bar atmosphere 5"/>
-          <div class="gallery-overlay"></div>
-        </div>
-        <div class="gallery-item">
-          <img src="https://i.imgur.com/M0CO3QX.jpeg" alt="Bar atmosphere 6"/>
-          <div class="gallery-overlay"></div>
-        </div>
-        <div class="gallery-item">
-          <img src="https://i.imgur.com/9WCJNZM.jpeg" alt="Bar atmosphere 7"/>
-          <div class="gallery-overlay"></div>
-        </div>
+        <div class="gallery-item tall"><img src="https://i.imgur.com/CJ7yfm6.jpeg" alt="Bar atmosphere 1"/><div class="gallery-overlay"></div></div>
+        <div class="gallery-item"><img src="https://i.imgur.com/Wsb0a12.jpeg" alt="Bar atmosphere 2"/><div class="gallery-overlay"></div></div>
+        <div class="gallery-item"><img src="https://i.imgur.com/CkuDK9i.jpeg" alt="Bar atmosphere 3"/><div class="gallery-overlay"></div></div>
+        <div class="gallery-item wide"><img src="https://i.imgur.com/aLXbunX.jpeg" alt="Bar atmosphere 4"/><div class="gallery-overlay"></div></div>
+        <div class="gallery-item"><img src="https://i.imgur.com/h0aD5V3.jpeg" alt="Bar atmosphere 5"/><div class="gallery-overlay"></div></div>
+        <div class="gallery-item"><img src="https://i.imgur.com/M0CO3QX.jpeg" alt="Bar atmosphere 6"/><div class="gallery-overlay"></div></div>
+        <div class="gallery-item"><img src="https://i.imgur.com/9WCJNZM.jpeg" alt="Bar atmosphere 7"/><div class="gallery-overlay"></div></div>
       </div>
     </div>
   </section>
-  <!-- J&J Gaming Section -->
+
   <section class="gaming-section">
     <div class="section-inner">
       <p class="section-eyebrow">Available at Double "J"</p>
       <h2 class="section-title">J&amp;J <span class="accent">Gaming</span></h2>
       <div class="gaming-grid">
         <div class="gaming-info">
-          <div class="gaming-logo-wrap">
-            <img src="https://i.imgur.com/s9Cu6Hn.jpeg" alt="J&J Gaming Logo" class="gaming-logo-img"/>
-          </div>
+          <div class="gaming-logo-wrap"><img src="https://i.imgur.com/s9Cu6Hn.jpeg" alt="J&J Gaming Logo" class="gaming-logo-img"/></div>
           <h3 class="gaming-subtitle">Illinois' Most Trusted Gaming Partner</h3>
           <p class="gaming-desc">Double "J" Sports Bar is proud to partner with J&amp;J Gaming — one of Illinois' first and most trusted licensed video gaming terminal operators. Whether you're a seasoned player or trying your luck for the first time, we've got the machines to keep the excitement going all night long.</p>
           <div class="gaming-features">
@@ -568,20 +401,12 @@ gap: 4px;
         </div>
         <div class="gaming-youtube-wrap">
           <div class="gaming-video-embed">
-            <iframe
-              src="https://www.youtube.com/embed/b1Poffi5hGI"
-              title="Pharaoh's Fortune Slot Machine by IGT"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
-            ></iframe>
+            <iframe src="https://www.youtube.com/embed/b1Poffi5hGI" title="Pharaoh's Fortune Slot Machine by IGT" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
         </div>
       </div>
       <div class="gaming-game-card gaming-featured-below">
-        <div class="gaming-game-header">
-          <span class="gaming-game-tag">Featured Game</span>
-        </div>
+        <div class="gaming-game-header"><span class="gaming-game-tag">Featured Game</span></div>
         <div class="gaming-game-body">
           <p class="gaming-game-desc">Step inside an ancient Egyptian tomb and spin for fortune in Pharaoh's Fortune™ by IGT. This classic 5-reel, 15-payline slot features colorful hieroglyphic symbols, a Pyramid Wild, and a Scarab Scatter — all set to the iconic tune of "Walk Like an Egyptian" by The Bangles. Hit three Pharaoh bonus symbols to unlock the pick-me bonus round, where you choose stone blocks from a pyramid to reveal up to 25 free spins with a 6x multiplier. With a max win of 10,000x your bet and an RTP of 96.53%, it's easy to see why this game has been a casino floor favorite for decades.</p>
           <div class="gaming-stats">
@@ -601,13 +426,11 @@ gap: 4px;
       <p class="gaming-disclaimer">If you or someone you know has a gambling problem, call <strong>1-800-GAMBLER</strong>. Must be 21+ to play. Gambling problem? Help is available.</p>
     </div>
   </section>
-  <!-- Footer -->
+
   <footer>
     <div class="footer-inner">
       <div class="footer-brand">
-        <div class="footer-logo-wrap">
-          <img src="https://i.imgur.com/Gk6PvB3.jpeg" alt='Double "J" Sports Bar' class="footer-logo-img"/>
-        </div>
+        <div class="footer-logo-wrap"><img src="https://i.imgur.com/Gk6PvB3.jpeg" alt='Double "J" Sports Bar' class="footer-logo-img"/></div>
         <div>
           <div class="footer-logo-name">Double "J"</div>
           <div class="footer-logo-tag">Sports Bar &amp; Grill · Joliet, IL</div>
@@ -620,15 +443,9 @@ gap: 4px;
         </a>
       </div>
       <div class="footer-social">
-        <a href="https://www.facebook.com/doublejsportsbar" target="_blank" rel="noopener" aria-label="Facebook" class="social-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.513c-1.491 0-1.956.93-1.956 1.886v2.268h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>
-        </a>
-        <a href="https://www.instagram.com/doublejsportsbar" target="_blank" rel="noopener" aria-label="Instagram" class="social-icon instagram">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-        </a>
-        <a href="https://www.tiktok.com/@doublejsportsbarjoliet" target="_blank" rel="noopener" aria-label="TikTok" class="social-icon tiktok">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.32 6.32 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.76a4.85 4.85 0 01-1.01-.07z"/></svg>
-        </a>
+        <a href="https://www.facebook.com/doublejsportsbar" target="_blank" rel="noopener" aria-label="Facebook" class="social-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.513c-1.491 0-1.956.93-1.956 1.886v2.268h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg></a>
+        <a href="https://www.instagram.com/doublejsportsbar" target="_blank" rel="noopener" aria-label="Instagram" class="social-icon instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+        <a href="https://www.tiktok.com/@doublejsportsbarjoliet" target="_blank" rel="noopener" aria-label="TikTok" class="social-icon tiktok"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.32 6.32 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.76a4.85 4.85 0 01-1.01-.07z"/></svg></a>
       </div>
     </div>
     <div class="footer-bottom">
@@ -636,6 +453,7 @@ gap: 4px;
       <p class="footer-copy">&copy; <span id="footer-year"></span> Double "J" Sports Bar &amp; Grill. All rights reserved.</p>
     </div>
   </footer>
+
   <script>
     const header = document.getElementById('site-header');
     window.addEventListener('scroll', () => {
@@ -654,16 +472,13 @@ gap: 4px;
       });
     });
     const LEAGUES = [
-      { key: 'football/nfl',   label: 'NFL' },
-      { key: 'basketball/nba', label: 'NBA' },
-      { key: 'baseball/mlb',   label: 'MLB' },
-      { key: 'hockey/nhl',     label: 'NHL' },
-      { key: 'soccer/usa.1',   label: 'MLS' },
+      { key: 'football/nfl', label: 'NFL' }, { key: 'basketball/nba', label: 'NBA' },
+      { key: 'baseball/mlb', label: 'MLB' }, { key: 'hockey/nhl', label: 'NHL' },
+      { key: 'soccer/usa.1', label: 'MLS' },
     ];
     async function fetchScores(league) {
-      const url = `https://site.api.espn.com/apis/site/v2/sports/${league.key}/scoreboard`;
       try {
-        const res = await fetch(url);
+        const res = await fetch(`https://site.api.espn.com/apis/site/v2/sports/${league.key}/scoreboard`);
         const data = await res.json();
         return (data.events || []).map(event => {
           const comp = event.competitions[0];
@@ -672,15 +487,9 @@ gap: 4px;
           const status = event.status.type.shortDetail || '';
           const homeAbbr = home?.team?.abbreviation || home?.team?.shortDisplayName || '';
           const awayAbbr = away?.team?.abbreviation || away?.team?.shortDisplayName || '';
-          const homeScore = home?.score ?? '';
-          const awayScore = away?.score ?? '';
+          const homeScore = home?.score ?? ''; const awayScore = away?.score ?? '';
           const hasScore = homeScore !== '' && awayScore !== '';
-          return {
-            label: league.label,
-            text: hasScore
-              ? `${awayAbbr} <em>${awayScore}</em> – ${homeAbbr} <em>${homeScore}</em> &nbsp;·&nbsp; ${status}`
-              : `${awayAbbr} vs ${homeAbbr} &nbsp;·&nbsp; ${status}`
-          };
+          return { label: league.label, text: hasScore ? `${awayAbbr} <em>${awayScore}</em> – ${homeAbbr} <em>${homeScore}</em> &nbsp;·&nbsp; ${status}` : `${awayAbbr} vs ${homeAbbr} &nbsp;·&nbsp; ${status}` };
         });
       } catch { return []; }
     }
@@ -688,17 +497,10 @@ gap: 4px;
       const track = document.getElementById('ticker-track');
       const results = await Promise.all(LEAGUES.map(fetchScores));
       const all = results.flat();
-      if (all.length === 0) {
-        track.innerHTML = '<span>No live games right now — check back soon!</span>';
-        return;
-      }
+      if (all.length === 0) { track.innerHTML = '<span>No live games right now — check back soon!</span>'; return; }
       const items = [...all, ...all];
-      track.innerHTML = items
-        .map(g => `<span><strong style="color:#ffd0d0;margin-right:0.4rem">${g.label}</strong>${g.text}</span>`)
-        .join('');
-      const totalWidth = track.scrollWidth;
-      const duration = Math.max(5, totalWidth / 1800);
-      track.style.animationDuration = `${duration}s`;
+      track.innerHTML = items.map(g => `<span><strong style="color:#ffd0d0;margin-right:0.4rem">${g.label}</strong>${g.text}</span>`).join('');
+      track.style.animationDuration = `${Math.max(5, track.scrollWidth / 1800)}s`;
     }
     buildTicker();
     setInterval(buildTicker, 60000);
@@ -711,55 +513,30 @@ gap: 4px;
       const monthEl = document.getElementById('ag-month');
       const dayEl   = document.getElementById('ag-day');
       const yearEl  = document.getElementById('ag-year');
-
-      if (sessionStorage.getItem('age-verified') === 'true') {
-        gate.classList.add('hidden');
-        return;
-      }
-
+      if (sessionStorage.getItem('age-verified') === 'true') { return; }
+      gate.classList.add('visible');
       monthEl.addEventListener('input', () => { if (monthEl.value.length >= 2) dayEl.focus(); });
       dayEl.addEventListener('input',   () => { if (dayEl.value.length >= 2)   yearEl.focus(); });
-
       document.getElementById('ag-submit').addEventListener('click', verify);
-      [monthEl, dayEl, yearEl].forEach(el => {
-        el.addEventListener('keydown', e => { if (e.key === 'Enter') verify(); });
-      });
-
+      [monthEl, dayEl, yearEl].forEach(el => { el.addEventListener('keydown', e => { if (e.key === 'Enter') verify(); }); });
       function verify() {
         errorEl.textContent = '';
         [monthEl, dayEl, yearEl].forEach(el => el.classList.remove('error'));
-
-        const m = parseInt(monthEl.value, 10);
-        const d = parseInt(dayEl.value, 10);
-        const y = parseInt(yearEl.value, 10);
-
-        if (!m || !d || !y || monthEl.value === '' || dayEl.value === '' || yearEl.value === '') {
-          errorEl.textContent = 'Please enter your full date of birth.';
-          [monthEl, dayEl, yearEl].forEach(el => { if (!el.value) el.classList.add('error'); });
-          return;
-        }
-        if (m < 1 || m > 12 || d < 1 || d > 31 || y < 1900 || y > new Date().getFullYear()) {
-          errorEl.textContent = 'Please enter a valid date.';
-          [monthEl, dayEl, yearEl].forEach(el => el.classList.add('error'));
-          return;
-        }
-
-        const dob = new Date(y, m - 1, d);
-        const today = new Date();
+        const m = parseInt(monthEl.value, 10), d = parseInt(dayEl.value, 10), y = parseInt(yearEl.value, 10);
+        if (!m || !d || !y) { errorEl.textContent = 'Please enter your full date of birth.'; [monthEl, dayEl, yearEl].forEach(el => { if (!el.value) el.classList.add('error'); }); return; }
+        if (m < 1 || m > 12 || d < 1 || d > 31 || y < 1900 || y > new Date().getFullYear()) { errorEl.textContent = 'Please enter a valid date.'; [monthEl, dayEl, yearEl].forEach(el => el.classList.add('error')); return; }
+        const dob = new Date(y, m - 1, d); const today = new Date();
         let age = today.getFullYear() - dob.getFullYear();
         const mDiff = today.getMonth() - dob.getMonth();
         if (mDiff < 0 || (mDiff === 0 && today.getDate() < dob.getDate())) age--;
-
         if (age >= 21) {
           sessionStorage.setItem('age-verified', 'true');
-          gate.style.transition = 'opacity 0.4s ease';
-          gate.style.opacity = '0';
+          gate.style.transition = 'opacity 0.4s ease'; gate.style.opacity = '0';
           setTimeout(() => gate.classList.add('hidden'), 400);
-        } else {
-          window.location.replace('https://www.google.com');
-        }
+        } else { window.location.replace('https://www.google.com'); }
       }
     })();
   </script>
+
 </body>
 </html>
