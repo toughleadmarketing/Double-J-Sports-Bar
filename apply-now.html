@@ -245,7 +245,7 @@
     .hamburger span { display: block; width: 24px; height: 2px; background-color: #EEF2FA; }
 
     /* ── TICKER ── */
-    .ticker-bar { background: #C0272D; overflow: hidden; height: 28px; display: flex; align-items: center; position: fixed; top: 76px; left: 0; right: 0; z-index: 99; }
+    .ticker-bar { background: #C0272D; overflow: hidden; height: 28px; display: flex; align-items: center; position: fixed; top: 76px; left: 0; right: 0; z-index: 99; transition: top 0s; }
     .ticker-label { background: #1e3370; color: #EEF2FA; font-family: 'Bebas Neue', sans-serif; font-size: 0.8rem; letter-spacing: 0.15em; padding: 0 1rem; height: 100%; display: flex; align-items: center; flex-shrink: 0; }
     .ticker-track { display: flex; white-space: nowrap; flex-wrap: nowrap; animation: ticker 10s linear infinite; }
     .ticker-track span { font-family: 'Barlow Condensed', sans-serif; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.92); padding: 0 2.5rem; white-space: nowrap; flex-shrink: 0; }
@@ -389,10 +389,10 @@
       nav a.active { color: #C0272D; }
       nav a::after { display: none; }
       .nav-divider { display: none; }
-      .ticker-bar { top: 66px; height: 26px; }
+      .ticker-bar { height: 26px; }
       .ticker-label { font-size: 0.65rem; padding: 0 0.5rem; white-space: nowrap; }
       .ticker-track span { font-size: 0.65rem; padding: 0 1rem; }
-      .page-hero { margin-top: 92px; padding: 4rem 1.25rem; background-position: center; }
+      .page-hero { padding: 4rem 1.25rem; background-position: center; }
       .steps-inner, .docs-inner, .perks-inner, .looking-inner, .cta-inner { padding: 0 1.25rem; }
       .steps-grid { grid-template-columns: 1fr; }
       .perks-grid { grid-template-columns: 1fr; }
@@ -576,6 +576,15 @@
 
   <script>
     document.getElementById('footer-year').textContent = new Date().getFullYear();
+
+    // ── PIN TICKER TO HEADER ──
+    function pinTicker() {
+      const h = document.querySelector('header').getBoundingClientRect().height;
+      document.querySelector('.ticker-bar').style.top = h + 'px';
+      document.querySelector('.page-hero').style.marginTop = (h + 28) + 'px';
+    }
+    pinTicker();
+    window.addEventListener('resize', pinTicker);
 
     // ── AGE GATE ──
     (function() {
