@@ -522,7 +522,20 @@ nav a::after { display: none; }
     }
 
     buildTicker();
-    setInterval(buildTicker, 60000);
+setInterval(async () => {
+  const track = document.getElementById('ticker-track');
+  const results = await Promise.all(LEAGUES.map(fetchScores));
+  const all = results.flat();
+  if (all.length === 0) return;
+  const newHTML = [...all, ...all].map(g => `<span><strong style="color:#ffd0d0;margin-right:0.4rem">${g.label}</strong>${g.text}</span>`).join('');
+  if (newHTML !== track.innerHTML) {
+    track.style.animation = 'none';
+    track.innerHTML = newHTML;
+    void track.offsetWidth;
+    const duration = Math.max(15, all.length * 4);
+    track.style.animation = `ticker ${duration}s linear infinite`;
+  }
+}, 60000);
 
     document.getElementById('footer-year').textContent = new Date().getFullYear();
 
