@@ -502,7 +502,13 @@ nav a::after { display: none; }
       if (all.length === 0) { track.innerHTML = '<span>No live games right now — check back soon!</span>'; return; }
       const items = [...all, ...all];
       track.innerHTML = items.map(g => `<span><strong style="color:#ffd0d0;margin-right:0.4rem">${g.label}</strong>${g.text}</span>`).join('');
-      track.style.animationDuration = `${Math.max(5, track.scrollWidth / 1800)}s`;
+
+requestAnimationFrame(() => {
+  requestAnimationFrame(() => {
+    const duration = Math.max(10, track.scrollWidth / 300);
+    track.style.animationDuration = `${duration}s`;
+  });
+});
     }
     buildTicker();
     setInterval(buildTicker, 60000);
