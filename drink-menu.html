@@ -85,7 +85,7 @@
     .page-subtitle { font-family: 'Barlow', sans-serif; font-size: 1rem; color: #7a8aaa; margin-top: 1rem; max-width: 520px; margin-left: auto; margin-right: auto; line-height: 1.7; }
 
     /* ── TABS ── */
-    .tabs-bar { background-color: #162550; border-bottom: 1px solid rgba(255,255,255,0.06); overflow-x: auto; }
+    .tabs-bar { background-color: #162550; border-bottom: 1px solid rgba(255,255,255,0.06); overflow-x: auto; position: sticky; top: 104px; z-index: 90; }
     .tabs-inner { max-width: 1280px; margin: 0 auto; padding: 0 2rem; display: flex; white-space: nowrap; }
     .tab-btn { font-family: 'Bebas Neue', sans-serif; font-size: 1rem; letter-spacing: 0.12em; color: #7a8aaa; background: none; border: none; border-bottom: 3px solid transparent; padding: 1rem 1.25rem; cursor: pointer; transition: color 0.2s ease, border-color 0.2s ease; }
     .tab-btn:hover { color: #EEF2FA; }
@@ -298,6 +298,7 @@
       .gallery-inner { padding: 0 1rem; }
       /* Mobile: single column — simplest DOM, fastest paint */
       .gallery-columns { column-count: 1; }
+      .tabs-bar { top: 92px; }
       .bottles-grid { grid-template-columns: 1fr; gap: 2rem; }
       .cocktails-grid { grid-template-columns: 1fr; }
       .nonalc-grid { grid-template-columns: 1fr; }
