@@ -131,15 +131,8 @@ async function buildTicker() {
     return;
   }
   const items = [...all, ...all];
-  const html = items.map(g => `<span><strong style="color:#ffd0d0;margin-right:0.4rem">${g.label}</strong>${g.text}</span>`).join('');
-  track.style.animation = 'none';
-  track.innerHTML = html;
-  void track.offsetWidth; // force reflow
-  track.style.animation = '';
-  setTimeout(() => {
-    const duration = Math.max(10, track.scrollWidth / 1800);
-    track.style.animationDuration = `${duration}s`;
-  }, 50);
+  track.innerHTML = items.map(g => `<span><strong style="color:#ffd0d0;margin-right:0.4rem">${g.label}</strong>${g.text}</span>`).join('');
+  track.style.animationDuration = '30s';
 }
 /* ── VIDEO SECTION ── */
 .video-section { width: 100%; background: #000; margin-top: 104px; }
