@@ -341,11 +341,19 @@ nav a::after { display: none; }
   </header>
 
   <div class="ticker-bar">
-    <div class="ticker-label">Live&nbsp;Now</div>
-    <div style="overflow:hidden; flex:1;">
-      <div class="ticker-track" id="ticker-track"><span>Loading scores...</span></div>
+  <div class="ticker-label">Live&nbsp;Now</div>
+  <div style="overflow:hidden; flex:1;">
+    <div class="ticker-track" id="ticker-track" style="display: inline-flex;">
+      <div id="ticker-content" style="display: flex;">
+        <span>CHI BEARS vs GB PACKERS - SUN 12:00PM • </span>
+        <span>BLACKHAWKS vs RED WINGS - LIVE • </span>
+        <span>CUBS vs CARDINALS - FINAL • </span>
+        <span>BULLS vs LAKERS - 7:00PM • </span>
+        <span>WHITE SOX vs GUARDIANS - 6:00PM • </span>
+      </div>
     </div>
   </div>
+</div>
 
   <section class="video-section">
     <div class="video-wrap">
@@ -457,6 +465,20 @@ nav a::after { display: none; }
   </footer>
 
   <script>
+    <div class="ticker-bar">
+  <div class="ticker-label">Live&nbsp;Now</div>
+  <div style="overflow:hidden; flex:1;">
+    <div class="ticker-track" id="ticker-track" style="display: inline-flex;">
+      <div id="ticker-content" style="display: flex;">
+        <span>CHI BEARS vs GB PACKERS - SUN 12:00PM • </span>
+        <span>BLACKHAWKS vs RED WINGS - LIVE • </span>
+        <span>CUBS vs CARDINALS - FINAL • </span>
+        <span>BULLS vs LAKERS - 7:00PM • </span>
+        <span>WHITE SOX vs GUARDIANS - 6:00PM • </span>
+      </div>
+    </div>
+  </div>
+</div>
     const header = document.getElementById('site-header');
     window.addEventListener('scroll', () => {
       header.classList.toggle('scrolled', window.scrollY > 20);
