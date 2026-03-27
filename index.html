@@ -17,7 +17,7 @@
     "telephone": "+18157308488",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "1001 Essington Rd",
+      "streetAddress": "1101 Essington Rd",
       "addressLocality": "Joliet",
       "addressRegion": "IL",
       "postalCode": "60435",
@@ -122,7 +122,7 @@ z-index: 99;
 .ticker-track { display: flex; white-space: nowrap; flex-wrap: nowrap; animation: ticker 10s linear infinite; }
 .ticker-track span { font-family: 'Barlow Condensed', sans-serif; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.92); padding: 0 2.5rem; white-space: nowrap; flex-shrink: 0; }
 .ticker-track span em { color: #ffd0d0; font-style: normal; }
-@keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 /* ── VIDEO SECTION ── */
 .video-section { width: 100%; background: #000; margin-top: 104px; }
 .video-wrap { position: relative; width: 100%; aspect-ratio: 16 / 6; overflow: hidden; }
@@ -314,7 +314,7 @@ nav a::after { display: none; }
     <div class="header-inner">
       <a href="index.html" class="logo">
         <div class="logo-img-wrap">
-          <img id="logo-img" src="https://raw.githubusercontent.com/toughleadmarketing/Double-J-Sports-Bar/main/images/double-j-logo.PNG" alt='Double "J" Sports Bar Logo' class="logo-img"/>
+          <img id="logo-img"src="https://raw.githubusercontent.com/toughleadmarketing/Double-J-Sports-Bar/main/images/double-j-logo.PNG"" alt='Double "J" Sports Bar Logo' class="logo-img"/>
         </div>
         <div class="logo-text">
           <span class="logo-name">Double "J"</span>
@@ -473,15 +473,11 @@ nav a::after { display: none; }
         }
       });
     });
-
     const LEAGUES = [
-      { key: 'football/nfl', label: 'NFL' },
-      { key: 'basketball/nba', label: 'NBA' },
-      { key: 'baseball/mlb', label: 'MLB' },
-      { key: 'hockey/nhl', label: 'NHL' },
+      { key: 'football/nfl', label: 'NFL' }, { key: 'basketball/nba', label: 'NBA' },
+      { key: 'baseball/mlb', label: 'MLB' }, { key: 'hockey/nhl', label: 'NHL' },
       { key: 'soccer/usa.1', label: 'MLS' },
     ];
-
     async function fetchScores(league) {
       try {
         const res = await fetch(`https://site.api.espn.com/apis/site/v2/sports/${league.key}/scoreboard`);
@@ -493,50 +489,23 @@ nav a::after { display: none; }
           const status = event.status.type.shortDetail || '';
           const homeAbbr = home?.team?.abbreviation || home?.team?.shortDisplayName || '';
           const awayAbbr = away?.team?.abbreviation || away?.team?.shortDisplayName || '';
-          const homeScore = home?.score ?? '';
-          const awayScore = away?.score ?? '';
+          const homeScore = home?.score ?? ''; const awayScore = away?.score ?? '';
           const hasScore = homeScore !== '' && awayScore !== '';
-          return {
-            label: league.label,
-            text: hasScore
-              ? `${awayAbbr} <em>${awayScore}</em> – ${homeAbbr} <em>${homeScore}</em> &nbsp;·&nbsp; ${status}`
-              : `${awayAbbr} vs ${homeAbbr} &nbsp;·&nbsp; ${status}`
-          };
+          return { label: league.label, text: hasScore ? `${awayAbbr} <em>${awayScore}</em> – ${homeAbbr} <em>${homeScore}</em> &nbsp;·&nbsp; ${status}` : `${awayAbbr} vs ${homeAbbr} &nbsp;·&nbsp; ${status}` };
         });
       } catch { return []; }
     }
-
     async function buildTicker() {
       const track = document.getElementById('ticker-track');
       const results = await Promise.all(LEAGUES.map(fetchScores));
       const all = results.flat();
-      if (all.length === 0) {
-        track.innerHTML = '<span>No live games right now — check back soon!</span>';
-        return;
-      }
+      if (all.length === 0) { track.innerHTML = '<span>No live games right now — check back soon!</span>'; return; }
       const items = [...all, ...all];
-      track.style.animation = 'none';
       track.innerHTML = items.map(g => `<span><strong style="color:#ffd0d0;margin-right:0.4rem">${g.label}</strong>${g.text}</span>`).join('');
-      void track.offsetWidth;
-      track.style.animation = 'ticker 10s linear infinite';
+      track.style.animationDuration = `${Math.max(5, track.scrollWidth / 1800)}s`;
     }
-
     buildTicker();
-setInterval(async () => {
-  const track = document.getElementById('ticker-track');
-  const results = await Promise.all(LEAGUES.map(fetchScores));
-  const all = results.flat();
-  if (all.length === 0) return;
-  const newHTML = [...all, ...all].map(g => `<span><strong style="color:#ffd0d0;margin-right:0.4rem">${g.label}</strong>${g.text}</span>`).join('');
-  if (newHTML !== track.innerHTML) {
-    track.style.animation = 'none';
-    track.innerHTML = newHTML;
-    void track.offsetWidth;
-    const duration = Math.max(15, all.length * 4);
-    track.style.animation = `ticker ${duration}s linear infinite`;
-  }
-}, 60000);
-
+    setInterval(buildTicker, 60000);
     document.getElementById('footer-year').textContent = new Date().getFullYear();
 
     // ── AGE GATE ──
