@@ -137,7 +137,7 @@ async function buildTicker() {
   void track.offsetWidth; // force reflow
   track.style.animation = '';
   setTimeout(() => {
-    const duration = Math.max(10, track.scrollWidth / 300);
+    const duration = Math.max(10, track.scrollWidth / 1800);
     track.style.animationDuration = `${duration}s`;
   }, 50);
 }
