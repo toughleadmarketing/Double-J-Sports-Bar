@@ -122,7 +122,25 @@ z-index: 99;
 .ticker-track { display: flex; white-space: nowrap; flex-wrap: nowrap; animation: ticker 10s linear infinite; }
 .ticker-track span { font-family: 'Barlow Condensed', sans-serif; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.92); padding: 0 2.5rem; white-space: nowrap; flex-shrink: 0; }
 .ticker-track span em { color: #ffd0d0; font-style: normal; }
-@keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+async function buildTicker() {
+  const track = document.getElementById('ticker-track');
+  const results = await Promise.all(LEAGUES.map(fetchScores));
+  const all = results.flat();
+  if (all.length === 0) {
+    track.innerHTML = '<span>No live games right now — check back soon!</span>';
+    return;
+  }
+  const items = [...all, ...all];
+  const html = items.map(g => `<span><strong style="color:#ffd0d0;margin-right:0.4rem">${g.label}</strong>${g.text}</span>`).join('');
+  track.style.animation = 'none';
+  track.innerHTML = html;
+  void track.offsetWidth; // force reflow
+  track.style.animation = '';
+  setTimeout(() => {
+    const duration = Math.max(10, track.scrollWidth / 300);
+    track.style.animationDuration = `${duration}s`;
+  }, 50);
+}
 /* ── VIDEO SECTION ── */
 .video-section { width: 100%; background: #000; margin-top: 104px; }
 .video-wrap { position: relative; width: 100%; aspect-ratio: 16 / 6; overflow: hidden; }
