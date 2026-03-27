@@ -181,7 +181,7 @@
       No JavaScript, no Masonry.js, no jQuery.
     */
     .gallery-columns {
-      column-count: 3;
+      column-count: 5;
       column-gap: 8px;
     }
 
@@ -203,8 +203,9 @@
     .gallery-item img {
       width: 100%;
       height: auto;
-      display: block;
+      max-height: 200px;
       object-fit: cover;
+      display: block;
       background-color: #0a1328;
       transition: transform 0.4s ease;
     }
@@ -274,8 +275,8 @@
     @media (max-width: 900px) {
       .bottles-grid { grid-template-columns: repeat(2, 1fr); }
       .specials-grid { grid-template-columns: repeat(3, 1fr); }
-      /* Tablet: 2 columns */
-      .gallery-columns { column-count: 2; }
+      /* Tablet: 3 columns */
+      .gallery-columns { column-count: 3; }
     }
     @media (max-width: 680px) {
       .header-inner { padding: 0 1rem; height: 66px; }
