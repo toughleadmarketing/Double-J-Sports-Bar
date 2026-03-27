@@ -726,7 +726,17 @@
       document.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.remove('active'); });
       document.querySelectorAll('.menu-panel').forEach(function(p) { p.classList.remove('active'); });
       document.querySelector('[data-tab="' + tab + '"]').classList.add('active');
-      document.getElementById('tab-' + tab).classList.add('active');
+      var panel = document.getElementById('tab-' + tab);
+      panel.classList.add('active');
+
+      // Scroll to panel, offset by sticky header (76px) + ticker (28px) + tabs bar (48px) = 152px
+      // On mobile header is 66px so offset is 66+26+48 = 140px — use the tabs bar's own bottom as anchor
+      var tabsBar = document.querySelector('.tabs-bar');
+      var offset  = tabsBar.getBoundingClientRect().bottom + window.scrollY;
+      var panelTop = panel.getBoundingClientRect().top + window.scrollY;
+
+      // Only scroll if panel is not already in view just below the tabs bar
+      window.scrollTo({ top: panelTop - tabsBar.offsetHeight - 4, behavior: 'smooth' });
     }
 
     /* ── LIVE SCORES TICKER ── */
