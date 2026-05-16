@@ -125,8 +125,23 @@ z-index: 99;
 @keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 /* ── VIDEO SECTION ── */
 .video-section { width: 100%; background: #000; margin-top: 104px; }
-.video-wrap { position: relative; width: 100%; aspect-ratio: 16 / 6; overflow: hidden; }
-.video-wrap video, .video-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.video-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 6;
+  overflow: hidden;
+}
+.video-wrap iframe {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  min-width: 266.67%;
+  aspect-ratio: 16 / 9;
+  transform: translate(-50%, -50%);
+  border: none;
+  pointer-events: none;
+}
 /* ── SHARED SECTION STYLES ── */
 .section-inner { max-width: 1280px; margin: 0 auto; padding: 5rem 2rem; }
 .section-eyebrow { font-family: 'Barlow Condensed', sans-serif; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.4em; text-transform: uppercase; color: #C0272D; margin-bottom: 0.5rem; display: block; }
@@ -314,7 +329,7 @@ nav a::after { display: none; }
     <div class="header-inner">
       <a href="index" class="logo">
         <div class="logo-img-wrap">
-          <img id="logo-img"src="https://raw.githubusercontent.com/toughleadmarketing/Double-J-Sports-Bar/main/images/double-j-logo.PNG"" alt='Double "J" Sports Bar Logo' class="logo-img"/>
+          <img id="logo-img" src="https://raw.githubusercontent.com/toughleadmarketing/Double-J-Sports-Bar/main/images/double-j-logo.PNG" alt='Double "J" Sports Bar Logo' class="logo-img"/>
         </div>
         <div class="logo-text">
           <span class="logo-name">Double "J"</span>
@@ -349,9 +364,10 @@ nav a::after { display: none; }
 
   <section class="video-section">
     <div class="video-wrap">
-      <video id="hero-video" autoplay muted loop playsinline poster="https://placehold.co/1280x520/0f1c3f/7a8aaa?text=Your+Video+Goes+Here">
-        <!-- <source src="https://i.imgur.com/yourvideoID.mp4" type="video/mp4"> -->
-      </video>
+      <iframe
+        src="https://fast.wistia.net/embed/iframe/d1t2xaegup?autoPlay=true&silentAutoPlay=true&muted=true&loop=true&controlsVisibleOnLoad=false&playbar=false&fullscreenButton=false&volumeControl=false&settingsControl=false&playButton=false"
+        allowtransparency="true" allowfullscreen frameborder="0" scrolling="no">
+      </iframe>
     </div>
   </section>
 
