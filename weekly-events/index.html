@@ -16,8 +16,8 @@
     .header-inner { max-width: 1280px; margin: 0 auto; padding: 0 2rem; height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
     .logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; flex-shrink: 0; }
     .logo-img-wrap { width: 60px; height: 60px; border-radius: 50%; overflow: hidden; border: 2px solid #C0272D; flex-shrink: 0; background-color: #162550; transition: transform 0.3s ease; }
-.logo:hover .logo-img-wrap { transform: scale(1.06); }
-.logo-img { width: 160%; height: 160%; object-fit: cover; display: block; margin: -30% 0 0 -30%; }
+    .logo:hover .logo-img-wrap { transform: scale(1.06); }
+    .logo-img { width: 160%; height: 160%; object-fit: cover; display: block; margin: -30% 0 0 -30%; }
     .logo-text { display: flex; flex-direction: column; line-height: 1; }
     .logo-name { font-family: 'Bebas Neue', sans-serif; font-size: 1.65rem; letter-spacing: 0.1em; color: #EEF2FA; }
     .logo-tagline { font-family: 'Barlow Condensed', sans-serif; font-size: 0.65rem; letter-spacing: 0.3em; text-transform: uppercase; color: #C0272D; font-weight: 600; }
@@ -97,11 +97,21 @@
     /* ── THIS WEEK ── */
     .weekly-section { background-color: #162550; padding: 5rem 0; }
     .weekly-inner { max-width: 1280px; margin: 0 auto; padding: 0 2rem; }
-    .weekly-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+    .weekly-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
     .weekly-card { background-color: #0f1c3f; border: 1px solid rgba(255,255,255,0.07); border-radius: 8px; overflow: hidden; transition: transform 0.25s ease, border-color 0.25s ease; }
     .weekly-card:hover { transform: translateY(-4px); border-color: rgba(192,39,45,0.4); }
-    .weekly-card.featured { border-color: #C0272D; grid-column: span 2; }
+    .weekly-card.featured { border-color: #C0272D; }
+    .weekly-card.coming-soon { border-color: rgba(255,255,255,0.1); opacity: 0.75; }
+    .weekly-card.charity { border-color: rgba(192,39,45,0.5); }
+    .weekly-card.champagne { border-color: rgba(245,200,66,0.4); }
     .weekly-day { background-color: #C0272D; font-family: 'Bebas Neue', sans-serif; font-size: 1rem; letter-spacing: 0.2em; color: #EEF2FA; padding: 0.5rem 1.25rem; }
+    .weekly-card.coming-soon .weekly-day { background-color: #1e3370; }
+    .weekly-card.charity .weekly-day { background-color: #9b1f24; }
+    .weekly-card.champagne .weekly-day { background: linear-gradient(90deg, #9b841f, #c4a227); }
     .weekly-body { padding: 1.25rem 1.5rem; display: flex; flex-direction: column; gap: 0.5rem; }
     .weekly-time { font-family: 'Barlow Condensed', sans-serif; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #7a8aaa; }
     .weekly-name { font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; letter-spacing: 0.06em; color: #EEF2FA; line-height: 1; }
@@ -109,6 +119,8 @@
     .weekly-desc { font-family: 'Barlow', sans-serif; font-size: 0.85rem; color: #7a8aaa; line-height: 1.6; }
     .weekly-tag { display: inline-block; font-family: 'Barlow Condensed', sans-serif; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; padding: 0.2rem 0.65rem; border-radius: 20px; border: 1px solid rgba(192,39,45,0.4); color: #C0272D; margin-top: 0.25rem; width: fit-content; }
     .weekly-card.featured .weekly-tag { background-color: #C0272D; color: #EEF2FA; border-color: #C0272D; }
+    .weekly-card.charity .weekly-tag { background-color: rgba(192,39,45,0.15); border-color: rgba(192,39,45,0.5); color: #f87b7b; }
+    .weekly-card.champagne .weekly-tag { background-color: rgba(196,162,39,0.15); border-color: rgba(196,162,39,0.5); color: #e8c84a; }
 
     /* ── AGE GATE ── */
     #age-gate { position: fixed; inset: 0; z-index: 10000; background: rgba(6,8,15,0.97); display: flex; align-items: center; justify-content: center; padding: 1.5rem; backdrop-filter: blur(6px); animation: ageFadeIn 0.4s ease both; }
@@ -138,7 +150,7 @@
     footer { background-color: #06080f; border-top: 1px solid rgba(192,39,45,0.3); }
     .footer-inner { max-width: 1280px; margin: 0 auto; padding: 3rem 2rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 2rem; }
     .footer-brand { display: flex; align-items: center; gap: 0.85rem; }
-.footer-brand > div { display: flex; flex-direction: column; }
+    .footer-brand > div { display: flex; flex-direction: column; }
     .footer-logo-wrap { width: 60px; height: 60px; border-radius: 50%; overflow: hidden; border: 2px solid #C0272D; flex-shrink: 0; background-color: #162550; }
     .footer-logo-img { width: 160%; height: 160%; object-fit: cover; display: block; margin: -30% 0 0 -30%; }
     .footer-logo-name { font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; letter-spacing: 0.1em; color: #EEF2FA; line-height: 1; }
@@ -189,6 +201,7 @@
     }
     @media (max-width: 900px) and (min-width: 681px) {
       .games-grid { grid-template-columns: repeat(2, 1fr); }
+      .weekly-grid { grid-template-columns: repeat(2, 1fr); }
     }
   </style>
 </head>
@@ -225,13 +238,13 @@
         </div>
       </a>
       <nav id="main-nav">
-  <a href="/index">Home</a><div class="nav-divider"></div>
-  <a href="/drink-menu">Drink Menu</a><div class="nav-divider"></div>
-  <a href="/weekly-events" class="active">Weekly Events</a><div class="nav-divider"></div>
-  <a href="/connect">Connect</a><div class="nav-divider"></div>
-  <a href="/community-activism">Community Activism</a><div class="nav-divider"></div>
-  <a href="/apply-now">Apply Now</a>
-</nav>
+        <a href="/index">Home</a><div class="nav-divider"></div>
+        <a href="/drink-menu">Drink Menu</a><div class="nav-divider"></div>
+        <a href="/weekly-events" class="active">Weekly Events</a><div class="nav-divider"></div>
+        <a href="/connect">Connect</a><div class="nav-divider"></div>
+        <a href="/community-activism">Community Activism</a><div class="nav-divider"></div>
+        <a href="/apply-now">Apply Now</a>
+      </nav>
       <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
     </div>
   </header>
@@ -254,12 +267,12 @@
 
   <div class="tabs-bar">
     <div class="tabs-inner">
-      <button class="tab-btn active" data-sport="nba"     onclick="switchTab('nba')">🏀 NBA</button>
-      <button class="tab-btn"        data-sport="nfl"     onclick="switchTab('nfl')">🏈 NFL</button>
-      <button class="tab-btn"        data-sport="mlb"     onclick="switchTab('mlb')">⚾ MLB</button>
-      <button class="tab-btn"        data-sport="nhl"     onclick="switchTab('nhl')">🏒 NHL</button>
-      <button class="tab-btn"        data-sport="mls"     onclick="switchTab('mls')">⚽ MLS</button>
-      <button class="tab-btn"        data-sport="ncaamb"  onclick="switchTab('ncaamb')">🏀 College Basketball</button>
+      <button class="tab-btn active" data-sport="nba"    onclick="switchTab('nba')">🏀 NBA</button>
+      <button class="tab-btn"        data-sport="nfl"    onclick="switchTab('nfl')">🏈 NFL</button>
+      <button class="tab-btn"        data-sport="mlb"    onclick="switchTab('mlb')">⚾ MLB</button>
+      <button class="tab-btn"        data-sport="nhl"    onclick="switchTab('nhl')">🏒 NHL</button>
+      <button class="tab-btn"        data-sport="mls"    onclick="switchTab('mls')">⚽ MLS</button>
+      <button class="tab-btn"        data-sport="ncaamb" onclick="switchTab('ncaamb')">🏀 College Basketball</button>
     </div>
   </div>
 
@@ -305,18 +318,91 @@
       <p class="section-eyebrow">Don't Miss Out</p>
       <h2 class="section-title">This Week at <span class="accent">Double "J"</span></h2>
       <div class="weekly-grid">
-        <div class="weekly-card"><div class="weekly-day">Monday</div><div class="weekly-body"><div class="weekly-time">🕖 8:00 PM – 10:00 PM</div><div class="weekly-name">Sporcle Trivia</div><div class="weekly-desc">Always FREE. Two Rounds. Win Double "J" Sports Bar gift certificates, swag and more!</div><div class="weekly-tag">Free Entry</div></div></div>
-        <div class="weekly-card"><div class="weekly-day">Wednesday</div><div class="weekly-body"><div class="weekly-time">🕖 9:30 PM – 1:00 AM</div><div class="weekly-name">Kara-Yosh-E</div><div class="weekly-desc">Our Kara-Yosh-E Battle continues. Hosted by DJ Yosh, we are in the 2nd round of the semi-finals this week!</div><div class="weekly-tag">Free Entry</div></div></div>
-        <div class="weekly-card"><div class="weekly-day">Thursday</div><div class="weekly-body"><div class="weekly-time">🕗 7:30 PM – Close</div><div class="weekly-name">DJ Darkside</div><div class="weekly-desc">DJ Darkside takes over the decks. DJ Darkside keeps the dance floor alive with hard-hitting sets. No cover charge, no excuses — just good music and great vibes at Joliet's go-to neighborhood bar.</div><div class="weekly-tag">Free Entry</div></div></div>
-        <div class="weekly-card"><div class="weekly-day">Friday</div><div class="weekly-body"><div class="weekly-time">🕗 6:00 PM – 1:00 AM</div><div class="weekly-name">Coming Soon Friday Night Concert Series</div><div class="weekly-desc">Our weekly OUTDOOR concert series on Friday niught is getting ready to ramp itself up again. Don't miss out on the greart local artists and some guests soon!</div><div class="weekly-tag">Free Entry</div></div></div>
-        <div class="weekly-card featured"><div class="weekly-day">Saturday</div><div class="weekly-body"><div class="weekly-time">🕖 8:00 PM – Close</div><div class="weekly-name">DJ Darkside</div><div class="weekly-desc">DJ Darkside takes over the decks. DJ Darkside keeps the dance floor alive with hard-hitting sets. No cover charge, no excuses — just good music and great vibes at Joliet's go-to neighborhood bar.</div><div class="weekly-tag">Featured Event</div></div></div>
+
+        <!-- SUNDAY -->
+        <div class="weekly-card champagne">
+          <div class="weekly-day">Sunday</div>
+          <div class="weekly-body">
+            <div class="weekly-time">🥂 All Day</div>
+            <div class="weekly-name">Champagne Sunday</div>
+            <div class="weekly-desc">Start your Sunday right. Come through for our weekly Champagne Sunday celebration — bubbles, good vibes, and the best crowd in Joliet. The perfect way to cap off the weekend.</div>
+            <div class="weekly-tag">🥂 Champagne Specials</div>
+          </div>
+        </div>
+
+        <!-- MONDAY -->
+        <div class="weekly-card coming-soon">
+          <div class="weekly-day">Monday</div>
+          <div class="weekly-body">
+            <div class="weekly-time">🔜 Coming Soon</div>
+            <div class="weekly-name">New Event Coming Soon</div>
+            <div class="weekly-desc">We're cooking up something new for Monday nights. Stay tuned — follow us on social media so you don't miss the announcement!</div>
+            <div class="weekly-tag">Stay Tuned</div>
+          </div>
+        </div>
+
+        <!-- TUESDAY -->
+        <div class="weekly-card charity">
+          <div class="weekly-day">Tuesday</div>
+          <div class="weekly-body">
+            <div class="weekly-time">🎟️ Time TBD</div>
+            <div class="weekly-name">Meat Raffle</div>
+            <div class="weekly-desc">Hosted by the Pat Clark Cancer Foundation. Come out and support a great cause — buy your raffle tickets, win big cuts of meat, and help raise money for the fight against cancer. Community giving never tasted so good.</div>
+            <div class="weekly-tag">❤️ Charity Event</div>
+          </div>
+        </div>
+
+        <!-- WEDNESDAY -->
+        <div class="weekly-card">
+          <div class="weekly-day">Wednesday</div>
+          <div class="weekly-body">
+            <div class="weekly-time">🕖 9:30 PM – 1:00 AM</div>
+            <div class="weekly-name">Kara-Yosh-E</div>
+            <div class="weekly-desc">Our Kara-Yosh-E Battle continues. Hosted by DJ Yosh, we are in the 2nd round of the semi-finals this week!</div>
+            <div class="weekly-tag">Free Entry</div>
+          </div>
+        </div>
+
+        <!-- THURSDAY -->
+        <div class="weekly-card">
+          <div class="weekly-day">Thursday</div>
+          <div class="weekly-body">
+            <div class="weekly-time">🕗 7:30 PM – Close</div>
+            <div class="weekly-name">DJ Darkside</div>
+            <div class="weekly-desc">DJ Darkside takes over the decks. Hard-hitting sets that keep the dance floor alive all night long. No cover charge, no excuses — just good music and great vibes at Joliet's go-to neighborhood bar.</div>
+            <div class="weekly-tag">Free Entry</div>
+          </div>
+        </div>
+
+        <!-- FRIDAY -->
+        <div class="weekly-card">
+          <div class="weekly-day">Friday</div>
+          <div class="weekly-body">
+            <div class="weekly-time">🕗 6:00 PM – 1:00 AM</div>
+            <div class="weekly-name">Coming Soon Friday Night Concert Series</div>
+            <div class="weekly-desc">Our weekly outdoor concert series on Friday night is getting ready to ramp back up again. Don't miss out on great local artists and special guests coming soon!</div>
+            <div class="weekly-tag">Free Entry</div>
+          </div>
+        </div>
+
+        <!-- SATURDAY -->
+        <div class="weekly-card featured">
+          <div class="weekly-day">Saturday</div>
+          <div class="weekly-body">
+            <div class="weekly-time">🕖 8:00 PM – Close</div>
+            <div class="weekly-name">DJ Darkside</div>
+            <div class="weekly-desc">DJ Darkside takes over the decks. Hard-hitting sets that keep the dance floor alive all night long. No cover charge, no excuses — just good music and great vibes at Joliet's go-to neighborhood bar.</div>
+            <div class="weekly-tag">Featured Event</div>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
 
   <footer>
     <div class="footer-inner">
-     <div class="footer-brand">
+      <div class="footer-brand">
         <div class="footer-logo-wrap"><img src="https://raw.githubusercontent.com/toughleadmarketing/Double-J-Sports-Bar/main/images/double-j-logo.PNG" alt='Double "J" Sports Bar' class="footer-logo-img"/></div>
         <div>
           <div class="footer-logo-name">Double "J"</div>
@@ -417,11 +503,11 @@
 
     // ── LIVE SCORES TICKER ──
     const TICKER_LEAGUES = [
-      { key: 'football/nfl',         label: 'NFL' },
-      { key: 'basketball/nba',        label: 'NBA' },
-      { key: 'baseball/mlb',          label: 'MLB' },
-      { key: 'hockey/nhl',            label: 'NHL' },
-      { key: 'soccer/usa.1',          label: 'MLS' },
+      { key: 'football/nfl',  label: 'NFL' },
+      { key: 'basketball/nba', label: 'NBA' },
+      { key: 'baseball/mlb',  label: 'MLB' },
+      { key: 'hockey/nhl',    label: 'NHL' },
+      { key: 'soccer/usa.1',  label: 'MLS' },
     ];
     async function fetchTickerScores(league) {
       try {
@@ -459,8 +545,7 @@
       track.innerHTML = items
         .map(g => `<span><strong style="color:#ffd0d0;margin-right:0.4rem">${g.label}</strong>${g.text}</span>`)
         .join('');
-      const duration = Math.max(5, track.scrollWidth / 1800);
-      track.style.animationDuration = `${duration}s`;
+      track.style.animationDuration = `${Math.max(5, track.scrollWidth / 1800)}s`;
     }
     buildTicker();
     setInterval(buildTicker, 60000);
