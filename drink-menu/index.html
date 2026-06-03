@@ -6,50 +6,10 @@
   <meta name="description" content='Double "J" Sports Bar &amp; Grill drink menu — ice-cold domestics, premium beers, seasonal cocktails, mocktails, wine, and weekly specials in Joliet, IL.'/>
   <link rel="icon" type="image/jpeg" href="https://i.imgur.com/Gk6PvB3.jpeg"/>
   <title>Drink Menu — Double "J" Sports Bar</title>
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "BarOrPub",
-    "name": "Double \"J\" Sports Bar & Grill",
-    "alternateName": "Double J Sports Bar",
-    "url": "https://www.doublejsportsbar.com",
-    "logo": "https://i.imgur.com/Gk6PvB3.jpeg",
-    "image": [
-      "https://i.imgur.com/rH0KGK1.jpeg",
-      "https://i.imgur.com/k60Y1Dr.jpeg",
-      "https://i.imgur.com/33MLt5l.jpeg"
-    ],
-    "description": "Double \"J\" Sports Bar & Grill in Joliet, IL — ice-cold domestics, premium beers, seasonal cocktails, mocktails, wine, and weekly drink specials. Watch all major sports on our big screens.",
-    "telephone": "+18157308488",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Joliet",
-      "addressRegion": "IL",
-      "addressCountry": "US"
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": 41.5250,
-      "longitude": -88.0817
-    },
-    "sameAs": [
-      "https://www.facebook.com/doublejsportsbar",
-      "https://www.instagram.com/doublejsportsbar",
-      "https://www.tiktok.com/@doublejsportsbarjoliet"
-    ],
-    "servesCuisine": ["American", "Bar Food"],
-    "priceRange": "$",
-    "hasMenu": "https://www.doublejsportsbar.com/drink-menu"
-  }
-  </script>
-
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@400;600;700&family=Barlow:wght@400;500&display=swap" rel="stylesheet"/>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     body { background-color: #0f1c3f; font-family: 'Barlow', sans-serif; color: #EEF2FA; min-height: 100vh; }
-
-    /* ── HEADER ── */
     header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background-color: rgba(15,28,63,0.97); border-bottom: 1px solid rgba(192,39,45,0.35); backdrop-filter: blur(8px); }
     .header-inner { max-width: 1280px; margin: 0 auto; padding: 0 2rem; height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
     .logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; flex-shrink: 0; }
@@ -68,30 +28,22 @@
     .nav-divider { width: 1px; height: 14px; background-color: rgba(255,255,255,0.12); }
     .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 6px; }
     .hamburger span { display: block; width: 24px; height: 2px; background-color: #EEF2FA; }
-
-    /* ── TICKER ── */
     .ticker-bar { background: #C0272D; overflow: hidden; height: 28px; display: flex; align-items: center; position: fixed; top: 76px; left: 0; right: 0; z-index: 99; }
     .ticker-label { background: #1e3370; color: #EEF2FA; font-family: 'Bebas Neue', sans-serif; font-size: 0.8rem; letter-spacing: 0.15em; padding: 0 1rem; height: 100%; display: flex; align-items: center; flex-shrink: 0; }
     .ticker-track { display: flex; white-space: nowrap; flex-wrap: nowrap; animation: ticker 10s linear infinite; }
     .ticker-track span { font-family: 'Barlow Condensed', sans-serif; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.92); padding: 0 2.5rem; white-space: nowrap; flex-shrink: 0; }
     .ticker-track span em { color: #ffd0d0; font-style: normal; }
     @keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-
-    /* ── PAGE HERO ── */
     .page-hero { margin-top: 104px; background-image: linear-gradient(160deg, rgba(192,39,45,0.12) 0%, transparent 50%); background-color: #0f1c3f; padding: 4rem 2rem; text-align: center; border-bottom: 1px solid rgba(192,39,45,0.2); }
     .page-eyebrow { font-family: 'Barlow Condensed', sans-serif; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.4em; text-transform: uppercase; color: #C0272D; margin-bottom: 0.5rem; }
     .page-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(3rem, 8vw, 6rem); letter-spacing: 0.06em; line-height: 1; color: #EEF2FA; }
     .page-title .accent { color: #C0272D; }
     .page-subtitle { font-family: 'Barlow', sans-serif; font-size: 1rem; color: #7a8aaa; margin-top: 1rem; max-width: 520px; margin-left: auto; margin-right: auto; line-height: 1.7; }
-
-    /* ── TABS ── */
     .tabs-bar { background-color: #162550; border-bottom: 1px solid rgba(255,255,255,0.06); overflow-x: auto; position: sticky; top: 104px; z-index: 90; }
     .tabs-inner { max-width: 1280px; margin: 0 auto; padding: 0 2rem; display: flex; white-space: nowrap; }
     .tab-btn { font-family: 'Bebas Neue', sans-serif; font-size: 1rem; letter-spacing: 0.12em; color: #7a8aaa; background: none; border: none; border-bottom: 3px solid transparent; padding: 1rem 1.25rem; cursor: pointer; transition: color 0.2s ease, border-color 0.2s ease; }
     .tab-btn:hover { color: #EEF2FA; }
     .tab-btn.active { color: #EEF2FA; border-bottom-color: #C0272D; }
-
-    /* ── MENU PANELS ── */
     .menu-panel { display: none; }
     .menu-panel.active { display: block; }
     .section-wrap { max-width: 1280px; margin: 0 auto; padding: 4rem 2rem; }
@@ -99,12 +51,25 @@
     .menu-section-title .accent { color: #C0272D; }
 
     /* ── BOTTLES ── */
-    .bottles-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2.5rem; margin-top: 2.5rem; }
+    .bucket-banner { font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem; letter-spacing: 0.15em; color: #F5C842; text-align: center; background-color: rgba(245,200,66,0.08); border: 1px solid rgba(245,200,66,0.3); border-radius: 6px; padding: 0.85rem 2rem; margin-bottom: 2.5rem; margin-top: 1.5rem; }
+    .bottles-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem; margin-top: 1rem; }
     .beer-col-title { font-family: 'Barlow Condensed', sans-serif; font-size: 1rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #4dd9e0; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid rgba(77,217,224,0.25); }
-    .beer-list { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
-    .beer-list li { font-family: 'Barlow Condensed', sans-serif; font-size: 0.95rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #EEF2FA; }
-    .beer-list li.sub { font-weight: 400; color: #7a8aaa; text-transform: none; font-size: 0.88rem; padding-left: 0.75rem; }
-    .beer-list li.brand { color: #F5C842; margin-top: 0.5rem; }
+    .beer-col-subtitle { font-family: 'Barlow Condensed', sans-serif; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: #F5C842; margin: 1rem 0 0.5rem; }
+    .beer-list { list-style: none; display: flex; flex-direction: column; gap: 0.45rem; }
+    .beer-list li { font-family: 'Barlow Condensed', sans-serif; font-size: 0.95rem; font-weight: 600; letter-spacing: 0.06em; color: #EEF2FA; }
+    .beer-list li.sub { font-weight: 400; color: #7a8aaa; font-size: 0.88rem; padding-left: 0.75rem; }
+    .beer-list li.new { color: #4dd9e0; }
+    .beer-list li.sunbrew { color: #F5C842; }
+
+    /* ── SELTZERS ── */
+    .seltzers-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; margin-top: 2rem; }
+    .seltzer-brand { font-family: 'Barlow Condensed', sans-serif; font-size: 0.9rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #F5C842; margin-bottom: 0.5rem; padding-bottom: 0.4rem; border-bottom: 1px solid rgba(245,200,66,0.25); }
+    .seltzer-brand.pink { color: #f599c8; border-bottom-color: rgba(245,153,200,0.25); }
+    .gametime-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 2rem; }
+    .gametime-brand { font-family: 'Barlow Condensed', sans-serif; font-size: 0.9rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #F5C842; margin-bottom: 0.5rem; padding-bottom: 0.4rem; border-bottom: 1px solid rgba(245,200,66,0.25); }
+    .gametime-brand.blue { color: #4dd9e0; border-bottom-color: rgba(77,217,224,0.25); }
+    .gametime-brand.green { color: #7dde5f; border-bottom-color: rgba(125,222,95,0.25); }
+    .gametime-brand.pink { color: #f599c8; border-bottom-color: rgba(245,153,200,0.25); }
 
     /* ── COCKTAILS ── */
     .cocktails-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-top: 2.5rem; }
@@ -112,19 +77,26 @@
     .cocktail-item { display: flex; flex-direction: column; gap: 0.25rem; margin-bottom: 1.5rem; }
     .cocktail-name-row { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; }
     .cocktail-name { font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem; letter-spacing: 0.08em; color: #EEF2FA; }
+    .cocktail-name.yellow { color: #F5C842; }
+    .cocktail-name.pink { color: #f599c8; }
+    .cocktail-name.green { color: #7dde5f; }
     .cocktail-price { font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; color: #F5C842; white-space: nowrap; }
     .cocktail-ingredients { font-family: 'Barlow', sans-serif; font-size: 0.82rem; color: #7a8aaa; line-height: 1.5; }
 
     /* ── NON-ALC ── */
     .nonalc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-top: 2.5rem; }
+    .nonalc-col-title { font-family: 'Barlow Condensed', sans-serif; font-size: 1rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #4dd9e0; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid rgba(77,217,224,0.25); }
     .nonalc-sub-title { font-family: 'Barlow Condensed', sans-serif; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #7a8aaa; margin: 1.5rem 0 0.75rem; padding-bottom: 0.4rem; border-bottom: 1px solid rgba(255,255,255,0.07); }
-    .nonalc-box { border: 1px solid rgba(77,217,224,0.2); border-radius: 6px; padding: 1rem 1.25rem; margin-bottom: 1rem; }
-    .nonalc-box-title { font-family: 'Barlow Condensed', sans-serif; font-size: 0.9rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: #4dd9e0; margin-bottom: 0.5rem; }
     .wine-brand { font-family: 'Barlow Condensed', sans-serif; font-size: 0.9rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: #F5C842; margin-bottom: 0.5rem; }
-    .wine-highlight { border: 1px solid #d63384; border-radius: 6px; padding: 0.75rem 1.25rem; margin-top: 1rem; color: #f599c8; font-family: 'Barlow Condensed', sans-serif; font-size: 1rem; font-weight: 700; letter-spacing: 0.1em; }
+    .thc-col-title { font-family: 'Barlow Condensed', sans-serif; font-size: 1rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #7dde5f; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid rgba(125,222,95,0.25); }
+    .liquid-death-box { border: 1px solid rgba(77,217,224,0.2); border-radius: 6px; padding: 0.85rem 1.25rem; margin: 1rem 0; }
+    .liquid-death-title { font-family: 'Barlow Condensed', sans-serif; font-size: 0.9rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: #4dd9e0; margin-bottom: 0.5rem; }
+    .thc-item { border: 1px solid rgba(125,222,95,0.2); border-radius: 6px; padding: 0.85rem 1.25rem; margin-top: 0.75rem; }
+    .thc-name { font-family: 'Barlow Condensed', sans-serif; font-size: 1rem; font-weight: 700; letter-spacing: 0.1em; color: #7dde5f; margin-bottom: 0.25rem; }
+    .thc-desc { font-family: 'Barlow', sans-serif; font-size: 0.8rem; color: #7a8aaa; }
 
     /* ── SPECIALS ── */
-    .specials-everyday { font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; letter-spacing: 0.15em; color: #F5C842; text-align: center; background-color: rgba(245,200,66,0.08); border: 1px solid rgba(245,200,66,0.2); border-radius: 6px; padding: 0.85rem 2rem; margin-bottom: 2.5rem; }
+    .specials-everyday { font-family: 'Bebas Neue', sans-serif; font-size: 1.05rem; letter-spacing: 0.12em; color: #F5C842; text-align: center; background-color: rgba(245,200,66,0.08); border: 1px solid rgba(245,200,66,0.2); border-radius: 6px; padding: 0.85rem 2rem; margin-bottom: 2.5rem; line-height: 1.7; }
     .specials-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1rem; }
     .special-card { background-color: #0f1c3f; border: 1px solid rgba(255,255,255,0.07); border-radius: 8px; overflow: hidden; transition: transform 0.2s ease, border-color 0.2s ease; }
     .special-card:hover { transform: translateY(-3px); border-color: rgba(192,39,45,0.4); }
@@ -134,105 +106,12 @@
     .special-item em { font-style: normal; color: #F5C842; }
     .special-divider { height: 1px; background-color: rgba(255,255,255,0.07); }
 
-    /* ─────────────────────────────────────────
-       PHOTO GALLERY — Pure CSS column-count masonry
-       No JS, no Masonry.js, no external libraries.
-       break-inside:avoid prevents items splitting.
-       Images use native loading="lazy" + width:100%/height:auto
-       for CLS-free responsive rendering.
-    ───────────────────────────────────────── */
-    .gallery-section {
-      background-color: #0a1328;
-      border-top: 1px solid rgba(192,39,45,0.2);
-      padding: 4rem 0;
-    }
-    .gallery-inner {
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 0 2rem;
-    }
-    .gallery-eyebrow {
-      display: block;
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 0.75rem;
-      font-weight: 700;
-      letter-spacing: 0.4em;
-      text-transform: uppercase;
-      color: #C0272D;
-      margin-bottom: 0.5rem;
-      text-align: center;
-    }
-    .gallery-heading {
-      display: block;
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(2rem, 5vw, 3.5rem);
-      letter-spacing: 0.06em;
-      color: #EEF2FA;
-      text-align: center;
-      margin-bottom: 2.5rem;
-    }
-    .gallery-heading .accent { color: #C0272D; }
-
-    /*
-      Pure CSS masonry via column-count.
-      Each .gallery-item uses break-inside:avoid so images
-      never split across columns. Images are width:100%/height:auto
-      (fully responsive, no fixed heights → zero layout shift).
-      No JavaScript, no Masonry.js, no jQuery.
-    */
-    .gallery-columns {
-      column-count: 5;
-      column-gap: 8px;
-    }
-
-    .gallery-item {
-      /* Prevent item from breaking across column boundaries */
-      break-inside: avoid;
-      -webkit-column-break-inside: avoid; /* Safari */
-      page-break-inside: avoid;           /* legacy fallback */
-
-      display: block;
-      position: relative;
-      overflow: hidden;
-      border-radius: 4px;
-      background-color: #162550;
-      margin-bottom: 8px; /* gap between rows within a column */
-    }
-
-    /* Responsive images — no fixed height, no layout shift */
-    .gallery-item img {
-      width: 100%;
-      height: auto;
-      max-height: 200px;
-      object-fit: cover;
-      display: block;
-      background-color: #0a1328;
-      transition: transform 0.4s ease;
-    }
-
-    .gallery-item:hover img {
-      transform: scale(1.05);
-    }
-
-    .gallery-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to top, rgba(15,28,63,0.5) 0%, transparent 60%);
-      pointer-events: none;
-    }
-
     /* ── AGE GATE ── */
-    #age-gate {
-      position: fixed; inset: 0; z-index: 10000;
-      background: rgba(6,8,15,0.97);
-      display: none;
-      align-items: center; justify-content: center;
-      padding: 1.5rem; backdrop-filter: blur(6px);
-    }
-    #age-gate.visible { display: flex; }
+    #age-gate { position: fixed; inset: 0; z-index: 10000; background: rgba(6,8,15,0.97); display: none; align-items: center; justify-content: center; padding: 1.5rem; backdrop-filter: blur(6px); }
+    #age-gate.visible { display: flex; animation: ageFadeIn 0.4s ease both; }
     @keyframes ageFadeIn { from { opacity: 0; } to { opacity: 1; } }
-    #age-gate.visible { animation: ageFadeIn 0.4s ease both; }
-    .age-gate-box { background: #162550; border: 1px solid rgba(192,39,45,0.4); border-radius: 12px; padding: 3rem 2.5rem; max-width: 420px; width: 100%; text-align: center; box-shadow: 0 0 80px rgba(192,39,45,0.15); animation: ageFadeIn 0.5s 0.1s ease both; }
+    #age-gate.hidden { display: none !important; }
+    .age-gate-box { background: #162550; border: 1px solid rgba(192,39,45,0.4); border-radius: 12px; padding: 3rem 2.5rem; max-width: 420px; width: 100%; text-align: center; box-shadow: 0 0 80px rgba(192,39,45,0.15); }
     .age-gate-logo { width: 72px; height: 72px; border-radius: 50%; overflow: hidden; border: 2px solid #C0272D; margin: 0 auto 1.5rem; background: #0f1c3f; }
     .age-gate-logo img { width: 100%; height: 100%; object-fit: cover; display: block; }
     .age-gate-eyebrow { font-family: 'Barlow Condensed', sans-serif; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.35em; text-transform: uppercase; color: #C0272D; margin-bottom: 0.5rem; }
@@ -241,16 +120,14 @@
     .age-gate-label { font-family: 'Barlow Condensed', sans-serif; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #7a8aaa; display: block; margin-bottom: 0.6rem; text-align: left; }
     .age-gate-inputs { display: grid; grid-template-columns: 1fr 1fr 1.4fr; gap: 0.5rem; margin-bottom: 1.25rem; }
     .age-gate-inputs input { background: #0f1c3f; border: 1px solid rgba(255,255,255,0.12); border-radius: 6px; color: #EEF2FA; font-family: 'Barlow Condensed', sans-serif; font-size: 1.1rem; font-weight: 600; letter-spacing: 0.05em; padding: 0.7rem 0.5rem; text-align: center; width: 100%; outline: none; transition: border-color 0.2s ease; -moz-appearance: textfield; }
-    .age-gate-inputs input::-webkit-outer-spin-button,
-    .age-gate-inputs input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+    .age-gate-inputs input::-webkit-outer-spin-button, .age-gate-inputs input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
     .age-gate-inputs input::placeholder { color: rgba(255,255,255,0.2); font-size: 0.85rem; }
     .age-gate-inputs input:focus { border-color: #C0272D; }
     .age-gate-inputs input.error { border-color: #C0272D; background: rgba(192,39,45,0.08); }
-    .age-gate-btn { font-family: 'Bebas Neue', sans-serif; font-size: 1.15rem; letter-spacing: 0.15em; background: #C0272D; color: #EEF2FA; border: none; cursor: pointer; padding: 0.9rem 2rem; width: 100%; border-radius: 6px; transition: background 0.2s ease, transform 0.15s ease; margin-bottom: 1rem; }
+    .age-gate-btn { font-family: 'Bebas Neue', sans-serif; font-size: 1.15rem; letter-spacing: 0.15em; background: #C0272D; color: #EEF2FA; border: none; cursor: pointer; padding: 0.9rem 2rem; width: 100%; clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%); transition: background 0.2s ease, transform 0.15s ease; margin-bottom: 1rem; }
     .age-gate-btn:hover { background: #1e3370; transform: translateY(-2px); }
     .age-gate-error { font-family: 'Barlow Condensed', sans-serif; font-size: 0.85rem; font-weight: 600; letter-spacing: 0.05em; color: #C0272D; min-height: 1.2em; margin-bottom: 0.75rem; }
     .age-gate-disclaimer { font-family: 'Barlow', sans-serif; font-size: 0.72rem; color: #7a8aaa; opacity: 0.7; line-height: 1.5; }
-    @media (max-width: 480px) { .age-gate-box { padding: 2rem 1.25rem; } .age-gate-title { font-size: 2rem; } }
 
     /* ── FOOTER ── */
     footer { background-color: #06080f; border-top: 1px solid rgba(192,39,45,0.3); }
@@ -274,9 +151,9 @@
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
       .bottles-grid { grid-template-columns: repeat(2, 1fr); }
+      .seltzers-grid { grid-template-columns: repeat(2, 1fr); }
+      .gametime-grid { grid-template-columns: repeat(2, 1fr); }
       .specials-grid { grid-template-columns: repeat(3, 1fr); }
-      /* Tablet: 3 columns */
-      .gallery-columns { column-count: 3; }
     }
     @media (max-width: 680px) {
       .header-inner { padding: 0 1rem; height: 66px; }
@@ -291,15 +168,14 @@
       nav a::after { display: none; }
       .nav-divider { display: none; }
       .ticker-bar { top: 66px; height: 26px; }
-      .ticker-label { font-size: 0.65rem; padding: 0 0.5rem; white-space: nowrap; }
+      .ticker-label { font-size: 0.65rem; padding: 0 0.5rem; }
       .ticker-track span { font-size: 0.65rem; padding: 0 1rem; }
       .page-hero { margin-top: 92px; padding: 2.5rem 1.25rem; }
-      .section-wrap { padding: 2.5rem 1.25rem; }
-      .gallery-inner { padding: 0 1rem; }
-      /* Mobile: single column — simplest DOM, fastest paint */
-      .gallery-columns { column-count: 1; }
       .tabs-bar { top: 92px; }
+      .section-wrap { padding: 2.5rem 1.25rem; }
       .bottles-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .seltzers-grid { grid-template-columns: 1fr 1fr; }
+      .gametime-grid { grid-template-columns: 1fr; }
       .cocktails-grid { grid-template-columns: 1fr; }
       .nonalc-grid { grid-template-columns: 1fr; }
       .specials-grid { grid-template-columns: repeat(2, 1fr); }
@@ -311,48 +187,47 @@
 </head>
 <body>
 
-  <div id="age-gate" role="dialog" aria-modal="true" aria-label="Age verification" aria-hidden="true">
+  <!-- Age Gate -->
+  <div id="age-gate">
     <div class="age-gate-box">
-      <div class="age-gate-logo">
-        <img src="https://i.imgur.com/Gk6PvB3.jpeg" alt='Double "J" Sports Bar'/>
-      </div>
+      <div class="age-gate-logo"><img src="https://i.imgur.com/Gk6PvB3.jpeg" alt='Double "J" Sports Bar'/></div>
       <p class="age-gate-eyebrow">Age Verification Required</p>
       <h2 class="age-gate-title">Are You 21+?</h2>
       <p class="age-gate-sub">Double "J" Sports Bar serves alcohol. Please confirm your date of birth to enter.</p>
       <label class="age-gate-label">Enter Your Date of Birth</label>
       <div class="age-gate-inputs">
-        <input type="number" id="ag-month" placeholder="MM" min="1" max="12" maxlength="2" inputmode="numeric"/>
-        <input type="number" id="ag-day" placeholder="DD" min="1" max="31" maxlength="2" inputmode="numeric"/>
-        <input type="number" id="ag-year" placeholder="YYYY" min="1900" max="2099" maxlength="4" inputmode="numeric"/>
+        <input type="number" id="ag-month" placeholder="MM" min="1" max="12" inputmode="numeric"/>
+        <input type="number" id="ag-day" placeholder="DD" min="1" max="31" inputmode="numeric"/>
+        <input type="number" id="ag-year" placeholder="YYYY" min="1900" max="2099" inputmode="numeric"/>
       </div>
       <div class="age-gate-error" id="ag-error"></div>
       <button class="age-gate-btn" id="ag-submit">Enter Site</button>
-      <p class="age-gate-disclaimer">By entering, you confirm you are of legal drinking age (21+) in the United States. This site is intended for adults only.</p>
+      <p class="age-gate-disclaimer">By entering, you confirm you are of legal drinking age (21+) in the United States.</p>
     </div>
   </div>
 
   <header>
     <div class="header-inner">
-      <a href="/index" class="logo">
+      <a href="index" class="logo">
         <div class="logo-img-wrap"><img src="https://raw.githubusercontent.com/toughleadmarketing/Double-J-Sports-Bar/main/images/double-j-logo.PNG" alt='Double "J" Sports Bar Logo' class="logo-img"/></div>
         <div class="logo-text">
           <span class="logo-name">Double "J"</span>
-          <span class="logo-tagline">Sports Bar &amp; Grill</span>
+          <span class="logo-tagline">Sports Bar</span>
         </div>
       </a>
-     <nav id="main-nav">
-  <a href="/index">Home</a>
-  <div class="nav-divider"></div>
-  <a href="/drink-menu">Drink Menu</a>
-  <div class="nav-divider"></div>
-  <a href="/weekly-events">Weekly Events</a>
-  <div class="nav-divider"></div>
-  <a href="/connect" class="active">Connect</a>
-  <div class="nav-divider"></div>
-  <a href="/community-activism">Community Activism</a>
-  <div class="nav-divider"></div>
-  <a href="/apply-now">Apply Now</a>
-</nav>
+      <nav id="main-nav">
+        <a href="index">Home</a>
+        <div class="nav-divider"></div>
+        <a href="drink-menu" class="active">Drink Menu</a>
+        <div class="nav-divider"></div>
+        <a href="weekly-events">Weekly Events</a>
+        <div class="nav-divider"></div>
+        <a href="connect">Connect</a>
+        <div class="nav-divider"></div>
+        <a href="community-activism">Community Activism</a>
+        <div class="nav-divider"></div>
+        <a href="apply-now">Apply Now</a>
+      </nav>
       <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
     </div>
   </header>
@@ -360,9 +235,7 @@
   <div class="ticker-bar">
     <div class="ticker-label">Live&nbsp;Now</div>
     <div style="overflow:hidden; flex:1;">
-      <div class="ticker-track" id="ticker-track">
-        <span>Loading scores...</span>
-      </div>
+      <div class="ticker-track" id="ticker-track"><span>Loading scores...</span></div>
     </div>
   </div>
 
@@ -375,8 +248,9 @@
   <div class="tabs-bar">
     <div class="tabs-inner">
       <button class="tab-btn active" data-tab="bottles"   onclick="switchTab('bottles')">🍺 Bottles &amp; Cans</button>
+      <button class="tab-btn"        data-tab="seltzers"  onclick="switchTab('seltzers')">🥤 Seltzers &amp; Game-Time</button>
       <button class="tab-btn"        data-tab="cocktails" onclick="switchTab('cocktails')">🍹 Cocktails &amp; Mocktails</button>
-      <button class="tab-btn"        data-tab="nonalc"    onclick="switchTab('nonalc')">🍷 Non-Alc &amp; Wine</button>
+      <button class="tab-btn"        data-tab="nonalc"    onclick="switchTab('nonalc')">🍷 Non-Alc, Wine &amp; THC</button>
       <button class="tab-btn"        data-tab="specials"  onclick="switchTab('specials')">⭐ Weekly Specials</button>
     </div>
   </div>
@@ -385,33 +259,138 @@
   <div class="menu-panel active" id="tab-bottles">
     <div class="section-wrap">
       <div class="menu-section-title">Bottles <span class="accent">&amp;</span> Cans</div>
+      <div class="bucket-banner">🍺 $16 Domestic Bucket Special!</div>
       <div class="bottles-grid">
         <div>
           <div class="beer-col-title">Domestics</div>
           <ul class="beer-list">
-            <li>Bud Light</li><li>Bud Light Lime</li><li>Budweiser</li><li>Miller Light</li><li>Coors Light</li><li>Coors Banquet</li><li>Michelob Ultra</li><li>Busch Light (16oz)</li><li>Keystone</li><li>Miller High Life</li><li>Miller High Life Light</li><li>Miller 64 (Extra Light)</li><li>MGD</li><li>PBR</li><li>PBR Light</li><li>Yuengling</li><li>Yuengling Flight</li>
+            <li>Bud Light</li>
+            <li>Bud Light Lime</li>
+            <li>Budweiser</li>
+            <li>Miller Light</li>
+            <li>Coors Light</li>
+            <li>Coors Banquet</li>
+            <li>Michelob Ultra</li>
+            <li>Busch Light (16oz)</li>
+            <li>Keystone</li>
+            <li>Old Milwaukee</li>
+            <li>Miller High Life</li>
+            <li>Miller High Life Light</li>
+            <li>Miller 64 (Extra Light)</li>
+            <li>MGD</li>
+            <li>PBR</li>
+            <li class="new">PBR Pickle 🥒 NEW!</li>
+            <li>PBR Light</li>
+            <li>Old Style</li>
+            <li>Yuengling</li>
+            <li>Yuengling Flight</li>
           </ul>
         </div>
         <div>
-          <div class="beer-col-title">Premium</div>
+          <div class="beer-col-title">Imports &amp; Etc.</div>
+          <div class="beer-col-subtitle">Corona:</div>
           <ul class="beer-list">
-            <li>Corona Extra</li><li>Corona Light</li><li>Corona Premier</li><li>Corona Familiar</li><li>Corona Sun Brew</li><li>Modelo</li><li>Pacifico</li><li>Dos X's Lager</li><li>Heineken</li><li>Samuel Adams Lager</li><li>Stella Artois</li><li>Moosehead</li><li>Peroni</li><li>Garage Beer Light</li><li>Garage Beer Lime</li><li>Blue Moon</li><li>Guinness</li>
+            <li class="sub">Extra</li>
+            <li class="sub">Light</li>
+            <li class="sub">Premier</li>
+            <li class="sub sunbrew">Sunbrew ☀️</li>
           </ul>
-        </div>
-        <div>
-          <div class="beer-col-title">IPA's</div>
-          <ul class="beer-list">
-            <li class="brand">Revolution Brewing:</li><li class="sub">Fist City</li><li class="sub">Anti-Hero</li><li class="sub">Fistmas 🎅❄️</li>
-            <li class="brand" style="margin-top:1rem;">Goose Island:</li><li class="sub">312</li><li class="sub">India Pale Ale</li>
-            <li style="margin-top:1rem;">Shock Top</li>
+          <ul class="beer-list" style="margin-top:0.75rem;">
+            <li>Modelo</li>
+            <li>Pacifico</li>
+            <li>Blue Moon</li>
+            <li>Summer Sandy</li>
+            <li>Stella Artois</li>
+            <li>Guinness</li>
+            <li>Peroni</li>
+            <li>Moosehead</li>
           </ul>
         </div>
         <div>
           <div class="beer-col-title">Crisp &amp; Twisted</div>
           <ul class="beer-list">
             <li>Angry Orchard</li>
-            <li class="brand" style="margin-top:0.75rem;">Twisted Tea:</li><li class="sub">Original</li><li class="sub">Light Lemon</li><li class="sub">Raspberry</li><li class="sub">Rocket Pop</li>
-            <li style="margin-top:0.75rem;">Hard Mike's Lemonade</li>
+            <li>Hard Mike's Lemonade</li>
+          </ul>
+          <div class="beer-col-subtitle" style="margin-top:1rem;">Twisted Tea:</div>
+          <ul class="beer-list">
+            <li class="sub">Original</li>
+            <li class="sub">Light Lemon</li>
+            <li class="sub">Raspberry</li>
+          </ul>
+          <div class="beer-col-subtitle" style="margin-top:1rem;">IPA's</div>
+          <div class="beer-col-subtitle">Revolution Brewing:</div>
+          <ul class="beer-list">
+            <li class="sub">Fist City</li>
+            <li class="sub">Anti-Hero</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SELTZERS & GAME-TIME CANS -->
+  <div class="menu-panel" id="tab-seltzers">
+    <div class="section-wrap">
+      <div class="menu-section-title">Seltzers</div>
+      <div class="seltzers-grid">
+        <div>
+          <div class="seltzer-brand">High Noon:</div>
+          <ul class="beer-list">
+            <li>Pineapple</li><li>Black Cherry</li><li>Watermelon</li><li>Peach</li>
+          </ul>
+        </div>
+        <div>
+          <div class="seltzer-brand">White Claw:</div>
+          <ul class="beer-list">
+            <li>Black Cherry</li><li>Pineapple</li><li>Raspberry</li><li>Grapefruit</li><li>Grape</li><li>Cranberry</li>
+          </ul>
+        </div>
+        <div>
+          <div class="seltzer-brand">Long Drink:</div>
+          <ul class="beer-list">
+            <li>Citrus</li><li>Citrus (0 Sugar)</li><li>Cranberry</li><li>Peach</li><li>Pineapple (0 Sugar)</li>
+          </ul>
+        </div>
+        <div>
+          <div class="seltzer-brand pink">Nütrl:</div>
+          <ul class="beer-list">
+            <li>Black Cherry</li><li>Orange</li><li>Blueberry</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="menu-section-title" style="margin-top:3rem;">Game Time <span class="accent">Cans</span></div>
+      <div class="gametime-grid">
+        <div>
+          <div class="gametime-brand">Carbliss:</div>
+          <ul class="beer-list">
+            <li>Cranberry</li><li>Black Cherry</li><li>Lemon</li><li>Lemon Lime</li><li>Black Raspberry</li><li>Pineapple</li><li>Peach</li><li>Blood Orange</li>
+          </ul>
+        </div>
+        <div>
+          <div class="gametime-brand blue">Sun Cruiser:</div>
+          <ul class="beer-list">
+            <li>Classic Ice Tea</li><li>Lemonade</li><li>Pink Lemonade</li>
+          </ul>
+          <div class="gametime-brand blue" style="margin-top:1.5rem;">Mom Water:</div>
+          <ul class="beer-list">
+            <li>Cranberry Lime</li><li>Blackberry Lime</li><li>Lemon Blueberry</li>
+          </ul>
+          <div class="gametime-brand green" style="margin-top:1.5rem;">Lucky One Lemonade:</div>
+          <ul class="beer-list">
+            <li>Blueberry</li>
+          </ul>
+        </div>
+        <div>
+          <div class="gametime-brand pink">Good Boy Vodka:</div>
+          <ul class="beer-list">
+            <li>Cranberry &amp; Pineapple</li>
+            <li>Peach &amp; Mango</li>
+            <li>Summer Watermelon</li>
+            <li>Strawberry Hibiscus</li>
+            <li class="new">Raspberry Iced Tea &amp; Lemonade 🆕</li>
+            <li class="new">Blackberry Iced Tea &amp; Lemonade 🆕</li>
           </ul>
         </div>
       </div>
@@ -421,44 +400,95 @@
   <!-- COCKTAILS & MOCKTAILS -->
   <div class="menu-panel" id="tab-cocktails">
     <div class="section-wrap">
-      <div class="menu-section-title">Seasonal <span class="accent">Cocktails</span> &amp; Mocktails</div>
+      <div class="menu-section-title">Cocktails <span class="accent">&amp;</span> Mocktails</div>
       <div class="cocktails-grid">
         <div>
-          <div class="cocktail-col-title">Seasonal Cocktails</div>
-          <div class="cocktail-item"><div class="cocktail-name-row"><div class="cocktail-name">The Alejandro</div><div class="cocktail-price">$8.00</div></div><div class="cocktail-ingredients">Volcan de mi Tierra Blanco, Raspberry Pureé, Lime Juice, Lemonade</div></div>
-          <div class="cocktail-item"><div class="cocktail-name-row"><div class="cocktail-name">Holly Jolly Sour</div><div class="cocktail-price">$6.00</div></div><div class="cocktail-ingredients">Jack Daniels Whiskey, Lemon Juice, Cinnamon Syrup, Angostura Bitters</div></div>
-          <div class="cocktail-item"><div class="cocktail-name-row"><div class="cocktail-name">Santa's Cookie Shot</div><div class="cocktail-price">$6.00</div></div><div class="cocktail-ingredients">Baileys, Amaretto, Whipped Cream</div></div>
-          <div class="cocktail-item"><div class="cocktail-name-row"><div class="cocktail-name">Santa's Nightcap</div><div class="cocktail-price">$6.00</div></div><div class="cocktail-ingredients">Crown Royal Chocolate, Peppermint Schnapps, Half / Half</div></div>
-          <div class="cocktail-item"><div class="cocktail-name-row"><div class="cocktail-name">Jingle "J" Mule</div><div class="cocktail-price">$6.00</div></div><div class="cocktail-ingredients">Vodka, Cranberry Juice, Ginger Beer, Lime</div></div>
+          <div class="cocktail-col-title">Cocktails</div>
+          <div class="cocktail-item">
+            <div class="cocktail-name-row"><div class="cocktail-name yellow">DJ's Signature Marg</div><div class="cocktail-price">$8.00</div></div>
+            <div class="cocktail-ingredients">Reposado Tequila, Cointreau, Lime Juice, Agave Syrup, Splash of Sour Mix &amp; OJ — Tajin Rim</div>
+          </div>
+          <div class="cocktail-item">
+            <div class="cocktail-name-row"><div class="cocktail-name yellow">Essington Beach</div><div class="cocktail-price">$6.00</div></div>
+            <div class="cocktail-ingredients">Admiral Nelson's Coconut Rum, Peach Schnapps, Orange Juice, Pineapple Juice, Grenadine, Lime</div>
+          </div>
+          <div class="cocktail-item">
+            <div class="cocktail-name-row"><div class="cocktail-name pink">Starburst Bomb</div><div class="cocktail-price">$5.00</div></div>
+            <div class="cocktail-ingredients">Vanilla Vodka, Watermelon Pucker, Sweet &amp; Sour Mix, Splash Grenadine</div>
+          </div>
+          <div class="cocktail-item">
+            <div class="cocktail-name-row"><div class="cocktail-name">Cookie Shot</div><div class="cocktail-price">$5.00</div></div>
+            <div class="cocktail-ingredients">Baileys, Amaretto, Whipped Cream</div>
+          </div>
         </div>
         <div>
-          <div class="cocktail-col-title">Seasonal Mocktails</div>
-          <div class="cocktail-item"><div class="cocktail-name-row"><div class="cocktail-name">Frosted Winter Spritz</div><div class="cocktail-price">$6.00</div></div><div class="cocktail-ingredients">Seedlip Grove 42, Cranberry Juice, Lime Juice, Simple Syrup, Topped Soda Water</div></div>
-          <div class="cocktail-item"><div class="cocktail-name-row"><div class="cocktail-name">Merry &amp; Bright</div><div class="cocktail-price">$6.00</div></div><div class="cocktail-ingredients">Seedlip Spice 94, Ginger Ale, Cranberry Splash, Lime</div></div>
-          <div class="cocktail-item"><div class="cocktail-name-row"><div class="cocktail-name">Cucumber Sleigh</div><div class="cocktail-price">$6.00</div></div><div class="cocktail-ingredients">Seedlip Garden 108, Soda Water, Lime</div></div>
-          <div class="cocktail-item"><div class="cocktail-name-row"><div class="cocktail-name">Chelada</div><div class="cocktail-price">$6.00</div></div><div class="cocktail-ingredients">Corona Non-Alcoholic, Clamato Tomato Cocktail Juice, Lime</div></div>
+          <div class="cocktail-col-title">&nbsp;</div>
+          <div class="cocktail-item">
+            <div class="cocktail-name-row"><div class="cocktail-name pink">Who's Alejandro?</div><div class="cocktail-price">$8.00</div></div>
+            <div class="cocktail-ingredients">Volcan de mi Tierra Blanco Tequila, Raspberry Pureé, Lime Juice, Lemonade</div>
+          </div>
+          <div class="cocktail-item">
+            <div class="cocktail-name-row"><div class="cocktail-name yellow">Double J Mule</div><div class="cocktail-price">$7.00</div></div>
+            <div class="cocktail-ingredients">Double J Vodka, Lime Juice, Ginger Beer, Cranberry</div>
+          </div>
+          <div class="cocktail-item">
+            <div class="cocktail-name-row"><div class="cocktail-name yellow">Spiced Whiskey Sour</div><div class="cocktail-price">$7.00</div></div>
+            <div class="cocktail-ingredients">Jack Daniels Whiskey, Lemon Juice, Cinnamon Syrup, Angostura Bitters</div>
+          </div>
+          <div class="cocktail-item">
+            <div class="cocktail-name-row"><div class="cocktail-name green">Tiki Torch</div><div class="cocktail-price">$6.00</div></div>
+            <div class="cocktail-ingredients">Fireball Cinnamon Whiskey, Coconut Rum, Pineapple Juice, Orange Juice, Lime Juice, Grenadine</div>
+          </div>
+
+          <div class="cocktail-col-title" style="margin-top:2rem;">Mocktails</div>
+          <div class="cocktail-item">
+            <div class="cocktail-name-row"><div class="cocktail-name pink">Citrus Spritz</div><div class="cocktail-price">$7.00</div></div>
+            <div class="cocktail-ingredients">Seedlip Grove 42, Cranberry Juice, Lime Juice, Simple Syrup, Topped Soda Water</div>
+          </div>
+          <div class="cocktail-item">
+            <div class="cocktail-name-row"><div class="cocktail-name green">Spice &amp; Spark</div><div class="cocktail-price">$7.00</div></div>
+            <div class="cocktail-ingredients">Seedlip Spice 94, Ginger Ale, Cranberry Splash, Lime</div>
+          </div>
+          <div class="cocktail-item">
+            <div class="cocktail-name-row"><div class="cocktail-name green">Lime &amp; Leaf</div><div class="cocktail-price">$7.00</div></div>
+            <div class="cocktail-ingredients">Seedlip Garden 108, Soda Water, Lime</div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- NON-ALC & WINE -->
+  <!-- NON-ALC, WINE & THC -->
   <div class="menu-panel" id="tab-nonalc">
     <div class="section-wrap">
-      <div class="menu-section-title">Non-Alcoholic <span class="accent">&amp;</span> Wine</div>
+      <div class="menu-section-title">Non-Alc, Wine <span class="accent">&amp;</span> THC</div>
       <div class="nonalc-grid">
         <div>
-          <div class="cocktail-col-title">Non-Alc</div>
-          <div class="nonalc-box"><div class="nonalc-box-title">White Claw:</div><ul class="beer-list"><li class="sub">Lime</li><li class="sub">Mango Passionfruit</li><li class="sub">Peach Orange Blossom</li></ul></div>
-          <ul class="beer-list"><li>Corona</li><li>Michelob Ultra</li><li>Busch Light</li><li>Budweiser Zero</li><li>Guinness</li></ul>
+          <div class="nonalc-col-title">Non-Alcoholic</div>
+          <ul class="beer-list">
+            <li>Corona</li><li>Heineken</li><li>Michelob Ultra</li><li>Busch Light</li><li>Guinness</li>
+          </ul>
+          <div class="liquid-death-box" style="margin-top:1.25rem;">
+            <div class="liquid-death-title">💀 Liquid Death:</div>
+            <ul class="beer-list"><li>Mountain Water</li><li>Sparkling Water</li></ul>
+          </div>
           <div class="nonalc-sub-title">Non-Alc: Spirits</div>
-          <ul class="beer-list"><li>Seedlip Spice 94</li><li>Seedlip Garden 108</li><li>Seedlip Grove 42</li></ul>
+          <ul class="beer-list">
+            <li>Seedlip Spice 94</li><li>Seedlip Garden 108</li><li>Seedlip Grove 42</li>
+          </ul>
         </div>
         <div>
-          <div class="cocktail-col-title">Wine</div>
+          <div class="nonalc-col-title">Wine</div>
           <div class="wine-brand">Barefoot:</div>
-          <ul class="beer-list"><li>Cabernet Sauvignon</li><li>Pinot Noir</li><li>Merlot</li><li>Chardonnay</li><li>Pinot Grigio</li><li>Sauvignon Blanc</li><li>Riesling</li><li>Moscato</li></ul>
-          <div class="wine-highlight">🥂 Hampton Water — Rosé</div>
+          <ul class="beer-list">
+            <li>Cabernet Sauvignon</li><li>Pinot Noir</li><li>Merlot</li><li>Chardonnay</li><li>Pinot Grigio</li><li>Sauvignon Blanc</li><li>Riesling</li><li>Moscato</li>
+          </ul>
+
+          <div class="thc-col-title" style="margin-top:2rem;">THC Drinks 🌿</div>
+          <div class="thc-item">
+            <div class="thc-name">Sessions — Lemon Lime</div>
+            <div class="thc-desc">5mg CBD / 5mg THC · Find Wunder</div>
+          </div>
         </div>
       </div>
     </div>
@@ -469,159 +499,59 @@
     <div class="section-wrap">
       <div class="menu-section-title">Weekly <span class="accent">Specials</span></div>
       <div style="margin-top:2rem;">
-        <div class="specials-everyday">🍺 $1.50 Keystone Cans — Every Day!</div>
+        <div class="specials-everyday">
+          🍺 $1.75 Keystone Cans — Every Day!<br>
+          🪣 $8 Keystone Buckets &nbsp;·&nbsp; $16 Domestic Buckets
+        </div>
         <div class="specials-grid">
-          <div class="special-card"><div class="special-day">Sunday</div><div class="special-body"><div class="special-item"><em>$1.50</em> Busch Light Tall Boys</div><div class="special-divider"></div><div class="special-item"><em>$20</em> Champagne Bottle &amp; Mixers</div></div></div>
-          <div class="special-card"><div class="special-day">Monday</div><div class="special-body"><div class="special-item"><em>$1.50</em> Busch Light Tall Boys</div><div class="special-divider"></div><div class="special-item"><em>$2</em> Domestic Bottles</div></div></div>
-          <div class="special-card"><div class="special-day">Tuesday</div><div class="special-body"><div class="special-item"><em>$3</em> High Noon &amp; White Claw</div><div class="special-divider"></div><div class="special-item"><em>$3</em> Well Drinks</div><div class="special-divider"></div><div class="special-item">Happy Hour 4–7pm · <em>$1.50</em> Busch Light</div></div></div>
-          <div class="special-card"><div class="special-day">Wednesday</div><div class="special-body"><div class="special-item"><em>$2</em> Domestic Bottles</div><div class="special-divider"></div><div class="special-item"><em>$4</em> U-Call-Its</div></div></div>
-          <div class="special-card"><div class="special-day">Thursday</div><div class="special-body"><div class="special-item"><em>$3</em> High Noon &amp; White Claw</div><div class="special-divider"></div><div class="special-item"><em>$3</em> Well Drinks</div><div class="special-divider"></div><div class="special-item">Happy Hour 4–7pm · <em>$2</em> Captain Morgan</div></div></div>
+          <div class="special-card">
+            <div class="special-day">Sunday</div>
+            <div class="special-body">
+              <div class="special-item"><em>$2.50</em> Busch Light Tall Boys</div>
+              <div class="special-divider"></div>
+              <div class="special-item"><em>$20</em> Champagne Bottle &amp; Mixers</div>
+            </div>
+          </div>
+          <div class="special-card">
+            <div class="special-day">Monday</div>
+            <div class="special-body">
+              <div class="special-item"><em>$2.50</em> Busch Light Tall Boys</div>
+              <div class="special-divider"></div>
+              <div class="special-item"><em>$2.50</em> Domestic Bottles</div>
+            </div>
+          </div>
+          <div class="special-card">
+            <div class="special-day">Tuesday</div>
+            <div class="special-body">
+              <div class="special-item"><em>$3.50</em> High Noon &amp; White Claw</div>
+              <div class="special-divider"></div>
+              <div class="special-item"><em>$3</em> Well Drinks</div>
+              <div class="special-divider"></div>
+              <div class="special-item">Happy Hour 4–7 · <em>$2</em> Busch Light</div>
+            </div>
+          </div>
+          <div class="special-card">
+            <div class="special-day">Wednesday</div>
+            <div class="special-body">
+              <div class="special-item"><em>$2.50</em> Domestic Bottles</div>
+              <div class="special-divider"></div>
+              <div class="special-item"><em>$4</em> U-Call-Its</div>
+            </div>
+          </div>
+          <div class="special-card">
+            <div class="special-day">Thursday</div>
+            <div class="special-body">
+              <div class="special-item"><em>$3.50</em> High Noon &amp; White Claw</div>
+              <div class="special-divider"></div>
+              <div class="special-item"><em>$3</em> Well Drinks</div>
+              <div class="special-divider"></div>
+              <div class="special-item">Happy Hour 4–7 · <em>$2</em> Captain Morgan</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
-
-  <!--
-    PHOTO GALLERY
-    ─────────────────────────────────────────────────────────────
-    Layout engine : pure CSS column-count (no JS masonry library)
-    Item splitting : break-inside:avoid on every .gallery-item
-    Image loading  : native loading="lazy" on every <img>
-    Responsiveness : width:100% + height:auto (no fixed heights)
-    Dependencies   : none — no jQuery, no Masonry.js, no scripts
-    DOM structure  : flat list of .gallery-item divs inside one
-                     .gallery-columns wrapper — minimal reflow
-    ─────────────────────────────────────────────────────────────
-  -->
-  <section class="gallery-section">
-    <div class="gallery-inner">
-      <span class="gallery-eyebrow">What We Pour</span>
-      <span class="gallery-heading">The Drinks We Serve at <span class="accent">Double "J"</span></span>
-
-      <div class="gallery-columns">
-
-        <div class="gallery-item">
-          <img src="https://raw.githubusercontent.com/toughleadmarketing/Double-J-Sports-Bar/main/images/angelsenvy-buffalotrace-basilhayden.jpg"
-               alt="Angels Envy Buffalo Trace Basil Hayden whiskey bottles"
-               loading="lazy" width="800" height="600"/>
-          <div class="gallery-overlay"></div>
-        </div>
-
-        <div class="gallery-item">
-          <img src="https://raw.githubusercontent.com/toughleadmarketing/Double-J-Sports-Bar/main/images/vodka.jpg"
-               alt="Grey Goose Belvedere Vodka bottles"
-               loading="lazy" width="800" height="600"/>
-          <div class="gallery-overlay"></div>
-        </div>
-
-        <div class="gallery-item">
-          <img src="https://raw.githubusercontent.com/toughleadmarketing/Double-J-Sports-Bar/main/images/white-claw.jpg"
-               alt="White Claw hard seltzer cans"
-               loading="lazy" width="800" height="600"/>
-          <div class="gallery-overlay"></div>
-        </div>
-
-        <div class="gallery-item">
-          <img src="https://raw.githubusercontent.com/toughleadmarketing/Double-J-Sports-Bar/main/images/captainmorgan-bacardi-malibu.jpg"
-               alt="Captain Morgan Bacardi Malibu rum bottles"
-               loading="lazy" width="800" height="600"/>
-          <div class="gallery-overlay"></div>
-        </div>
-
-        <div class="gallery-item">
-          <img src="https://raw.githubusercontent.com/toughleadmarketing/Double-J-Sports-Bar/main/images/patron-josecuervo-donjulio.jpg"
-               alt="Patron Jose Cuervo Don Julio tequila bottles"
-               loading="lazy" width="800" height="600"/>
-          <div class="gallery-overlay"></div>
-        </div>
-
-        <div class="gallery-item">
-          <img src="https://raw.githubusercontent.com/toughleadmarketing/Double-J-Sports-Bar/main/images/ole-smokey.jpg"
-               alt="Ole Smokey Tennessee Moonshine"
-               loading="lazy" width="800" height="600"/>
-          <div class="gallery-overlay"></div>
-        </div>
-
-        <div class="gallery-item">
-          <img src="https://raw.githubusercontent.com/toughleadmarketing/Double-J-Sports-Bar/main/images/barefoot.jpg"
-               alt="Barefoot Wine bottles"
-               loading="lazy" width="800" height="600"/>
-          <div class="gallery-overlay"></div>
-        </div>
-
-        <div class="gallery-item">
-          <img src="https://raw.githubusercontent.com/toughleadmarketing/Double-J-Sports-Bar/main/images/uv-titos-effen.jpg"
-               alt="UV Blue Titos Effen Vodka bottles"
-               loading="lazy" width="800" height="600"/>
-          <div class="gallery-overlay"></div>
-        </div>
-
-        <div class="gallery-item">
-          <img src="https://raw.githubusercontent.com/toughleadmarketing/Double-J-Sports-Bar/main/images/brockmans-tanqueray.jpg"
-               alt="Brockmans Tanqueray gin bottles"
-               loading="lazy" width="800" height="600"/>
-          <div class="gallery-overlay"></div>
-        </div>
-
-        <div class="gallery-item">
-          <img src="https://raw.githubusercontent.com/toughleadmarketing/Double-J-Sports-Bar/main/images/craft-beer.jpg"
-               alt="Garage Beer Revolution Brewery Shock Top IPA craft beers"
-               loading="lazy" width="800" height="600"/>
-          <div class="gallery-overlay"></div>
-        </div>
-
-        <div class="gallery-item">
-          <img src="https://raw.githubusercontent.com/toughleadmarketing/Double-J-Sports-Bar/main/images/deep-eddy.jpg"
-               alt="Deep Eddy vodka bottles"
-               loading="lazy" width="800" height="600"/>
-          <div class="gallery-overlay"></div>
-        </div>
-
-        <div class="gallery-item">
-          <img src="https://raw.githubusercontent.com/toughleadmarketing/Double-J-Sports-Bar/main/images/oldgoat-driftlessglen-kentucky10.jpg"
-               alt="Old Goat Kentucky 10 Driftless Glen whiskey"
-               loading="lazy" width="800" height="600"/>
-          <div class="gallery-overlay"></div>
-        </div>
-
-        <div class="gallery-item">
-          <img src="https://raw.githubusercontent.com/toughleadmarketing/Double-J-Sports-Bar/main/images/jack-daniels.jpg"
-               alt="Jack Daniels Tennessee Whiskey"
-               loading="lazy" width="800" height="600"/>
-          <div class="gallery-overlay"></div>
-        </div>
-
-        <div class="gallery-item">
-          <img src="https://raw.githubusercontent.com/toughleadmarketing/Double-J-Sports-Bar/main/images/top-shelf-whiskey.jpg"
-               alt="Johnnie Walker Glenlivet top shelf whiskey"
-               loading="lazy" width="800" height="600"/>
-          <div class="gallery-overlay"></div>
-        </div>
-
-        <div class="gallery-item">
-          <img src="https://raw.githubusercontent.com/toughleadmarketing/Double-J-Sports-Bar/main/images/mom-water.jpg"
-               alt="Mom Water sparkling water cans"
-               loading="lazy" width="800" height="600"/>
-          <div class="gallery-overlay"></div>
-        </div>
-
-        <div class="gallery-item">
-          <img src="https://raw.githubusercontent.com/toughleadmarketing/Double-J-Sports-Bar/main/images/high-noon.jpg"
-               alt="High Noon hard seltzer cans"
-               loading="lazy" width="800" height="600"/>
-          <div class="gallery-overlay"></div>
-        </div>
-
-        <div class="gallery-item">
-          <img src="https://raw.githubusercontent.com/toughleadmarketing/Double-J-Sports-Bar/main/images/carbliss.jpg"
-               alt="Carbliss ready-to-drink cocktail cans"
-               loading="lazy" width="800" height="600"/>
-          <div class="gallery-overlay"></div>
-        </div>
-
-      </div><!-- /.gallery-columns -->
-    </div><!-- /.gallery-inner -->
-  </section>
 
   <footer>
     <div class="footer-inner">
@@ -646,159 +576,91 @@
     </div>
     <div class="footer-bottom">
       <p class="footer-disclaimer">Please drink responsibly. Must be 21+ to consume alcohol.</p>
-      <p class="footer-copy">&copy; <span id="footer-year"></span> Double "J" Sports Bar &amp; Grill. All rights reserved.</p>
+      <p class="footer-copy">&copy; <span id="footer-year"></span> Double "J" Sports Bar. All rights reserved.</p>
     </div>
   </footer>
 
   <script>
     document.getElementById('footer-year').textContent = new Date().getFullYear();
-
-    /* ── AGE GATE ── */
+    // Age Gate
     (function() {
-      var gate    = document.getElementById('age-gate');
-      var errorEl = document.getElementById('ag-error');
-      var monthEl = document.getElementById('ag-month');
-      var dayEl   = document.getElementById('ag-day');
-      var yearEl  = document.getElementById('ag-year');
-
+      const gate = document.getElementById('age-gate');
+      const errorEl = document.getElementById('ag-error');
+      const monthEl = document.getElementById('ag-month');
+      const dayEl = document.getElementById('ag-day');
+      const yearEl = document.getElementById('ag-year');
       if (sessionStorage.getItem('age-verified') === 'true') return;
-
       gate.classList.add('visible');
-      gate.setAttribute('aria-hidden', 'false');
-      document.body.style.overflow = 'hidden';
-
-      monthEl.addEventListener('input', function() { if (monthEl.value.length >= 2) dayEl.focus(); });
-      dayEl.addEventListener('input',   function() { if (dayEl.value.length >= 2)   yearEl.focus(); });
-
+      monthEl.addEventListener('input', () => { if (monthEl.value.length >= 2) dayEl.focus(); });
+      dayEl.addEventListener('input', () => { if (dayEl.value.length >= 2) yearEl.focus(); });
       document.getElementById('ag-submit').addEventListener('click', verify);
-      [monthEl, dayEl, yearEl].forEach(function(el) {
-        el.addEventListener('keydown', function(e) { if (e.key === 'Enter') verify(); });
-      });
-
+      [monthEl, dayEl, yearEl].forEach(el => el.addEventListener('keydown', e => { if (e.key === 'Enter') verify(); }));
       function verify() {
         errorEl.textContent = '';
-        [monthEl, dayEl, yearEl].forEach(function(el) { el.classList.remove('error'); });
-        var m = parseInt(monthEl.value, 10);
-        var d = parseInt(dayEl.value, 10);
-        var y = parseInt(yearEl.value, 10);
-        if (!m || !d || !y || monthEl.value === '' || dayEl.value === '' || yearEl.value === '') {
-          errorEl.textContent = 'Please enter your full date of birth.';
-          [monthEl, dayEl, yearEl].forEach(function(el) { if (!el.value) el.classList.add('error'); });
-          return;
-        }
-        if (m < 1 || m > 12 || d < 1 || d > 31 || y < 1900 || y > new Date().getFullYear()) {
-          errorEl.textContent = 'Please enter a valid date.';
-          [monthEl, dayEl, yearEl].forEach(function(el) { el.classList.add('error'); });
-          return;
-        }
-        var dob   = new Date(y, m - 1, d);
-        var today = new Date();
-        var age   = today.getFullYear() - dob.getFullYear();
-        var mDiff = today.getMonth() - dob.getMonth();
+        [monthEl, dayEl, yearEl].forEach(el => el.classList.remove('error'));
+        const m = parseInt(monthEl.value, 10), d = parseInt(dayEl.value, 10), y = parseInt(yearEl.value, 10);
+        if (!m || !d || !y) { errorEl.textContent = 'Please enter your full date of birth.'; [monthEl, dayEl, yearEl].forEach(el => { if (!el.value) el.classList.add('error'); }); return; }
+        if (m < 1 || m > 12 || d < 1 || d > 31 || y < 1900 || y > new Date().getFullYear()) { errorEl.textContent = 'Please enter a valid date.'; [monthEl, dayEl, yearEl].forEach(el => el.classList.add('error')); return; }
+        const dob = new Date(y, m - 1, d); const today = new Date();
+        let age = today.getFullYear() - dob.getFullYear();
+        const mDiff = today.getMonth() - dob.getMonth();
         if (mDiff < 0 || (mDiff === 0 && today.getDate() < dob.getDate())) age--;
-
         if (age >= 21) {
           sessionStorage.setItem('age-verified', 'true');
-          gate.style.transition = 'opacity 0.4s ease';
-          gate.style.opacity = '0';
-          setTimeout(function() {
-            gate.classList.remove('visible');
-            gate.setAttribute('aria-hidden', 'true');
-            document.body.style.overflow = '';
-          }, 400);
-        } else {
-          window.location.replace('https://www.google.com');
-        }
+          gate.style.transition = 'opacity 0.4s ease'; gate.style.opacity = '0';
+          setTimeout(() => gate.classList.add('hidden'), 400);
+        } else { window.location.replace('https://www.google.com'); }
       }
     })();
-
-    /* ── HAMBURGER ── */
-    document.getElementById('hamburger').addEventListener('click', function() {
-      document.getElementById('main-nav').classList.toggle('open');
-    });
-    document.querySelectorAll('#main-nav a').forEach(function(link) {
-      link.addEventListener('click', function() {
-        var href = this.getAttribute('href');
-        if (href && href !== '#') {
-          document.getElementById('main-nav').classList.remove('open');
-          window.location.href = href;
-        }
-      });
-    });
-
-    /* ── TABS ── */
+    // Hamburger
+    document.getElementById('hamburger').addEventListener('click', () => document.getElementById('main-nav').classList.toggle('open'));
+    document.querySelectorAll('#main-nav a').forEach(link => link.addEventListener('click', function() {
+      const href = this.getAttribute('href');
+      if (href && href !== '#') { document.getElementById('main-nav').classList.remove('open'); window.location.href = href; }
+    }));
+    // Tabs
     function switchTab(tab) {
-      document.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.remove('active'); });
-      document.querySelectorAll('.menu-panel').forEach(function(p) { p.classList.remove('active'); });
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.menu-panel').forEach(p => p.classList.remove('active'));
       document.querySelector('[data-tab="' + tab + '"]').classList.add('active');
-      var panel = document.getElementById('tab-' + tab);
-      panel.classList.add('active');
-
-      // Scroll to panel, offset by sticky header (76px) + ticker (28px) + tabs bar (48px) = 152px
-      // On mobile header is 66px so offset is 66+26+48 = 140px — use the tabs bar's own bottom as anchor
-      var tabsBar = document.querySelector('.tabs-bar');
-      var offset  = tabsBar.getBoundingClientRect().bottom + window.scrollY;
-      var panelTop = panel.getBoundingClientRect().top + window.scrollY;
-
-      // Only scroll if panel is not already in view just below the tabs bar
-      window.scrollTo({ top: panelTop - tabsBar.offsetHeight - 4, behavior: 'smooth' });
+      document.getElementById('tab-' + tab).classList.add('active');
+      const tabsBar = document.querySelector('.tabs-bar');
+      const panel = document.getElementById('tab-' + tab);
+      window.scrollTo({ top: panel.getBoundingClientRect().top + window.scrollY - tabsBar.offsetHeight - 4, behavior: 'smooth' });
     }
-
-    /* ── LIVE SCORES TICKER ── */
-    var LEAGUES = [
-      { key: 'football/nfl',   label: 'NFL' },
-      { key: 'basketball/nba', label: 'NBA' },
-      { key: 'baseball/mlb',   label: 'MLB' },
-      { key: 'hockey/nhl',     label: 'NHL' },
-      { key: 'soccer/usa.1',   label: 'MLS' },
+    // Ticker
+    const LEAGUES = [
+      { key: 'football/nfl', label: 'NFL' }, { key: 'basketball/nba', label: 'NBA' },
+      { key: 'baseball/mlb', label: 'MLB' }, { key: 'hockey/nhl', label: 'NHL' },
+      { key: 'soccer/usa.1', label: 'MLS' },
     ];
-
-    function fetchScores(league) {
-      return fetch('https://site.api.espn.com/apis/site/v2/sports/' + league.key + '/scoreboard')
-        .then(function(res) { return res.json(); })
-        .then(function(data) {
-          return (data.events || []).map(function(event) {
-            var comp      = event.competitions[0];
-            var home      = comp.competitors.find(function(c) { return c.homeAway === 'home'; });
-            var away      = comp.competitors.find(function(c) { return c.homeAway === 'away'; });
-            var status    = event.status.type.shortDetail || '';
-            var homeAbbr  = (home && (home.team.abbreviation || home.team.shortDisplayName)) || '';
-            var awayAbbr  = (away && (away.team.abbreviation || away.team.shortDisplayName)) || '';
-            var homeScore = (home && home.score != null) ? home.score : '';
-            var awayScore = (away && away.score != null) ? away.score : '';
-            var hasScore  = homeScore !== '' && awayScore !== '';
-            return {
-              label: league.label,
-              text: hasScore
-                ? awayAbbr + ' <em>' + awayScore + '</em> \u2013 ' + homeAbbr + ' <em>' + homeScore + '</em> &nbsp;\u00b7&nbsp; ' + status
-                : awayAbbr + ' vs ' + homeAbbr + ' &nbsp;\u00b7&nbsp; ' + status
-            };
-          });
-        })
-        .catch(function() { return []; });
+    async function fetchScores(league) {
+      try {
+        const res = await fetch(`https://site.api.espn.com/apis/site/v2/sports/${league.key}/scoreboard`);
+        const data = await res.json();
+        return (data.events || []).map(event => {
+          const comp = event.competitions[0];
+          const home = comp.competitors.find(c => c.homeAway === 'home');
+          const away = comp.competitors.find(c => c.homeAway === 'away');
+          const status = event.status.type.shortDetail || '';
+          const homeAbbr = home?.team?.abbreviation || ''; const awayAbbr = away?.team?.abbreviation || '';
+          const homeScore = home?.score ?? ''; const awayScore = away?.score ?? '';
+          const hasScore = homeScore !== '' && awayScore !== '';
+          return { label: league.label, text: hasScore ? `${awayAbbr} <em>${awayScore}</em> – ${homeAbbr} <em>${homeScore}</em> &nbsp;·&nbsp; ${status}` : `${awayAbbr} vs ${homeAbbr} &nbsp;·&nbsp; ${status}` };
+        });
+      } catch { return []; }
     }
-
-    function buildTicker() {
-      var track = document.getElementById('ticker-track');
-      if (!track) return;
-      Promise.all(LEAGUES.map(fetchScores)).then(function(results) {
-        var all = [].concat.apply([], results);
-        if (all.length === 0) {
-          track.innerHTML = '<span>No live games right now \u2014 check back soon!</span>';
-          return;
-        }
-        var items = all.concat(all);
-        track.innerHTML = items.map(function(g) {
-          return '<span><strong style="color:#ffd0d0;margin-right:0.4rem">' + g.label + '</strong>' + g.text + '</span>';
-        }).join('');
-        var duration = Math.max(5, track.scrollWidth / 1800);
-        track.style.animationDuration = duration + 's';
-      });
+    async function buildTicker() {
+      const track = document.getElementById('ticker-track');
+      const results = await Promise.all(LEAGUES.map(fetchScores));
+      const all = results.flat();
+      if (all.length === 0) { track.innerHTML = '<span>No live games right now — check back soon!</span>'; return; }
+      const items = [...all, ...all];
+      track.innerHTML = items.map(g => `<span><strong style="color:#ffd0d0;margin-right:0.4rem">${g.label}</strong>${g.text}</span>`).join('');
+      track.style.animationDuration = `${Math.max(5, track.scrollWidth / 1800)}s`;
     }
-
     buildTicker();
     setInterval(buildTicker, 60000);
   </script>
-
 </body>
 </html>
