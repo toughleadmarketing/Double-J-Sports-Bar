@@ -176,7 +176,6 @@ z-index: 99;
 .gaming-youtube-wrap { display: flex; flex-direction: column; justify-content: center; }
 .gaming-featured-below { margin-top: 2rem; }
 .gaming-game-card { background-color: #0f1c3f; border: 1px solid rgba(192,39,45,0.3); border-radius: 8px; overflow: hidden; }
-.gaming-game-header { background: url('https://raw.githubusercontent.com/toughleadmarketing/Double-J-Sports-Bar/main/images/ocean-magic.jpeg') center/contain no-repeat; padding: 1.5rem 2rem; min-height: 200px; display: flex; align-items: flex-start; }
 .gaming-game-tag { font-family: 'Barlow Condensed', sans-serif; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: #fff; background: rgba(192,39,45,0.85); display: inline-block; padding: 0.3rem 0.7rem; border-radius: 3px; }
 .gaming-game-title { font-family: 'Bebas Neue', sans-serif; font-size: 2.2rem; letter-spacing: 0.08em; color: #EEF2FA; line-height: 1; }
 .gaming-game-sub { font-family: 'Barlow Condensed', sans-serif; font-size: 0.8rem; letter-spacing: 0.15em; color: rgba(255,255,255,0.6); margin-top: 0.25rem; }
@@ -364,11 +363,10 @@ nav a::after { display: none; }
 
   <section class="video-section">
     <div class="video-wrap">
-      <iframe
-  src="https://fast.wistia.net/embed/iframe/d1t2xaegup?autoPlay=true&silentAutoPlay=true&muted=true&loop=true&controlsVisibleOnLoad=false&playbar=false&fullscreenButton=false&volumeControl=false&settingsControl=false&playButton=false"
-  allowtransparency="true" allowfullscreen frameborder="0" scrolling="no"
-  allow="autoplay; fullscreen">
-</iframe>
+      <script src="https://fast.wistia.com/assets/external/E-v1.js" async></script>
+      <div class="wistia_embed wistia_async_d1t2xaegup autoPlay=true silentAutoPlay=true muted=true loop=true controlsVisibleOnLoad=false playbar=false fullscreenButton=false volumeControl=false settingsControl=false playButton=false videoFoam=false"
+        style="position:absolute;top:50%;left:50%;width:100%;min-width:266.67%;aspect-ratio:16/9;transform:translate(-50%,-50%);">
+      </div>
     </div>
   </section>
 
@@ -418,28 +416,34 @@ nav a::after { display: none; }
         </div>
         <div class="gaming-youtube-wrap">
           <div class="gaming-video-embed">
-            <iframe src="https://www.youtube.com/embed/NJ22nGHFz7Q" title="Ocean Magic Slot Machine by IGT" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/kuZfACufS7Q" title="Big City 5's Deluxe Slot Machine by IGT" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen></iframe>
           </div>
         </div>
       </div>
+
       <div class="gaming-game-card gaming-featured-below">
-        <div class="gaming-game-header"><span class="gaming-game-tag">Featured Game</span></div>
+        <div class="gaming-game-header" style="background: linear-gradient(135deg, #0a0f1e 0%, #1a1a2e 50%, #0f1c3f 100%); display:flex; flex-direction:column; align-items:flex-start; justify-content:flex-end; min-height:200px; gap:0.4rem; padding: 1.5rem 2rem;">
+          <span class="gaming-game-tag">Game of the Month</span>
+          <span style="font-family:'Bebas Neue',sans-serif; font-size:2.2rem; letter-spacing:0.08em; color:#EEF2FA; line-height:1; margin-top:0.4rem;">Big City 5's <span style="color:#C0272D;">Deluxe</span></span>
+          <span style="font-family:'Barlow Condensed',sans-serif; font-size:0.75rem; letter-spacing:0.3em; text-transform:uppercase; color:rgba(255,255,255,0.4);">by IGT</span>
+        </div>
         <div class="gaming-game-body">
-          <p class="gaming-game-desc">Dive into the depths of an underwater kingdom and harness the power of the tides in Ocean Magic™ by IGT. This enchanting 5-reel, 50-payline slot immerses you in a vibrant coral reef filled with glowing jellyfish, majestic sea turtles, and the powerful spirit of the ocean herself. With its serene orchestral soundtrack and the unique Wild Bubble mechanic that keeps the gameplay fluid and unpredictable, Ocean Magic™ offers a refreshing break from standard slot machines. Boasting a solid RTP of 96.07% and a medium volatility level, it provides a balanced experience for both casual explorers and high-seas adventurers.</p>
+          <p class="gaming-game-desc">Step into the neon-lit streets of the city with Big City 5's Deluxe by IGT — a sleek 5-reel, 20-payline slot dripping with urban style. The standout Bonus Pot mechanic builds jackpot value with every 3- or 4-of-a-kind hit, then pays the full pot when you land five of a kind. Trigger Free Spins with 3 or more scatters on consecutive reels and earn up to 25 spins with retriggers — and during free spins, every five-of-a-kind pays the bonus pot whether you used a wild or not. Dark visuals, funky city energy, and a rock-solid 96% RTP make this one worth every spin.</p>
           <div class="gaming-stats">
             <div class="gaming-stat"><div class="gaming-stat-value">5</div><div class="gaming-stat-label">Reels</div></div>
-            <div class="gaming-stat"><div class="gaming-stat-value">50</div><div class="gaming-stat-label">Paylines</div></div>
-            <div class="gaming-stat"><div class="gaming-stat-value">96.07%</div><div class="gaming-stat-label">RTP</div></div>
-            <div class="gaming-stat"><div class="gaming-stat-value">15,000x</div><div class="gaming-stat-label">Max Win</div></div>
+            <div class="gaming-stat"><div class="gaming-stat-value">20</div><div class="gaming-stat-label">Paylines</div></div>
+            <div class="gaming-stat"><div class="gaming-stat-value">96%</div><div class="gaming-stat-label">RTP</div></div>
+            <div class="gaming-stat"><div class="gaming-stat-value">500x</div><div class="gaming-stat-label">Max Win</div></div>
           </div>
           <div class="gaming-tags">
-            <span class="gaming-tag">🫧 Bubble Boost</span>
-            <span class="gaming-tag">✨ Wild Bubbles</span>
-            <span class="gaming-tag">🔱 Free Spins Bonus</span>
-            <span class="gaming-tag">👑 Max Bet Bonus</span>
+            <span class="gaming-tag">🏙️ Bonus Pot Feature</span>
+            <span class="gaming-tag">🃏 Mixed Symbol Pays</span>
+            <span class="gaming-tag">🔄 Free Spins + Retrigger</span>
+            <span class="gaming-tag">⚡ 5-of-a-Kind Jackpot</span>
           </div>
         </div>
       </div>
+
       <p class="gaming-disclaimer">If you or someone you know has a gambling problem, call <strong>1-800-GAMBLER</strong>. Must be 21+ to play. Gambling problem? Help is available.</p>
     </div>
   </section>
