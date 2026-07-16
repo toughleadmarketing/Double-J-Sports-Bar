@@ -10,7 +10,16 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     body { background-color: #0f1c3f; font-family: 'Barlow', sans-serif; color: #EEF2FA; min-height: 100vh; }
-    header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background-color: rgba(15,28,63,0.97); border-bottom: 1px solid rgba(192,39,45,0.35); backdrop-filter: blur(8px); }
+
+    /* ── HEADER (matches homepage: transparent until scroll) ── */
+    header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(15,28,63,0.97);
+      border-bottom: 1px solid rgba(192,39,45,0.35);
+      backdrop-filter: blur(8px);
+      transition: background 0.4s ease, border-color 0.4s ease;
+    }
+    header.scrolled { background: rgba(15,28,63,0.97); border-color: rgba(192,39,45,0.35); backdrop-filter: blur(8px); }
     .header-inner { max-width: 1280px; margin: 0 auto; padding: 0 2rem; height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
     .logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; flex-shrink: 0; }
     .logo-img-wrap { width: 60px; height: 60px; border-radius: 50%; overflow: hidden; border: 2px solid #C0272D; flex-shrink: 0; background-color: #162550; transition: transform 0.3s ease; }
@@ -196,20 +205,20 @@
       <p class="age-gate-sub">Double "J" Sports Bar serves alcohol. Please confirm your date of birth to enter.</p>
       <label class="age-gate-label">Enter Your Date of Birth</label>
       <div class="age-gate-inputs">
-        <input type="number" id="ag-month" placeholder="MM" min="1" max="12" inputmode="numeric"/>
-        <input type="number" id="ag-day" placeholder="DD" min="1" max="31" inputmode="numeric"/>
-        <input type="number" id="ag-year" placeholder="YYYY" min="1900" max="2099" inputmode="numeric"/>
+        <input type="number" id="ag-month" placeholder="MM" min="1" max="12" maxlength="2" inputmode="numeric"/>
+        <input type="number" id="ag-day" placeholder="DD" min="1" max="31" maxlength="2" inputmode="numeric"/>
+        <input type="number" id="ag-year" placeholder="YYYY" min="1900" max="2099" maxlength="4" inputmode="numeric"/>
       </div>
       <div class="age-gate-error" id="ag-error"></div>
       <button class="age-gate-btn" id="ag-submit">Enter Site</button>
-      <p class="age-gate-disclaimer">By entering, you confirm you are of legal drinking age (21+) in the United States.</p>
+      <p class="age-gate-disclaimer">By entering, you confirm you are of legal drinking age (21+) in the United States. This site is intended for adults only.</p>
     </div>
   </div>
 
-  <header>
+  <header id="site-header">
     <div class="header-inner">
       <a href="index" class="logo">
-        <div class="logo-img-wrap"><img src="https://raw.githubusercontent.com/toughleadmarketing/Double-J-Sports-Bar/main/images/double-j-logo.PNG" alt='Double "J" Sports Bar Logo' class="logo-img"/></div>
+        <div class="logo-img-wrap"><img id="logo-img" src="https://raw.githubusercontent.com/toughleadmarketing/Double-J-Sports-Bar/main/images/double-j-logo.PNG" alt='Double "J" Sports Bar Logo' class="logo-img"/></div>
         <div class="logo-text">
           <span class="logo-name">Double "J"</span>
           <span class="logo-tagline">Sports Bar</span>
@@ -228,7 +237,7 @@
         <div class="nav-divider"></div>
         <a href="apply-now">Apply Now</a>
       </nav>
-      <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+      <div class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></div>
     </div>
   </header>
 
@@ -582,6 +591,13 @@
 
   <script>
     document.getElementById('footer-year').textContent = new Date().getFullYear();
+
+    // Header scroll state (matches homepage behavior)
+    const header = document.getElementById('site-header');
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 20);
+    });
+
     // Age Gate
     (function() {
       const gate = document.getElementById('age-gate');
